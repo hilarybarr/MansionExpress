@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   resources :mansions
   resources :identities
 
+
+
 	root 'welcome#index'	
 end
