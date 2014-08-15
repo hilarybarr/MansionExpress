@@ -19,17 +19,6 @@ ActiveRecord::Schema.define(version: 20140815212107) do
     t.datetime "updated_at"
   end
 
-  create_table "identities", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "gender"
-    t.text     "birthdate"
-    t.text     "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "mansions", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -47,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140815212107) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "price"
-    t.string   "source"
+    t.text     "source"
     t.string   "country"
     t.text     "photo_url"
   end
@@ -67,13 +56,11 @@ ActiveRecord::Schema.define(version: 20140815212107) do
   end
 
   create_table "pledges", force: true do |t|
-    t.integer  "guest_id"
-    t.integer  "mansion_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "total_price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "user_id"
+    t.integer "mansion_id"
+    t.date    "start_date"
+    t.date    "end_date"
+    t.integer "total_price"
   end
 
   create_table "users", force: true do |t|
