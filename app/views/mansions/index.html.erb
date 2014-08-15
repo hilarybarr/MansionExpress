@@ -27,6 +27,6 @@
   <div class="col-md-8">
     <% @mansions.each do |mansion| %>
       <%= link_to (image_tag(mansion.photo.url(:medium))), mansion, class: 'mansionPhoto' %>
-      <%= mansion.price %>
+      <span class="mansionPrice"><%= mansion.price %></span>
     <% end %>
   </div> 

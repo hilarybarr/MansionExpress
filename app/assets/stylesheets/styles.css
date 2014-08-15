@@ -2,3 +2,9 @@
 	background-color: black;
 }
 
+.mansionPrice {
+	position: relative;
+	right: 285px;
+	top: 80px;
+	color: white;
+}
