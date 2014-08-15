@@ -6,6 +6,14 @@
 	background-color: black;
 }
 
+.mansionShowMap {
+	width: 1000px;
+	background-color: black;
+	height: 200px;
+	position: relative;
+	top: 200px;
+}
+
 .mansionPrice {
 	position: relative;
 	right: 285px;
@@ -15,7 +23,7 @@
 
 .mansionShow {
 	width: 1000px;
-	height: 250px;
+	height: 175px;
 }
 
 .mansionDescription {
@@ -23,3 +31,4 @@
 	position: relative;
 	border-bottom: 1px solid #eee;
 }
+
