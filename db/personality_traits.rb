@@ -1,4 +1,4 @@
-professions = %(advertising,
+@professions = %w(advertising,
 	accounting,
 	airline,
 	banking,
@@ -16,7 +16,7 @@ professions = %(advertising,
 	sports,
 	other )
 
-religions = %( none,
+@religions = %w( none,
 	catholic,
 	christian,
 	jewish,
@@ -26,16 +26,16 @@ religions = %( none,
 	hindu,
 	other )
 
-sexual_orientations = %( straight,
+@sexual_orientations = %w( straight,
 	gay,
 	bisexual,
 	other )
 
-smoker = %( yes,
+@smoker = %w( yes,
 	no,
 	socially )
 
-random_traits = %( student,
+@random_traits = %w( student,
 	entrepreneur,
 	vegetarian,
 	total carnivore,
@@ -48,7 +48,7 @@ random_traits = %( student,
 	bookworm,
 	social butterfly )
 
-music_styles = %( rock,
+@music_styles = %w( rock,
 	electronic music,
 	dubstep,
 	rap hip hop,
