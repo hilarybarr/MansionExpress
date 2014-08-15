@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :pledges
+  get 'mansions/index'
 
+  resources :pledges
+  resources :mansions
   resources :identities
 end
