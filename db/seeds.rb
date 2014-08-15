@@ -209,39 +209,39 @@ africa=["http://www.luxuryretreats.com/destinations/africa/south-africa/"]
   
 # # CREATING PERSONALITY TRAITS TAGS
 
-# @professions.each do |profession| 
-#   PersonalityTrait.create(name: profession, category: "professions")
-# end
+@professions.each do |profession| 
+  PersonalityTrait.create(name: profession, category: "professions")
+end
 
-# @religions.each do |religion| 
-#   PersonalityTrait.create(name: religion, category: "religions")
-# end
+@religions.each do |religion| 
+  PersonalityTrait.create(name: religion, category: "religions")
+end
 
-# @sexual_orientations.each do |orientation| 
-#   PersonalityTrait.create(name: orientation, category: "sexual orientations")
-# end
+@sexual_orientations.each do |orientation| 
+  PersonalityTrait.create(name: orientation, category: "sexual orientations")
+end
 
-# @relationship_status.each do |status| 
-#   PersonalityTrait.create(name: status, category: "relationship status")
-# end
+@relationship_status.each do |status| 
+  PersonalityTrait.create(name: status, category: "relationship status")
+end
 
-# @smoker.each do |option| 
-#   PersonalityTrait.create(name: option, category: "smoker?")
-# end
+@smoker.each do |option| 
+  PersonalityTrait.create(name: option, category: "smoker?")
+end
 
-# @random_traits.each do |trait|
-#   PersonalityTrait.create(name: trait, category: "random_traits")
-# end
-
-
-# @music_styles.each do |music_style| 
-#   PersonalityTrait.create(name: music_style, category: "music styles")
-# end
+@random_traits.each do |trait|
+  PersonalityTrait.create(name: trait, category: "random_traits")
+end
 
 
-# # CREATING MANSION AMENITIES TAGS
+@music_styles.each do |music_style| 
+  PersonalityTrait.create(name: music_style, category: "music styles")
+end
 
-# @mansion_amenities.each do |amenity| 
-#   MansionAmenity.create(name: amenity)
 
+# CREATING MANSION AMENITIES TAGS
+
+@mansion_amenities.each do |amenity| 
+  MansionAmenity.create(name: amenity)
+end
 
