@@ -1,0 +1,23 @@
+<h1>Listing personality_traits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personality_traits.each do |personality_trait| %>
+      <tr>
+        <td><%= link_to 'Show', personality_trait %></td>
+        <td><%= link_to 'Edit', edit_personality_trait_path(personality_trait) %></td>
+        <td><%= link_to 'Destroy', personality_trait, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Personality trait', new_personality_trait_path %>

@@ -58,7 +58,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="958" y="268" name="user_personalityTraits">
+<table x="958" y="268" name="personalityTrait_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
