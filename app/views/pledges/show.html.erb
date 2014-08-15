@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guest:</strong>
+  <%= @pledge.guest_id %>
+</p>
+
+<p>
+  <strong>Mansion:</strong>
+  <%= @pledge.mansion_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @pledge.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @pledge.end_date %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @pledge.total_price %>
+</p>
+
+<p>
+  <strong>Guest:</strong>
+  <%= @pledge.guest %>
+</p>
+
+<p>
+  <strong>Mansion:</strong>
+  <%= @pledge.mansion %>
+</p>
+
+<%= link_to 'Edit', edit_pledge_path(@pledge) %> |
+<%= link_to 'Back', pledges_path %>
