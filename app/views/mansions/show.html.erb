@@ -1,5 +1,10 @@
-<div class="col-md-12">
+<div class="mansionDescription center-block">	
+	<%= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
 
-  <%= image_tag(@mansion.photo.url(:medium), class: 'mansionShow center-block') %>
+	<%= link_to 'Apply', '#', class: 'btn btn-success pull-right' %>
 
+	<h1><%= @mansion.name %></h1>
+	<div class='mansionDescription'><strong>description: </strong><%= @mansion.description %></div>
+
+	<div class="mansionShowMap"></div>
 </div>
