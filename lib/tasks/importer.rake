@@ -11,9 +11,19 @@ task :importer => :environment do #loads rails environment
 		
 		allVillas=[]
 
-		doc.css("").each do |block|
+		doc.css("villaBlockContainer").each do |block|
 			villa={}
 			
+			href=         #for our use only, if we need to go back to that listing
+			title=block.css     .villaRegionTitle["h2"]
+			image_url=.villaPhoto
+			minprice=block.css(".vpMin")
+			bedrooms=.bedcount
+			bathrooms=.bathcount
+			city= .locationName         
+			country=.regionName       
+			region=.destinationName
+
 
 
 		end
