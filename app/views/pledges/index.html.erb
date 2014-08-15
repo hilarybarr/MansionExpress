@@ -1,0 +1,37 @@
+<h1>Listing pledges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guest</th>
+      <th>Mansion</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Total price</th>
+      <th>Guest</th>
+      <th>Mansion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pledges.each do |pledge| %>
+      <tr>
+        <td><%= pledge.guest_id %></td>
+        <td><%= pledge.mansion_id %></td>
+        <td><%= pledge.start_date %></td>
+        <td><%= pledge.end_date %></td>
+        <td><%= pledge.total_price %></td>
+        <td><%= pledge.guest %></td>
+        <td><%= pledge.mansion %></td>
+        <td><%= link_to 'Show', pledge %></td>
+        <td><%= link_to 'Edit', edit_pledge_path(pledge) %></td>
+        <td><%= link_to 'Destroy', pledge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pledge', new_pledge_path %>
