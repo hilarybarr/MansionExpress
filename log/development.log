@@ -6497,3 +6497,483 @@ DEPRECATION WARNING: String based terminators are deprecated, please use a lambd
   [1m[35m (0.8ms)[0m  commit transaction
 DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
   [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1[0m
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMansions (20140815154834)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815154834"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreatePledges (20140815155107)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815155107"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to AddPhotoToMansions (20140815160018)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "mansions" ADD "photo_file_name" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "mansions" ADD "photo_content_type" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "mansions" ADD "photo_file_size" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "mansions" ADD "photo_updated_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815160018"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddPriceToMansions (20140815182033)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "mansions" ADD "price" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815182033"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePersonalityTraits (20140815190715)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "personality_traits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815190715"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePersonalityTraitUsers (20140815191240)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "personality_trait_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "personality_trait_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815191240"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to UpdateMansionColumns (20140815191934)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "amansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "mansions"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "mansions"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "amansions"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "amansions"
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "mansions" ADD "source" text[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815191934"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddCountryToMansion (20140815192933)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "mansions" ADD "country" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815192933"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddPhotoUrlToMansion (20140815193435)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "mansions" ADD "photo_url" text[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815193435"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:49:45.789565"], ["name", "Amazing Grace"], ["photo_url", "https://pictures.luxuryretreats.com/111635/turksandcaicos-amazinggrace-01.jpg"], ["price", 4], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/amazing-grace-111635"], ["updated_at", "2014-08-15 19:49:45.789565"]]
+  [1m[35m (8.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:49:45.806801"], ["name", "Coral House"], ["photo_url", "https://pictures.luxuryretreats.com/111227/turks-caicos-coralhouse-01.jpg"], ["price", 3], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/coral-house-111227"], ["updated_at", "2014-08-15 19:49:45.806801"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:49:45.813415"], ["name", "The Tuscany"], ["photo_url", "https://pictures.luxuryretreats.com/107989/turks-caicos-thetuscany-01.jpg"], ["price", 775], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/the-tuscany-107989"], ["updated_at", "2014-08-15 19:49:45.813415"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:49:45.856546"], ["name", "The Venetian"], ["photo_url", "https://pictures.luxuryretreats.com/112497/turksandcaicosthevenetian-1.jpg"], ["price", 795], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/the-venetian-112497"], ["updated_at", "2014-08-15 19:49:45.856546"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:49:45.861735"], ["name", "Footprints on the Beach"], ["photo_url", "https://pictures.luxuryretreats.com/108776/turks-caicos-footprintsonthebeach-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/footprints-on-the-beach-108776"], ["updated_at", "2014-08-15 19:49:45.861735"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1[0m
+  [1m[36m (9.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMansions (20140815154834)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815154834"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreatePledges (20140815155107)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815155107"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddPhotoToMansions (20140815160018)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "mansions" ADD "photo_file_name" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "mansions" ADD "photo_content_type" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "mansions" ADD "photo_file_size" integer
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "mansions" ADD "photo_updated_at" datetime[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815160018"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddPriceToMansions (20140815182033)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "mansions" ADD "price" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815182033"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePersonalityTraits (20140815190715)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "personality_traits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815190715"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePersonalityTraitUsers (20140815191240)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "personality_trait_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "personality_trait_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815191240"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to UpdateMansionColumns (20140815191934)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TEMPORARY TABLE "amansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "mansions"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "mansions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "amansions"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "amansions"
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "mansions" ADD "source" text[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815191934"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddCountryToMansion (20140815192933)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "mansions" ADD "country" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815192933"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddPhotoUrlToMansion (20140815193435)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "mansions" ADD "photo_url" text[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815193435"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:51:45.615185"], ["name", "Amazing Grace"], ["photo_url", "https://pictures.luxuryretreats.com/111635/turksandcaicos-amazinggrace-01.jpg"], ["price", 4], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/amazing-grace-111635"], ["updated_at", "2014-08-15 19:51:45.615185"]]
+  [1m[35m (9.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:51:45.632851"], ["name", "Coral House"], ["photo_url", "https://pictures.luxuryretreats.com/111227/turks-caicos-coralhouse-01.jpg"], ["price", 3], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/coral-house-111227"], ["updated_at", "2014-08-15 19:51:45.632851"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:51:45.639332"], ["name", "The Tuscany"], ["photo_url", "https://pictures.luxuryretreats.com/107989/turks-caicos-thetuscany-01.jpg"], ["price", 775], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/the-tuscany-107989"], ["updated_at", "2014-08-15 19:51:45.639332"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:51:45.681537"], ["name", "The Venetian"], ["photo_url", "https://pictures.luxuryretreats.com/112497/turksandcaicosthevenetian-1.jpg"], ["price", 795], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/the-venetian-112497"], ["updated_at", "2014-08-15 19:51:45.681537"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grace Bay"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 19:51:45.686325"], ["name", "Footprints on the Beach"], ["photo_url", "https://pictures.luxuryretreats.com/108776/turks-caicos-footprintsonthebeach-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/grace-bay/footprints-on-the-beach-108776"], ["updated_at", "2014-08-15 19:51:45.686325"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1[0m
+  [1m[35mMansion Load (0.4ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1
+  [1m[36mMansion Load (0.3ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1[0m
+  [1m[35mMansion Load (0.3ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" DESC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 19:55:44.375264"], ["name", "Ani South"], ["photo_url", "https://pictures.luxuryretreats.com/111915/anguilla-southani-1.jpg"], ["price", 6], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-south-111915"], ["updated_at", "2014-08-15 19:55:44.375264"]]
+  [1m[35m (9.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Harbor"], ["country", "Anguilla"], ["created_at", "2014-08-15 19:55:44.393173"], ["name", "Triton - Kamique"], ["photo_url", "https://pictures.luxuryretreats.com/111134/Anguilla-Kamique-05.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-harbor/triton-kamique-111134"], ["updated_at", "2014-08-15 19:55:44.393173"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 19:55:44.400196"], ["name", "Ani North"], ["photo_url", "https://pictures.luxuryretreats.com/111914/anguilla-northani-1.jpg"], ["price", 5], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-north-111914"], ["updated_at", "2014-08-15 19:55:44.400196"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 5], ["city", "Sandy Hill"], ["country", "Anguilla"], ["created_at", "2014-08-15 19:55:44.443010"], ["name", "Bird of Paradise Villa"], ["photo_url", "https://pictures.luxuryretreats.com/107614/anguilla-birdofparadise-02.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/sandy-hill/bird-of-paradise-villa-107614"], ["updated_at", "2014-08-15 19:55:44.443010"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 9], ["bedrooms", 8], ["city", "Maundays Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 19:55:44.448909"], ["name", "Harmony"], ["photo_url", "https://pictures.luxuryretreats.com/107823/anguilla-harmony-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/maundays-bay/harmony-107823"], ["updated_at", "2014-08-15 19:55:44.448909"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[36mMansion Load (1.2ms)[0m  [1mSELECT "mansions".* FROM "mansions"[0m
+  [1m[35mMansion Load (0.3ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" DESC LIMIT 1
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMansions (20140815154834)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815154834"]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePledges (20140815155107)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815155107"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddPhotoToMansions (20140815160018)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "mansions" ADD "photo_file_name" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "mansions" ADD "photo_content_type" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "mansions" ADD "photo_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "mansions" ADD "photo_updated_at" datetime
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815160018"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to AddPriceToMansions (20140815182033)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "mansions" ADD "price" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815182033"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreatePersonalityTraits (20140815190715)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "personality_traits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815190715"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreatePersonalityTraitUsers (20140815191240)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "personality_trait_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "personality_trait_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815191240"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to UpdateMansionColumns (20140815191934)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TEMPORARY TABLE "amansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "mansions"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "mansions"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "amansions"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "amansions"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "mansions" ADD "source" text
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815191934"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to AddCountryToMansion (20140815192933)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "mansions" ADD "country" varchar(255)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815192933"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to AddPhotoUrlToMansion (20140815193435)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "mansions" ADD "photo_url" text
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815193435"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 6], ["city", "Leeward"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 20:11:02.744173"], ["name", "Rafters"], ["photo_url", "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121"], ["updated_at", "2014-08-15 20:11:02.744173"]]
+  [1m[35m (9.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 20:11:03.330416"], ["name", "Ani South"], ["photo_url", "https://pictures.luxuryretreats.com/111915/anguilla-southani-1.jpg"], ["price", 6], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-south-111915"], ["updated_at", "2014-08-15 20:11:03.330416"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Harbor"], ["country", "Anguilla"], ["created_at", "2014-08-15 20:11:03.336162"], ["name", "Triton - Kamique"], ["photo_url", "https://pictures.luxuryretreats.com/111134/Anguilla-Kamique-05.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-harbor/triton-kamique-111134"], ["updated_at", "2014-08-15 20:11:03.336162"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 20:11:03.377762"], ["name", "Ani North"], ["photo_url", "https://pictures.luxuryretreats.com/111914/anguilla-northani-1.jpg"], ["price", 5], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-north-111914"], ["updated_at", "2014-08-15 20:11:03.377762"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 5], ["city", "Sandy Hill"], ["country", "Anguilla"], ["created_at", "2014-08-15 20:11:03.383605"], ["name", "Bird of Paradise Villa"], ["photo_url", "https://pictures.luxuryretreats.com/107614/anguilla-birdofparadise-02.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/sandy-hill/bird-of-paradise-villa-107614"], ["updated_at", "2014-08-15 20:11:03.383605"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 9], ["bedrooms", 8], ["city", "Maundays Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 20:11:03.391038"], ["name", "Harmony"], ["photo_url", "https://pictures.luxuryretreats.com/107823/anguilla-harmony-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/maundays-bay/harmony-107823"], ["updated_at", "2014-08-15 20:11:03.391038"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 5], ["city", "Eleuthera Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 20:11:03.873792"], ["name", "Buccaneer Hill"], ["photo_url", "https://pictures.luxuryretreats.com/111516/bahamas-buccaneerhill-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/eleuthera-island/buccaneer-hill-111516"], ["updated_at", "2014-08-15 20:11:03.873792"]]
+  [1m[35m (9.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grand Bahama Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 20:11:03.889758"], ["name", "Nandana"], ["photo_url", "https://pictures.luxuryretreats.com/111384/bahamas-nandana--01.jpg"], ["price", 7], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/grand-bahama-island/nandana-111384"], ["updated_at", "2014-08-15 20:11:03.889758"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "New Providence Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 20:11:03.896129"], ["name", "Villa Mouette"], ["photo_url", "https://pictures.luxuryretreats.com/111633/bahamas-villamouette--01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/new-providence-island/villa-mouette-111633"], ["updated_at", "2014-08-15 20:11:03.896129"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 14], ["bedrooms", 14], ["city", "New Providence Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 20:11:03.901366"], ["name", "Serendip Cove"], ["photo_url", "https://pictures.luxuryretreats.com/111847/bahamas--serendipcove--01a.jpg"], ["price", 5], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/new-providence-island/serendip-cove-111847"], ["updated_at", "2014-08-15 20:11:03.901366"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Grand Bahama Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 20:11:03.906735"], ["name", "Paradise Villa"], ["photo_url", "https://pictures.luxuryretreats.com/109143/Bahamas-ParadiseVilla-New02.jpg"], ["price", 400], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/grand-bahama-island/paradise-villa-109143"], ["updated_at", "2014-08-15 20:11:03.906735"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 20:11:04.556779"], ["name", "Smugglers Cove - The Penthouse"], ["photo_url", "https://pictures.luxuryretreats.com/110249/barbados-smugglerscovethepenthouse-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-the-penthouse-110249"], ["updated_at", "2014-08-15 20:11:04.556779"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 8], ["bedrooms", 8], ["city", "Turtle Beach"], ["country", "Barbados"], ["created_at", "2014-08-15 20:11:04.564955"], ["name", "The Great House"], ["photo_url", "https://pictures.luxuryretreats.com/105061/barbados--thegreathouse--01.jpg"], ["price", 6], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/turtle-beach/the-great-house-105061"], ["updated_at", "2014-08-15 20:11:04.564955"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 4], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 20:11:04.572443"], ["name", "Smugglers Cove 6"], ["photo_url", "https://pictures.luxuryretreats.com/110921/barbados-smugglerscove6-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-6-110921"], ["updated_at", "2014-08-15 20:11:04.572443"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Reed-s Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 20:11:04.615808"], ["name", "Moon Reach"], ["photo_url", "https://pictures.luxuryretreats.com/105249/barbados-moonreach-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/reed-s-bay/moon-reach-105249"], ["updated_at", "2014-08-15 20:11:04.615808"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 20:11:04.621369"], ["name", "Coral Cove 6 - The Ivy"], ["photo_url", "https://pictures.luxuryretreats.com/110142/barbados-coralcove6theivy-1a.jpg"], ["price", 550], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/coral-cove-6-the-ivy-110142"], ["updated_at", "2014-08-15 20:11:04.621369"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 20:11:06.102315"], ["name", "Punto Perfecto"], ["photo_url", "https://pictures.luxuryretreats.com/113080/bonaire-puntoperfecto-01.jpg"], ["price", 857], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/punto-perfecto-113080"], ["updated_at", "2014-08-15 20:11:06.102315"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 5], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 20:11:06.145098"], ["name", "Karibuni"], ["photo_url", "https://pictures.luxuryretreats.com/113082/bonnaire-karibuni-01.jpg"], ["price", 928], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/karibuni-113082"], ["updated_at", "2014-08-15 20:11:06.145098"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 20:11:06.150128"], ["name", "Garden Villas Iguana"], ["photo_url", "https://pictures.luxuryretreats.com/113086/bonaire-gardenvillasiguana-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/garden-villas-iguana-113086"], ["updated_at", "2014-08-15 20:11:06.150128"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 20:11:06.155612"], ["name", "Kas Chapin"], ["photo_url", "https://pictures.luxuryretreats.com/113084/bonaire--kaschapin--01.jpg"], ["price", 928], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/kas-chapin-113084"], ["updated_at", "2014-08-15 20:11:06.155612"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 20:11:06.162564"], ["name", "Kas Dorrie"], ["photo_url", "https://pictures.luxuryretreats.com/113085/bonaire-kasdorrie-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/kas-dorrie-113085"], ["updated_at", "2014-08-15 20:11:06.162564"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 13], ["bedrooms", 13], ["city", "Playa Grande"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 20:11:07.650791"], ["name", "The Palace"], ["photo_url", "https://pictures.luxuryretreats.com/110899/DomRep-BalajiPalace-30.jpg"], ["price", 3], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/playa-grande/the-palace-110899"], ["updated_at", "2014-08-15 20:11:07.650791"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Casa De Campo"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 20:11:07.666554"], ["name", "Las Cerezas"], ["photo_url", "https://pictures.luxuryretreats.com/105439/Dominican_La_Cerzas_15.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/casa-de-campo/las-cerezas-105439"], ["updated_at", "2014-08-15 20:11:07.666554"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Punta Cana"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 20:11:07.674599"], ["name", "Las Palmas Punta Cana"], ["photo_url", "https://pictures.luxuryretreats.com/111356/dominicanrepublic-arrecife38-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/punta-cana/las-palmas-punta-cana-111356"], ["updated_at", "2014-08-15 20:11:07.674599"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Cabrera"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 20:11:07.681548"], ["name", "Cantamar Villa"], ["photo_url", "https://pictures.luxuryretreats.com/107882/dominicanrepublic-cantamarvilla-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/cabrera/cantamar-villa-107882"], ["updated_at", "2014-08-15 20:11:07.681548"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 8], ["bedrooms", 8], ["city", "Cabrera"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 20:11:07.688092"], ["name", "Casa Kimball"], ["photo_url", "https://pictures.luxuryretreats.com/110623/DominicanRepublic-CasaKimball-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/cabrera/casa-kimball-110623"], ["updated_at", "2014-08-15 20:11:07.688092"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 25], ["bedrooms", 25], ["city", "Calivigny"], ["country", "Grenada"], ["created_at", "2014-08-15 20:11:10.084640"], ["name", "Calivigny Island"], ["photo_url", "https://pictures.luxuryretreats.com/112000/grenada-calvigny-01.jpg"], ["price", 30], ["region", "Caribbean"], ["source", "/destinations/caribbean/grenada/calivigny/calivigny-island-112000"], ["updated_at", "2014-08-15 20:11:10.084640"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Discovery Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 20:11:10.566525"], ["name", "Sea Haven on Discovery Bay"], ["photo_url", "https://pictures.luxuryretreats.com/107341/jamaica-seahavendiscoverybay--01.jpg"], ["price", 428], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/discovery-bay/sea-haven-on-discovery-bay-107341"], ["updated_at", "2014-08-15 20:11:10.566525"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Montego Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 20:11:10.608695"], ["name", "Great River House"], ["photo_url", "https://pictures.luxuryretreats.com/109959/jamaica-greatriverhouse-01.jpg"], ["price", 850], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/montego-bay/great-river-house-109959"], ["updated_at", "2014-08-15 20:11:10.608695"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Negril"], ["country", "Jamaica"], ["created_at", "2014-08-15 20:11:10.616115"], ["name", "Little Waters on the Cliff"], ["photo_url", "https://pictures.luxuryretreats.com/111862/jamaica-littlewatersontheclif-1.jpg"], ["price", 650], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/negril/little-waters-on-the-cliff-111862"], ["updated_at", "2014-08-15 20:11:10.616115"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 8], ["bedrooms", 5], ["city", "Montego Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 20:11:10.622882"], ["name", "Tek Time"], ["photo_url", "https://pictures.luxuryretreats.com/113063/jamaica-tektime-01.jpg"], ["price", 910], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/montego-bay/tek-time-113063"], ["updated_at", "2014-08-15 20:11:10.622882"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 6], ["city", "Tryall Club"], ["country", "Jamaica"], ["created_at", "2014-08-15 20:11:10.630614"], ["name", "Anticipation at Tryall Club"], ["photo_url", "https://pictures.luxuryretreats.com/105079/jamaica-anticipationvillaattryall-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/tryall-club/anticipation-at-tryall-club-105079"], ["updated_at", "2014-08-15 20:11:10.630614"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Pinney-s Beach"], ["country", "Nevis"], ["created_at", "2014-08-15 20:11:12.937971"], ["name", "Villa Paradiso #5"], ["photo_url", "https://pictures.luxuryretreats.com/104955/44.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/nevis/pinney-s-beach/villa-paradiso-5-104955"], ["updated_at", "2014-08-15 20:11:12.937971"]]
+  [1m[35m (9.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 20:11:13.933318"], ["name", "Bahia Beach Las Verandas 06"], ["photo_url", "https://pictures.luxuryretreats.com/113772/puertorico-bahiabeach-lasverandas06-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-06-113772"], ["updated_at", "2014-08-15 20:11:13.933318"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 20:11:13.940571"], ["name", "Bahia Beach Las Ventanas 22"], ["photo_url", "https://pictures.luxuryretreats.com/113778/puertorico-bahiabeachlasverandas22-1.jpg"], ["price", 905], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-ventanas-22-113778"], ["updated_at", "2014-08-15 20:11:13.940571"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 20:11:13.948294"], ["name", "Bahia Beach Las Olas Beachfront Townhouse 07"], ["photo_url", "https://pictures.luxuryretreats.com/113779/puertorico-Townhouse 07-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-olas-beachfront-townhouse-07-113779"], ["updated_at", "2014-08-15 20:11:13.948294"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 20:11:13.989222"], ["name", "Bahia Beach Las Verandas 60"], ["photo_url", "https://pictures.luxuryretreats.com/113774/puertorico-bahiabeachlasverandas60-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-60-113774"], ["updated_at", "2014-08-15 20:11:13.989222"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 20:11:13.994412"], ["name", "Bahia Beach Las Verandas 10"], ["photo_url", "https://pictures.luxuryretreats.com/113773/puertorico-bahiabeach-lasverandas10-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-10-113773"], ["updated_at", "2014-08-15 20:11:13.994412"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "Petit Cul de Sac"], ["country", "St- Barts"], ["created_at", "2014-08-15 20:11:14.501438"], ["name", "Princess X"], ["photo_url", "https://pictures.luxuryretreats.com/108998/stbarts-villaprincessX-01.jpg"], ["price", 560], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/petit-cul-de-sac/princess-x-108998"], ["updated_at", "2014-08-15 20:11:14.501438"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 3], ["city", "Flamands Hillside"], ["country", "St- Barts"], ["created_at", "2014-08-15 20:11:14.543221"], ["name", "Mahogany"], ["photo_url", "https://pictures.luxuryretreats.com/110481/Mahogany-01bc.jpg"], ["price", 377], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/flamands-hillside/mahogany-110481"], ["updated_at", "2014-08-15 20:11:14.543221"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Gustavia"], ["country", "St- Barts"], ["created_at", "2014-08-15 20:11:14.548902"], ["name", "Vitti"], ["photo_url", "https://pictures.luxuryretreats.com/112316/st-barts-vitti-02.jpg"], ["price", 4], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/gustavia/vitti-112316"], ["updated_at", "2014-08-15 20:11:14.548902"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Toiny"], ["country", "St- Barts"], ["created_at", "2014-08-15 20:11:14.556590"], ["name", "Acamar"], ["photo_url", "https://pictures.luxuryretreats.com/112965/stbarts--Acamar---01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/toiny/acamar-112965"], ["updated_at", "2014-08-15 20:11:14.556590"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Pointe Milou"], ["country", "St- Barts"], ["created_at", "2014-08-15 20:11:14.563513"], ["name", "Heloa"], ["photo_url", "https://pictures.luxuryretreats.com/112961/stbarts-heloa--01.jpg"], ["price", 318], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/pointe-milou/heloa-112961"], ["updated_at", "2014-08-15 20:11:14.563513"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 7], ["bedrooms", 6], ["city", "Cane Bay"], ["country", "St- Croix"], ["created_at", "2014-08-15 20:11:16.222102"], ["name", "Estate Belvedere"], ["photo_url", "https://pictures.luxuryretreats.com/106240/stcroix-estate-belvedere-29.jpg"], ["price", 828], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/cane-bay/estate-belvedere-106240"], ["updated_at", "2014-08-15 20:11:16.222102"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Columbus Landing"], ["country", "St- Croix"], ["created_at", "2014-08-15 20:11:16.228805"], ["name", "Blue Vista"], ["photo_url", "https://pictures.luxuryretreats.com/107792/stcroix-bluevista-01.jpg"], ["price", 635], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/columbus-landing/blue-vista-107792"], ["updated_at", "2014-08-15 20:11:16.228805"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Teague Bay"], ["country", "St- Croix"], ["created_at", "2014-08-15 20:11:16.233888"], ["name", "Whispering Winds"], ["photo_url", "https://pictures.luxuryretreats.com/108168/stcroix-whisperingwinds-1.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/teague-bay/whispering-winds-108168"], ["updated_at", "2014-08-15 20:11:16.233888"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 5], ["city", "East End"], ["country", "St- Croix"], ["created_at", "2014-08-15 20:11:16.241090"], ["name", "Solitude House"], ["photo_url", "https://pictures.luxuryretreats.com/111366/01.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/east-end/solitude-house-111366"], ["updated_at", "2014-08-15 20:11:16.241090"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Seven Hills"], ["country", "St- Croix"], ["created_at", "2014-08-15 20:11:16.284171"], ["name", "Villa des Great Chefs"], ["photo_url", "https://pictures.luxuryretreats.com/104806/stcroix-villadesgreatchefs-1.jpg"], ["price", 495], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/seven-hills/villa-des-great-chefs-104806"], ["updated_at", "2014-08-15 20:11:16.284171"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Catherineberg"], ["country", "St- John"], ["created_at", "2014-08-15 20:11:16.751987"], ["name", "Hakuna Matata"], ["photo_url", "https://pictures.luxuryretreats.com/104800/StJohn-HakunaMatata-00.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/catherineberg/hakuna-matata-104800"], ["updated_at", "2014-08-15 20:11:16.751987"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Great Cruz Bay"], ["country", "St- John"], ["created_at", "2014-08-15 20:11:16.759433"], ["name", "Villa Adagio"], ["photo_url", "https://pictures.luxuryretreats.com/104834/stjohn-adagio-1.jpg"], ["price", 557], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/great-cruz-bay/villa-adagio-104834"], ["updated_at", "2014-08-15 20:11:16.759433"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Chocolate Hole"], ["country", "St- John"], ["created_at", "2014-08-15 20:11:16.804702"], ["name", "Solaris"], ["photo_url", "https://pictures.luxuryretreats.com/104841/StJohn-Solaris-01.jpg"], ["price", 385], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/chocolate-hole/solaris-104841"], ["updated_at", "2014-08-15 20:11:16.804702"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 2], ["city", "Haulover Bay"], ["country", "St- John"], ["created_at", "2014-08-15 20:11:16.809444"], ["name", "The Retreat"], ["photo_url", "https://pictures.luxuryretreats.com/105658/stjohn-theretreat--01.jpg"], ["price", 424], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/haulover-bay/the-retreat-105658"], ["updated_at", "2014-08-15 20:11:16.809444"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 5], ["city", "Chocolate Hole"], ["country", "St- John"], ["created_at", "2014-08-15 20:11:16.814119"], ["name", "Kismet"], ["photo_url", "https://pictures.luxuryretreats.com/106224/stjohn-kismet--01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/chocolate-hole/kismet-106224"], ["updated_at", "2014-08-15 20:11:16.814119"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 4], ["city", "Cap Estate"], ["country", "St- Lucia"], ["created_at", "2014-08-15 20:11:17.462848"], ["name", "Akasha - Cap Estate"], ["photo_url", "https://pictures.luxuryretreats.com/111322/stlucia-akashaestate-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/cap-estate/akasha-cap-estate-111322"], ["updated_at", "2014-08-15 20:11:17.462848"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Gros Islet"], ["country", "St- Lucia"], ["created_at", "2014-08-15 20:11:17.502707"], ["name", "C'est La Vie"], ["photo_url", "https://pictures.luxuryretreats.com/111665/stlucia-cestlavie-1.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/gros-islet/cest-la-vie-111665"], ["updated_at", "2014-08-15 20:11:17.502707"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 9], ["bedrooms", 9], ["city", "Cap Estate"], ["country", "St- Lucia"], ["created_at", "2014-08-15 20:11:17.508361"], ["name", "Villa Capri"], ["photo_url", "https://pictures.luxuryretreats.com/106743/stlucia-capri-1.jpg"], ["price", 850], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/cap-estate/villa-capri-106743"], ["updated_at", "2014-08-15 20:11:17.508361"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 3], ["city", "Gros Islet"], ["country", "St- Lucia"], ["created_at", "2014-08-15 20:11:17.515819"], ["name", "Sur La Mer"], ["photo_url", "https://pictures.luxuryretreats.com/107445/stlucia-surlamer-1.jpg"], ["price", 300], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/gros-islet/sur-la-mer-107445"], ["updated_at", "2014-08-15 20:11:17.515819"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Bois D-Orange"], ["country", "St- Lucia"], ["created_at", "2014-08-15 20:11:17.522579"], ["name", "Trouya"], ["photo_url", "https://pictures.luxuryretreats.com/105269/stlucia-trouya-01.jpg"], ["price", 370], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/bois-d-orange/trouya-105269"], ["updated_at", "2014-08-15 20:11:17.522579"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Cupecoy"], ["country", "St- Martin"], ["created_at", "2014-08-15 20:11:18.478013"], ["name", "Farniente"], ["photo_url", "https://pictures.luxuryretreats.com/110601/st-martin-farniente-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/cupecoy/farniente-110601"], ["updated_at", "2014-08-15 20:11:18.478013"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Cupecoy"], ["country", "St- Martin"], ["created_at", "2014-08-15 20:11:18.484699"], ["name", "Mumbai"], ["photo_url", "https://pictures.luxuryretreats.com/110545/st-martin-mumbai-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/cupecoy/mumbai-110545"], ["updated_at", "2014-08-15 20:11:18.484699"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 20:11:18.491938"], ["name", "Carisa"], ["photo_url", "https://pictures.luxuryretreats.com/105669/st-martin-carisa-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/carisa-105669"], ["updated_at", "2014-08-15 20:11:18.491938"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 2], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 20:11:18.536916"], ["name", "La Vie en Bleu"], ["photo_url", "https://pictures.luxuryretreats.com/110625/st-martin-lavieenbleu-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/la-vie-en-bleu-110625"], ["updated_at", "2014-08-15 20:11:18.536916"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 20:11:18.542788"], ["name", "Beau Rivage"], ["photo_url", "https://pictures.luxuryretreats.com/105461/st-barts-beau-rivage-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/beau-rivage-105461"], ["updated_at", "2014-08-15 20:11:18.542788"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Flag Hill"], ["country", "St- Thomas"], ["created_at", "2014-08-15 20:11:20.019094"], ["name", "Ventana"], ["photo_url", "https://pictures.luxuryretreats.com/104782/St.Thomas-Ventana-01.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/flag-hill/ventana-104782"], ["updated_at", "2014-08-15 20:11:20.019094"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Flag Hill"], ["country", "St- Thomas"], ["created_at", "2014-08-15 20:11:20.024012"], ["name", "L'Esperance"], ["photo_url", "https://pictures.luxuryretreats.com/104790/St.Thomas-LEsperance-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/flag-hill/lesperance-104790"], ["updated_at", "2014-08-15 20:11:20.024012"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Skyline Drive"], ["country", "St- Thomas"], ["created_at", "2014-08-15 20:11:20.065094"], ["name", "Infinity"], ["photo_url", "https://pictures.luxuryretreats.com/104795/stthomas-infinity--01.jpg"], ["price", 886], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/skyline-drive/infinity-104795"], ["updated_at", "2014-08-15 20:11:20.065094"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "East End"], ["country", "St- Thomas"], ["created_at", "2014-08-15 20:11:20.072364"], ["name", "Ritz-Carlton Club 2BR Residences"], ["photo_url", "https://pictures.luxuryretreats.com/106726/stthomas-ritzcarltonclub2BReesidences-1.jpg"], ["price", 570], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-2br-residences-106726"], ["updated_at", "2014-08-15 20:11:20.072364"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "East End"], ["country", "St- Thomas"], ["created_at", "2014-08-15 20:11:20.079145"], ["name", "Ritz-Carlton Club 3BR"], ["photo_url", "https://pictures.luxuryretreats.com/106727/stthomas-ritzcarltonclub3BR-1.jpg"], ["price", 700], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-3br-106727"], ["updated_at", "2014-08-15 20:11:20.079145"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Trunk Bay"], ["country", "Tortola"], ["created_at", "2014-08-15 20:11:22.205028"], ["name", "Aja"], ["photo_url", "https://pictures.luxuryretreats.com/112048/tortola-aja--01.jpg"], ["price", 985], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/trunk-bay/aja-112048"], ["updated_at", "2014-08-15 20:11:22.205028"]]
+  [1m[35m (9.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Belmont"], ["country", "Tortola"], ["created_at", "2014-08-15 20:11:22.221147"], ["name", "Towanda"], ["photo_url", "https://pictures.luxuryretreats.com/105745/tortola-towanda-1.jpg"], ["price", 335], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/belmont/towanda-105745"], ["updated_at", "2014-08-15 20:11:22.221147"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 6], ["city", "Apple Bay"], ["country", "Tortola"], ["created_at", "2014-08-15 20:11:22.229213"], ["name", "Tingalayo"], ["photo_url", "https://pictures.luxuryretreats.com/112312/tortola-tingalayo-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/apple-bay/tingalayo-112312"], ["updated_at", "2014-08-15 20:11:22.229213"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 6], ["city", "Havers Hill"], ["country", "Tortola"], ["created_at", "2014-08-15 20:11:22.237731"], ["name", "Summer Heights"], ["photo_url", "https://pictures.luxuryretreats.com/104818/tortola-summerheights-01.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/havers-hill/summer-heights-104818"], ["updated_at", "2014-08-15 20:11:22.237731"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Havers Hill"], ["country", "Tortola"], ["created_at", "2014-08-15 20:11:22.245399"], ["name", "Toa Toa House"], ["photo_url", "https://pictures.luxuryretreats.com/104821/Tortola-ToaToaHouse-1.jpg"], ["price", 400], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/havers-hill/toa-toa-house-104821"], ["updated_at", "2014-08-15 20:11:22.245399"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 6], ["city", "Leeward"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 20:11:22.721203"], ["name", "Rafters"], ["photo_url", "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121"], ["updated_at", "2014-08-15 20:11:22.721203"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Nail Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 20:11:23.299845"], ["name", "Baraka Point Estate"], ["photo_url", "https://pictures.luxuryretreats.com/105500/virgingorda-barakapoint--01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/nail-bay/baraka-point-estate-105500"], ["updated_at", "2014-08-15 20:11:23.299845"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 20:11:23.344322"], ["name", "Aquamare Villa 2"], ["photo_url", "https://pictures.luxuryretreats.com/109598/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-2-109598"], ["updated_at", "2014-08-15 20:11:23.344322"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 20:11:23.351591"], ["name", "Aquamare Villa 3"], ["photo_url", "https://pictures.luxuryretreats.com/109600/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-3-109600"], ["updated_at", "2014-08-15 20:11:23.351591"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 20:11:23.358385"], ["name", "Aquamare Villa 1"], ["photo_url", "https://pictures.luxuryretreats.com/109643/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-1-109643"], ["updated_at", "2014-08-15 20:11:23.358385"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Crooks Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 20:11:23.363917"], ["name", "Bayhouse"], ["photo_url", "https://pictures.luxuryretreats.com/112245/virgingorda-bayhouse-1.jpg"], ["price", 700], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/crooks-bay/bayhouse-112245"], ["updated_at", "2014-08-15 20:11:23.363917"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" DESC LIMIT 1[0m

@@ -9,7 +9,12 @@
 	require 'open-uri' #let's us grab contents of url
 
 
-		url = 'http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos/grace-bay'
+caribbean=['http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos', 'http://www.luxuryretreats.com/destinations/caribbean/anguilla', 'http://www.luxuryretreats.com/destinations/caribbean/bahamas', 'http://www.luxuryretreats.com/destinations/caribbean/barbados', 'http://www.luxuryretreats.com/destinations/caribbean/bonaire', 'http://www.luxuryretreats.com/destinations/caribbean/dominican-republic', 'http://www.luxuryretreats.com/destinations/caribbean/grenada', 'http://www.luxuryretreats.com/destinations/caribbean/jamaica', 'http://www.luxuryretreats.com/destinations/caribbean/nevis', 'http://www.luxuryretreats.com/destinations/caribbean/puerto-rico', 'http://www.luxuryretreats.com/destinations/caribbean/st-barts', 'http://www.luxuryretreats.com/destinations/caribbean/st-croix', 'http://www.luxuryretreats.com/destinations/caribbean/st-john', 'http://www.luxuryretreats.com/destinations/caribbean/st-lucia', 'http://www.luxuryretreats.com/destinations/caribbean/st-martin', 'http://www.luxuryretreats.com/destinations/caribbean/st-thomas',  'http://www.luxuryretreats.com/destinations/caribbean/tortola', 'http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos', 'http://www.luxuryretreats.com/destinations/caribbean/virgin-gorda']
+
+
+
+
+	caribbean.each do |url|
 		doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
 		
 	
@@ -26,7 +31,7 @@
 			 bedrooms= block.at_css("span.bedCount").text
 			 bathrooms=block.at_css("span.bathCount").text
 			 source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
-			unless bedrooms=="0"
+			 unless bedrooms=="0"   #Makes sure we don't add empty listings
 				Mansion.create!(
 					name: name,
 					price: price.to_i,
@@ -43,6 +48,7 @@
 		
 		  end
 
+		end
 		
 
 
