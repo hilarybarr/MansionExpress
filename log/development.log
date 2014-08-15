@@ -283,3 +283,286 @@ Migrating to AddPhotoToMansions (20140815160018)
             FROM sqlite_temp_master
             WHERE name='index_pledges_on_guest_id' AND type='index'
 [0m
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:06:54 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by MansionsController#new as HTML
+Completed 500 Internal Server Error in 33ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x00000104461ba8>):
+  app/models/mansion.rb:2:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (63.2ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:06:54 -0400
+Processing by MansionsController#new as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x00000105266fc8>):
+  app/models/mansion.rb:2:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (59.4ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (81.5ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:07:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MansionsController#new as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+Completed 500 Internal Server Error in 35ms
+
+NoMethodError (undefined method `before_photo_post_process' for #<Class:0x00000102d17308>):
+  app/models/mansion.rb:3:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.6ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:08:01 -0400
+Processing by MansionsController#new as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+Completed 500 Internal Server Error in 69ms
+
+NoMethodError (undefined method `before_photo_post_process' for #<Class:0x00000102f4d4b0>):
+  app/models/mansion.rb:3:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.4ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:08:23 -0400
+Processing by MansionsController#new as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+  Rendered mansions/_form.html.erb (212.1ms)
+  Rendered mansions/new.html.erb within layouts/application (231.4ms)
+Completed 200 OK in 597ms (Views: 590.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started POST "/mansions" for 127.0.0.1 at 2014-08-15 12:08:54 -0400
+Processing by MansionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+dJCqYhBu+G0R/lySqOyK024SBA+2/pwIVTrG5sYNio=", "mansion"=>{"name"=>"Sample Mansion", "photo"=>#<ActionDispatch::Http::UploadedFile:0x00000100fe63b0 @tempfile=#<Tempfile:/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/RackMultipart20140815-91904-1v9cm6n>, @original_filename="funcollege.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"mansion[photo]\"; filename=\"funcollege.JPG\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "address"=>"", "continent"=>"", "city"=>"", "bedrooms"=>"", "bathrooms"=>"", "square_feet"=>"", "available_date(1i)"=>"2014", "available_date(2i)"=>"8", "available_date(3i)"=>"15"}, "commit"=>"Create Mansion"}
+Completed 500 Internal Server Error in 3ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: photo):
+  app/controllers/mansions_controller.rb:27:in `create'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.7ms)
+
+
+Started POST "/mansions" for 127.0.0.1 at 2014-08-15 12:11:35 -0400
+Processing by MansionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+dJCqYhBu+G0R/lySqOyK024SBA+2/pwIVTrG5sYNio=", "mansion"=>{"name"=>"Sample Mansion", "photo"=>#<ActionDispatch::Http::UploadedFile:0x0000010176f2d0 @tempfile=#<Tempfile:/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/RackMultipart20140815-91904-1sfali0>, @original_filename="funcollege.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"mansion[photo]\"; filename=\"funcollege.JPG\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "address"=>"", "continent"=>"", "city"=>"", "bedrooms"=>"", "bathrooms"=>"", "square_feet"=>"", "available_date(1i)"=>"2014", "available_date(2i)"=>"8", "available_date(3i)"=>"15"}, "commit"=>"Create Mansion"}
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: convert '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1ubyhn5'
+Command :: file -b --mime '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1ubyhn5'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: convert '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' -auto-orient -resize "100x100>" '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1jys3q8'
+Command :: file -b --mime '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1jys3q8'
+  [1m[35m (0.2ms)[0m  begin transaction
+Binary data inserted for `string` type on column `photo_content_type`
+  [1m[36mSQL (35.7ms)[0m  [1mINSERT INTO "mansions" ("address", "available_date", "city", "continent", "created_at", "description", "name", "photo_content_type", "photo_file_name", "photo_file_size", "photo_updated_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", ""], ["available_date", "2014-08-15"], ["city", ""], ["continent", ""], ["created_at", "2014-08-15 16:11:38.962948"], ["description", ""], ["name", "Sample Mansion"], ["photo_content_type", "image/jpeg"], ["photo_file_name", "funcollege.JPG"], ["photo_file_size", 826373], ["photo_updated_at", "2014-08-15 16:11:36.106882"], ["updated_at", "2014-08-15 16:11:38.962948"]]
+  [1m[35m (8.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/mansions/1
+Completed 302 Found in 3057ms (ActiveRecord: 45.6ms)
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.3ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 110ms (Views: 78.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 12:12:11 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
