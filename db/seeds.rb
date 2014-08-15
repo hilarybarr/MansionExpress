@@ -22,21 +22,23 @@
 			 city=block.at_css(".locationName").text
 			 country= block.at_css(".regionName").text
 			 region=block.at_css(".destinationName").text
-			 photo=block.at_css(".villaPhoto")[:src]
+			 photo_url=block.at_css(".villaPhoto")[:src]
 			 bedrooms= block.at_css("span.bedCount").text
 			 bathrooms=block.at_css("span.bathCount").text
 			 source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
-	
-			Mansion.create!(
-				name: name,
-				price: price,
-				city: city,
-				country: country,
-				region: region,
-				photo: photo,
-				bedrooms: bedrooms,
-				source: source
-				)
+			unless bedrooms=="0"
+				Mansion.create!(
+					name: name,
+					price: price.to_i,
+					city: city,
+					country: country,
+					region: region,
+					photo_url: photo_url,
+					bedrooms: bedrooms.to_i,
+					bathrooms: bathrooms.to_i,
+					source: source
+					)
+			end
 			
 		
 		  end
