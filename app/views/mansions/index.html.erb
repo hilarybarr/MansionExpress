@@ -1,41 +1,32 @@
-<h1>Listing mansions</h1>
+<h1>mansions index</h1>
+  <div class="col-md-4">
+    <div id="map">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Continent</th>
-      <th>City</th>
-      <th>Bedrooms</th>
-      <th>Bathrooms</th>
-      <th>Square feet</th>
-      <th>Available date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="col-md-8">
     <% @mansions.each do |mansion| %>
-      <tr>
-        <td><%= mansion.name %></td>
-        <td><%= mansion.description %></td>
-        <td><%= mansion.address %></td>
-        <td><%= mansion.continent %></td>
-        <td><%= mansion.city %></td>
-        <td><%= mansion.bedrooms %></td>
-        <td><%= mansion.bathrooms %></td>
-        <td><%= mansion.square_feet %></td>
-        <td><%= mansion.available_date %></td>
-        <td><%= link_to 'Show', mansion %></td>
-        <td><%= link_to 'Edit', edit_mansion_path(mansion) %></td>
-        <td><%= link_to 'Destroy', mansion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to (image_tag(mansion.photo.url(:medium))), mansion, class: 'mansionPhoto' %>
+      <%= mansion.price %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Mansion', new_mansion_path %>
+  </div> 
