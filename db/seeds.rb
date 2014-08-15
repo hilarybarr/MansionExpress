@@ -1,113 +1,93 @@
 
-# lib, task, write rake task for nokogiri and pushing to csv.
+# The below code works and will seed our database.
+# However, this needs to be refactored such that the importing and adding to CSV file is done in a custom
+# raketask (do rails g task importer) and the parsing of CSV and turning of each item into
+# Ruby objects is done in the seedfile.	
 
 
-RAKETASK:
-
-In lib/tasks create new rake task:
-
-rails g task importer 
+	require 'nokogiri'
+	require 'open-uri' #let's us grab contents of url
 
 
-
-
-
-
-
-allVillas={}
-
-.open(url)
-
-
-.css(find by attribute villaBlock).each do |block|
-	villa={}
-
-	villa[:image_url]=block.css   [0]["href"]
-
-	allVillas < villa
-
-end
-
-
-
-Put our allVillas into a csv file
-Save all those image urls and put on flickr
-
-
-
-
-
-
-
-
-SEED FILE:
-Take from CSV file and store in database
-
-
-
-
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# /private/tmp/www.luxuryretreats.com/
-
-
-# Mansions:
-### -Picture
-# -Country
-# -City
-# -Price
-# -Max_Occupancy
-# -Bedrooms
-# -Bathrooms
-
-#picture must be given same id or name
-
-# itemprop=pricerange (split by comma, take first element)
-# itemprop=address
-# itemprop=addressRegion
-# itemprop=addressCountry
-# id=villavitals (split by comma, first element is bedrooms, second element is bathrooms)
-# id=fullview, p 2, description
-# li? = max_occupancy
-
-# .
-# require 'rubygems'
-# require 'nokogiri'
-# require 'open-uri'
-# require 'csv'
-
-# #files=all the html files files
-# Dir.foreach("parent_directory") do |folder|
-#     Dir.foreach("#{folder}"} do |file|
-#        doc = Nokogiri::HTML(open("#{file}")) 
-#     end
-# end
-
-
-
-
-
-
-
-
-
-Mansion.create(
+		url = 'http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos/grace-bay'
+		doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
+		
 	
-	country: 
-	city:
-	price:
-	max_occupancy:
-	bedrooms:
-	bathrooms:
-	description: 
+	
+		  doc.css(".villaBlockContainer").each do |block| 
+		 	
+			 
+			 name= block.css('div.villaRegionTitle h2').text 
+			 price=block.at_css(".vpMin").text[/[0-9\.]+/] 
+			 city=block.at_css(".locationName").text
+			 country= block.at_css(".regionName").text
+			 region=block.at_css(".destinationName").text
+			 photo=block.at_css(".villaPhoto")[:src]
+			 bedrooms= block.at_css("span.bedCount").text
+			 bathrooms=block.at_css("span.bathCount").text
+			 source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
+	
+			Mansion.create!(
+				name: name,
+				price: price,
+				city: city,
+				country: country,
+				region: region,
+				photo: photo,
+				bedrooms: bedrooms,
+				source: source
+				)
+			
+		
+		  end
+
+		
 
 
 
-	)
+
+
+
+
+
+	# require 'nokogiri'
+	# require 'open-uri' #let's us grab contents of url
+
+
+	# 	url = 'http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos/grace-bay'
+	# 	doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
+		
+	# 	allVillas=[]
+
+		
+	# 	  doc.css(".villaBlockContainer").each do |block| 
+	# 	 	villa={}
+			 
+	# 		 villa[:name]= block.css('div.villaRegionTitle h2').text 
+	# 		 villa[:price]=block.at_css(".vpMin").text[/[0-9\.]+/] 
+	# 		 villa[:city]=block.at_css(".locationName").text
+	# 		 villa[:country]= block.at_css(".regionName").text
+	# 		 villa[:region]=block.at_css(".destinationName").text
+	# 		 villa[:photo]=block.at_css(".villaPhoto")[:src]
+	# 		 villa[:bedrooms]= block.at_css("span.bedCount").text
+	# 		 villa[:bathrooms]=block.at_css("span.bathCount").text
+	# 		 villa[:source]=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
+	
+	# 		 allVillas << villa if villa[:min_price] != "0" && villa[:title] != ""
+		
+	# 	  end
+
+	# 	puts allVillas
+		
+
+
+
+
+
+
+
+
+
+
+
+

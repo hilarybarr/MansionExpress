@@ -11,24 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815182033) do
-
-  create_table "identities", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "gender"
-    t.text     "birthdate"
-    t.text     "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140815192933) do
 
   create_table "mansions", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "address"
-    t.string   "continent"
+    t.string   "region"
     t.string   "city"
     t.integer  "bedrooms"
     t.integer  "bathrooms"
@@ -41,19 +30,16 @@ ActiveRecord::Schema.define(version: 20140815182033) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "price"
+    t.string   "source"
+    t.string   "country"
   end
 
   create_table "pledges", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "mansion_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "total_price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "user_id"
+    t.integer "mansion_id"
+    t.date    "start_date"
+    t.date    "end_date"
+    t.integer "total_price"
   end
-
-  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id"
-  add_index "pledges", ["mansion_id"], name: "index_pledges_on_mansion_id"
 
 end
