@@ -4266,3 +4266,1823 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:32:21
 
 
 Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:32:21 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:36:46 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.3ms)[0m  SELECT "mansions".* FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (undefined method `to_price' for 2000:Fixnum):
+    27:   <div class="col-md-8">
+    28:     <% @mansions.each do |mansion| %>
+    29:       <%= link_to (image_tag(mansion.photo.url(:medium))), mansion, class: 'mansionPhoto' %>
+    30:       <span class="mansionPrice"><%= mansion.price.to_price %></span>
+    31:     <% end %>
+    32:   </div> 
+  app/views/mansions/index.html.erb:30:in `block in _app_views_mansions_index_html_erb__397954748540612160_2171953440'
+  app/views/mansions/index.html.erb:28:in `_app_views_mansions_index_html_erb__397954748540612160_2171953440'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.2ms)
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 56ms (Views: 51.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:36:57 -0400
+
+
+Started GET "/mansions/1/edit" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+Processing by MansionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered mansions/_form.html.erb (11.3ms)
+  Rendered mansions/edit.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:00 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 14:37:01 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.3ms)[0m  SELECT "mansions".* FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:37:06 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:41:01 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT "mansions".* FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:41:02 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:45:38 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.2ms)[0m  SELECT "mansions".* FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:45:38 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:45:38 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:45:39 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 14:46:12 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+Processing by MansionsController#new as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+  Rendered mansions/_form.html.erb (26.5ms)
+  Rendered mansions/new.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 51ms (Views: 41.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:20 -0400
+
+
+Started POST "/mansions" for 127.0.0.1 at 2014-08-15 14:48:36 -0400
+Processing by MansionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+dJCqYhBu+G0R/lySqOyK024SBA+2/pwIVTrG5sYNio=", "mansion"=>{"name"=>"Pollux", "price"=>"8008", "photo"=>#<ActionDispatch::Http::UploadedFile:0x00000102d2ecd8 @tempfile=#<Tempfile:/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/RackMultipart20140815-92689-1aq9fn9>, @original_filename="Pollux.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"mansion[photo]\"; filename=\"Pollux.jpg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "address"=>"", "continent"=>"", "city"=>"", "bedrooms"=>"", "bathrooms"=>"", "square_feet"=>"", "available_date(1i)"=>"2014", "available_date(2i)"=>"8", "available_date(3i)"=>"15"}, "commit"=>"Create Mansion"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]'
+Command :: convert '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq5520140815-92689-1tf4hnd'
+Command :: file -b --mime '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq5520140815-92689-1tf4hnd'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]'
+Command :: convert '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq55.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq5520140815-92689-1a2g977'
+Command :: file -b --mime '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/cff421f64cd8e7aed994bb8267d3904d20140815-92689-174tq5520140815-92689-1a2g977'
+  [1m[35m (0.2ms)[0m  begin transaction
+Binary data inserted for `string` type on column `photo_content_type`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "mansions" ("address", "available_date", "city", "continent", "created_at", "description", "name", "photo_content_type", "photo_file_name", "photo_file_size", "photo_updated_at", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", ""], ["available_date", "2014-08-15"], ["city", ""], ["continent", ""], ["created_at", "2014-08-15 18:48:37.451646"], ["description", ""], ["name", "Pollux"], ["photo_content_type", "image/jpeg"], ["photo_file_name", "Pollux.jpg"], ["photo_file_size", 91627], ["photo_updated_at", "2014-08-15 18:48:36.743540"], ["price", 8008], ["updated_at", "2014-08-15 18:48:37.451646"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/mansions/5
+Completed 302 Found in 733ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.4ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:48:37 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:48:39 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.3ms)[0m  SELECT "mansions".* FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.3ms)[0m  [1mSELECT "mansions".* FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:17 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:49:20 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:49:39 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:49:44 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.3ms)[0m  SELECT "mansions".* FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:50:05 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 2346ms (Views: 2343.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:07 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:50:17 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 1947ms (Views: 1944.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:20 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:50:33 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 2625ms (Views: 2622.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:35 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:35 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:35 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:35 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:35 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:36 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:36 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:36 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:36 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:50:49 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:51:04 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 5ms
+
+SyntaxError (/Users/DylanRichards/Desktop/mansion-express/app/views/mansions/show.html.erb:3: syntax error, unexpected ',', expecting ')'
+...(@mansion.photo.url(:medium))), @mansion), {class: 'mansionS...
+...                               ^
+/Users/DylanRichards/Desktop/mansion-express/app/views/mansions/show.html.erb:3: syntax error, unexpected ')', expecting keyword_end
+...sion), {class: 'mansionShow'} );@output_buffer.safe_append='
+...                               ^):
+  app/views/mansions/show.html.erb:3: syntax error, unexpected ',', expecting ')'
+  app/views/mansions/show.html.erb:3: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.4ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:51:16 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.3ms)[0m  SELECT "mansions".* FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:17 -0400
+
+
+Started GET "/mansions/3" for 127.0.0.1 at 2014-08-15 14:51:19 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered mansions/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/Users/DylanRichards/Desktop/mansion-express/app/views/mansions/show.html.erb:3: syntax error, unexpected ',', expecting ')'
+...(@mansion.photo.url(:medium))), @mansion), {class: 'mansionS...
+...                               ^
+/Users/DylanRichards/Desktop/mansion-express/app/views/mansions/show.html.erb:3: syntax error, unexpected ')', expecting keyword_end
+...sion), {class: 'mansionShow'} );@output_buffer.safe_append='
+...                               ^):
+  app/views/mansions/show.html.erb:3: syntax error, unexpected ',', expecting ')'
+  app/views/mansions/show.html.erb:3: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.4ms)
+
+
+Started GET "/mansions/3" for 127.0.0.1 at 2014-08-15 14:51:19 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered mansions/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 6ms
+
+SyntaxError (/Users/DylanRichards/Desktop/mansion-express/app/views/mansions/show.html.erb:3: syntax error, unexpected ',', expecting ')'
+...(@mansion.photo.url(:medium))), @mansion), {class: 'mansionS...
+...                               ^
+/Users/DylanRichards/Desktop/mansion-express/app/views/mansions/show.html.erb:3: syntax error, unexpected ')', expecting keyword_end
+...sion), {class: 'mansionShow'} );@output_buffer.safe_append='
+...                               ^):
+  app/views/mansions/show.html.erb:3: syntax error, unexpected ',', expecting ')'
+  app/views/mansions/show.html.erb:3: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (37.4ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.3ms)[0m  [1mSELECT "mansions".* FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:51:27 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:51:41 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:51:43 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:51:44 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:51:45 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:52:08 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 1980ms (Views: 1977.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:10 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:52:19 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 2005ms (Views: 2002.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:52:21 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:54:30 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 98ms
+
+SyntaxError (/Users/DylanRichards/Desktop/mansion-express/app/views/mansions/show.html.erb:4: syntax error, unexpected ',', expecting ')'
+...g(@mansion.photo.url(:medium)), @mansion, class: 'mansionSho...
+...                               ^):
+  app/views/mansions/show.html.erb:4: syntax error, unexpected ',', expecting ')'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.7ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:55:16 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 37ms
+
+ActionView::Template::Error (wrong number of arguments (3 for 1..2)):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: 
+    4: <%= image_tag(@mansion.photo.url(:medium), @mansion, class: 'mansionShow') %>
+    5: 
+    6: 
+    7: <%= link_to 'Edit', edit_mansion_path(@mansion) %> |
+  app/views/mansions/show.html.erb:4:in `_app_views_mansions_show_html_erb___325360279664581456_2159789300'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.9ms)
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:57:09 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 2217ms (Views: 2214.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:57:12 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:59:00 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (76.5ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (74.2ms)
+Completed 200 OK in 7172ms (Views: 7034.8ms | ActiveRecord: 76.5ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:08 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:59:20 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1932ms (Views: 1929.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:22 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 14:59:24 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 14:59:25 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:00:11 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 1937ms (Views: 1934.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:13 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:14 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:00:22 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1923ms (Views: 1921.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:00:24 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:06 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:17 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:01:45 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 1922ms (Views: 1919.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:01:47 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:02:03 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1904ms (Views: 1900.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:05 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:05 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:05 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:06 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:06 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:06 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:06 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:02:18 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.3ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1996ms (Views: 1992.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:20 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:02:38 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 1942ms (Views: 1939.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:02:40 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:04:19 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:06:00 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (21.3ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 54ms (Views: 29.6ms | ActiveRecord: 21.3ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:01 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:06:20 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 2565ms (Views: 2562.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:22 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:06:50 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:07:01 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 1936ms (Views: 1933.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:03 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:07:12 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 1953ms (Views: 1950.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:14 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:07:29 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2031ms (Views: 2027.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:31 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:07:45 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 2013ms (Views: 2009.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:07:47 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:08:36 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:08:37 -0400
+
+
+Started GET "/mansions/5" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered mansions/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 15:11:20 -0400
