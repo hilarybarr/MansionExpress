@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20140815193435) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "price"
-    t.string   "source"
+    t.text     "source"
     t.string   "country"
-    t.string   "photo_url"
+    t.text     "photo_url"
   end
 
   create_table "personality_trait_users", force: true do |t|
