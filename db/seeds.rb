@@ -104,6 +104,10 @@ end
 	PersonalityTrait.create(name: orientation, category: "sexual orientations")
 end
 
+@relationship_status.each do |status| 
+	PersonalityTrait.create(name: status, category: "relationship status")
+end
+
 @smoker.each do |option| 
 	PersonalityTrait.create(name: option, category: "smoker?")
 end

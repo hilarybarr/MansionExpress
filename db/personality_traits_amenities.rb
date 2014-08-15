@@ -31,6 +31,13 @@
 	"bisexual",
 	"other" ]
 
+@relationship_status = [ "single",
+	"married",
+	"in an open relationship",
+	"divorced",
+	"widowed",
+	"it's complicated" ]
+
 @smoker = [ "yes",
 	"no",
 	"socially" ]
