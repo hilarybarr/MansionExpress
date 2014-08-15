@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815182033) do
+ActiveRecord::Schema.define(version: 20140815191934) do
 
   create_table "identities", force: true do |t|
     t.string   "first_name"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140815182033) do
     t.string   "name"
     t.text     "description"
     t.string   "address"
-    t.string   "continent"
+    t.string   "region"
     t.string   "city"
     t.integer  "bedrooms"
     t.integer  "bathrooms"
@@ -41,10 +41,11 @@ ActiveRecord::Schema.define(version: 20140815182033) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "price"
+    t.string   "source"
   end
 
   create_table "pledges", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "guest_id"
     t.integer  "mansion_id"
     t.date     "start_date"
     t.date     "end_date"
@@ -53,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140815182033) do
     t.datetime "updated_at"
   end
 
-  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id"
+  add_index "pledges", ["guest_id"], name: "index_pledges_on_guest_id"
   add_index "pledges", ["mansion_id"], name: "index_pledges_on_mansion_id"
 
 end

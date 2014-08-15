@@ -69,6 +69,6 @@ class MansionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mansion_params
-      params.require(:mansion).permit(:name, :description, :address, :continent, :city, :bedrooms, :bathrooms, :square_feet, :available_date, :photo, :price)
+      params.require(:mansion).permit(:name, :description, :address, :region, :city, :bedrooms, :bathrooms, :square_feet, :available_date, :photo, :price, :source)
     end
 end

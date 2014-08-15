@@ -1,5 +1,10 @@
-<div class="col-md-12">
 
-  <%= image_tag(@mansion.photo.url(:medium), class: 'mansionShow center-block') %>
 
+
+<div class="row mansionDescription center-block">	
+	<%= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
+	
+	<h1><%= @mansion.name %></h1>
+	<strong>description: </strong><%= @mansion.description %>
 </div>
+

@@ -1,3 +1,25 @@
 // Place all the styles related to the Mansions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#map {
+	background-color: black;
+}
+
+.mansionPrice {
+	position: relative;
+	right: 285px;
+	top: 80px;
+	color: white;
+}
+
+.mansionShow {
+	width: 1000px;
+	height: 250px;
+}
+
+.mansionDescription {
+	width: 1000px;
+	position: relative;
+	border-bottom: 1px solid #eee;
+}
