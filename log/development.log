@@ -7667,3 +7667,1125 @@ Migrating to AddPhotoUrlToMansion (20140815193435)
   [1m[36mPersonalityTrait Load (1.2ms)[0m  [1mSELECT "personality_traits".* FROM "personality_traits"[0m
   [1m[35mPersonalityTrait Load (0.2ms)[0m  SELECT  "personality_traits".* FROM "personality_traits"   ORDER BY "personality_traits"."id" ASC LIMIT 1
   [1m[36mPersonalityTrait Load (0.2ms)[0m  [1mSELECT  "personality_traits".* FROM "personality_traits"   ORDER BY "personality_traits"."id" DESC LIMIT 1[0m
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMansions (20140815154834)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815154834"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreatePledges (20140815155107)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815155107"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Migrating to AddPhotoToMansions (20140815160018)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "mansions" ADD "photo_file_name" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "mansions" ADD "photo_content_type" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "mansions" ADD "photo_file_size" integer
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "mansions" ADD "photo_updated_at" datetime[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815160018"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Migrating to AddPriceToMansions (20140815182033)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "mansions" ADD "price" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815182033"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePersonalityTraits (20140815190715)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "personality_traits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "category" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815190715"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePersonalityTraitUsers (20140815191240)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "personality_trait_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "personality_trait_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815191240"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20140815191341)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815191341"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Migrating to UpdateMansionColumns (20140815191934)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "amansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "mansions"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "mansions"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "amansions"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "amansions"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "mansions" ADD "source" text
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815191934"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to AddCountryToMansion (20140815192933)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "mansions" ADD "country" varchar(255)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815192933"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to AddPhotoUrlToMansion (20140815193435)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "mansions" ADD "photo_url" text
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815193435"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to CreateMansionAmenities (20140815212107)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "mansion_amenities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815212107"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/AntonioPerez/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 6], ["city", "Leeward"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 21:24:11.102159"], ["name", "Rafters"], ["photo_url", "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121"], ["updated_at", "2014-08-15 21:24:11.102159"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:24:11.559687"], ["name", "Ani South"], ["photo_url", "https://pictures.luxuryretreats.com/111915/anguilla-southani-1.jpg"], ["price", 6], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-south-111915"], ["updated_at", "2014-08-15 21:24:11.559687"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Harbor"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:24:11.564986"], ["name", "Triton - Kamique"], ["photo_url", "https://pictures.luxuryretreats.com/111134/Anguilla-Kamique-05.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-harbor/triton-kamique-111134"], ["updated_at", "2014-08-15 21:24:11.564986"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:24:11.569556"], ["name", "Ani North"], ["photo_url", "https://pictures.luxuryretreats.com/111914/anguilla-northani-1.jpg"], ["price", 5], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-north-111914"], ["updated_at", "2014-08-15 21:24:11.569556"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 5], ["city", "Sandy Hill"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:24:11.604491"], ["name", "Bird of Paradise Villa"], ["photo_url", "https://pictures.luxuryretreats.com/107614/anguilla-birdofparadise-02.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/sandy-hill/bird-of-paradise-villa-107614"], ["updated_at", "2014-08-15 21:24:11.604491"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 9], ["bedrooms", 8], ["city", "Maundays Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:24:11.608164"], ["name", "Harmony"], ["photo_url", "https://pictures.luxuryretreats.com/107823/anguilla-harmony-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/maundays-bay/harmony-107823"], ["updated_at", "2014-08-15 21:24:11.608164"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 5], ["city", "Eleuthera Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:24:12.048182"], ["name", "Buccaneer Hill"], ["photo_url", "https://pictures.luxuryretreats.com/111516/bahamas-buccaneerhill-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/eleuthera-island/buccaneer-hill-111516"], ["updated_at", "2014-08-15 21:24:12.048182"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grand Bahama Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:24:12.081765"], ["name", "Nandana"], ["photo_url", "https://pictures.luxuryretreats.com/111384/bahamas-nandana--01.jpg"], ["price", 7], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/grand-bahama-island/nandana-111384"], ["updated_at", "2014-08-15 21:24:12.081765"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "New Providence Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:24:12.086051"], ["name", "Villa Mouette"], ["photo_url", "https://pictures.luxuryretreats.com/111633/bahamas-villamouette--01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/new-providence-island/villa-mouette-111633"], ["updated_at", "2014-08-15 21:24:12.086051"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 14], ["bedrooms", 14], ["city", "New Providence Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:24:12.090084"], ["name", "Serendip Cove"], ["photo_url", "https://pictures.luxuryretreats.com/111847/bahamas--serendipcove--01a.jpg"], ["price", 5], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/new-providence-island/serendip-cove-111847"], ["updated_at", "2014-08-15 21:24:12.090084"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Grand Bahama Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:24:12.093968"], ["name", "Paradise Villa"], ["photo_url", "https://pictures.luxuryretreats.com/109143/Bahamas-ParadiseVilla-New02.jpg"], ["price", 400], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/grand-bahama-island/paradise-villa-109143"], ["updated_at", "2014-08-15 21:24:12.093968"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:24:12.553516"], ["name", "Smugglers Cove - The Penthouse"], ["photo_url", "https://pictures.luxuryretreats.com/110249/barbados-smugglerscovethepenthouse-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-the-penthouse-110249"], ["updated_at", "2014-08-15 21:24:12.553516"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 8], ["bedrooms", 8], ["city", "Turtle Beach"], ["country", "Barbados"], ["created_at", "2014-08-15 21:24:12.558839"], ["name", "The Great House"], ["photo_url", "https://pictures.luxuryretreats.com/105061/barbados--thegreathouse--01.jpg"], ["price", 6], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/turtle-beach/the-great-house-105061"], ["updated_at", "2014-08-15 21:24:12.558839"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 4], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:24:12.564096"], ["name", "Smugglers Cove 6"], ["photo_url", "https://pictures.luxuryretreats.com/110921/barbados-smugglerscove6-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-6-110921"], ["updated_at", "2014-08-15 21:24:12.564096"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Reed-s Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:24:12.568925"], ["name", "Moon Reach"], ["photo_url", "https://pictures.luxuryretreats.com/105249/barbados-moonreach-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/reed-s-bay/moon-reach-105249"], ["updated_at", "2014-08-15 21:24:12.568925"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:24:12.601049"], ["name", "Coral Cove 6 - The Ivy"], ["photo_url", "https://pictures.luxuryretreats.com/110142/barbados-coralcove6theivy-1a.jpg"], ["price", 550], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/coral-cove-6-the-ivy-110142"], ["updated_at", "2014-08-15 21:24:12.601049"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:24:13.065292"], ["name", "Punto Perfecto"], ["photo_url", "https://pictures.luxuryretreats.com/113080/bonaire-puntoperfecto-01.jpg"], ["price", 857], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/punto-perfecto-113080"], ["updated_at", "2014-08-15 21:24:13.065292"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 5], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:24:13.070034"], ["name", "Karibuni"], ["photo_url", "https://pictures.luxuryretreats.com/113082/bonnaire-karibuni-01.jpg"], ["price", 928], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/karibuni-113082"], ["updated_at", "2014-08-15 21:24:13.070034"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:24:13.074191"], ["name", "Garden Villas Iguana"], ["photo_url", "https://pictures.luxuryretreats.com/113086/bonaire-gardenvillasiguana-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/garden-villas-iguana-113086"], ["updated_at", "2014-08-15 21:24:13.074191"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:24:13.107480"], ["name", "Kas Chapin"], ["photo_url", "https://pictures.luxuryretreats.com/113084/bonaire--kaschapin--01.jpg"], ["price", 928], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/kas-chapin-113084"], ["updated_at", "2014-08-15 21:24:13.107480"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:24:13.110929"], ["name", "Kas Dorrie"], ["photo_url", "https://pictures.luxuryretreats.com/113085/bonaire-kasdorrie-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/kas-dorrie-113085"], ["updated_at", "2014-08-15 21:24:13.110929"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 13], ["bedrooms", 13], ["city", "Playa Grande"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:24:13.526758"], ["name", "The Palace"], ["photo_url", "https://pictures.luxuryretreats.com/110899/DomRep-BalajiPalace-30.jpg"], ["price", 3], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/playa-grande/the-palace-110899"], ["updated_at", "2014-08-15 21:24:13.526758"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Casa De Campo"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:24:13.561532"], ["name", "Las Cerezas"], ["photo_url", "https://pictures.luxuryretreats.com/105439/Dominican_La_Cerzas_15.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/casa-de-campo/las-cerezas-105439"], ["updated_at", "2014-08-15 21:24:13.561532"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Punta Cana"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:24:13.566089"], ["name", "Las Palmas Punta Cana"], ["photo_url", "https://pictures.luxuryretreats.com/111356/dominicanrepublic-arrecife38-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/punta-cana/las-palmas-punta-cana-111356"], ["updated_at", "2014-08-15 21:24:13.566089"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Cabrera"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:24:13.570491"], ["name", "Cantamar Villa"], ["photo_url", "https://pictures.luxuryretreats.com/107882/dominicanrepublic-cantamarvilla-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/cabrera/cantamar-villa-107882"], ["updated_at", "2014-08-15 21:24:13.570491"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 8], ["bedrooms", 8], ["city", "Cabrera"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:24:13.574294"], ["name", "Casa Kimball"], ["photo_url", "https://pictures.luxuryretreats.com/110623/DominicanRepublic-CasaKimball-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/cabrera/casa-kimball-110623"], ["updated_at", "2014-08-15 21:24:13.574294"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 25], ["bedrooms", 25], ["city", "Calivigny"], ["country", "Grenada"], ["created_at", "2014-08-15 21:24:13.926929"], ["name", "Calivigny Island"], ["photo_url", "https://pictures.luxuryretreats.com/112000/grenada-calvigny-01.jpg"], ["price", 30], ["region", "Caribbean"], ["source", "/destinations/caribbean/grenada/calivigny/calivigny-island-112000"], ["updated_at", "2014-08-15 21:24:13.926929"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Discovery Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:24:14.404984"], ["name", "Sea Haven on Discovery Bay"], ["photo_url", "https://pictures.luxuryretreats.com/107341/jamaica-seahavendiscoverybay--01.jpg"], ["price", 428], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/discovery-bay/sea-haven-on-discovery-bay-107341"], ["updated_at", "2014-08-15 21:24:14.404984"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Montego Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:24:14.409873"], ["name", "Great River House"], ["photo_url", "https://pictures.luxuryretreats.com/109959/jamaica-greatriverhouse-01.jpg"], ["price", 850], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/montego-bay/great-river-house-109959"], ["updated_at", "2014-08-15 21:24:14.409873"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Negril"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:24:14.415806"], ["name", "Little Waters on the Cliff"], ["photo_url", "https://pictures.luxuryretreats.com/111862/jamaica-littlewatersontheclif-1.jpg"], ["price", 650], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/negril/little-waters-on-the-cliff-111862"], ["updated_at", "2014-08-15 21:24:14.415806"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 8], ["bedrooms", 5], ["city", "Montego Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:24:14.450263"], ["name", "Tek Time"], ["photo_url", "https://pictures.luxuryretreats.com/113063/jamaica-tektime-01.jpg"], ["price", 910], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/montego-bay/tek-time-113063"], ["updated_at", "2014-08-15 21:24:14.450263"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 6], ["city", "Tryall Club"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:24:14.454474"], ["name", "Anticipation at Tryall Club"], ["photo_url", "https://pictures.luxuryretreats.com/105079/jamaica-anticipationvillaattryall-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/tryall-club/anticipation-at-tryall-club-105079"], ["updated_at", "2014-08-15 21:24:14.454474"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Pinney-s Beach"], ["country", "Nevis"], ["created_at", "2014-08-15 21:24:14.837867"], ["name", "Villa Paradiso #5"], ["photo_url", "https://pictures.luxuryretreats.com/104955/44.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/nevis/pinney-s-beach/villa-paradiso-5-104955"], ["updated_at", "2014-08-15 21:24:14.837867"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:24:15.235156"], ["name", "Bahia Beach Las Verandas 06"], ["photo_url", "https://pictures.luxuryretreats.com/113772/puertorico-bahiabeach-lasverandas06-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-06-113772"], ["updated_at", "2014-08-15 21:24:15.235156"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:24:15.240230"], ["name", "Bahia Beach Las Ventanas 22"], ["photo_url", "https://pictures.luxuryretreats.com/113778/puertorico-bahiabeachlasverandas22-1.jpg"], ["price", 905], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-ventanas-22-113778"], ["updated_at", "2014-08-15 21:24:15.240230"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:24:15.244822"], ["name", "Bahia Beach Las Olas Beachfront Townhouse 07"], ["photo_url", "https://pictures.luxuryretreats.com/113779/puertorico-Townhouse 07-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-olas-beachfront-townhouse-07-113779"], ["updated_at", "2014-08-15 21:24:15.244822"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:24:15.249359"], ["name", "Bahia Beach Las Verandas 60"], ["photo_url", "https://pictures.luxuryretreats.com/113774/puertorico-bahiabeachlasverandas60-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-60-113774"], ["updated_at", "2014-08-15 21:24:15.249359"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:24:15.252962"], ["name", "Bahia Beach Las Verandas 10"], ["photo_url", "https://pictures.luxuryretreats.com/113773/puertorico-bahiabeach-lasverandas10-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-10-113773"], ["updated_at", "2014-08-15 21:24:15.252962"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "Petit Cul de Sac"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:24:15.739362"], ["name", "Princess X"], ["photo_url", "https://pictures.luxuryretreats.com/108998/stbarts-villaprincessX-01.jpg"], ["price", 560], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/petit-cul-de-sac/princess-x-108998"], ["updated_at", "2014-08-15 21:24:15.739362"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 3], ["city", "Flamands Hillside"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:24:15.745062"], ["name", "Mahogany"], ["photo_url", "https://pictures.luxuryretreats.com/110481/Mahogany-01bc.jpg"], ["price", 377], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/flamands-hillside/mahogany-110481"], ["updated_at", "2014-08-15 21:24:15.745062"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Gustavia"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:24:15.782557"], ["name", "Vitti"], ["photo_url", "https://pictures.luxuryretreats.com/112316/st-barts-vitti-02.jpg"], ["price", 4], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/gustavia/vitti-112316"], ["updated_at", "2014-08-15 21:24:15.782557"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Toiny"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:24:15.788197"], ["name", "Acamar"], ["photo_url", "https://pictures.luxuryretreats.com/112965/stbarts--Acamar---01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/toiny/acamar-112965"], ["updated_at", "2014-08-15 21:24:15.788197"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Pointe Milou"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:24:15.792419"], ["name", "Heloa"], ["photo_url", "https://pictures.luxuryretreats.com/112961/stbarts-heloa--01.jpg"], ["price", 318], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/pointe-milou/heloa-112961"], ["updated_at", "2014-08-15 21:24:15.792419"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 7], ["bedrooms", 6], ["city", "Cane Bay"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:24:16.211000"], ["name", "Estate Belvedere"], ["photo_url", "https://pictures.luxuryretreats.com/106240/stcroix-estate-belvedere-29.jpg"], ["price", 828], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/cane-bay/estate-belvedere-106240"], ["updated_at", "2014-08-15 21:24:16.211000"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Columbus Landing"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:24:16.237747"], ["name", "Blue Vista"], ["photo_url", "https://pictures.luxuryretreats.com/107792/stcroix-bluevista-01.jpg"], ["price", 635], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/columbus-landing/blue-vista-107792"], ["updated_at", "2014-08-15 21:24:16.237747"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Teague Bay"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:24:16.242146"], ["name", "Whispering Winds"], ["photo_url", "https://pictures.luxuryretreats.com/108168/stcroix-whisperingwinds-1.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/teague-bay/whispering-winds-108168"], ["updated_at", "2014-08-15 21:24:16.242146"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 5], ["city", "East End"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:24:16.247208"], ["name", "Solitude House"], ["photo_url", "https://pictures.luxuryretreats.com/111366/01.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/east-end/solitude-house-111366"], ["updated_at", "2014-08-15 21:24:16.247208"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Seven Hills"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:24:16.252715"], ["name", "Villa des Great Chefs"], ["photo_url", "https://pictures.luxuryretreats.com/104806/stcroix-villadesgreatchefs-1.jpg"], ["price", 495], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/seven-hills/villa-des-great-chefs-104806"], ["updated_at", "2014-08-15 21:24:16.252715"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Catherineberg"], ["country", "St- John"], ["created_at", "2014-08-15 21:24:16.674606"], ["name", "Hakuna Matata"], ["photo_url", "https://pictures.luxuryretreats.com/104800/StJohn-HakunaMatata-00.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/catherineberg/hakuna-matata-104800"], ["updated_at", "2014-08-15 21:24:16.674606"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Great Cruz Bay"], ["country", "St- John"], ["created_at", "2014-08-15 21:24:16.679624"], ["name", "Villa Adagio"], ["photo_url", "https://pictures.luxuryretreats.com/104834/stjohn-adagio-1.jpg"], ["price", 557], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/great-cruz-bay/villa-adagio-104834"], ["updated_at", "2014-08-15 21:24:16.679624"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Chocolate Hole"], ["country", "St- John"], ["created_at", "2014-08-15 21:24:16.684725"], ["name", "Solaris"], ["photo_url", "https://pictures.luxuryretreats.com/104841/StJohn-Solaris-01.jpg"], ["price", 385], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/chocolate-hole/solaris-104841"], ["updated_at", "2014-08-15 21:24:16.684725"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 2], ["city", "Haulover Bay"], ["country", "St- John"], ["created_at", "2014-08-15 21:24:16.690183"], ["name", "The Retreat"], ["photo_url", "https://pictures.luxuryretreats.com/105658/stjohn-theretreat--01.jpg"], ["price", 424], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/haulover-bay/the-retreat-105658"], ["updated_at", "2014-08-15 21:24:16.690183"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 5], ["city", "Chocolate Hole"], ["country", "St- John"], ["created_at", "2014-08-15 21:24:16.722090"], ["name", "Kismet"], ["photo_url", "https://pictures.luxuryretreats.com/106224/stjohn-kismet--01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/chocolate-hole/kismet-106224"], ["updated_at", "2014-08-15 21:24:16.722090"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 4], ["city", "Cap Estate"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:24:17.125536"], ["name", "Akasha - Cap Estate"], ["photo_url", "https://pictures.luxuryretreats.com/111322/stlucia-akashaestate-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/cap-estate/akasha-cap-estate-111322"], ["updated_at", "2014-08-15 21:24:17.125536"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Gros Islet"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:24:17.129892"], ["name", "C'est La Vie"], ["photo_url", "https://pictures.luxuryretreats.com/111665/stlucia-cestlavie-1.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/gros-islet/cest-la-vie-111665"], ["updated_at", "2014-08-15 21:24:17.129892"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 9], ["bedrooms", 9], ["city", "Cap Estate"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:24:17.161357"], ["name", "Villa Capri"], ["photo_url", "https://pictures.luxuryretreats.com/106743/stlucia-capri-1.jpg"], ["price", 850], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/cap-estate/villa-capri-106743"], ["updated_at", "2014-08-15 21:24:17.161357"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 3], ["city", "Gros Islet"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:24:17.164921"], ["name", "Sur La Mer"], ["photo_url", "https://pictures.luxuryretreats.com/107445/stlucia-surlamer-1.jpg"], ["price", 300], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/gros-islet/sur-la-mer-107445"], ["updated_at", "2014-08-15 21:24:17.164921"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Bois D-Orange"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:24:17.168359"], ["name", "Trouya"], ["photo_url", "https://pictures.luxuryretreats.com/105269/stlucia-trouya-01.jpg"], ["price", 370], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/bois-d-orange/trouya-105269"], ["updated_at", "2014-08-15 21:24:17.168359"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Cupecoy"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:24:17.618852"], ["name", "Farniente"], ["photo_url", "https://pictures.luxuryretreats.com/110601/st-martin-farniente-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/cupecoy/farniente-110601"], ["updated_at", "2014-08-15 21:24:17.618852"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Cupecoy"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:24:17.622524"], ["name", "Mumbai"], ["photo_url", "https://pictures.luxuryretreats.com/110545/st-martin-mumbai-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/cupecoy/mumbai-110545"], ["updated_at", "2014-08-15 21:24:17.622524"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:24:17.626477"], ["name", "Carisa"], ["photo_url", "https://pictures.luxuryretreats.com/105669/st-martin-carisa-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/carisa-105669"], ["updated_at", "2014-08-15 21:24:17.626477"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 2], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:24:17.630862"], ["name", "La Vie en Bleu"], ["photo_url", "https://pictures.luxuryretreats.com/110625/st-martin-lavieenbleu-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/la-vie-en-bleu-110625"], ["updated_at", "2014-08-15 21:24:17.630862"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:24:17.635544"], ["name", "Beau Rivage"], ["photo_url", "https://pictures.luxuryretreats.com/105461/st-barts-beau-rivage-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/beau-rivage-105461"], ["updated_at", "2014-08-15 21:24:17.635544"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Flag Hill"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:24:18.088967"], ["name", "Ventana"], ["photo_url", "https://pictures.luxuryretreats.com/104782/St.Thomas-Ventana-01.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/flag-hill/ventana-104782"], ["updated_at", "2014-08-15 21:24:18.088967"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Flag Hill"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:24:18.093059"], ["name", "L'Esperance"], ["photo_url", "https://pictures.luxuryretreats.com/104790/St.Thomas-LEsperance-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/flag-hill/lesperance-104790"], ["updated_at", "2014-08-15 21:24:18.093059"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Skyline Drive"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:24:18.097711"], ["name", "Infinity"], ["photo_url", "https://pictures.luxuryretreats.com/104795/stthomas-infinity--01.jpg"], ["price", 886], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/skyline-drive/infinity-104795"], ["updated_at", "2014-08-15 21:24:18.097711"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "East End"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:24:18.133324"], ["name", "Ritz-Carlton Club 2BR Residences"], ["photo_url", "https://pictures.luxuryretreats.com/106726/stthomas-ritzcarltonclub2BReesidences-1.jpg"], ["price", 570], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-2br-residences-106726"], ["updated_at", "2014-08-15 21:24:18.133324"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "East End"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:24:18.137468"], ["name", "Ritz-Carlton Club 3BR"], ["photo_url", "https://pictures.luxuryretreats.com/106727/stthomas-ritzcarltonclub3BR-1.jpg"], ["price", 700], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-3br-106727"], ["updated_at", "2014-08-15 21:24:18.137468"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Trunk Bay"], ["country", "Tortola"], ["created_at", "2014-08-15 21:24:18.602653"], ["name", "Aja"], ["photo_url", "https://pictures.luxuryretreats.com/112048/tortola-aja--01.jpg"], ["price", 985], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/trunk-bay/aja-112048"], ["updated_at", "2014-08-15 21:24:18.602653"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Belmont"], ["country", "Tortola"], ["created_at", "2014-08-15 21:24:18.632356"], ["name", "Towanda"], ["photo_url", "https://pictures.luxuryretreats.com/105745/tortola-towanda-1.jpg"], ["price", 335], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/belmont/towanda-105745"], ["updated_at", "2014-08-15 21:24:18.632356"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 6], ["city", "Apple Bay"], ["country", "Tortola"], ["created_at", "2014-08-15 21:24:18.637379"], ["name", "Tingalayo"], ["photo_url", "https://pictures.luxuryretreats.com/112312/tortola-tingalayo-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/apple-bay/tingalayo-112312"], ["updated_at", "2014-08-15 21:24:18.637379"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 6], ["city", "Havers Hill"], ["country", "Tortola"], ["created_at", "2014-08-15 21:24:18.641553"], ["name", "Summer Heights"], ["photo_url", "https://pictures.luxuryretreats.com/104818/tortola-summerheights-01.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/havers-hill/summer-heights-104818"], ["updated_at", "2014-08-15 21:24:18.641553"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Havers Hill"], ["country", "Tortola"], ["created_at", "2014-08-15 21:24:18.645746"], ["name", "Toa Toa House"], ["photo_url", "https://pictures.luxuryretreats.com/104821/Tortola-ToaToaHouse-1.jpg"], ["price", 400], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/havers-hill/toa-toa-house-104821"], ["updated_at", "2014-08-15 21:24:18.645746"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 6], ["city", "Leeward"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 21:24:19.023382"], ["name", "Rafters"], ["photo_url", "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121"], ["updated_at", "2014-08-15 21:24:19.023382"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Nail Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:24:19.430325"], ["name", "Baraka Point Estate"], ["photo_url", "https://pictures.luxuryretreats.com/105500/virgingorda-barakapoint--01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/nail-bay/baraka-point-estate-105500"], ["updated_at", "2014-08-15 21:24:19.430325"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:24:19.434609"], ["name", "Aquamare Villa 2"], ["photo_url", "https://pictures.luxuryretreats.com/109598/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-2-109598"], ["updated_at", "2014-08-15 21:24:19.434609"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:24:19.438793"], ["name", "Aquamare Villa 3"], ["photo_url", "https://pictures.luxuryretreats.com/109600/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-3-109600"], ["updated_at", "2014-08-15 21:24:19.438793"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:24:19.471578"], ["name", "Aquamare Villa 1"], ["photo_url", "https://pictures.luxuryretreats.com/109643/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-1-109643"], ["updated_at", "2014-08-15 21:24:19.471578"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Crooks Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:24:19.476011"], ["name", "Bayhouse"], ["photo_url", "https://pictures.luxuryretreats.com/112245/virgingorda-bayhouse-1.jpg"], ["price", 700], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/crooks-bay/bayhouse-112245"], ["updated_at", "2014-08-15 21:24:19.476011"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.484659"], ["name", "advertising,"], ["updated_at", "2014-08-15 21:24:19.484659"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.486605"], ["name", "accounting,"], ["updated_at", "2014-08-15 21:24:19.486605"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.487973"], ["name", "airline,"], ["updated_at", "2014-08-15 21:24:19.487973"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.489342"], ["name", "banking,"], ["updated_at", "2014-08-15 21:24:19.489342"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.490768"], ["name", "education,"], ["updated_at", "2014-08-15 21:24:19.490768"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.492206"], ["name", "energy,"], ["updated_at", "2014-08-15 21:24:19.492206"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.493605"], ["name", "finance,"], ["updated_at", "2014-08-15 21:24:19.493605"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.495050"], ["name", "fashion,"], ["updated_at", "2014-08-15 21:24:19.495050"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.496435"], ["name", "health"], ["updated_at", "2014-08-15 21:24:19.496435"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.497624"], ["name", "care,"], ["updated_at", "2014-08-15 21:24:19.497624"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.498836"], ["name", "legal,"], ["updated_at", "2014-08-15 21:24:19.498836"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.500472"], ["name", "motion"], ["updated_at", "2014-08-15 21:24:19.500472"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.501803"], ["name", "picture"], ["updated_at", "2014-08-15 21:24:19.501803"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.503141"], ["name", "video,"], ["updated_at", "2014-08-15 21:24:19.503141"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.504463"], ["name", "music,"], ["updated_at", "2014-08-15 21:24:19.504463"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.505804"], ["name", "publishing"], ["updated_at", "2014-08-15 21:24:19.505804"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.507055"], ["name", "journalism,"], ["updated_at", "2014-08-15 21:24:19.507055"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.508433"], ["name", "real"], ["updated_at", "2014-08-15 21:24:19.508433"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.509726"], ["name", "estate,"], ["updated_at", "2014-08-15 21:24:19.509726"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.511076"], ["name", "software,"], ["updated_at", "2014-08-15 21:24:19.511076"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.512466"], ["name", "sports,"], ["updated_at", "2014-08-15 21:24:19.512466"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:24:19.513816"], ["name", "other"], ["updated_at", "2014-08-15 21:24:19.513816"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.515164"], ["name", "none,"], ["updated_at", "2014-08-15 21:24:19.515164"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.516904"], ["name", "catholic,"], ["updated_at", "2014-08-15 21:24:19.516904"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.518166"], ["name", "christian,"], ["updated_at", "2014-08-15 21:24:19.518166"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.519412"], ["name", "jewish,"], ["updated_at", "2014-08-15 21:24:19.519412"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.520682"], ["name", "muslim,"], ["updated_at", "2014-08-15 21:24:19.520682"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.522013"], ["name", "orthodox,"], ["updated_at", "2014-08-15 21:24:19.522013"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.523544"], ["name", "buddhist,"], ["updated_at", "2014-08-15 21:24:19.523544"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.524905"], ["name", "hindu,"], ["updated_at", "2014-08-15 21:24:19.524905"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:24:19.526402"], ["name", "other"], ["updated_at", "2014-08-15 21:24:19.526402"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:24:19.527743"], ["name", "straight,"], ["updated_at", "2014-08-15 21:24:19.527743"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:24:19.529112"], ["name", "gay,"], ["updated_at", "2014-08-15 21:24:19.529112"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:24:19.530307"], ["name", "bisexual,"], ["updated_at", "2014-08-15 21:24:19.530307"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:24:19.531526"], ["name", "other"], ["updated_at", "2014-08-15 21:24:19.531526"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "smoker?"], ["created_at", "2014-08-15 21:24:19.532871"], ["name", "yes,"], ["updated_at", "2014-08-15 21:24:19.532871"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "smoker?"], ["created_at", "2014-08-15 21:24:19.534298"], ["name", "no,"], ["updated_at", "2014-08-15 21:24:19.534298"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "smoker?"], ["created_at", "2014-08-15 21:24:19.535671"], ["name", "socially"], ["updated_at", "2014-08-15 21:24:19.535671"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.537131"], ["name", "student,"], ["updated_at", "2014-08-15 21:24:19.537131"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.538483"], ["name", "entrepreneur,"], ["updated_at", "2014-08-15 21:24:19.538483"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.539838"], ["name", "vegetarian,"], ["updated_at", "2014-08-15 21:24:19.539838"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.541167"], ["name", "total"], ["updated_at", "2014-08-15 21:24:19.541167"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.542467"], ["name", "carnivore,"], ["updated_at", "2014-08-15 21:24:19.542467"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.543894"], ["name", "early"], ["updated_at", "2014-08-15 21:24:19.543894"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.545324"], ["name", "bird,"], ["updated_at", "2014-08-15 21:24:19.545324"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.546903"], ["name", "night"], ["updated_at", "2014-08-15 21:24:19.546903"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.548628"], ["name", "owl,"], ["updated_at", "2014-08-15 21:24:19.548628"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.549958"], ["name", "dog"], ["updated_at", "2014-08-15 21:24:19.549958"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.551514"], ["name", "lover,"], ["updated_at", "2014-08-15 21:24:19.551514"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.552936"], ["name", "cat"], ["updated_at", "2014-08-15 21:24:19.552936"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.554441"], ["name", "lover,"], ["updated_at", "2014-08-15 21:24:19.554441"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.556020"], ["name", "democrat,"], ["updated_at", "2014-08-15 21:24:19.556020"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.557513"], ["name", "republican,"], ["updated_at", "2014-08-15 21:24:19.557513"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.558950"], ["name", "bookworm,"], ["updated_at", "2014-08-15 21:24:19.558950"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.560306"], ["name", "social"], ["updated_at", "2014-08-15 21:24:19.560306"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:24:19.561672"], ["name", "butterfly"], ["updated_at", "2014-08-15 21:24:19.561672"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.563069"], ["name", "rock,"], ["updated_at", "2014-08-15 21:24:19.563069"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.564526"], ["name", "electronic"], ["updated_at", "2014-08-15 21:24:19.564526"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.566104"], ["name", "music,"], ["updated_at", "2014-08-15 21:24:19.566104"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.567536"], ["name", "dubstep,"], ["updated_at", "2014-08-15 21:24:19.567536"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.569030"], ["name", "rap"], ["updated_at", "2014-08-15 21:24:19.569030"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.570447"], ["name", "hip"], ["updated_at", "2014-08-15 21:24:19.570447"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.571700"], ["name", "hop,"], ["updated_at", "2014-08-15 21:24:19.571700"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.573005"], ["name", "latin,"], ["updated_at", "2014-08-15 21:24:19.573005"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.574529"], ["name", "jazz,"], ["updated_at", "2014-08-15 21:24:19.574529"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.576039"], ["name", "classical,"], ["updated_at", "2014-08-15 21:24:19.576039"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.577445"], ["name", "reggae,"], ["updated_at", "2014-08-15 21:24:19.577445"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.578842"], ["name", "techno,"], ["updated_at", "2014-08-15 21:24:19.578842"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.580056"], ["name", "country,"], ["updated_at", "2014-08-15 21:24:19.580056"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.581619"], ["name", "dance"], ["updated_at", "2014-08-15 21:24:19.581619"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.583254"], ["name", "music,"], ["updated_at", "2014-08-15 21:24:19.583254"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:24:19.584592"], ["name", "indie"], ["updated_at", "2014-08-15 21:24:19.584592"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.589013"], ["name", "heating,"], ["updated_at", "2014-08-15 21:24:19.589013"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.590592"], ["name", "air"], ["updated_at", "2014-08-15 21:24:19.590592"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.591748"], ["name", "conditioning,"], ["updated_at", "2014-08-15 21:24:19.591748"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.593149"], ["name", "washer,"], ["updated_at", "2014-08-15 21:24:19.593149"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.594378"], ["name", "dryer,"], ["updated_at", "2014-08-15 21:24:19.594378"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.595969"], ["name", "parking,"], ["updated_at", "2014-08-15 21:24:19.595969"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.597070"], ["name", "wireless"], ["updated_at", "2014-08-15 21:24:19.597070"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.598238"], ["name", "internet,"], ["updated_at", "2014-08-15 21:24:19.598238"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.599623"], ["name", "cable"], ["updated_at", "2014-08-15 21:24:19.599623"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.601378"], ["name", "tv,"], ["updated_at", "2014-08-15 21:24:19.601378"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.602960"], ["name", "pets"], ["updated_at", "2014-08-15 21:24:19.602960"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.604288"], ["name", "allowed,"], ["updated_at", "2014-08-15 21:24:19.604288"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.605462"], ["name", "smoking"], ["updated_at", "2014-08-15 21:24:19.605462"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.606626"], ["name", "allowed,"], ["updated_at", "2014-08-15 21:24:19.606626"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.607835"], ["name", "wheelchair"], ["updated_at", "2014-08-15 21:24:19.607835"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.609180"], ["name", "accessible,"], ["updated_at", "2014-08-15 21:24:19.609180"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.610433"], ["name", "elevator,"], ["updated_at", "2014-08-15 21:24:19.610433"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.611707"], ["name", "fireplace,"], ["updated_at", "2014-08-15 21:24:19.611707"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.613053"], ["name", "doorman,"], ["updated_at", "2014-08-15 21:24:19.613053"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.614677"], ["name", "pool,"], ["updated_at", "2014-08-15 21:24:19.614677"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.616239"], ["name", "hot"], ["updated_at", "2014-08-15 21:24:19.616239"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.618329"], ["name", "yub,"], ["updated_at", "2014-08-15 21:24:19.618329"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.620376"], ["name", "gym,"], ["updated_at", "2014-08-15 21:24:19.620376"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:24:19.621727"], ["name", "bbq"], ["updated_at", "2014-08-15 21:24:19.621727"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:24:19.623106"], ["name", "grill"], ["updated_at", "2014-08-15 21:24:19.623106"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[36mMansionAmenity Load (1.7ms)[0m  [1mSELECT "mansion_amenities".* FROM "mansion_amenities"[0m
+  [1m[35mMansionAmenity Load (0.2ms)[0m  SELECT  "mansion_amenities".* FROM "mansion_amenities"   ORDER BY "mansion_amenities"."id" ASC LIMIT 1
+  [1m[36mMansionAmenity Load (0.1ms)[0m  [1mSELECT  "mansion_amenities".* FROM "mansion_amenities"   ORDER BY "mansion_amenities"."id" DESC LIMIT 1[0m
+  [1m[35mMansionAmenity Load (0.2ms)[0m  SELECT  "mansion_amenities".* FROM "mansion_amenities"  WHERE "mansion_amenities"."id" = ? LIMIT 1  [["id", 24]]
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "mansion_amenities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "region" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "price" integer, "source" text, "country" varchar(255), "photo_url" text) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "personality_trait_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "personality_trait_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "personality_traits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "category" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140815212107')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815154834')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140815155107')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815160018')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140815182033')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815190715')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140815191240')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815191341')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140815191934')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815192933')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140815193435')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/AntonioPerez/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 6], ["city", "Leeward"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 21:31:24.588503"], ["name", "Rafters"], ["photo_url", "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121"], ["updated_at", "2014-08-15 21:31:24.588503"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:31:25.024340"], ["name", "Ani South"], ["photo_url", "https://pictures.luxuryretreats.com/111915/anguilla-southani-1.jpg"], ["price", 6], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-south-111915"], ["updated_at", "2014-08-15 21:31:25.024340"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 6], ["city", "Little Harbor"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:31:25.029869"], ["name", "Triton - Kamique"], ["photo_url", "https://pictures.luxuryretreats.com/111134/Anguilla-Kamique-05.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-harbor/triton-kamique-111134"], ["updated_at", "2014-08-15 21:31:25.029869"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Little Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:31:25.034131"], ["name", "Ani North"], ["photo_url", "https://pictures.luxuryretreats.com/111914/anguilla-northani-1.jpg"], ["price", 5], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/little-bay/ani-north-111914"], ["updated_at", "2014-08-15 21:31:25.034131"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 5], ["city", "Sandy Hill"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:31:25.065186"], ["name", "Bird of Paradise Villa"], ["photo_url", "https://pictures.luxuryretreats.com/107614/anguilla-birdofparadise-02.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/sandy-hill/bird-of-paradise-villa-107614"], ["updated_at", "2014-08-15 21:31:25.065186"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 9], ["bedrooms", 8], ["city", "Maundays Bay"], ["country", "Anguilla"], ["created_at", "2014-08-15 21:31:25.069292"], ["name", "Harmony"], ["photo_url", "https://pictures.luxuryretreats.com/107823/anguilla-harmony-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/anguilla/maundays-bay/harmony-107823"], ["updated_at", "2014-08-15 21:31:25.069292"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 5], ["city", "Eleuthera Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:31:25.475520"], ["name", "Buccaneer Hill"], ["photo_url", "https://pictures.luxuryretreats.com/111516/bahamas-buccaneerhill-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/eleuthera-island/buccaneer-hill-111516"], ["updated_at", "2014-08-15 21:31:25.475520"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Grand Bahama Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:31:25.509249"], ["name", "Nandana"], ["photo_url", "https://pictures.luxuryretreats.com/111384/bahamas-nandana--01.jpg"], ["price", 7], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/grand-bahama-island/nandana-111384"], ["updated_at", "2014-08-15 21:31:25.509249"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "New Providence Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:31:25.513483"], ["name", "Villa Mouette"], ["photo_url", "https://pictures.luxuryretreats.com/111633/bahamas-villamouette--01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/new-providence-island/villa-mouette-111633"], ["updated_at", "2014-08-15 21:31:25.513483"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 14], ["bedrooms", 14], ["city", "New Providence Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:31:25.517662"], ["name", "Serendip Cove"], ["photo_url", "https://pictures.luxuryretreats.com/111847/bahamas--serendipcove--01a.jpg"], ["price", 5], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/new-providence-island/serendip-cove-111847"], ["updated_at", "2014-08-15 21:31:25.517662"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Grand Bahama Island"], ["country", "Bahamas"], ["created_at", "2014-08-15 21:31:25.521649"], ["name", "Paradise Villa"], ["photo_url", "https://pictures.luxuryretreats.com/109143/Bahamas-ParadiseVilla-New02.jpg"], ["price", 400], ["region", "Caribbean"], ["source", "/destinations/caribbean/bahamas/grand-bahama-island/paradise-villa-109143"], ["updated_at", "2014-08-15 21:31:25.521649"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:31:25.949433"], ["name", "Smugglers Cove - The Penthouse"], ["photo_url", "https://pictures.luxuryretreats.com/110249/barbados-smugglerscovethepenthouse-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-the-penthouse-110249"], ["updated_at", "2014-08-15 21:31:25.949433"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 8], ["bedrooms", 8], ["city", "Turtle Beach"], ["country", "Barbados"], ["created_at", "2014-08-15 21:31:25.953786"], ["name", "The Great House"], ["photo_url", "https://pictures.luxuryretreats.com/105061/barbados--thegreathouse--01.jpg"], ["price", 6], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/turtle-beach/the-great-house-105061"], ["updated_at", "2014-08-15 21:31:25.953786"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 4], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:31:25.958761"], ["name", "Smugglers Cove 6"], ["photo_url", "https://pictures.luxuryretreats.com/110921/barbados-smugglerscove6-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-6-110921"], ["updated_at", "2014-08-15 21:31:25.958761"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Reed-s Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:31:25.963211"], ["name", "Moon Reach"], ["photo_url", "https://pictures.luxuryretreats.com/105249/barbados-moonreach-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/reed-s-bay/moon-reach-105249"], ["updated_at", "2014-08-15 21:31:25.963211"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Paynes Bay"], ["country", "Barbados"], ["created_at", "2014-08-15 21:31:25.996729"], ["name", "Coral Cove 6 - The Ivy"], ["photo_url", "https://pictures.luxuryretreats.com/110142/barbados-coralcove6theivy-1a.jpg"], ["price", 550], ["region", "Caribbean"], ["source", "/destinations/caribbean/barbados/paynes-bay/coral-cove-6-the-ivy-110142"], ["updated_at", "2014-08-15 21:31:25.996729"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:31:26.421117"], ["name", "Punto Perfecto"], ["photo_url", "https://pictures.luxuryretreats.com/113080/bonaire-puntoperfecto-01.jpg"], ["price", 857], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/punto-perfecto-113080"], ["updated_at", "2014-08-15 21:31:26.421117"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 5], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:31:26.424870"], ["name", "Karibuni"], ["photo_url", "https://pictures.luxuryretreats.com/113082/bonnaire-karibuni-01.jpg"], ["price", 928], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/karibuni-113082"], ["updated_at", "2014-08-15 21:31:26.424870"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:31:26.456036"], ["name", "Garden Villas Iguana"], ["photo_url", "https://pictures.luxuryretreats.com/113086/bonaire-gardenvillasiguana-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/garden-villas-iguana-113086"], ["updated_at", "2014-08-15 21:31:26.456036"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:31:26.460952"], ["name", "Kas Chapin"], ["photo_url", "https://pictures.luxuryretreats.com/113084/bonaire--kaschapin--01.jpg"], ["price", 928], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/kas-chapin-113084"], ["updated_at", "2014-08-15 21:31:26.460952"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Kralendijk"], ["country", "Bonaire"], ["created_at", "2014-08-15 21:31:26.464824"], ["name", "Kas Dorrie"], ["photo_url", "https://pictures.luxuryretreats.com/113085/bonaire-kasdorrie-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/bonaire/kralendijk/kas-dorrie-113085"], ["updated_at", "2014-08-15 21:31:26.464824"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 13], ["bedrooms", 13], ["city", "Playa Grande"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:31:27.151761"], ["name", "The Palace"], ["photo_url", "https://pictures.luxuryretreats.com/110899/DomRep-BalajiPalace-30.jpg"], ["price", 3], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/playa-grande/the-palace-110899"], ["updated_at", "2014-08-15 21:31:27.151761"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Casa De Campo"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:31:27.183571"], ["name", "Las Cerezas"], ["photo_url", "https://pictures.luxuryretreats.com/105439/Dominican_La_Cerzas_15.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/casa-de-campo/las-cerezas-105439"], ["updated_at", "2014-08-15 21:31:27.183571"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Punta Cana"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:31:27.187207"], ["name", "Las Palmas Punta Cana"], ["photo_url", "https://pictures.luxuryretreats.com/111356/dominicanrepublic-arrecife38-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/punta-cana/las-palmas-punta-cana-111356"], ["updated_at", "2014-08-15 21:31:27.187207"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Cabrera"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:31:27.190669"], ["name", "Cantamar Villa"], ["photo_url", "https://pictures.luxuryretreats.com/107882/dominicanrepublic-cantamarvilla-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/cabrera/cantamar-villa-107882"], ["updated_at", "2014-08-15 21:31:27.190669"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 8], ["bedrooms", 8], ["city", "Cabrera"], ["country", "Dominican Republic"], ["created_at", "2014-08-15 21:31:27.194099"], ["name", "Casa Kimball"], ["photo_url", "https://pictures.luxuryretreats.com/110623/DominicanRepublic-CasaKimball-1.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/dominican-republic/cabrera/casa-kimball-110623"], ["updated_at", "2014-08-15 21:31:27.194099"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 25], ["bedrooms", 25], ["city", "Calivigny"], ["country", "Grenada"], ["created_at", "2014-08-15 21:31:27.590830"], ["name", "Calivigny Island"], ["photo_url", "https://pictures.luxuryretreats.com/112000/grenada-calvigny-01.jpg"], ["price", 30], ["region", "Caribbean"], ["source", "/destinations/caribbean/grenada/calivigny/calivigny-island-112000"], ["updated_at", "2014-08-15 21:31:27.590830"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Discovery Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:31:28.028196"], ["name", "Sea Haven on Discovery Bay"], ["photo_url", "https://pictures.luxuryretreats.com/107341/jamaica-seahavendiscoverybay--01.jpg"], ["price", 428], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/discovery-bay/sea-haven-on-discovery-bay-107341"], ["updated_at", "2014-08-15 21:31:28.028196"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Montego Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:31:28.033529"], ["name", "Great River House"], ["photo_url", "https://pictures.luxuryretreats.com/109959/jamaica-greatriverhouse-01.jpg"], ["price", 850], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/montego-bay/great-river-house-109959"], ["updated_at", "2014-08-15 21:31:28.033529"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Negril"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:31:28.064510"], ["name", "Little Waters on the Cliff"], ["photo_url", "https://pictures.luxuryretreats.com/111862/jamaica-littlewatersontheclif-1.jpg"], ["price", 650], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/negril/little-waters-on-the-cliff-111862"], ["updated_at", "2014-08-15 21:31:28.064510"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 8], ["bedrooms", 5], ["city", "Montego Bay"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:31:28.068272"], ["name", "Tek Time"], ["photo_url", "https://pictures.luxuryretreats.com/113063/jamaica-tektime-01.jpg"], ["price", 910], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/montego-bay/tek-time-113063"], ["updated_at", "2014-08-15 21:31:28.068272"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 6], ["city", "Tryall Club"], ["country", "Jamaica"], ["created_at", "2014-08-15 21:31:28.074191"], ["name", "Anticipation at Tryall Club"], ["photo_url", "https://pictures.luxuryretreats.com/105079/jamaica-anticipationvillaattryall-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/jamaica/tryall-club/anticipation-at-tryall-club-105079"], ["updated_at", "2014-08-15 21:31:28.074191"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Pinney-s Beach"], ["country", "Nevis"], ["created_at", "2014-08-15 21:31:28.464559"], ["name", "Villa Paradiso #5"], ["photo_url", "https://pictures.luxuryretreats.com/104955/44.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/nevis/pinney-s-beach/villa-paradiso-5-104955"], ["updated_at", "2014-08-15 21:31:28.464559"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:31:28.860909"], ["name", "Bahia Beach Las Verandas 06"], ["photo_url", "https://pictures.luxuryretreats.com/113772/puertorico-bahiabeach-lasverandas06-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-06-113772"], ["updated_at", "2014-08-15 21:31:28.860909"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:31:28.864765"], ["name", "Bahia Beach Las Ventanas 22"], ["photo_url", "https://pictures.luxuryretreats.com/113778/puertorico-bahiabeachlasverandas22-1.jpg"], ["price", 905], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-ventanas-22-113778"], ["updated_at", "2014-08-15 21:31:28.864765"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:31:28.868814"], ["name", "Bahia Beach Las Olas Beachfront Townhouse 07"], ["photo_url", "https://pictures.luxuryretreats.com/113779/puertorico-Townhouse 07-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-olas-beachfront-townhouse-07-113779"], ["updated_at", "2014-08-15 21:31:28.868814"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:31:28.873107"], ["name", "Bahia Beach Las Verandas 60"], ["photo_url", "https://pictures.luxuryretreats.com/113774/puertorico-bahiabeachlasverandas60-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-60-113774"], ["updated_at", "2014-08-15 21:31:28.873107"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Rio Grande"], ["country", "Puerto Rico"], ["created_at", "2014-08-15 21:31:28.905743"], ["name", "Bahia Beach Las Verandas 10"], ["photo_url", "https://pictures.luxuryretreats.com/113773/puertorico-bahiabeach-lasverandas10-1.jpg"], ["price", 737], ["region", "Caribbean"], ["source", "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-10-113773"], ["updated_at", "2014-08-15 21:31:28.905743"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "Petit Cul de Sac"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:31:29.439157"], ["name", "Princess X"], ["photo_url", "https://pictures.luxuryretreats.com/108998/stbarts-villaprincessX-01.jpg"], ["price", 560], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/petit-cul-de-sac/princess-x-108998"], ["updated_at", "2014-08-15 21:31:29.439157"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 3], ["city", "Flamands Hillside"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:31:29.445089"], ["name", "Mahogany"], ["photo_url", "https://pictures.luxuryretreats.com/110481/Mahogany-01bc.jpg"], ["price", 377], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/flamands-hillside/mahogany-110481"], ["updated_at", "2014-08-15 21:31:29.445089"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Gustavia"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:31:29.481773"], ["name", "Vitti"], ["photo_url", "https://pictures.luxuryretreats.com/112316/st-barts-vitti-02.jpg"], ["price", 4], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/gustavia/vitti-112316"], ["updated_at", "2014-08-15 21:31:29.481773"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Toiny"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:31:29.486118"], ["name", "Acamar"], ["photo_url", "https://pictures.luxuryretreats.com/112965/stbarts--Acamar---01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/toiny/acamar-112965"], ["updated_at", "2014-08-15 21:31:29.486118"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Pointe Milou"], ["country", "St- Barts"], ["created_at", "2014-08-15 21:31:29.490214"], ["name", "Heloa"], ["photo_url", "https://pictures.luxuryretreats.com/112961/stbarts-heloa--01.jpg"], ["price", 318], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--barts/pointe-milou/heloa-112961"], ["updated_at", "2014-08-15 21:31:29.490214"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 7], ["bedrooms", 6], ["city", "Cane Bay"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:31:29.902014"], ["name", "Estate Belvedere"], ["photo_url", "https://pictures.luxuryretreats.com/106240/stcroix-estate-belvedere-29.jpg"], ["price", 828], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/cane-bay/estate-belvedere-106240"], ["updated_at", "2014-08-15 21:31:29.902014"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Columbus Landing"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:31:29.936005"], ["name", "Blue Vista"], ["photo_url", "https://pictures.luxuryretreats.com/107792/stcroix-bluevista-01.jpg"], ["price", 635], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/columbus-landing/blue-vista-107792"], ["updated_at", "2014-08-15 21:31:29.936005"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Teague Bay"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:31:29.941557"], ["name", "Whispering Winds"], ["photo_url", "https://pictures.luxuryretreats.com/108168/stcroix-whisperingwinds-1.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/teague-bay/whispering-winds-108168"], ["updated_at", "2014-08-15 21:31:29.941557"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 5], ["city", "East End"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:31:29.945857"], ["name", "Solitude House"], ["photo_url", "https://pictures.luxuryretreats.com/111366/01.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/east-end/solitude-house-111366"], ["updated_at", "2014-08-15 21:31:29.945857"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Seven Hills"], ["country", "St- Croix"], ["created_at", "2014-08-15 21:31:29.950036"], ["name", "Villa des Great Chefs"], ["photo_url", "https://pictures.luxuryretreats.com/104806/stcroix-villadesgreatchefs-1.jpg"], ["price", 495], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--croix/seven-hills/villa-des-great-chefs-104806"], ["updated_at", "2014-08-15 21:31:29.950036"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Catherineberg"], ["country", "St- John"], ["created_at", "2014-08-15 21:31:30.380869"], ["name", "Hakuna Matata"], ["photo_url", "https://pictures.luxuryretreats.com/104800/StJohn-HakunaMatata-00.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/catherineberg/hakuna-matata-104800"], ["updated_at", "2014-08-15 21:31:30.380869"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Great Cruz Bay"], ["country", "St- John"], ["created_at", "2014-08-15 21:31:30.385083"], ["name", "Villa Adagio"], ["photo_url", "https://pictures.luxuryretreats.com/104834/stjohn-adagio-1.jpg"], ["price", 557], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/great-cruz-bay/villa-adagio-104834"], ["updated_at", "2014-08-15 21:31:30.385083"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 4], ["city", "Chocolate Hole"], ["country", "St- John"], ["created_at", "2014-08-15 21:31:30.390090"], ["name", "Solaris"], ["photo_url", "https://pictures.luxuryretreats.com/104841/StJohn-Solaris-01.jpg"], ["price", 385], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/chocolate-hole/solaris-104841"], ["updated_at", "2014-08-15 21:31:30.390090"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 2], ["city", "Haulover Bay"], ["country", "St- John"], ["created_at", "2014-08-15 21:31:30.394766"], ["name", "The Retreat"], ["photo_url", "https://pictures.luxuryretreats.com/105658/stjohn-theretreat--01.jpg"], ["price", 424], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/haulover-bay/the-retreat-105658"], ["updated_at", "2014-08-15 21:31:30.394766"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 6], ["bedrooms", 5], ["city", "Chocolate Hole"], ["country", "St- John"], ["created_at", "2014-08-15 21:31:30.426920"], ["name", "Kismet"], ["photo_url", "https://pictures.luxuryretreats.com/106224/stjohn-kismet--01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--john/chocolate-hole/kismet-106224"], ["updated_at", "2014-08-15 21:31:30.426920"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 6], ["bedrooms", 4], ["city", "Cap Estate"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:31:30.837095"], ["name", "Akasha - Cap Estate"], ["photo_url", "https://pictures.luxuryretreats.com/111322/stlucia-akashaestate-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/cap-estate/akasha-cap-estate-111322"], ["updated_at", "2014-08-15 21:31:30.837095"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Gros Islet"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:31:30.841295"], ["name", "C'est La Vie"], ["photo_url", "https://pictures.luxuryretreats.com/111665/stlucia-cestlavie-1.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/gros-islet/cest-la-vie-111665"], ["updated_at", "2014-08-15 21:31:30.841295"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 9], ["bedrooms", 9], ["city", "Cap Estate"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:31:30.873579"], ["name", "Villa Capri"], ["photo_url", "https://pictures.luxuryretreats.com/106743/stlucia-capri-1.jpg"], ["price", 850], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/cap-estate/villa-capri-106743"], ["updated_at", "2014-08-15 21:31:30.873579"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 3], ["city", "Gros Islet"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:31:30.877302"], ["name", "Sur La Mer"], ["photo_url", "https://pictures.luxuryretreats.com/107445/stlucia-surlamer-1.jpg"], ["price", 300], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/gros-islet/sur-la-mer-107445"], ["updated_at", "2014-08-15 21:31:30.877302"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Bois D-Orange"], ["country", "St- Lucia"], ["created_at", "2014-08-15 21:31:30.882497"], ["name", "Trouya"], ["photo_url", "https://pictures.luxuryretreats.com/105269/stlucia-trouya-01.jpg"], ["price", 370], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--lucia/bois-d-orange/trouya-105269"], ["updated_at", "2014-08-15 21:31:30.882497"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Cupecoy"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:31:31.322342"], ["name", "Farniente"], ["photo_url", "https://pictures.luxuryretreats.com/110601/st-martin-farniente-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/cupecoy/farniente-110601"], ["updated_at", "2014-08-15 21:31:31.322342"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Cupecoy"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:31:31.327272"], ["name", "Mumbai"], ["photo_url", "https://pictures.luxuryretreats.com/110545/st-martin-mumbai-01.jpg"], ["price", 642], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/cupecoy/mumbai-110545"], ["updated_at", "2014-08-15 21:31:31.327272"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:31:31.332208"], ["name", "Carisa"], ["photo_url", "https://pictures.luxuryretreats.com/105669/st-martin-carisa-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/carisa-105669"], ["updated_at", "2014-08-15 21:31:31.332208"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 2], ["bedrooms", 2], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:31:31.336273"], ["name", "La Vie en Bleu"], ["photo_url", "https://pictures.luxuryretreats.com/110625/st-martin-lavieenbleu-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/la-vie-en-bleu-110625"], ["updated_at", "2014-08-15 21:31:31.336273"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Terres Basses - Baie Rouge"], ["country", "St- Martin"], ["created_at", "2014-08-15 21:31:31.340359"], ["name", "Beau Rivage"], ["photo_url", "https://pictures.luxuryretreats.com/105461/st-barts-beau-rivage-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--martin/terres-basses---baie-rouge/beau-rivage-105461"], ["updated_at", "2014-08-15 21:31:31.340359"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Flag Hill"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:31:31.776374"], ["name", "Ventana"], ["photo_url", "https://pictures.luxuryretreats.com/104782/St.Thomas-Ventana-01.jpg"], ["price", 800], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/flag-hill/ventana-104782"], ["updated_at", "2014-08-15 21:31:31.776374"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Flag Hill"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:31:31.780763"], ["name", "L'Esperance"], ["photo_url", "https://pictures.luxuryretreats.com/104790/St.Thomas-LEsperance-01.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/flag-hill/lesperance-104790"], ["updated_at", "2014-08-15 21:31:31.780763"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 4], ["bedrooms", 4], ["city", "Skyline Drive"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:31:31.786175"], ["name", "Infinity"], ["photo_url", "https://pictures.luxuryretreats.com/104795/stthomas-infinity--01.jpg"], ["price", 886], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/skyline-drive/infinity-104795"], ["updated_at", "2014-08-15 21:31:31.786175"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 2], ["bedrooms", 2], ["city", "East End"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:31:31.817284"], ["name", "Ritz-Carlton Club 2BR Residences"], ["photo_url", "https://pictures.luxuryretreats.com/106726/stthomas-ritzcarltonclub2BReesidences-1.jpg"], ["price", 570], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-2br-residences-106726"], ["updated_at", "2014-08-15 21:31:31.817284"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "East End"], ["country", "St- Thomas"], ["created_at", "2014-08-15 21:31:31.821519"], ["name", "Ritz-Carlton Club 3BR"], ["photo_url", "https://pictures.luxuryretreats.com/106727/stthomas-ritzcarltonclub3BR-1.jpg"], ["price", 700], ["region", "Caribbean"], ["source", "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-3br-106727"], ["updated_at", "2014-08-15 21:31:31.821519"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Trunk Bay"], ["country", "Tortola"], ["created_at", "2014-08-15 21:31:32.226044"], ["name", "Aja"], ["photo_url", "https://pictures.luxuryretreats.com/112048/tortola-aja--01.jpg"], ["price", 985], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/trunk-bay/aja-112048"], ["updated_at", "2014-08-15 21:31:32.226044"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 3], ["bedrooms", 3], ["city", "Belmont"], ["country", "Tortola"], ["created_at", "2014-08-15 21:31:32.257994"], ["name", "Towanda"], ["photo_url", "https://pictures.luxuryretreats.com/105745/tortola-towanda-1.jpg"], ["price", 335], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/belmont/towanda-105745"], ["updated_at", "2014-08-15 21:31:32.257994"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 6], ["city", "Apple Bay"], ["country", "Tortola"], ["created_at", "2014-08-15 21:31:32.262843"], ["name", "Tingalayo"], ["photo_url", "https://pictures.luxuryretreats.com/112312/tortola-tingalayo-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/apple-bay/tingalayo-112312"], ["updated_at", "2014-08-15 21:31:32.262843"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 6], ["city", "Havers Hill"], ["country", "Tortola"], ["created_at", "2014-08-15 21:31:32.267509"], ["name", "Summer Heights"], ["photo_url", "https://pictures.luxuryretreats.com/104818/tortola-summerheights-01.jpg"], ["price", 500], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/havers-hill/summer-heights-104818"], ["updated_at", "2014-08-15 21:31:32.267509"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 4], ["bedrooms", 4], ["city", "Havers Hill"], ["country", "Tortola"], ["created_at", "2014-08-15 21:31:32.271870"], ["name", "Toa Toa House"], ["photo_url", "https://pictures.luxuryretreats.com/104821/Tortola-ToaToaHouse-1.jpg"], ["price", 400], ["region", "Caribbean"], ["source", "/destinations/caribbean/tortola/havers-hill/toa-toa-house-104821"], ["updated_at", "2014-08-15 21:31:32.271870"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 6], ["city", "Leeward"], ["country", "Turks and Caicos"], ["created_at", "2014-08-15 21:31:32.655994"], ["name", "Rafters"], ["photo_url", "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"], ["price", 1], ["region", "Caribbean"], ["source", "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121"], ["updated_at", "2014-08-15 21:31:32.655994"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 7], ["bedrooms", 5], ["city", "Nail Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:31:33.192028"], ["name", "Baraka Point Estate"], ["photo_url", "https://pictures.luxuryretreats.com/105500/virgingorda-barakapoint--01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/nail-bay/baraka-point-estate-105500"], ["updated_at", "2014-08-15 21:31:33.192028"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:31:33.197269"], ["name", "Aquamare Villa 2"], ["photo_url", "https://pictures.luxuryretreats.com/109598/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-2-109598"], ["updated_at", "2014-08-15 21:31:33.197269"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:31:33.228610"], ["name", "Aquamare Villa 3"], ["photo_url", "https://pictures.luxuryretreats.com/109600/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-3-109600"], ["updated_at", "2014-08-15 21:31:33.228610"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["bathrooms", 5], ["bedrooms", 5], ["city", "Mahoe Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:31:33.232809"], ["name", "Aquamare Villa 1"], ["photo_url", "https://pictures.luxuryretreats.com/109643/virgingorda-aquamarevilla-01.jpg"], ["price", 2], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-1-109643"], ["updated_at", "2014-08-15 21:31:33.232809"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "mansions" ("bathrooms", "bedrooms", "city", "country", "created_at", "name", "photo_url", "price", "region", "source", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["bathrooms", 3], ["bedrooms", 3], ["city", "Crooks Bay"], ["country", "Virgin Gorda"], ["created_at", "2014-08-15 21:31:33.237224"], ["name", "Bayhouse"], ["photo_url", "https://pictures.luxuryretreats.com/112245/virgingorda-bayhouse-1.jpg"], ["price", 700], ["region", "Caribbean"], ["source", "/destinations/caribbean/virgin-gorda/crooks-bay/bayhouse-112245"], ["updated_at", "2014-08-15 21:31:33.237224"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.247470"], ["name", "advertising"], ["updated_at", "2014-08-15 21:31:33.247470"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.249244"], ["name", "accounting"], ["updated_at", "2014-08-15 21:31:33.249244"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.250864"], ["name", "airline"], ["updated_at", "2014-08-15 21:31:33.250864"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.252551"], ["name", "banking"], ["updated_at", "2014-08-15 21:31:33.252551"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.254359"], ["name", "education"], ["updated_at", "2014-08-15 21:31:33.254359"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.256009"], ["name", "energy"], ["updated_at", "2014-08-15 21:31:33.256009"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.257551"], ["name", "finance"], ["updated_at", "2014-08-15 21:31:33.257551"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.258888"], ["name", "fashion"], ["updated_at", "2014-08-15 21:31:33.258888"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.260327"], ["name", "health care"], ["updated_at", "2014-08-15 21:31:33.260327"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.261716"], ["name", "legal"], ["updated_at", "2014-08-15 21:31:33.261716"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.263025"], ["name", "motion picture video"], ["updated_at", "2014-08-15 21:31:33.263025"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.264434"], ["name", "music"], ["updated_at", "2014-08-15 21:31:33.264434"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.266059"], ["name", "publishing journalism"], ["updated_at", "2014-08-15 21:31:33.266059"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.267378"], ["name", "real estate"], ["updated_at", "2014-08-15 21:31:33.267378"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.268650"], ["name", "software"], ["updated_at", "2014-08-15 21:31:33.268650"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.269979"], ["name", "sports"], ["updated_at", "2014-08-15 21:31:33.269979"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "professions"], ["created_at", "2014-08-15 21:31:33.271344"], ["name", "other"], ["updated_at", "2014-08-15 21:31:33.271344"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.272757"], ["name", "none"], ["updated_at", "2014-08-15 21:31:33.272757"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.274214"], ["name", "catholic"], ["updated_at", "2014-08-15 21:31:33.274214"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.275498"], ["name", "christian"], ["updated_at", "2014-08-15 21:31:33.275498"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.276909"], ["name", "jewish"], ["updated_at", "2014-08-15 21:31:33.276909"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.278400"], ["name", "muslim"], ["updated_at", "2014-08-15 21:31:33.278400"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.279716"], ["name", "orthodox"], ["updated_at", "2014-08-15 21:31:33.279716"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.280921"], ["name", "buddhist"], ["updated_at", "2014-08-15 21:31:33.280921"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.282169"], ["name", "hindu"], ["updated_at", "2014-08-15 21:31:33.282169"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "religions"], ["created_at", "2014-08-15 21:31:33.283412"], ["name", "other"], ["updated_at", "2014-08-15 21:31:33.283412"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:31:33.284703"], ["name", "straight"], ["updated_at", "2014-08-15 21:31:33.284703"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:31:33.286095"], ["name", "gay"], ["updated_at", "2014-08-15 21:31:33.286095"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:31:33.287618"], ["name", "bisexual"], ["updated_at", "2014-08-15 21:31:33.287618"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "sexual orientations"], ["created_at", "2014-08-15 21:31:33.289091"], ["name", "other"], ["updated_at", "2014-08-15 21:31:33.289091"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "smoker?"], ["created_at", "2014-08-15 21:31:33.290387"], ["name", "yes"], ["updated_at", "2014-08-15 21:31:33.290387"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "smoker?"], ["created_at", "2014-08-15 21:31:33.291655"], ["name", "no"], ["updated_at", "2014-08-15 21:31:33.291655"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "smoker?"], ["created_at", "2014-08-15 21:31:33.292950"], ["name", "socially"], ["updated_at", "2014-08-15 21:31:33.292950"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.294298"], ["name", "student"], ["updated_at", "2014-08-15 21:31:33.294298"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.295585"], ["name", "entrepreneur"], ["updated_at", "2014-08-15 21:31:33.295585"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.296892"], ["name", "vegetarian"], ["updated_at", "2014-08-15 21:31:33.296892"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.298316"], ["name", "total carnivore"], ["updated_at", "2014-08-15 21:31:33.298316"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.299596"], ["name", "early bird"], ["updated_at", "2014-08-15 21:31:33.299596"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.300979"], ["name", "night owl"], ["updated_at", "2014-08-15 21:31:33.300979"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.302247"], ["name", "dog lover"], ["updated_at", "2014-08-15 21:31:33.302247"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.303523"], ["name", "cat lover"], ["updated_at", "2014-08-15 21:31:33.303523"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.304987"], ["name", "democrat"], ["updated_at", "2014-08-15 21:31:33.304987"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.306437"], ["name", "republican"], ["updated_at", "2014-08-15 21:31:33.306437"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.307740"], ["name", "bookworm"], ["updated_at", "2014-08-15 21:31:33.307740"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "random_traits"], ["created_at", "2014-08-15 21:31:33.309185"], ["name", "social butterfly"], ["updated_at", "2014-08-15 21:31:33.309185"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.310523"], ["name", "rock"], ["updated_at", "2014-08-15 21:31:33.310523"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.311846"], ["name", "electronic music"], ["updated_at", "2014-08-15 21:31:33.311846"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.313378"], ["name", "dubstep"], ["updated_at", "2014-08-15 21:31:33.313378"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.314720"], ["name", "rap hip hop"], ["updated_at", "2014-08-15 21:31:33.314720"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.316045"], ["name", "latin"], ["updated_at", "2014-08-15 21:31:33.316045"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.317345"], ["name", "jazz"], ["updated_at", "2014-08-15 21:31:33.317345"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.318664"], ["name", "classical"], ["updated_at", "2014-08-15 21:31:33.318664"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.319891"], ["name", "reggae"], ["updated_at", "2014-08-15 21:31:33.319891"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.321319"], ["name", "techno"], ["updated_at", "2014-08-15 21:31:33.321319"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.322843"], ["name", "country"], ["updated_at", "2014-08-15 21:31:33.322843"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.325526"], ["name", "dance music"], ["updated_at", "2014-08-15 21:31:33.325526"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "personality_traits" ("category", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["category", "music styles"], ["created_at", "2014-08-15 21:31:33.327668"], ["name", "indie"], ["updated_at", "2014-08-15 21:31:33.327668"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.333126"], ["name", "heating"], ["updated_at", "2014-08-15 21:31:33.333126"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.334842"], ["name", "air conditioning"], ["updated_at", "2014-08-15 21:31:33.334842"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.336050"], ["name", "washer"], ["updated_at", "2014-08-15 21:31:33.336050"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.337296"], ["name", "dryer"], ["updated_at", "2014-08-15 21:31:33.337296"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.338751"], ["name", "parking"], ["updated_at", "2014-08-15 21:31:33.338751"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.340462"], ["name", "wireless internet"], ["updated_at", "2014-08-15 21:31:33.340462"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.342019"], ["name", "cable tv"], ["updated_at", "2014-08-15 21:31:33.342019"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.343305"], ["name", "pets allowed"], ["updated_at", "2014-08-15 21:31:33.343305"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.344631"], ["name", "smoking allowed"], ["updated_at", "2014-08-15 21:31:33.344631"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.345766"], ["name", "wheelchair accessible"], ["updated_at", "2014-08-15 21:31:33.345766"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.346885"], ["name", "elevator"], ["updated_at", "2014-08-15 21:31:33.346885"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.348130"], ["name", "fireplace"], ["updated_at", "2014-08-15 21:31:33.348130"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.349202"], ["name", "doorman"], ["updated_at", "2014-08-15 21:31:33.349202"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.350273"], ["name", "pool"], ["updated_at", "2014-08-15 21:31:33.350273"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.351406"], ["name", "hot yub"], ["updated_at", "2014-08-15 21:31:33.351406"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-08-15 21:31:33.352476"], ["name", "gym"], ["updated_at", "2014-08-15 21:31:33.352476"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "mansion_amenities" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-08-15 21:31:33.353547"], ["name", "bbq grill"], ["updated_at", "2014-08-15 21:31:33.353547"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mMansionAmenity Load (0.1ms)[0m  [1mSELECT  "mansion_amenities".* FROM "mansion_amenities"   ORDER BY "mansion_amenities"."id" DESC LIMIT 1[0m
