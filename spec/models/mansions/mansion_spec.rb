@@ -15,7 +15,7 @@ describe Mansion do
 		expect(@mansion.description).to_not be_nil
 	end
 
-	it 'has an address' do
+	it 'has an aoddress' do
 		@mansion.address = 'Hey'
 		expect(@mansion.address).to_not be_nil
 	end
