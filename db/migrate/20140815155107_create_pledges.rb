@@ -6,10 +6,6 @@ class CreatePledges < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.integer :total_price
-      t.references :guest, index: true
-      t.references :mansion, index: true
-
-      t.timestamps
     end
   end
 end
