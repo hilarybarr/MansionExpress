@@ -1,4 +1,4 @@
-
+# STILL NEED TO MOVE IMAGES TO AMAZON WEBSERVICES AND REMOVE FROM PUBLIC/MANSION_IMAGES
 
 #We included gem 'seed_dump'.
 # After you finish running rake db:seed, run rake db:seed:dump. 
