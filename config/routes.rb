@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  resources :identities
+
+
+
+
+
+
+
+
+root: 'welcome#index'
 end
