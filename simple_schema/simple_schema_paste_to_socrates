@@ -32,7 +32,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="871" y="235" name="guests">
+</datatypes><table x="791" y="227" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -40,6 +40,12 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="last_name" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="email" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="password" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="gender" null="1" autoincrement="0">
@@ -52,13 +58,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="904" y="21" name="guest_personalityTraits">
+<table x="958" y="268" name="user_personalityTraits">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="guest_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="guests" row="id" />
+<default>NULL</default><relation table="users" row="id" />
 </row>
 <row name="tag_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -68,7 +74,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="402" y="199" name="mansions">
+<table x="365" y="216" name="mansions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -106,13 +112,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="643" y="144" name="pledges">
+<table x="598" y="152" name="pledges">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="guest_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="guests" row="id" />
+<default>NULL</default><relation table="users" row="id" />
 </row>
 <row name="mansion_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -131,49 +137,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="782" y="554" name="mansionOwners">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="first_name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="last_name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="gender" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="birthdate" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="1082" y="386" name="identities">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="email" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="password" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="guest_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="guests" row="id" />
-</row>
-<row name="mansionOwner_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="mansionOwners" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="1214" y="21" name="personalityTraits">
+<table x="1203" y="299" name="personalityTraits">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -184,7 +148,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="55" y="343" name="amenities">
+<table x="35" y="301" name="amenities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -195,7 +159,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="120" y="172" name="mansion_amenities">
+<table x="128" y="159" name="mansion_amenities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -211,7 +175,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="387" y="39" name="boardMessages">
+<table x="359" y="39" name="boardMessages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -229,7 +193,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="612" y="351" name="mansionReviews">
+<table x="562" y="354" name="mansionReviews">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -239,7 +203,7 @@
 </row>
 <row name="guest_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="guests" row="id" />
+<default>NULL</default><relation table="users" row="id" />
 </row>
 <row name="title" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
