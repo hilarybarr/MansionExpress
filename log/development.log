@@ -1,0 +1,608 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateIdentities (20140815034031)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "identities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "gender" varchar(255), "birthdate" text, "email" text, "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815034031"]]
+  [1m[36m (35.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePledges (20140815041010)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "guest_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_pledges_on_guest_id" ON "pledges" ("guest_id")[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_pledges_on_mansion_id" ON "pledges" ("mansion_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815041010"]]
+  [1m[36m (10.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "mansions" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-08-15 15:29:29.456467"], ["updated_at", "2014-08-15 15:29:29.456467"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "mansions" WHERE "mansions"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMansions (20140815031911)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" decimal, "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedroom" integer, "bathroom" integer, "square_foot" integer, "available_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815031911"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Migrating to CreateIdentities (20140815034031)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "identities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "gender" varchar(255), "birthdate" text, "email" text, "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815034031"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreatePledges (20140815041010)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "guest_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_pledges_on_guest_id" ON "pledges" ("guest_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_pledges_on_mansion_id" ON "pledges" ("mansion_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815041010"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "identities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "gender" varchar(255), "birthdate" text, "email" text, "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" decimal, "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedroom" integer, "bathroom" integer, "square_foot" integer, "available_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "guest_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX "index_pledges_on_guest_id" ON "pledges" ("guest_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX "index_pledges_on_mansion_id" ON "pledges" ("mansion_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815041010')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140815031911')
+  [1m[36m (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815034031')[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 11:49:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.4) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (85.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMansions (20140815154834)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "mansions" already exists: CREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateIdentities (20140815034031)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "identities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "gender" varchar(255), "birthdate" text, "email" text, "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815034031"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Migrating to CreatePledges (20140815041010)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "pledges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "guest_id" integer, "mansion_id" integer, "start_date" date, "end_date" date, "total_price" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_pledges_on_guest_id" ON "pledges" ("guest_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_pledges_on_mansion_id" ON "pledges" ("mansion_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815041010"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateMansions (20140815154834)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "mansions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "continent" varchar(255), "city" varchar(255), "bedrooms" integer, "bathrooms" integer, "square_feet" integer, "available_date" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140815154834"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 11:50:45 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT "mansions".* FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 1739ms (Views: 1721.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 11:50:47 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 11:50:47 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 11:50:47 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 11:50:47 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 11:50:47 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 11:50:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 11:50:48 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 11:50:48 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 11:50:48 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 11:50:48 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 11:50:48 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 11:50:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPhotoToMansions (20140815160018)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (28.6ms)[0m  [1mALTER TABLE "mansions" ADD "photo_file_name" varchar(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "mansions" ADD "photo_content_type" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "mansions" ADD "photo_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "mansions" ADD "photo_updated_at" datetime
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140815160018"]]
+  [1m[35m (45.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_mansion_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pledges_on_guest_id' AND type='index'
+[0m
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:06:54 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by MansionsController#new as HTML
+Completed 500 Internal Server Error in 33ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x00000104461ba8>):
+  app/models/mansion.rb:2:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (63.2ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:06:54 -0400
+Processing by MansionsController#new as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x00000105266fc8>):
+  app/models/mansion.rb:2:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (59.4ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (81.5ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:07:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MansionsController#new as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+Completed 500 Internal Server Error in 35ms
+
+NoMethodError (undefined method `before_photo_post_process' for #<Class:0x00000102d17308>):
+  app/models/mansion.rb:3:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.6ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:08:01 -0400
+Processing by MansionsController#new as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+Completed 500 Internal Server Error in 69ms
+
+NoMethodError (undefined method `before_photo_post_process' for #<Class:0x00000102f4d4b0>):
+  app/models/mansion.rb:3:in `<class:Mansion>'
+  app/models/mansion.rb:1:in `<top (required)>'
+  app/controllers/mansions_controller.rb:17:in `new'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.4ms)
+
+
+Started GET "/mansions/new" for 127.0.0.1 at 2014-08-15 12:08:23 -0400
+Processing by MansionsController#new as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+  Rendered mansions/_form.html.erb (212.1ms)
+  Rendered mansions/new.html.erb within layouts/application (231.4ms)
+Completed 200 OK in 597ms (Views: 590.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:08:24 -0400
+
+
+Started POST "/mansions" for 127.0.0.1 at 2014-08-15 12:08:54 -0400
+Processing by MansionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+dJCqYhBu+G0R/lySqOyK024SBA+2/pwIVTrG5sYNio=", "mansion"=>{"name"=>"Sample Mansion", "photo"=>#<ActionDispatch::Http::UploadedFile:0x00000100fe63b0 @tempfile=#<Tempfile:/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/RackMultipart20140815-91904-1v9cm6n>, @original_filename="funcollege.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"mansion[photo]\"; filename=\"funcollege.JPG\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "address"=>"", "continent"=>"", "city"=>"", "bedrooms"=>"", "bathrooms"=>"", "square_feet"=>"", "available_date(1i)"=>"2014", "available_date(2i)"=>"8", "available_date(3i)"=>"15"}, "commit"=>"Create Mansion"}
+Completed 500 Internal Server Error in 3ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: photo):
+  app/controllers/mansions_controller.rb:27:in `create'
+
+
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/DylanRichards/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.7ms)
+
+
+Started POST "/mansions" for 127.0.0.1 at 2014-08-15 12:11:35 -0400
+Processing by MansionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+dJCqYhBu+G0R/lySqOyK024SBA+2/pwIVTrG5sYNio=", "mansion"=>{"name"=>"Sample Mansion", "photo"=>#<ActionDispatch::Http::UploadedFile:0x0000010176f2d0 @tempfile=#<Tempfile:/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/RackMultipart20140815-91904-1sfali0>, @original_filename="funcollege.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"mansion[photo]\"; filename=\"funcollege.JPG\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "address"=>"", "continent"=>"", "city"=>"", "bedrooms"=>"", "bathrooms"=>"", "square_feet"=>"", "available_date(1i)"=>"2014", "available_date(2i)"=>"8", "available_date(3i)"=>"15"}, "commit"=>"Create Mansion"}
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: convert '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1ubyhn5'
+Command :: file -b --mime '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1ubyhn5'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: identify -format %m '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]'
+Command :: convert '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc0.JPG[0]' -auto-orient -resize "100x100>" '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1jys3q8'
+Command :: file -b --mime '/var/folders/qc/q4txz8ks5ng77ztdqxmx8c_w0000gn/T/6108e0e7a043d48de1b1b7d58f00ef2320140815-91904-8xrmc020140815-91904-1jys3q8'
+  [1m[35m (0.2ms)[0m  begin transaction
+Binary data inserted for `string` type on column `photo_content_type`
+  [1m[36mSQL (35.7ms)[0m  [1mINSERT INTO "mansions" ("address", "available_date", "city", "continent", "created_at", "description", "name", "photo_content_type", "photo_file_name", "photo_file_size", "photo_updated_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", ""], ["available_date", "2014-08-15"], ["city", ""], ["continent", ""], ["created_at", "2014-08-15 16:11:38.962948"], ["description", ""], ["name", "Sample Mansion"], ["photo_content_type", "image/jpeg"], ["photo_file_name", "funcollege.JPG"], ["photo_file_size", 826373], ["photo_updated_at", "2014-08-15 16:11:36.106882"], ["updated_at", "2014-08-15 16:11:38.962948"]]
+  [1m[35m (8.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/mansions/1
+Completed 302 Found in 3057ms (ActiveRecord: 45.6ms)
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.3ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 110ms (Views: 78.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:11:39 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 12:12:11 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:12 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/pledges.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/identities.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/pledges.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/assets/identities.css?body=1" for 127.0.0.1 at 2014-08-15 12:12:29 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 12:33:08 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:2)
+  [1m[35mMansion Load (0.3ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 5907ms (Views: 5836.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 12:33:15 -0400

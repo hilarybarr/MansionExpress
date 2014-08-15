@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mansion.name %>
+</p>
+
+<p>
+  <%= image_tag @mansion.photo.url(:medium) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mansion.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @mansion.address %>
+</p>
+
+<p>
+  <strong>Continent:</strong>
+  <%= @mansion.continent %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @mansion.city %>
+</p>
+
+<p>
+  <strong>Bedrooms:</strong>
+  <%= @mansion.bedrooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @mansion.bathrooms %>
+</p>
+
+<p>
+  <strong>Square feet:</strong>
+  <%= @mansion.square_feet %>
+</p>
+
+<p>
+  <strong>Available date:</strong>
+  <%= @mansion.available_date %>
+</p>
+
+<%= link_to 'Edit', edit_mansion_path(@mansion) %> |
+<%= link_to 'Back', mansions_path %>
