@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815193435) do
+ActiveRecord::Schema.define(version: 20140815212107) do
+
+  create_table "mansion_amenities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "identities", force: true do |t|
     t.string   "first_name"
