@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :pledges
 
-  resources :identities
+
+
+
+
+
+
+
+root: 'welcome#index'
 end
