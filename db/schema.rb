@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140815182033) do
   end
 
   create_table "pledges", force: true do |t|
-    t.integer  "guest_id"
+    t.integer  "user_id"
     t.integer  "mansion_id"
     t.date     "start_date"
     t.date     "end_date"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140815182033) do
     t.datetime "updated_at"
   end
 
-  add_index "pledges", ["guest_id"], name: "index_pledges_on_guest_id"
+  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id"
   add_index "pledges", ["mansion_id"], name: "index_pledges_on_mansion_id"
 
 end
