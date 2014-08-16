@@ -70,6 +70,20 @@ class MansionsController < ApplicationController
     end
   end
 
+  def book
+    mansion = Mansion.find(params[:id])
+    current_user.mansions << mansion
+    current_user.save
+    redirect_to :back
+  end
+
+  def leave
+    mansion = Mansion.find(params[:id])
+    current_user.mansions.delete(mansion)
+    current_user.save
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mansion
