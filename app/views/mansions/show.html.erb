@@ -4,7 +4,7 @@
 <img class="mansionShow" src="<%= @mansion.photo_url %>"/>
 
 <% @users.each do |user| %>
-	<%= link_to image_tag(user.photo.url(:thumb)), user %>
+	<%= link_to image_tag(user.photo.url(:join)), user %>
 <% end %>
 
 <% if current_user %>
