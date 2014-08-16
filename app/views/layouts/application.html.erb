@@ -11,8 +11,23 @@
 		<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
 		<%= link_to 'account settings', edit_user_registration_path %>
 	<% else %>
-		<%= link_to 'sign in', new_user_session_path %>
-		<%= link_to 'sign up', new_user_registration_path %>
+
+	<div id="header" class="navbar navbar-top">
+	  <div class="page-container-full mansion-header clearfix">
+	    <a href="http://www.mansionexpress.com" class="pull-left">MansionExpress</a>
+	    <ul class="nav pull-right help-menu " style="margin-left:0;">
+	      <li class="list-your-space ">
+	        <a id="list-your-space" class="btn btn-special" href="">List Your Space</a>
+	      </li>
+	    </ul>
+	    <ul class="nav pull-right logged-out">
+	      <li id="login"><a data-login-modal href="/login" class="link-reset">Log In  </a></li>
+	      <li id="sign_up"><a data-signup-modal href="/signup" class="link-reset"> Sign Up</a></li>
+	    </ul>
+	  </div>
+	</div>
+
+
 	<% end %>
 
 	<%= flash.notice if flash.notice %>
