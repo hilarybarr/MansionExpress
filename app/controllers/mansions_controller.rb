@@ -10,6 +10,7 @@ class MansionsController < ApplicationController
   # GET /mansions/1
   # GET /mansions/1.json
   def show
+    @mansion=Mansion.find(params[:id])
 
   end
 
