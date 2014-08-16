@@ -10,6 +10,7 @@ class MansionsController < ApplicationController
   # GET /mansions/1
   # GET /mansions/1.json
   def show
+
   end
 
   # GET /mansions/new
@@ -59,6 +60,20 @@ class MansionsController < ApplicationController
       format.html { redirect_to mansions_url, notice: 'Mansion was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def book
+    mansion = Mansion.find(params[:id])
+    current_user.mansions << mansion
+    current_user.save
+    redirect_to :back
+  end
+
+  def leave
+    mansion = Mansion.find(params[:id])
+    current_user.mansions.delete(mansion)
+    current_user.save
+    redirect_to :back
   end
 
   private
