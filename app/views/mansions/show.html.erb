@@ -3,6 +3,7 @@
 	<%#= image_tag(@mansion.photo_url), class: 'mansionShow' %>
 <img class="mansionShow" src="<%= @mansion.photo_url %>"/>
 
+
 <% @users.each do |user| %>
 	<%= link_to image_tag(user.photo.url(:join)), user %>
 <% end %>
@@ -16,6 +17,7 @@
 		<%= link_to 'Leave', destroy_booking_path, class: 'btn btn-danger pull-right' %>
 	<% end %>
 <% end %>
+
 
 	<h1><%= @mansion.name %></h1>
 	<h3>City: <%= @mansion.city %></h3>
