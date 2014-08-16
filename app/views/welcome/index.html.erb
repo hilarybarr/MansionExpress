@@ -1,498 +1,64 @@
 <!DOCTYPE html>
-
-<!--[if lt IE 8]>
-
-<html lang="en"
-      
-      xmlns:fb="http://ogp.me/ns/fb#"
-      class="ie">
-
-<![endif]-->
-
-<!--[if IE 8]>
-
-<html lang="en"
-      
-      xmlns:fb="http://ogp.me/ns/fb#"
-      class="ie ie8">
-
-<![endif]-->
-
-<!--[if IE 9]>
-
-  <html lang="en"
-      
-      xmlns:fb="http://ogp.me/ns/fb#"
-      class="ie ie9">
-
-<![endif]-->
-
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en"
-      
-      xmlns:fb="http://ogp.me/ns/fb#">
-
-<!--<![endif]-->
-
   <head>
-    <link rel="dns-prefetch" href="https://maps.googleapis.com/">
-    <link rel="dns-prefetch" href="https://maps.gstatic.com/">
-    <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
-    <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
-
-    <!--[if IE]><![endif]-->
-    <meta charset="utf-8">
-
-    <!--[if IE 8]>
-      <link href="https://a1.muscache.com/airbnb/static/packages/common_o2.1_ie8-af8e929972c4a9eb4dca38c27283d0df.css" media="all" rel="stylesheet" type="text/css" />
-    <![endif]-->
-    <!--[if !(IE 8)]><!-->
-      <link href="app/assets/a1.muscache.com/airbnb/static/packages/common_o2.1-f7eb3a768c5f389abad0758c17fb3d55.css" media="all" rel="stylesheet" type="text/css" />
-    <!--<![endif]-->
-
-    <link href="app/assets/a2.muscache.com/airbnb/static/p1/main-pretzel-ee0354183cf0d5b5a252a8abdb4f5de5.css" media="screen" rel="stylesheet" type="text/css" />
-  <!--[if IE 7]>
-    <link href="https://a1.muscache.com/airbnb/static/p1/p1_ie_7-a8a658272ef5e1a742765c87f498453a.css" media="screen" rel="stylesheet" type="text/css" />
-  <![endif]-->
-  <!--[if IE 6]>
-    <link href="https://a0.muscache.com/airbnb/static/p1/p1_ie_6-03ac4028c933072e72ff403125179a8b.css" media="screen" rel="stylesheet" type="text/css" />
-  <![endif]-->
-
-      <script>
-    var AIR = AIR || {};
-!function() {
-  var xhr,
-    callbacks = [],
-    loaded = false,
-    response = null,
-    url = '/custom_recommended_destinations';
-
-  AIR.onCustomRecommendedDestinationsLoad = function(callback) {
-    if (loaded) {
-      setTimeout(function() { callback(response); }, 0);
-    } else {
-      callbacks.push(callback);
-    }
-  };
-
-  if (window.XMLHttpRequest) {
-    xhr = new XMLHttpRequest();
-  } else if (window.ActiveXObject) {
-    xhr = new ActiveXObject("Microsoft.XMLHTTP");
-  } else {
-    return; 
-  }
-
-  xhr.onreadystatechange = function() {
-    var status;
-
-    if (xhr.readyState != 4)
-      return false;
-
-    status = xhr.status;
-    if (status !== 200) {
-      response = '{"error": "Internal server error"}';
-    } else {
-      response = xhr.responseText;
-    }
-
-    loaded = true;
-    while (callbacks.length > 0) {
-      callbacks.pop()(response);
-    }
-
-    return (status === 200);
-  };
-  url += window.location.search;
-  xhr.open('get', url, true);
-  xhr.setRequestHeader('Accept', 'application/json');
-  xhr.send();
-}();
-
-  </script>
-
-  <script>
-    window.ERF_EXPERIMENTS = {"validation_test":{"subject":"bev","buckets":100,"percent_exposed":100,"treatments":[{"name":"baseline","buckets":50},{"name":"treatment","buckets":50}]},"validation_test_js":{"subject":"bev","buckets":100,"percent_exposed":100,"treatments":[{"name":"baseline","buckets":50},{"name":"treatment","buckets":50}]},"booking_cta_copy_2":{"subject":"bev","buckets":100,"percent_exposed":100,"treatments":[{"name":"book_it_and_contact_me","buckets":0},{"name":"book_it_and_contact_me_and_instant_book","buckets":0},{"name":"book_it_only","buckets":100},{"name":"control","buckets":0}]},"draggable_street_view":{"subject":"bev","buckets":2,"percent_exposed":100,"treatments":[{"name":"control","buckets":null},{"name":"street_view_enabled","buckets":null}]},"c1_value_prop_experiment":{"subject":"bev","buckets":100,"percent_exposed":100,"treatments":[{"name":"diy_travel","buckets":25},{"name":"global_travel","buckets":25},{"name":"high_value_at_cost","buckets":25},{"name":"unique_accommodations","buckets":25}]}};
-  </script>
-
-
-    <style>
-      
-    </style>
-
-    <meta id="csrf-param-meta-tag" name="csrf-param" content="authenticity_token"/>
-    <meta id="csrf-token-meta-tag" name="csrf-token" content=""/>
-
-    <script>
-      var sherlock_firstbyte = Number(new Date());
-      var googleMapsUrl = '//maps.googleapis.com/maps/api/js?language=en&sensor=false&v=3.13&libraries=places&client=gme-airbnbinc&channel=monorail-prod';
-      var userAttributeCookies = {
-        flags_name: 'flags',
-        roles_name: 'roles',
-        flags: {"can_see_community":2,"og_publish":16,"has_wishlisted":32,"update_cached":64,"revert_to_admin":128,"facebook_connected":256,"has_search":1024,"search_help_dropdown":2048,"has_dates":4096,"can_send_profile_messages":32768,"just_logged_in":65536,"has_been_host":131072,"should_drop_pellet":262144,"is_active_host":1048576,"can_see_meetups":134217728,"should_drop_sift_pellet":268435456,"can_see_groups":536870912,"has_verified_phone":1073741824,"has_profile_pic":2147483648},
-        roles: {"is_admin":1,"is_aircrew":8,"is_content_manager":1048576,"is_stats_admin":16777216},
-        cookie_name: "_user_attributes"
-      };
-    </script>
-
-
-    <title>Vacation Rentals, Homes, Apartments & Rooms for Rent - Airbnb</title>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-      <link rel="canonical" href="https://www.airbnb.com/">
-          <link rel="alternate" href="https://www.airbnb.com/" hreflang="en">
-          <link rel="alternate" href="https://www.airbnb.co.uk/" hreflang="en-GB">
-          <link rel="alternate" href="https://www.airbnb.com.sg/" hreflang="en-SG">
-          <link rel="alternate" href="https://www.airbnb.com.au/" hreflang="en-AU">
-          <link rel="alternate" href="https://www.airbnb.co.nz/" hreflang="en-NZ">
-          <link rel="alternate" href="https://www.airbnb.ca/" hreflang="en-CA">
-          <link rel="alternate" href="https://www.airbnb.ie/" hreflang="en-IE">
-          <link rel="alternate" href="https://www.airbnb.co.in/" hreflang="en-IN">
-          <link rel="alternate" href="https://www.airbnb.com.mt/" hreflang="en-MT">
-          <link rel="alternate" href="https://www.airbnb.gy/" hreflang="en-GY">
-
-      <link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.airbnb.com/">
-      <link rel="alternate" href="android-app://com.airbnb.android/airbnb">
-
-      <meta name="description" content="Discover amazing, unique accommodations in 190 countries. With more than 15 million nights booked worldwide, Airbnb is the world leader in travel rentals.">
-
-
-
-
-      <meta property="fb:app_id" content="138566025676">
-      <meta property="og:site_name" content="Airbnb">
-      <meta property="og:type" content="website">
-      <meta property="og:url" content="https://www.airbnb.com/">
-      <meta property="og:title" content="Vacation Rentals, Homes, Apartments &amp; Rooms for Rent - Airbnb">
-      <meta property="og:description" content="Discover amazing, unique accommodations in 190 countries. With more than 15 million nights booked worldwide, Airbnb is the world leader in travel rentals.">
-      <meta property="og:image" content="https://a1.muscache.com/airbnb/static/logos/belo-200x200-4a7e6c09014b7a277e15d15ba893501b.png">
-      <meta property="og:locale" content="en_US">
-
-        <meta name="twitter:url" content="https://www.airbnb.com/">
-        <meta name="twitter:description" content="Discover amazing, unique accommodations in 190 countries. With more than 15 million nights booked worldwide, Airbnb is the world leader in travel rentals.">
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Vacation Rentals, Homes, Apartments &amp; Rooms for Rent - Airbnb">
-        <meta name="twitter:site" content="@airbnb">
-        <meta name="twitter:app:name:iphone" content="Airbnb">
-        <meta name="twitter:app:name:ipad" content="Airbnb">
-        <meta name="twitter:app:name:googleplay" content="Airbnb">
-        <meta name="twitter:app:id:iphone" content="401626263">
-        <meta name="twitter:app:id:ipad" content="401626263">
-        <meta name="twitter:app:id:googleplay" content="com.airbnb.android">
-        <meta name="twitter:app:url:iphone" content="airbnb://">
-        <meta name="twitter:app:url:ipad" content="airbnb://">
-        <meta name="twitter:app:url:googleplay" content="airbnb://">
-
-
-    <meta name="viewport" content="width=1045">
-    <link rel="image_src" href="https://a1.muscache.com/airbnb/static/logos/belo-200x200-4a7e6c09014b7a277e15d15ba893501b.png">
-    <link rel="search" type="application/opensearchdescription+xml" href="https://www.airbnb.com/opensearch.xml" title="Airbnb">
-
-    <!--[if lt IE 9]>
-      <script src="https://a0.muscache.com/airbnb/static/vendor/html5shiv-0a40ea6da13a87025857458fc1fc35fe.js" type="text/javascript"></script>
-    <![endif]-->
-    <link rel="shortcut icon" type="image/x-icon" href="app/assets/a2.muscache.com/airbnb/static/logotype_favicon-8ddd5c4b2544bd415bd76df2bfb291ea.ico">
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-2725447-1', 'auto');
-  ga('require', 'displayfeatures');
-  ga('send', 'pageview');
-</script>
-
   </head>
+
   <body class="home_view v2 p1 pretzel">
-    <noscript><iframe src="../www.googletagmanager.com/ns.html%3Fid=GTM-46MK.html"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-46MK');</script>
+   
 
+<!--Navbar-->
 
-
-    <div id="header" class="navbar navbar-top">
-  <div class="page-container-full airbnb-header clearfix">
+  <div id="header" class="navbar navbar-top">
+  <div class="page-container-full mansion-header clearfix">
     <a href="http://www.mansionexpress.com" class="pull-left">MansionExpress</a>
-    <ul class="nav pull-left hide-phone" id="search-form-header">
-      <li id="header-search">
-       <form action="https://www.airbnb.com/s" id="search-form" class="search-form">
-         <div class="search-bar">
-           <i class="icon icon-search icon-gray h4"></i>
-           <input type="text" placeholder="Where are you going?" autocomplete="off" name="location" id="header-location" class="location">
-           <input type="hidden" name="source" value="hdr">
-         </div>
-         <div id="header-search-settings">
-           <label class="checkin">Check in <input type="text" id="header-search-checkin" name="checkin" class="checkin" placeholder="mm/dd/yyyy"/></label>
-           <label class="checkout">Check out <input type="text" id="header-search-checkout" class="checkout" name="checkout" placeholder="mm/dd/yyyy"/></label>
-           <label class="guests">Guests
-             <div class="select select-block">
-               <select id="header-search-guests" name="guests">
-                 <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option>
-               </select>
-             </div>
-           </label>
-           <label>Room type</label>
-           <label class="checkbox" for="room_type_0"><input type="checkbox" id="room_type_0" name="room_types[]" value="Entire home/apt"/> Entire home/apt</label>
-           <label class="checkbox" for="room_type_1"><input type="checkbox" id="room_type_1" name="room_types[]" value="Private room"/> Private room</label>
-           <label class="checkbox" for="room_type_2"><input type="checkbox" id="room_type_2" name="room_types[]" value="Shared room"/> Shared room</label>
-           <button type="submit" class="btn btn-primary btn-block">
-             <i class="icon icon-search"></i>
-             Find a place
-           </button>
-         </div>
-       </form>
-      </li>
-      <li class="dropdown item_explore">
-        <a class="dropdown-toggle link-reset" href="javascript:void(0)">
-          Browse
-          <i class="icon icon-caret-down icon-light-gray"></i>
-          <i class="icon icon-caret-up icon-light-gray hide"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-bordered">
-          <li><a href="https://www.airbnb.com/wishlists/popular">Popular</a></li>
-          <li><a href="https://www.airbnb.com/wishlists/friends">Friends</a></li>
-          <li><a href="https://www.airbnb.com/locations">Neighborhoods</a></li>
-          <li class="groups"><a href="https://www.airbnb.com/groups">Groups</a></li>
-        </ul>
-      </li>
-    </ul>
+ 
 
     <ul class="nav pull-right help-menu hide-phone" style="margin-left:0;">
   
       <li class="list-your-space hide-phone">
-        <a id="list-your-space" class="btn btn-special" href="https://www.airbnb.com/rooms/new">List Your Space</a>
+        <a id="list-your-space" class="btn btn-special" href="">List Your Space</a>
       </li>
     </ul>
 
     <ul class="nav pull-right logged-out">
-      <li id="login"><a data-login-modal href="https://www.airbnb.com/login?redirect_params[action]=show&amp;redirect_params[controller]=homepages" class="link-reset">Log In  </a></li>
-      <li id="sign_up"><a data-signup-modal href="https://www.airbnb.com/signup_login?redirect_params[action]=show&amp;redirect_params[controller]=homepages" class="link-reset"> Sign Up</a></li>
+      <li id="login"><a data-login-modal href="/login" class="link-reset">Log In  </a></li>
+      <li id="sign_up"><a data-signup-modal href="/signup" class="link-reset"> Sign Up</a></li>
       
     </ul>
 
-    <ul class="nav pull-right logged-in">
-      <li class="dropdown user-item">
-        <a class="dropdown-toggle link-reset" href="javascript:void(0)">
-          <div class="media-photo media-round user-profile-image"></div>
-          <span class="hide-phone value_name">User</span>
-          <i class="icon icon-caret-down icon-light-gray"></i>
-          <i class="icon icon-caret-up icon-light-gray hide"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-bordered header-dropdown">
-          <li><a href="https://www.airbnb.com/home/dashboard">Dashboard</a></li>
-          <li class="listings">
-            <a href="https://www.airbnb.com/rooms">
-              <span class="singular" style="display: none;">Your Listing</span>
-              <span class="plural">Your Listings</span>
-            </a>
-          </li>
-          <li class="reservations" style="display: none;">
-            <a href="https://www.airbnb.com/my_listings">Your Reservations</a>
-          </li>
-          <li><a href="https://www.airbnb.com/trips/upcoming">Your Trips</a></li>
-          <li><a href="https://www.airbnb.com/wishlists/my" id="wishlists">Wish Lists</a></li>
-          <li class="groups">
-            <a href="https://www.airbnb.com/groups">Groups</a>
-          </li>
-          <li>
-            <a href="https://www.airbnb.com/invite?r=3">
-              Invite Friends
-              <span class="label label-pink label-new">New</span>
-            </a>
-          </li>
-          <li><a href="https://www.airbnb.com/users/edit">Edit Profile</a></li>
-          <li><a href="https://www.airbnb.com/account">Account</a></li>
-          <li><a href="https://www.airbnb.com/logout" id="header-logout">Log Out</a></li>
-        </ul>
-      </li>
-      <li id="inbox-item">
-        <a href="https://www.airbnb.com/inbox" class="link-reset inbox-icon">
-          <i class="alert-count position-super fade">0</i>
-          <i class="icon icon-envelope icon-gray">
-            <span class="text-hide hide">Inbox</span>
-          </i>
-        </a>
-      </li>
-    </ul>
+   
   </div>
 </div>
 
 
-    <script src="app/assets/a1.muscache.com/airbnb/static/header_cookie-938ab882c4ca8b513c84a403f4e6f049.js" type="text/javascript"></script>
-
-    <script>new HeaderPreload();</script>
-
-      <div class='span12 flash-container'>
-      </div>
-
-    
-
-
+  
 
 <div id="transition_helper" class="shift-with-hiw"></div>
 
-<!--[if lt IE 8]>
-  <div id="ie-modal-bg">
-</div>
-<div id="ie-modal-content">
-  <div id="ie-modal-close">
-    <a href="javascript:void(0)" id="ie-close-button">x</a>
-  </div>
-    <div class="text-center row-space-2">
-        <img alt="Chrome-logo-ec882d95de9daa6bee7d6b829a481abc" src="https://a2.muscache.com/airbnb/static/landing_pages/chrome-logo-ec882d95de9daa6bee7d6b829a481abc.jpg" />
-    </div>
-    <div class="h3 text-center row-space-2">
-      Browse better, faster
-    </div>
-    <div class="h4 text-center text-normal ie-text">
-      The browser you're using is out of date! Upgrade to Google Chrome to get the best Airbnb experience.
-    </div>
-    <form action="http://www.google.com/chrome" target="_blank" id="install-browser-form">
-      <input class="btn ie-btn" type="submit"
-       value="Install Chrome">
-    </form>
-
-  <script>
-    (function () {
-      var isIE = function () {
-        var nav = navigator.userAgent.toLowerCase();
-        return nav.indexOf('msie') != -1 ? parseInt(nav.split('msie')[1]) : false;
-      };
-
-      var trackRequest = function (event_name) {
-        if (window.XMLHttpRequest) {
-          var request = new XMLHttpRequest();
-        } else {
-          var request = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        request.open("POST", "/tracking/events", false);
-        request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-        request.send('{ "event_name" : "ie_' + isIE() + '_' + event_name + '" }');
-      };
-
-      var closeModal = function () {
-        document.getElementById('ie-modal-bg').style.display='none';
-        document.getElementById('ie-modal-content').style.display='none';
-      };
-
-      document.getElementById("ie-close-button").onclick = closeModal;
-      document.getElementById("install-browser-form").onsubmit = function () {
-        trackRequest("click");
-      };
-
-      trackRequest("impression");
-    })();
-  </script>
-</div>
-
-<![endif]-->
 
 
 
-<div class="how-it-works-section panel-babu-muted page-container-full overlay">
 
-    <a href="index.html#" class="panel-close"></a>
+<!--Background Video??? -->
 
-  <div class="page-container">
-    <div id="hiw-steps" class="row row-space-top-2">
-      <div id="hiw-steps-lazy">
-        <div class="col-4 text-center">
-          <div class="hiw-step step1"></div>
-        </div>
-        <div class="col-4 text-center">
-          <div class="hiw-step step2"></div>
-        </div>
-        <div class="col-4 text-center">
-          <div class="hiw-step step3"></div>
-        </div>
-      </div>
-    </div>
-    <div class="row row-space-top-2">
-      <div class="col-4 text-center text-contrast">
-        <div class="panel-body">
-          <h3>
-            Discover Amazing Places
-          </h3>
-          <p>
-            Find hosts with extra rooms, entire homes, and unique accommodations like castles and igloos.
-          </p>
-        </div>
-      </div>
-      <div class="col-4 text-center text-contrast">
-        <div class="panel-body">
-          <h3>
-            Book a Stay
-          </h3>
-          <p>
-            Connect with hosts, confirm travel dates, and pay &mdash; all through Airbnb's trusted services.
-          </p>
-        </div>
-      </div>
-      <div class="col-4 text-center text-contrast">
-        <div class="panel-body">
-          <h3>
-            Travel
-          </h3>
-          <p>
-            Feel at home, anywhere you go in the world. <a href='https://www.airbnb.com/help/getting-started/how-to-travel'>Learn more</a> about how to travel on Airbnb.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row row-space-top-4 row-space-4 text-center text-contrast">
-      <p><a href='https://www.airbnb.com/help/getting-started/how-to-host'>Learn more</a> about hosting on Airbnb and show your guests they're right where they belong.
-      </p>
-    </div>
-  </div>
-</div>
+
 
 
 <div id="hero" class="shift-with-hiw" style="display:block;"
      data-native-currency="USD">
   <ul class="list-unstyled" id="slideshow">
     <li class="active">
-      <img alt="Sanfrancisco-b8771ef15fce748f89cfe653c519174c" src="app/assets/a0.muscache.com/airbnb/static/landing_pages/pretzel/stills/sanfrancisco-b8771ef15fce748f89cfe653c519174c.jpg" width="100%" />
+      <img alt="background" src="http://www.extravaganzi.com/wp-content/uploads/2012/12/Paradise-Valley-Mansion-6.jpg" width="100%" />
     </li>
-      <li>
-        <img data-image-url='https://a1.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero1-1a5dfbed8a7884ea62931e80f195bcb6.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a2.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero2-8a91b65f19272c8fb98ba2db761463c4.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a2.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero3-6dc70eeda727981ff4b00d52dbbd45c1.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a2.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero4-2cc2a8c37bb72b8e0fe9ef88864f6d75.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a2.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero5-476dc9dc93ec81c393fea21b9841dd9d.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a1.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero6-00417b46d604691b0acaba1ec119cbe8.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a0.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero7-10f5a398b4bc8e590f96f0f0fedb1bee.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a1.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero8-6c3c7e1df211c3140d10a8df946173bf.jpg' width="100%">
-      </li>
-      <li>
-        <img data-image-url='https://a1.muscache.com/airbnb/static/landing_pages/pretzel/slideshow/hero9-ba8ef7a62e12fee787384a18d9b64d6d.jpg' width="100%">
-      </li>
+     
   </ul>
-    <video loop="loop" preload="auto" id="pretzel-video">
-      <source src="app/assets/a0.muscache.com/airbnb/static/SanFrancisco-P1-1.mp4" type='video/mp4'>
-      <source src="app/assets/a0.muscache.com/airbnb/static/SanFrancisco-P1-0.webm" type='video/webm'>
-    </video>
+   
 </div>
 
+
+
+
+
+<!--Jumbotron Area -->
 <div class="search-area text-center">
   <div class="page-container page-container-responsive row-full-height">
     <div class="intro-area row row-table row-full-height">
@@ -503,27 +69,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
     <div class="bottom-search-area">
       <div class="col-12">
-        <form action="https://www.airbnb.com/s" id="search_form">
+        <form action="" id="search_form">
           <div class="location-wrapper"><input type="text" class="form-inline location input-large input-contrast" autocomplete="off" id="location" name="location" placeholder="where you wanna go?" /><p id="enter_location_error_message" class="bad hide">
             Please set location
           </p></div><input type="text" id="checkin" class="form-inline checkin search-option input-large input-contrast" name="checkin" placeholder="Check In" /><input type="text" id="checkout" class="form-inline checkout search-option input-large input-contrast" name="checkout" placeholder="Check Out" /><div class="select select-large">
             <select id="guests" name="guests">
               <option value="1">1 Guest</option>
-<option value="2">2 Guests</option>
-<option value="3">3 Guests</option>
-<option value="4">4 Guests</option>
-<option value="5">5 Guests</option>
-<option value="6">6 Guests</option>
-<option value="7">7 Guests</option>
-<option value="8">8 Guests</option>
-<option value="9">9 Guests</option>
-<option value="10">10 Guests</option>
-<option value="11">11 Guests</option>
-<option value="12">12 Guests</option>
-<option value="13">13 Guests</option>
-<option value="14">14 Guests</option>
-<option value="15">15 Guests</option>
-<option value="16">16+ Guests</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="7">7 Guests</option>
+                <option value="8">8 Guests</option>
+                <option value="9">9 Guests</option>
+                <option value="10">10 Guests</option>
+                <option value="11">11 Guests</option>
+                <option value="12">12 Guests</option>
+                <option value="13">13 Guests</option>
+                <option value="14">14 Guests</option>
+                <option value="15">15 Guests</option>
+                <option value="16">16+ Guests</option>
             </select>
           </div><input type="hidden" name="source" value="bb"><button type="submit" class="search-button form-inline btn btn-primary btn-large" id="submit_location">
             Search
@@ -537,85 +103,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-        <div class="show-more-section"></div>
-
-        <div class="hide all-destinations row-space-top-6">
-          <h3 class="row-space-4 strong">All Top Destinations</h3>
-<div class="row row-space-8">
-    <div class="col-2">
-        <p><a href="https://www.airbnb.com/s/Amsterdam--Netherlands?ref=top-destinations">Amsterdam</a></p>
-        <p><a href="https://www.airbnb.com/s/Bali--Indonesia?ref=top-destinations">Bali</a></p>
-        <p><a href="https://www.airbnb.com/s/Barcelona--Spain?ref=top-destinations">Barcelona</a></p>
-        <p><a href="https://www.airbnb.com/s/Berlin--Germany?ref=top-destinations">Berlin</a></p>
-    </div>
-    <div class="col-2">
-        <p><a href="https://www.airbnb.com/s/Chicago--IL?ref=top-destinations">Chicago</a></p>
-        <p><a href="https://www.airbnb.com/s/Copenhagen--Denmark?ref=top-destinations">Copenhagen</a></p>
-        <p><a href="https://www.airbnb.com/s/Florence--Italy?ref=top-destinations">Florence</a></p>
-        <p><a href="https://www.airbnb.com/s/Hong-Kong?ref=top-destinations">Hong Kong</a></p>
-    </div>
-    <div class="col-2">
-        <p><a href="https://www.airbnb.com/s/Istanbul--Turkey?ref=top-destinations">Istanbul</a></p>
-        <p><a href="https://www.airbnb.com/s/Lisbon--Portugal?ref=top-destinations">Lisbon</a></p>
-        <p><a href="https://www.airbnb.com/s/London--United-Kingdom?ref=top-destinations">London</a></p>
-        <p><a href="https://www.airbnb.com/s/Los-Angeles--CA?ref=top-destinations">Los Angeles</a></p>
-    </div>
-    <div class="col-2">
-        <p><a href="https://www.airbnb.com/s/Madrid--Spain?ref=top-destinations">Madrid</a></p>
-        <p><a href="https://www.airbnb.com/s/Miami--?ref=top-destinations">Miami</a></p>
-        <p><a href="https://www.airbnb.com/s/Montreal--Canada?ref=top-destinations">Montreal</a></p>
-        <p><a href="https://www.airbnb.com/s/New-York--NY?ref=top-destinations">New York</a></p>
-    </div>
-    <div class="col-2">
-        <p><a href="https://www.airbnb.com/s/Paris--France?ref=top-destinations">Paris</a></p>
-        <p><a href="https://www.airbnb.com/s/Rio-de-Janeiro--Brazil?ref=top-destinations">Rio de Janeiro</a></p>
-        <p><a href="https://www.airbnb.com/s/Rome--Italy?ref=top-destinations">Rome</a></p>
-        <p><a href="https://www.airbnb.com/s/San-Francisco--CA?ref=top-destinations">San Francisco</a></p>
-    </div>
-    <div class="col-2">
-        <p><a href="https://www.airbnb.com/s/Seoul--South-Korea?ref=top-destinations">Seoul</a></p>
-        <p><a href="https://www.airbnb.com/s/Sydney--Australia?ref=top-destinations">Sydney</a></p>
-        <p><a href="https://www.airbnb.com/s/Tokyo--Japan?ref=top-destinations">Tokyo</a></p>
-        <p><a href="https://www.airbnb.com/s/Venice--Italy?ref=top-destinations">Venice</a></p>
-    </div>
-</div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--[if (gt IE 8)|!(IE)]><!-->
-  <a href="index.html#" class="slideshow-scroll slideshow-scroll-prev hidden link-reset text-contrast text-jumbo">
- 
-  </a>
-  <a href="index.html#" class="slideshow-scroll slideshow-scroll-next hidden link-reset text-contrast text-jumbo">
-
-  </a>
-<!--<![endif]-->
-</div>
-
-<!--[if (gt IE 8)|!(IE)]><!-->
-<div id="fullscreen-video-player" class="hidden">
-  <div class="row row-table row-full-height">
-    <div class="col-12 col-middle">
-      <video preload="none" id="belong-anywhere-video" class="col-12">
-        <source src="assets/a0.muscache.com/airbnb/static/belo-3.mp4" type='video/mp4'>
-        <source src="assets/a0.muscache.com/airbnb/static/belo-3.webm" type='video/webm'>
-      </video>
-      <i id="play-button" class="media-button icon icon-video-play hide"></i>
-      <a id="close-fullscreen">
-        <i class="icon icon-remove"></i>
-      </a>
-    </div>
-  </div>
-</div>
-<!--<![endif]-->
 
 
-
-      <div id="footer" class="container-brand-dark footer-surround footer-container">
+<!--Footer -->
+  <div id="footer" class="container-brand-dark footer-surround footer-container">
         <div class="footer-content-container container page-container page-container-responsive">
   <div class="row row-condensed">
     <div class="span3 col-3">
@@ -630,314 +121,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 
     <div class="span3 col-3 hide-phone">
-      <h5>Company</h5>
+      <h5>MansionExpress</h5>
       <ul class="unstyled list-layout">
-        <li><a href="https://www.airbnb.com/about/about-us" class="link-contrast">About</a></li>
-        <li><a href="https://www.airbnb.com/jobs" class="link-contrast">Jobs</a></li>
-        <li><a href="https://www.airbnb.com/press/news" class="link-contrast">Press</a></li>
-        <li><a href="http://blog.airbnb.com" class="link-contrast">Blog</a></li>
-        <li><a href="https://www.airbnb.com/help" class="link-contrast">Help</a></li>
-        <li><a href="https://www.airbnb.com/policies" class="link-contrast">Policies</a></li>
-        <li><a href="https://www.airbnb.com/disaster-response" class="link-contrast">Disaster Response</a></li>
-        <li><a href="https://www.airbnb.com/terms" class="link-contrast">Terms & Privacy</a></li>
+        <li><a href="" class="link-contrast">About</a></li>
+        <li><a href="" class="link-contrast">Press</a></li>
+        <li><a href="" class="link-contrast">Blog</a></li>
+        <li><a href="" class="link-contrast">Help</a></li>
+        <li><a href="" class="link-contrast">Policies</a></li>
+        <li><a href="" class="link-contrast">Terms & Privacy</a></li>
       </ul>
     </div>
 
     <div class="span3 col-3 hide-phone">
       <h5>Discover</h5>
       <ul class="unstyled list-layout">
-        <li><a href="https://www.airbnb.com/trust" class="link-contrast">Trust & Safety</a></li>
-        <li><a href="https://www.airbnb.com/invite?r=6" class="link-contrast">Invite Friends</a></li>
-        <li><a href="https://www.airbnb.com/wishlists/airbnb_picks" class="link-contrast">Airbnb Picks</a></li>
-        <li><a href="https://www.airbnb.com/mobile" class="link-contrast">Mobile</a></li>
-        <li><a href="https://www.airbnbnyc.com" class="link-contrast">Support NYC</a></li>
-        <li><a href="https://www.airbnb.com/business-travel" class="link-contrast">Business Travel</a></li>
-        <li><a href="https://www.airbnb.com/sitemaps" class="link-contrast">Site Map</a></li>
+        <li><a href="" class="link-contrast">Invite Friends</a></li>
+        <li><a href="" class="link-contrast">MansionExpress Picks</a></li>
       </ul>
     </div>
 
     <div class="span3 col-3 hide-phone">
       <h5>Hosting</h5>
       <ul class="unstyled list-layout">
-        <li><a href="https://www.airbnb.com/info/why_host" class="link-contrast">Why Host</a></li>
-        <li><a href="https://www.airbnb.com/hospitality" class="link-contrast">Hospitality</a></li>
-        <li><a href="https://www.airbnb.com/help/responsible-hosting" class="link-contrast">Responsible Hosting</a></li>
-        <li><a href="https://www.airbnb.com/stories" class="link-contrast">Stories</a></li>
+        <li><a href="" class="link-contrast">Why Host</a></li>
+        <li><a href="" class="link-contrast">Responsible Hosting</a></li>
+        <li><a href="" class="link-contrast">Stories</a></li>
       </ul>
     </div>
   </div>
 
   <hr class="footer-divider row-space-top-8 row-space-4 hide-phone">
 
+
+<!--Social Media Tags -->
   <div class="social-media text-center">
     <h5 class="row-space-4 hide-phone">Join Us On</h5>
     <ul class="unstyled list-layout list-inline">
         <li>
-          <a href="https://www.facebook.com/airbnb" class="link-contrast footer-icon-container" target="_blank">
-            <i class='icon footer-icon icon-facebook'></i>
-</a>        </li>
+          <a href="" class="link-contrast footer-icon-container" target="_blank">
+            <i class='icon footer-icon icon-facebook'></i></a></li>
         <li>
-          <a href="https://plus.google.com/+airbnb" class="link-contrast footer-icon-container" target="_blank">
-            <i class='icon footer-icon icon-google-plus'></i>
-</a>        </li>
-
+          <a href="" class="link-contrast footer-icon-container" target="_blank">
+            <i class='icon footer-icon icon-google-plus'></i></a></li>
         <li>
-          <a href="https://twitter.com/airbnb" class="link-contrast footer-icon-container" target="_blank">
-            <i class='icon footer-icon icon-twitter'></i>
-</a>        </li>
-
+          <a href="" class="link-contrast footer-icon-container" target="_blank">
+            <i class='icon footer-icon icon-twitter'></i></a></li>
       <li>
-        <a href="http://www.linkedin.com/company/airbnb" class="link-contrast footer-icon-container" target="_blank">
+        <a href="" class="link-contrast footer-icon-container" target="_blank">
           <i class='icon footer-icon icon-linkedin'></i>
-</a>      </li>
-
+      </a></li>
         <li>
-          <a href="http://www.pinterest.com/airbnb/" class="link-contrast footer-icon-container" target="_blank">
+          <a href="" class="link-contrast footer-icon-container" target="_blank">
             <i class='icon footer-icon icon-pinterest'></i>
-</a>        </li>
+          </a></li>
         <li>
-          <a href="http://www.youtube.com/airbnb" class="link-contrast footer-icon-container" target="_blank">
+          <a href="" class="link-contrast footer-icon-container" target="_blank">
             <i class='icon footer-icon icon-youtube'></i>
-</a>        </li>
+        </a></li>
     </ul>
     <div id="copyright" class="row-space-top-2 text-muted">
-      &copy; Airbnb, Inc.
+      &copy; MansionExpress
     </div>
   </div>
 </div>
 
-      </div>
-
-      <div id="fb-root"></div>
-
-    <div id="gmap-preload" class="hide"></div>
-    <!--[if lt IE 9]>
-      <script src="https://a1.muscache.com/airbnb/static/libs_jquery_1x-e7a078a56c26a6fc7770dcf80673b06c.js" type="text/javascript"></script>
-    <![endif]-->
-    <!--[if gte IE 9]><!-->
-      <script src="app/assets/a1.muscache.com/airbnb/static/libs_jquery_2x-28730027aee01fc98ecee586a11190ba.js" type="text/javascript"></script>
-    <!--<![endif]-->
-    <script src="app/assets/a0.muscache.com/airbnb/static/o2.1-94b925514ee9ea1df8cd0f6da07e38e4.js" type="text/javascript"></script>
-    <script src="app/assets/a1.muscache.com/airbnb/static/core-484d6b39b0a63ac11670c33a88bbec8b.js" type="text/javascript"></script>
-
-    <script>
-      if (Airbnb.Tracking) {
-        Airbnb.Tracking.setBev();
-      }
-
-      I18n.init(
-        {"country":"US","currencies":{"ARS":{"symbol":"$","code_required":true,"options":null},"AUD":{"symbol":"$","code_required":true,"options":null},"BRL":{"symbol":"R$","code_required":false,"options":{"space_between_price_and_symbol":true}},"CAD":{"symbol":"$","code_required":true,"options":null},"CHF":{"symbol":"CHF","code_required":false,"options":{"position":"after","space_between_price_and_symbol":true}},"CNY":{"symbol":"&yen;","code_required":false,"options":{"unicode_symbol":"¥"}},"CZK":{"symbol":"&#75;&#269;","code_required":false,"options":{"unicode_symbol":"Kč"}},"DKK":{"symbol":"kr","code_required":true,"options":{"position":"after","space_between_price_and_symbol":true,"explicit_currency_not_aesthetic":true}},"EUR":{"symbol":"&euro;","code_required":false,"options":{"unicode_symbol":"€","position":"special"}},"GBP":{"symbol":"&pound;","code_required":false,"options":{"unicode_symbol":"£"}},"HKD":{"symbol":"$","code_required":true,"options":null},"HUF":{"symbol":"Ft","code_required":false,"options":null},"IDR":{"symbol":"Rp","code_required":false,"options":null},"ILS":{"symbol":"&#8362;","code_required":false,"options":{"unicode_symbol":"₪","space_between_price_and_symbol":true}},"INR":{"symbol":"&#8377;","code_required":false,"options":{"unicode_symbol":"₹"}},"JPY":{"symbol":"&yen;","code_required":false,"options":{"unicode_symbol":"¥","space_between_price_and_symbol":true}},"KRW":{"symbol":"&#8361;","code_required":false,"options":{"unicode_symbol":"₩"}},"MYR":{"symbol":"&#82;&#77;","code_required":false,"options":{"unicode_symbol":"RM"}},"MXN":{"symbol":"$","code_required":true,"options":null},"NOK":{"symbol":"kr","code_required":true,"options":{"position":"after","space_between_price_and_symbol":true,"explicit_currency_not_aesthetic":true}},"NZD":{"symbol":"$","code_required":true,"options":null},"PHP":{"symbol":"&#8369;","code_required":false,"options":{"unicode_symbol":"₱"}},"PLN":{"symbol":"z&#22;&#322;","code_required":false,"options":{"unicode_symbol":"zł","position":"after","space_between_price_and_symbol":true}},"RUB":{"symbol":"&#1088;","code_required":false,"options":{"unicode_symbol":"р","position":"after"}},"SEK":{"symbol":"kr","code_required":true,"options":{"position":"after","space_between_price_and_symbol":true,"explicit_currency_not_aesthetic":true}},"SGD":{"symbol":"$","code_required":true,"options":null},"THB":{"symbol":"&#3647;","code_required":false,"options":{"unicode_symbol":"฿"}},"TRY":{"symbol":"&#84;&#76;","code_required":false,"options":{"unicode_symbol":"TL","position":"after","space_between_price_and_symbol":true}},"TWD":{"symbol":"$","code_required":true,"options":null},"USD":{"symbol":"$","code_required":false,"options":null},"VND":{"symbol":"&#8363;","code_required":false,"options":{"unicode_symbol":"₫"}},"ZAR":{"symbol":"R","code_required":true,"options":null}},"current_locale_name":"English","languages":[{"locale_name":"Bahasa Indonesia","locale":"id"},{"locale_name":"Bahasa Melayu","locale":"ms"},{"locale_name":"Català","locale":"ca"},{"locale_name":"Dansk","locale":"da"},{"locale_name":"Deutsch","locale":"de"},{"locale_name":"English","locale":"en"},{"locale_name":"Español","locale":"es"},{"locale_name":"Eλληνικά","locale":"el"},{"locale_name":"Français","locale":"fr"},{"locale_name":"Italiano","locale":"it"},{"locale_name":"Magyar","locale":"hu"},{"locale_name":"Nederlands","locale":"nl"},{"locale_name":"Norsk","locale":"no"},{"locale_name":"Polski","locale":"pl"},{"locale_name":"Português","locale":"pt"},{"locale_name":"Suomi","locale":"fi"},{"locale_name":"Svenska","locale":"sv"},{"locale_name":"Türkçe","locale":"tr"},{"locale_name":"Íslenska","locale":"is"},{"locale_name":"Čeština","locale":"cs"},{"locale_name":"Русский","locale":"ru"},{"locale_name":"ภาษาไทย","locale":"th"},{"locale_name":"中文 (简体)","locale":"zh"},{"locale_name":"中文 (繁體)","locale":"zh-TW"},{"locale_name":"日本語","locale":"ja"},{"locale_name":"한국어","locale":"ko"}]}
-      );
-      I18n.extend({"Password":"Password","users.Confirm_Password_to_Continue":"Confirm Password to Continue","users.Confirm_Password":"Confirm Password","users.Cancel":"Cancel","users.Please_enter_your_Airbnb_password_to_continue.":"For your security, please enter your Airbnb password to continue.","user.signup.forgot_password":"Forgot password?","users.Confirm_Facebook_Password":"Confirm Facebook Password","choose_language":"Choose language","choose_currency":"Choose currency","clear_dates":"Clear Dates","datepicker_updated_years_ago":"Updated %{smart_count} year ago |||| Updated %{smart_count} years ago","datepicker_updated_months_ago":"Updated %{smart_count} month ago |||| Updated %{smart_count} months ago","datepicker_updated_days_ago":"Updated %{smart_count} day ago |||| Updated %{smart_count} days ago","datepicker_updated_today":"Updated today","datepicker_never_updated":"Never updated","datepicker_min_nights":"%{smart_count} night minimum stay |||| %{smart_count} night minimum stay"});
-    </script>
-
-
-    <script>
-  (function(c,a){window.mixpanel=a;var b,d,h,e;
-  a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:f="mixpanel";g.people=g.people||[];h=['disable','track','track_pageview','track_links','track_forms','register','register_once','unregister','identify','name_tag','set_config','people.identify','people.set','people.increment'];for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1;})(document,window.mixpanel||[]);mixpanel.init("871bd83d174bd67e8c8643e833a4514d");
-</script>
-
-
-      <script>
-        !function() {
-          var Facebook = require('airbnb.facebook');
-          Facebook.init({"appId":"138566025676","scope":"email,user_birthday,user_likes,user_education_history,user_hometown,user_interests,user_activities,user_location,user_friends"});
-        }();
-      </script>
-
-    
-    <script src="app/assets/a2.muscache.com/airbnb/static/homepage-6bad11c238472656fe64b836a7ace659.js" type="text/javascript"></script>
-    
-
-    <script>
-      window.___gcfg = {lang: 'en', parsetags: 'onload'};
-
-      var initOptions = {"canonical_host":"www.airbnb.com","canonical_url":"https://www.airbnb.com/","language":"en","locale":"en"};
-      Airbnb.init(initOptions);
-      var userID = Airbnb.userAttributes.id || null;
-      (function() {
-        Airbnb.o2Version = "o2.1";
-
-        Airbnb.LangCurrPicker.init();
-
-        Airbnb.header = new Airbnb.Header();
-
-        if (Airbnb.Tracking) {
-          var roleType = "production";
-
-          Airbnb.addInitHook(function() {
-            Airbnb.Tracking.init();
-
-            Airbnb.Tracking.addDefaultContext();
-            Airbnb.Tracking.addContext(
-              _.extend({"o2Version":"o2.1","source":"monorail","platform":"js","version":"081b179a221115e6334a60025c93e72d6613007c","controller":"homepages","action":"show","req_uuid":"42a44c5b-7ec1-4d22-9e01-a670ef55eec3"}, {
-                user_id: userID
-              }));
-          });
-        }
-
-      })();
-
-      Airbnb.Api.configure({"baseUrl":"https://www.airbnb.com/api","key":"d306zoyjsyarp7ifhu67rjxn52tv0t20"});
-
-
-        (function() {
-          var flash = require('o2-flash');
-          flash.display();
-        })();
-
       
-   Airbnb.Translations.extend( {"tagline.global-travel":"Global travel","subtitle.global-travel":"Rent unique places to stay from local hosts in 190 countries.","tagline.unique-accommodations":"Unique accommodations","subtitle.unique-accommodations":"treehouses, castles, boathouses, airstreams, private islands, vacation villas, lighthouses...","tagline.high-value-at-cost":"High value at cost","subtitle.high-value-at-cost":"Stay in a comfortable house during your travel with small budgets.","tagline.diy-travel":"DIY travel","subtitle.diy-travel":"Experience the world in your own way","welcome_home":"Welcome home","home.rent-unique-places-to-stay":"Rent unique places to stay from local hosts in 190 countries."} );
-  !function($) {
-    var $location = $('#location');
-    $location.focus();
 
-    $(window).on('load', function() {
-
-      $("#hiw-steps-lazy").show();
-
-      Airbnb.Utils.preloadGoogleMapsCommon();
-
-      Airbnb.Utils.withGooglePlaces(function(){
-        var autocomplete = new google.maps.places.Autocomplete(
-          $location[0], {types: ["geocode"]}
-        );
-      });
-    });
-
-
-    var $hiwSection = $('.how-it-works-section');
-    var shiftHeight = $hiwSection.outerHeight();
-
-    $("#header").addClass("shift-with-hiw");
-    $hiwSection.css("top", "-" + (shiftHeight+1) + "px");
-
-    var $shiftWithHiw = $('.shift-with-hiw');
-
-    var showHowItWorks = function(speed) {
-      $("#hiw-steps-lazy").show();
-      window.scrollTo(0, 0);
-      $hiwSection.animate({top: "0"}, speed);
-      $shiftWithHiw.animate({marginTop: shiftHeight + "px" }, speed);
-      $(window).on('scroll', hideIfOutOfViewport);
-    };
-
-    var hideHowItWorks = function(speed) {
-      $shiftWithHiw.animate({marginTop: "0" }, speed);
-      $hiwSection.animate({top: "-=" + (shiftHeight+1) + "px"}, speed);
-      $(window).off('scroll', hideIfOutOfViewport);
-    };
-
-    var hideIfOutOfViewport = function() {
-      if ($(window).scrollTop() > shiftHeight) {
-        hideHowItWorks(0);
-        window.scrollTo(0, 0);
-      }
-    };
-
-    $('.how-it-works').on('click', function(e) {
-      e.preventDefault();
-      showHowItWorks(400);
-    });
-
-    $hiwSection.find('.panel-close').click(function(e) {
-      e.preventDefault();
-      hideHowItWorks(300);
-    });
-
-
-      var video = $("#pretzel-video");
-
-      if (video.get(0).canPlayType) {
-        var playVideo = function() {
-          video.get(0).play();
-          video.addClass("video-playing");
-          $("#slideshow").addClass("hide");
-        }
-
-        if (video.get(0).readyState >= video.get(0).HAVE_FUTURE_DATA) {
-          playVideo();
-        } else {
-          video.get(0).addEventListener('canplay', function() {
-           playVideo();
-          }, false);
-        }
-      } else {
-        $(window).on("load", function(){
-          AIR.HomepageHelper.initHeroSlideshow();
-        })
-      }
-
-
-    var $pacContainer = null;
-    $location.on('keydown', function(e) {
-      if(e.keyCode === 13) {
-        if(!$pacContainer || !$pacContainer.length) {
-          $pacContainer = $('.pac-container');
-        }
-        if($pacContainer.is(':visible')) e.preventDefault();
-      }
-    });
-
-    function setText(id,newvalue) {
-      var s = document.getElementById(id);
-      s.innerHTML = newvalue;
-    }
-
-
-  }(jQuery);
-
-  $(function(){
-    AIR.onCustomRecommendedDestinationsLoad(function(response) {
-      AIR.HomepageHelper.loadP1Discovery(response);
-    })
-
-    if(Airbnb.userAttributes.og_publish) {
-      $(document).bind('fbLoginStatus', Airbnb.Utils.fbInitHasPublishAction);
-    }
-
-    $('img.lazy').lazyload({ threshold : 50 });
-
-    AIR.HomepageHelper.initHomepageHero();
-    $(window).bind("load", function() {
-      AIR.HomepageHelper.initSlideshows();
-      AIR.HomepageHelper.initVideoPlayer();
-      setTimeout(function() {
-        Airbnb.Utils.preload(["https://a1.muscache.com/airbnb/static/packages/map_search-df57ac22aa126f2b312ea45508f4b100.css","https://a1.muscache.com/airbnb/static/map_search-2ee70411feecf29b3b79c8c54c397cb1.js"]);
-      }, 200);
-    });
-  });
-
-    </script>
-
-    <script>
-(function($, ua) {
-  $(window).on('load.pellet', function(){
-    if(ua.should_drop_pellet){
-      Airbnb.Pellet.drop('kfgn8s24');
-    }
-  });
-
-  if (ua.should_drop_sift_pellet) {
-    $(window).on('load', function(){
-      window._sift = window._sift || [];
-      _sift.push(['_setAccount', '5d704de7e8']);
-      _sift.push(['_setUserId', ua.eid || '']);
-      _sift.push(['_setSessionId', Airbnb.Utils.readCookie('esid')]);
-      _sift.push(['_trackPageview']);
-      LazyLoad.js('//cdn.siftscience.com/s.js');
-    });
-  }
-
-})(jQuery, Airbnb.userAttributes);
-
-</script>
-
-
-    <script>
-        LazyLoad.js('//a0.muscache.com/3p/_latest/abb_combo_all_fb_locale-en_US.js');
-    </script>
+    
 
   </body>
+
+
+
+  
 </html>
-<!-- ver. 081b179a221115e6334a60025c93e72d6613007c -->
+
