@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<% if current_user %>
+		<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+		<%= link_to 'account settings', edit_user_registration_path %>
+	<% else %>
+		<%= link_to 'sign in', new_user_session_path %>
+		<%= link_to 'sign up', new_user_registration_path %>
+	<% end %>
+
 	<%= flash.notice if flash.notice %>
 	<%= flash.alert if flash.alert %>
 	
