@@ -9,7 +9,9 @@
 
 <% if current_user %>
 	<% unless current_user.mansions.include?(@mansion) %>
-		<%= link_to 'Join', new_booking_path, class: 'btn btn-success pull-right' %>
+		<% if @mansion.users.count < @mansion.bedrooms %>
+			<%= link_to 'Join', new_booking_path, class: 'btn btn-success pull-right' %>
+		<% end %>
 	<% else %>
 		<%= link_to 'Leave', destroy_booking_path, class: 'btn btn-danger pull-right' %>
 	<% end %>
