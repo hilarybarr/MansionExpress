@@ -18711,3 +18711,72 @@ Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-15 1
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 19:49:24 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-15 19:57:30 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MansionsController#index as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/DylanRichards/Desktop/mansion-express/app/models/mansion.rb:9)
+  [1m[35mMansion Load (56.7ms)[0m  SELECT "mansions".* FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (110.7ms)
+Completed 200 OK in 718ms (Views: 597.9ms | ActiveRecord: 57.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-15 19:57:31 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-15 19:57:31 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-15 19:57:31 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 19:57:31 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 19:57:31 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 19:57:31 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 19:57:32 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 19:57:32 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-15 19:57:32 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-15 19:57:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 19:57:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 19:57:32 -0400
+
+
+Started GET "/mansions/1" for 127.0.0.1 at 2014-08-15 19:57:38 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMansion Load (0.3ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered mansions/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 99ms (Views: 94.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/mansions/13" for 127.0.0.1 at 2014-08-15 19:58:00 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mMansion Load (0.2ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered mansions/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 96ms (Views: 93.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mansions/7" for 127.0.0.1 at 2014-08-15 19:58:04 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered mansions/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.2ms)
