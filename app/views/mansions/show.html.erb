@@ -1,9 +1,18 @@
 <div class="mansionDescription center-block">	
-	<%= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
-
+	<%#= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
+	<%#= image_tag(@mansion.photo_url), class: 'mansionShow' %>
+<img class="mansionShow" src="<%= @mansion.photo_url %>"/>
 	<%= link_to 'Apply', '#', class: 'btn btn-success pull-right' %>
 
 	<h1><%= @mansion.name %></h1>
+	<h3>City: <%= @mansion.city %></h3>
+	<h1>Country: <%= @mansion.country %></h1>
+	<h1>Region: <%= @mansion.region %></h1>
+	<h1>Price: <%= @mansion.price %></h1>
+	<h1>Bedrooms: <%= @mansion.bedrooms %></h1>
+	<h1>Bathrooms: <%= @mansion.bathrooms %></h1>
+
+
 	<div class='mansionDescription'><strong>description: </strong><%= @mansion.description %></div>
 
 	<div class="mansionShowMap"></div>

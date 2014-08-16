@@ -18,10 +18,8 @@
 
   require 'nokogiri'
   require 'open-uri' #let's us grab contents of url
-  #require_relative 'personality_traits_amenities'
+  require_relative 'personality_traits_amenities'
 
-
-  
 
 # Add Caribbean and Central America
   caribbean=['http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos', 'http://www.luxuryretreats.com/destinations/caribbean/anguilla', 'http://www.luxuryretreats.com/destinations/caribbean/bahamas', 'http://www.luxuryretreats.com/destinations/caribbean/barbados', 'http://www.luxuryretreats.com/destinations/caribbean/bonaire', 'http://www.luxuryretreats.com/destinations/caribbean/dominican-republic', 'http://www.luxuryretreats.com/destinations/caribbean/grenada', 'http://www.luxuryretreats.com/destinations/caribbean/jamaica', 'http://www.luxuryretreats.com/destinations/caribbean/nevis', 'http://www.luxuryretreats.com/destinations/caribbean/puerto-rico', 'http://www.luxuryretreats.com/destinations/caribbean/st-barts', 'http://www.luxuryretreats.com/destinations/caribbean/st-croix', 'http://www.luxuryretreats.com/destinations/caribbean/st-john', 'http://www.luxuryretreats.com/destinations/caribbean/st-lucia', 'http://www.luxuryretreats.com/destinations/caribbean/st-martin', 'http://www.luxuryretreats.com/destinations/caribbean/st-thomas',  'http://www.luxuryretreats.com/destinations/caribbean/tortola', 'http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos', 'http://www.luxuryretreats.com/destinations/caribbean/virgin-gorda']
@@ -34,7 +32,8 @@
     doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
       doc.css(".villaBlockContainer").each do |block| 
        name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
+       price=block.at_css(".vpMin").text#[/[0-9\.]+/] 
+       description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde voluptatum, distinctio repellendus, eos velit at error pariatur! Voluptate rerum, impedit amet minima, vero repellendus veritatis esse, neque magni, nostrum sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur pariatur impedit repellendus consequatur praesentium blanditiis maxime saepe odio ipsam maiores, voluptatem facilis quae quas soluta voluptates tenetur, eligendi cumque aliquid.'
        city=block.at_css(".locationName").text
        country= block.at_css(".regionName").text
        region=block.at_css(".destinationName").text
@@ -45,7 +44,8 @@
        unless bedrooms=="0"   #Makes sure we don't add empty listings
           Mansion.create!(
           name: name,
-          price: price.to_i,
+          price: price,
+          description: description,
           city: city,
           country: country,
           region: region,
@@ -71,7 +71,8 @@
     doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
       doc.css(".villaBlockContainer").each do |block| 
        name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
+       price=block.at_css(".vpMin").text#[/[0-9\.]+/] 
+       description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde voluptatum, distinctio repellendus, eos velit at error pariatur! Voluptate rerum, impedit amet minima, vero repellendus veritatis esse, neque magni, nostrum sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur pariatur impedit repellendus consequatur praesentium blanditiis maxime saepe odio ipsam maiores, voluptatem facilis quae quas soluta voluptates tenetur, eligendi cumque aliquid.'
        city=block.at_css(".regionName").text
        region= "North America"
        country=block.at_css(".destinationName").text
@@ -82,7 +83,8 @@
       unless bedrooms=="0"   #Makes sure we don't add empty listings
           Mansion.create!(
           name: name,
-          price: price.to_i,
+          price: price,
+          description: description,
           city: city,
           country: country,
           region: region,
@@ -104,7 +106,8 @@
     doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
       doc.css(".villaBlockContainer").each do |block| 
        name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
+       price=block.at_css(".vpMin").text#[/[0-9\.]+/] 
+       description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde voluptatum, distinctio repellendus, eos velit at error pariatur! Voluptate rerum, impedit amet minima, vero repellendus veritatis esse, neque magni, nostrum sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur pariatur impedit repellendus consequatur praesentium blanditiis maxime saepe odio ipsam maiores, voluptatem facilis quae quas soluta voluptates tenetur, eligendi cumque aliquid.'
        city=block.at_css(".regionName").text
        region= "Asia"
        country=block.at_css(".destinationName").text
@@ -115,7 +118,8 @@
       unless bedrooms=="0"   #Makes sure we don't add empty listings
           Mansion.create!(
           name: name,
-          price: price.to_i,
+          price: price,
+          description: description,
           city: city,
           country: country,
           region: region,
@@ -146,7 +150,8 @@ europe=greece + france + italy
     doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
       doc.css(".villaBlockContainer").each do |block| 
        name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
+       price=block.at_css(".vpMin").text#[/[0-9\.]+/] 
+       description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde voluptatum, distinctio repellendus, eos velit at error pariatur! Voluptate rerum, impedit amet minima, vero repellendus veritatis esse, neque magni, nostrum sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur pariatur impedit repellendus consequatur praesentium blanditiis maxime saepe odio ipsam maiores, voluptatem facilis quae quas soluta voluptates tenetur, eligendi cumque aliquid.'
        city=block.at_css(".regionName").text
        region= "Europe"
        country=block.at_css(".destinationName").text
@@ -157,7 +162,8 @@ europe=greece + france + italy
        unless bedrooms=="0"   #Makes sure we don't add empty listings
           Mansion.create!(
           name: name,
-          price: price.to_i,
+          price: price,
+          description: description,
           city: city,
           country: country,
           region: region,
@@ -178,7 +184,8 @@ africa=["http://www.luxuryretreats.com/destinations/africa/south-africa/"]
     doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
       doc.css(".villaBlockContainer").each do |block| 
        name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
+       price=block.at_css(".vpMin").text#[/[0-9\.]+/] 
+       description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde voluptatum, distinctio repellendus, eos velit at error pariatur! Voluptate rerum, impedit amet minima, vero repellendus veritatis esse, neque magni, nostrum sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur pariatur impedit repellendus consequatur praesentium blanditiis maxime saepe odio ipsam maiores, voluptatem facilis quae quas soluta voluptates tenetur, eligendi cumque aliquid.'
        city=block.at_css(".regionName").text
        region= "Africa"
        country=block.at_css(".destinationName").text
@@ -189,7 +196,8 @@ africa=["http://www.luxuryretreats.com/destinations/africa/south-africa/"]
        unless bedrooms=="0"   #Makes sure we don't add empty listings
           Mansion.create!(
           name: name,
-          price: price.to_i,
+          price: price,
+          description: description,
           city: city,
           country: country,
           region: region,
@@ -201,47 +209,42 @@ africa=["http://www.luxuryretreats.com/destinations/africa/south-africa/"]
       end
       end
     end
-
-
-
-  
-
   
 # # CREATING PERSONALITY TRAITS TAGS
 
-# @professions.each do |profession| 
-#   PersonalityTrait.create(name: profession, category: "professions")
-# end
+@professions.each do |profession| 
+  PersonalityTrait.create(name: profession, category: "professions")
+end
 
-# @religions.each do |religion| 
-#   PersonalityTrait.create(name: religion, category: "religions")
-# end
+@religions.each do |religion| 
+  PersonalityTrait.create(name: religion, category: "religions")
+end
 
-# @sexual_orientations.each do |orientation| 
-#   PersonalityTrait.create(name: orientation, category: "sexual orientations")
-# end
+@sexual_orientations.each do |orientation| 
+  PersonalityTrait.create(name: orientation, category: "sexual orientations")
+end
 
-# @relationship_status.each do |status| 
-#   PersonalityTrait.create(name: status, category: "relationship status")
-# end
+@relationship_status.each do |status| 
+  PersonalityTrait.create(name: status, category: "relationship status")
+end
 
-# @smoker.each do |option| 
-#   PersonalityTrait.create(name: option, category: "smoker?")
-# end
+@smoker.each do |option| 
+  PersonalityTrait.create(name: option, category: "smoker?")
+end
 
-# @random_traits.each do |trait|
-#   PersonalityTrait.create(name: trait, category: "random_traits")
-# end
-
-
-# @music_styles.each do |music_style| 
-#   PersonalityTrait.create(name: music_style, category: "music styles")
-# end
+@random_traits.each do |trait|
+  PersonalityTrait.create(name: trait, category: "random_traits")
+end
 
 
-# # CREATING MANSION AMENITIES TAGS
+@music_styles.each do |music_style| 
+  PersonalityTrait.create(name: music_style, category: "music styles")
+end
 
-# @mansion_amenities.each do |amenity| 
-#   MansionAmenity.create(name: amenity)
 
+# CREATING MANSION AMENITIES TAGS
+
+@mansion_amenities.each do |amenity| 
+  MansionAmenity.create(name: amenity)
+end
 

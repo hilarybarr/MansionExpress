@@ -1,254 +1,295 @@
 
-# STILL NEED TO MOVE IMAGES TO AMAZON WEBSERVICES AND REMOVE FROM PUBLIC/MANSION_IMAGES
-
-#We included gem 'seed_dump'.
-# After you finish running rake db:seed, run rake db:seed:dump. 
-# Copy what is now in rake db:seed into a new file (i.e. seedbackup.rb).
-# In terminal run git checkout db/seeds.rb (or whatever name of file is in git status) assuming your 
-#last git commit was up to date.
-# This will keep your seeding file as is but you will have a copy of what you retrieved in seedbackup.rb
-
-# To add every image locally: 
-#Inside public/mansion_images
-# rails c
-#irb(main):004:0> Mansion.all.pluck("photo_url").each do |url| 
-#irb(main):005:1* `wget #{url}`
-#end
-
-
-  require 'nokogiri'
-  require 'open-uri' #let's us grab contents of url
-  require_relative 'personality_traits_amenities'
-
-
-  
-
-# Add Caribbean and Central America
-  caribbean=['http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos', 'http://www.luxuryretreats.com/destinations/caribbean/anguilla', 'http://www.luxuryretreats.com/destinations/caribbean/bahamas', 'http://www.luxuryretreats.com/destinations/caribbean/barbados', 'http://www.luxuryretreats.com/destinations/caribbean/bonaire', 'http://www.luxuryretreats.com/destinations/caribbean/dominican-republic', 'http://www.luxuryretreats.com/destinations/caribbean/grenada', 'http://www.luxuryretreats.com/destinations/caribbean/jamaica', 'http://www.luxuryretreats.com/destinations/caribbean/nevis', 'http://www.luxuryretreats.com/destinations/caribbean/puerto-rico', 'http://www.luxuryretreats.com/destinations/caribbean/st-barts', 'http://www.luxuryretreats.com/destinations/caribbean/st-croix', 'http://www.luxuryretreats.com/destinations/caribbean/st-john', 'http://www.luxuryretreats.com/destinations/caribbean/st-lucia', 'http://www.luxuryretreats.com/destinations/caribbean/st-martin', 'http://www.luxuryretreats.com/destinations/caribbean/st-thomas',  'http://www.luxuryretreats.com/destinations/caribbean/tortola', 'http://www.luxuryretreats.com/destinations/caribbean/turks-and-caicos', 'http://www.luxuryretreats.com/destinations/caribbean/virgin-gorda']
-
-  centralamerica=["http://www.luxuryretreats.com/destinations/central-america/costa-rica/", "http://www.luxuryretreats.com/destinations/central-america/belize/"]
-
-  url_array= caribbean + centralamerica 
-
-  url_array.each do |url|
-    doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
-      doc.css(".villaBlockContainer").each do |block| 
-       name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
-       city=block.at_css(".locationName").text
-       country= block.at_css(".regionName").text
-       region=block.at_css(".destinationName").text
-       photo_url=block.at_css(".villaPhoto")[:src]
-       bedrooms= block.at_css("span.bedCount").text
-       bathrooms=block.at_css("span.bathCount").text
-       source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
-       unless bedrooms=="0"   #Makes sure we don't add empty listings
-          Mansion.create!(
-          name: name,
-          price: price.to_i,
-          city: city,
-          country: country,
-          region: region,
-          photo_url: photo_url,
-          bedrooms: bedrooms.to_i,
-          bathrooms: bathrooms.to_i,
-          source: source
-          )
-      end
-      end
-    end
-
-
-# Add North America
-    
-  mexico= ["http://www.luxuryretreats.com/destinations/north-america/mexico/cabo-san-lucas", "http://www.luxuryretreats.com/destinations/north-america/mexico/puerto-vallarta", "http://www.luxuryretreats.com/destinations/north-america/mexico/punta-mita", "http://www.luxuryretreats.com/destinations/north-america/mexico/riviera-maya"]
-
-  united_states=[ "http://www.luxuryretreats.com/destinations/north-america/united-states/california---desert-cities/", "http://www.luxuryretreats.com/destinations/north-america/united-states/california---lake-tahoe/", "http://www.luxuryretreats.com/destinations/north-america/united-states/colorado-vail-valley/", "http://www.luxuryretreats.com/destinations/north-america/united-states/florida---the-palm-beaches/" ]
-
-  north_america= mexico + united_states
-
-  north_america.each do |url|
-    doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
-      doc.css(".villaBlockContainer").each do |block| 
-       name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
-       city=block.at_css(".regionName").text
-       region= "North America"
-       country=block.at_css(".destinationName").text
-       photo_url=block.at_css(".villaPhoto")[:src]
-       bedrooms= block.at_css("span.bedCount").text
-       bathrooms=block.at_css("span.bathCount").text
-       source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
-      unless bedrooms=="0"   #Makes sure we don't add empty listings
-          Mansion.create!(
-          name: name,
-          price: price.to_i,
-          city: city,
-          country: country,
-          region: region,
-          photo_url: photo_url,
-          bedrooms: bedrooms.to_i,
-          bathrooms: bathrooms.to_i,
-          source: source
-          )
-      end
-      end
-    end
-
-
-
-# #Add Asia
-  thailand=["http://www.luxuryretreats.com/destinations/asia/thailand/"]
-
-  thailand.each do |url|
-    doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
-      doc.css(".villaBlockContainer").each do |block| 
-       name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
-       city=block.at_css(".regionName").text
-       region= "Asia"
-       country=block.at_css(".destinationName").text
-       photo_url=block.at_css(".villaPhoto")[:src]
-       bedrooms= block.at_css("span.bedCount").text
-       bathrooms=block.at_css("span.bathCount").text
-       source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
-      unless bedrooms=="0"   #Makes sure we don't add empty listings
-          Mansion.create!(
-          name: name,
-          price: price.to_i,
-          city: city,
-          country: country,
-          region: region,
-          photo_url: photo_url,
-          bedrooms: bedrooms.to_i,
-          bathrooms: bathrooms.to_i,
-          source: source
-          )
-      end
-      end
-    end
-
-
-
-
-# #Add Europe
-
-greece=["http://www.luxuryretreats.com/destinations/europe/austria/", 'http://www.luxuryretreats.com/destinations/europe/greece/crete/', 'http://www.luxuryretreats.com/destinations/europe/greece/mykonos/','http://www.luxuryretreats.com/destinations/europe/greece/paros/', 'http://www.luxuryretreats.com/destinations/europe/greece/santorini/', 'http://www.luxuryretreats.com/destinations/europe/greece/zakynthos/'] 
-
-france= ['http://www.luxuryretreats.com/destinations/france/provence/', 'http://www.luxuryretreats.com/destinations/france/corsica/', 'http://www.luxuryretreats.com/destinations/france/paris/', 'http://www.luxuryretreats.com/destinations/france/french-alps/']    
-
-italy= ['http://www.luxuryretreats.com/destinations/italy/amalfi-coast/', 'http://www.luxuryretreats.com/destinations/italy/lake-como/', 'http://www.luxuryretreats.com/destinations/italy/sardinia/', 'http://www.luxuryretreats.com/destinations/italy/tuscany/', 'http://www.luxuryretreats.com/destinations/italy/umbria/']
-
-europe=greece + france + italy
-
-
-  europe.each do |url|
-    doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
-      doc.css(".villaBlockContainer").each do |block| 
-       name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
-       city=block.at_css(".regionName").text
-       region= "Europe"
-       country=block.at_css(".destinationName").text
-       photo_url=block.at_css(".villaPhoto")[:src]
-       bedrooms= block.at_css("span.bedCount").text
-       bathrooms=block.at_css("span.bathCount").text
-       source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
-       unless bedrooms=="0"   #Makes sure we don't add empty listings
-          Mansion.create!(
-          name: name,
-          price: price.to_i,
-          city: city,
-          country: country,
-          region: region,
-          photo_url: photo_url,
-          bedrooms: bedrooms.to_i,
-          bathrooms: bathrooms.to_i,
-          source: source
-          )
-      end
-      end
-    end
-
-
-
-# #Add Africa
-africa=["http://www.luxuryretreats.com/destinations/africa/south-africa/"]
-  africa.each do |url|
-    doc = Nokogiri::HTML(open(url)) #open the content of the URL and bring into Nokogiri
-      doc.css(".villaBlockContainer").each do |block| 
-       name= block.css('div.villaRegionTitle h2').text 
-       price=block.at_css(".vpMin").text[/[0-9\.]+/] 
-       city=block.at_css(".regionName").text
-       region= "Africa"
-       country=block.at_css(".destinationName").text
-       photo_url=block.at_css(".villaPhoto")[:src]
-       bedrooms= block.at_css("span.bedCount").text
-       bathrooms=block.at_css("span.bathCount").text
-       source=block.at_css(".villaDetailsLink a")[:href]   # for our use only...so we can track where we got listing
-       unless bedrooms=="0"   #Makes sure we don't add empty listings
-          Mansion.create!(
-          name: name,
-          price: price.to_i,
-          city: city,
-          country: country,
-          region: region,
-          photo_url: photo_url,
-          bedrooms: bedrooms.to_i,
-          bathrooms: bathrooms.to_i,
-          source: source
-          )
-      end
-      end
-    end
-
-
-
-  
-
-  
-# # CREATING PERSONALITY TRAITS TAGS
-
-# @professions.each do |profession| 
-#   PersonalityTrait.create(name: profession, category: "professions")
-# end
-
-# @religions.each do |religion| 
-#   PersonalityTrait.create(name: religion, category: "religions")
-# end
-
-# @sexual_orientations.each do |orientation| 
-#   PersonalityTrait.create(name: orientation, category: "sexual orientations")
-# end
-
-# @relationship_status.each do |status| 
-#   PersonalityTrait.create(name: status, category: "relationship status")
-# end
-
-# @smoker.each do |option| 
-#   PersonalityTrait.create(name: option, category: "smoker?")
-# end
-
-# @random_traits.each do |trait|
-#   PersonalityTrait.create(name: trait, category: "random_traits")
-# end
-
-
-# @music_styles.each do |music_style| 
-#   PersonalityTrait.create(name: music_style, category: "music styles")
-# end
-
-
-# # CREATING MANSION AMENITIES TAGS
-
-# @mansion_amenities.each do |amenity| 
-#   MansionAmenity.create(name: amenity)
-
-
-
-
-
-
+Mansion.create!([
+  {name: "Rafters", description: nil, address: nil, region: "Caribbean", city: "Leeward", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121", country: "Turks and Caicos", photo_url: "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"},
+  {name: "Ani South", description: nil, address: nil, region: "Caribbean", city: "Little Bay", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 6, source: "/destinations/caribbean/anguilla/little-bay/ani-south-111915", country: "Anguilla", photo_url: "https://pictures.luxuryretreats.com/111915/anguilla-southani-1.jpg"},
+  {name: "Triton - Kamique", description: nil, address: nil, region: "Caribbean", city: "Little Harbor", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/anguilla/little-harbor/triton-kamique-111134", country: "Anguilla", photo_url: "https://pictures.luxuryretreats.com/111134/Anguilla-Kamique-05.jpg"},
+  {name: "Ani North", description: nil, address: nil, region: "Caribbean", city: "Little Bay", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 5, source: "/destinations/caribbean/anguilla/little-bay/ani-north-111914", country: "Anguilla", photo_url: "https://pictures.luxuryretreats.com/111914/anguilla-northani-1.jpg"},
+  {name: "Bird of Paradise Villa", description: nil, address: nil, region: "Caribbean", city: "Sandy Hill", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/anguilla/sandy-hill/bird-of-paradise-villa-107614", country: "Anguilla", photo_url: "https://pictures.luxuryretreats.com/107614/anguilla-birdofparadise-02.jpg"},
+  {name: "Harmony", description: nil, address: nil, region: "Caribbean", city: "Maundays Bay", bedrooms: 8, bathrooms: 9, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/anguilla/maundays-bay/harmony-107823", country: "Anguilla", photo_url: "https://pictures.luxuryretreats.com/107823/anguilla-harmony-1.jpg"},
+  {name: "Buccaneer Hill", description: nil, address: nil, region: "Caribbean", city: "Eleuthera Island", bedrooms: 5, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/bahamas/eleuthera-island/buccaneer-hill-111516", country: "Bahamas", photo_url: "https://pictures.luxuryretreats.com/111516/bahamas-buccaneerhill-1.jpg"},
+  {name: "Nandana", description: nil, address: nil, region: "Caribbean", city: "Grand Bahama Island", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 7, source: "/destinations/caribbean/bahamas/grand-bahama-island/nandana-111384", country: "Bahamas", photo_url: "https://pictures.luxuryretreats.com/111384/bahamas-nandana--01.jpg"},
+  {name: "Villa Mouette", description: nil, address: nil, region: "Caribbean", city: "New Providence Island", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/bahamas/new-providence-island/villa-mouette-111633", country: "Bahamas", photo_url: "https://pictures.luxuryretreats.com/111633/bahamas-villamouette--01.jpg"},
+  {name: "Serendip Cove", description: nil, address: nil, region: "Caribbean", city: "New Providence Island", bedrooms: 14, bathrooms: 14, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 5, source: "/destinations/caribbean/bahamas/new-providence-island/serendip-cove-111847", country: "Bahamas", photo_url: "https://pictures.luxuryretreats.com/111847/bahamas--serendipcove--01a.jpg"},
+  {name: "Paradise Villa", description: nil, address: nil, region: "Caribbean", city: "Grand Bahama Island", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 400, source: "/destinations/caribbean/bahamas/grand-bahama-island/paradise-villa-109143", country: "Bahamas", photo_url: "https://pictures.luxuryretreats.com/109143/Bahamas-ParadiseVilla-New02.jpg"},
+  {name: "Smugglers Cove - The Penthouse", description: nil, address: nil, region: "Caribbean", city: "Paynes Bay", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-the-penthouse-110249", country: "Barbados", photo_url: "https://pictures.luxuryretreats.com/110249/barbados-smugglerscovethepenthouse-1.jpg"},
+  {name: "The Great House", description: nil, address: nil, region: "Caribbean", city: "Turtle Beach", bedrooms: 8, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 6, source: "/destinations/caribbean/barbados/turtle-beach/the-great-house-105061", country: "Barbados", photo_url: "https://pictures.luxuryretreats.com/105061/barbados--thegreathouse--01.jpg"},
+  {name: "Smugglers Cove 6", description: nil, address: nil, region: "Caribbean", city: "Paynes Bay", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/barbados/paynes-bay/smugglers-cove-6-110921", country: "Barbados", photo_url: "https://pictures.luxuryretreats.com/110921/barbados-smugglerscove6-1.jpg"},
+  {name: "Moon Reach", description: nil, address: nil, region: "Caribbean", city: "Reed-s Bay", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/barbados/reed-s-bay/moon-reach-105249", country: "Barbados", photo_url: "https://pictures.luxuryretreats.com/105249/barbados-moonreach-1.jpg"},
+  {name: "Coral Cove 6 - The Ivy", description: nil, address: nil, region: "Caribbean", city: "Paynes Bay", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 550, source: "/destinations/caribbean/barbados/paynes-bay/coral-cove-6-the-ivy-110142", country: "Barbados", photo_url: "https://pictures.luxuryretreats.com/110142/barbados-coralcove6theivy-1a.jpg"},
+  {name: "Punto Perfecto", description: nil, address: nil, region: "Caribbean", city: "Kralendijk", bedrooms: 4, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 857, source: "/destinations/caribbean/bonaire/kralendijk/punto-perfecto-113080", country: "Bonaire", photo_url: "https://pictures.luxuryretreats.com/113080/bonaire-puntoperfecto-01.jpg"},
+  {name: "Karibuni", description: nil, address: nil, region: "Caribbean", city: "Kralendijk", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 928, source: "/destinations/caribbean/bonaire/kralendijk/karibuni-113082", country: "Bonaire", photo_url: "https://pictures.luxuryretreats.com/113082/bonnaire-karibuni-01.jpg"},
+  {name: "Garden Villas Iguana", description: nil, address: nil, region: "Caribbean", city: "Kralendijk", bedrooms: 4, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 642, source: "/destinations/caribbean/bonaire/kralendijk/garden-villas-iguana-113086", country: "Bonaire", photo_url: "https://pictures.luxuryretreats.com/113086/bonaire-gardenvillasiguana-01.jpg"},
+  {name: "Kas Chapin", description: nil, address: nil, region: "Caribbean", city: "Kralendijk", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 928, source: "/destinations/caribbean/bonaire/kralendijk/kas-chapin-113084", country: "Bonaire", photo_url: "https://pictures.luxuryretreats.com/113084/bonaire--kaschapin--01.jpg"},
+  {name: "Kas Dorrie", description: nil, address: nil, region: "Caribbean", city: "Kralendijk", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/bonaire/kralendijk/kas-dorrie-113085", country: "Bonaire", photo_url: "https://pictures.luxuryretreats.com/113085/bonaire-kasdorrie-01.jpg"},
+  {name: "The Palace", description: nil, address: nil, region: "Caribbean", city: "Playa Grande", bedrooms: 13, bathrooms: 13, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/caribbean/dominican-republic/playa-grande/the-palace-110899", country: "Dominican Republic", photo_url: "https://pictures.luxuryretreats.com/110899/DomRep-BalajiPalace-30.jpg"},
+  {name: "Las Cerezas", description: nil, address: nil, region: "Caribbean", city: "Casa De Campo", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 800, source: "/destinations/caribbean/dominican-republic/casa-de-campo/las-cerezas-105439", country: "Dominican Republic", photo_url: "https://pictures.luxuryretreats.com/105439/Dominican_La_Cerzas_15.jpg"},
+  {name: "Las Palmas Punta Cana", description: nil, address: nil, region: "Caribbean", city: "Punta Cana", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/dominican-republic/punta-cana/las-palmas-punta-cana-111356", country: "Dominican Republic", photo_url: "https://pictures.luxuryretreats.com/111356/dominicanrepublic-arrecife38-1.jpg"},
+  {name: "Cantamar Villa", description: nil, address: nil, region: "Caribbean", city: "Cabrera", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/dominican-republic/cabrera/cantamar-villa-107882", country: "Dominican Republic", photo_url: "https://pictures.luxuryretreats.com/107882/dominicanrepublic-cantamarvilla-1.jpg"},
+  {name: "Casa Kimball", description: nil, address: nil, region: "Caribbean", city: "Cabrera", bedrooms: 8, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/dominican-republic/cabrera/casa-kimball-110623", country: "Dominican Republic", photo_url: "https://pictures.luxuryretreats.com/110623/DominicanRepublic-CasaKimball-1.jpg"},
+  {name: "Calivigny Island", description: nil, address: nil, region: "Caribbean", city: "Calivigny", bedrooms: 25, bathrooms: 25, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 30, source: "/destinations/caribbean/grenada/calivigny/calivigny-island-112000", country: "Grenada", photo_url: "https://pictures.luxuryretreats.com/112000/grenada-calvigny-01.jpg"},
+  {name: "Sea Haven on Discovery Bay", description: nil, address: nil, region: "Caribbean", city: "Discovery Bay", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 428, source: "/destinations/caribbean/jamaica/discovery-bay/sea-haven-on-discovery-bay-107341", country: "Jamaica", photo_url: "https://pictures.luxuryretreats.com/107341/jamaica-seahavendiscoverybay--01.jpg"},
+  {name: "Great River House", description: nil, address: nil, region: "Caribbean", city: "Montego Bay", bedrooms: 5, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 850, source: "/destinations/caribbean/jamaica/montego-bay/great-river-house-109959", country: "Jamaica", photo_url: "https://pictures.luxuryretreats.com/109959/jamaica-greatriverhouse-01.jpg"},
+  {name: "Little Waters on the Cliff", description: nil, address: nil, region: "Caribbean", city: "Negril", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 650, source: "/destinations/caribbean/jamaica/negril/little-waters-on-the-cliff-111862", country: "Jamaica", photo_url: "https://pictures.luxuryretreats.com/111862/jamaica-littlewatersontheclif-1.jpg"},
+  {name: "Tek Time", description: nil, address: nil, region: "Caribbean", city: "Montego Bay", bedrooms: 5, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 910, source: "/destinations/caribbean/jamaica/montego-bay/tek-time-113063", country: "Jamaica", photo_url: "https://pictures.luxuryretreats.com/113063/jamaica-tektime-01.jpg"},
+  {name: "Anticipation at Tryall Club", description: nil, address: nil, region: "Caribbean", city: "Tryall Club", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/jamaica/tryall-club/anticipation-at-tryall-club-105079", country: "Jamaica", photo_url: "https://pictures.luxuryretreats.com/105079/jamaica-anticipationvillaattryall-01.jpg"},
+  {name: "Villa Paradiso #5", description: nil, address: nil, region: "Caribbean", city: "Pinney-s Beach", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/nevis/pinney-s-beach/villa-paradiso-5-104955", country: "Nevis", photo_url: "https://pictures.luxuryretreats.com/104955/44.jpg"},
+  {name: "Bahia Beach Las Verandas 06", description: nil, address: nil, region: "Caribbean", city: "Rio Grande", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 737, source: "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-06-113772", country: "Puerto Rico", photo_url: "https://pictures.luxuryretreats.com/113772/puertorico-bahiabeach-lasverandas06-1.jpg"},
+  {name: "Bahia Beach Las Ventanas 22", description: nil, address: nil, region: "Caribbean", city: "Rio Grande", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 905, source: "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-ventanas-22-113778", country: "Puerto Rico", photo_url: "https://pictures.luxuryretreats.com/113778/puertorico-bahiabeachlasverandas22-1.jpg"},
+  {name: "Bahia Beach Las Olas Beachfront Townhouse 07", description: nil, address: nil, region: "Caribbean", city: "Rio Grande", bedrooms: 3, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-olas-beachfront-townhouse-07-113779", country: "Puerto Rico", photo_url: "https://pictures.luxuryretreats.com/113779/puertorico-Townhouse 07-01.jpg"},
+  {name: "Bahia Beach Las Verandas 60", description: nil, address: nil, region: "Caribbean", city: "Rio Grande", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 737, source: "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-60-113774", country: "Puerto Rico", photo_url: "https://pictures.luxuryretreats.com/113774/puertorico-bahiabeachlasverandas60-1.jpg"},
+  {name: "Bahia Beach Las Verandas 10", description: nil, address: nil, region: "Caribbean", city: "Rio Grande", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 737, source: "/destinations/caribbean/puerto-rico/rio-grande/bahia-beach-las-verandas-10-113773", country: "Puerto Rico", photo_url: "https://pictures.luxuryretreats.com/113773/puertorico-bahiabeach-lasverandas10-1.jpg"},
+  {name: "Princess X", description: nil, address: nil, region: "Caribbean", city: "Petit Cul de Sac", bedrooms: 2, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 560, source: "/destinations/caribbean/st--barts/petit-cul-de-sac/princess-x-108998", country: "St- Barts", photo_url: "https://pictures.luxuryretreats.com/108998/stbarts-villaprincessX-01.jpg"},
+  {name: "Mahogany", description: nil, address: nil, region: "Caribbean", city: "Flamands Hillside", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 377, source: "/destinations/caribbean/st--barts/flamands-hillside/mahogany-110481", country: "St- Barts", photo_url: "https://pictures.luxuryretreats.com/110481/Mahogany-01bc.jpg"},
+  {name: "Vitti", description: nil, address: nil, region: "Caribbean", city: "Gustavia", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 4, source: "/destinations/caribbean/st--barts/gustavia/vitti-112316", country: "St- Barts", photo_url: "https://pictures.luxuryretreats.com/112316/st-barts-vitti-02.jpg"},
+  {name: "Acamar", description: nil, address: nil, region: "Caribbean", city: "Toiny", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/st--barts/toiny/acamar-112965", country: "St- Barts", photo_url: "https://pictures.luxuryretreats.com/112965/stbarts--Acamar---01.jpg"},
+  {name: "Heloa", description: nil, address: nil, region: "Caribbean", city: "Pointe Milou", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 318, source: "/destinations/caribbean/st--barts/pointe-milou/heloa-112961", country: "St- Barts", photo_url: "https://pictures.luxuryretreats.com/112961/stbarts-heloa--01.jpg"},
+  {name: "Estate Belvedere", description: nil, address: nil, region: "Caribbean", city: "Cane Bay", bedrooms: 6, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 828, source: "/destinations/caribbean/st--croix/cane-bay/estate-belvedere-106240", country: "St- Croix", photo_url: "https://pictures.luxuryretreats.com/106240/stcroix-estate-belvedere-29.jpg"},
+  {name: "Blue Vista", description: nil, address: nil, region: "Caribbean", city: "Columbus Landing", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 635, source: "/destinations/caribbean/st--croix/columbus-landing/blue-vista-107792", country: "St- Croix", photo_url: "https://pictures.luxuryretreats.com/107792/stcroix-bluevista-01.jpg"},
+  {name: "Whispering Winds", description: nil, address: nil, region: "Caribbean", city: "Teague Bay", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 500, source: "/destinations/caribbean/st--croix/teague-bay/whispering-winds-108168", country: "St- Croix", photo_url: "https://pictures.luxuryretreats.com/108168/stcroix-whisperingwinds-1.jpg"},
+  {name: "Solitude House", description: nil, address: nil, region: "Caribbean", city: "East End", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 500, source: "/destinations/caribbean/st--croix/east-end/solitude-house-111366", country: "St- Croix", photo_url: "https://pictures.luxuryretreats.com/111366/01.jpg"},
+  {name: "Villa des Great Chefs", description: nil, address: nil, region: "Caribbean", city: "Seven Hills", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 495, source: "/destinations/caribbean/st--croix/seven-hills/villa-des-great-chefs-104806", country: "St- Croix", photo_url: "https://pictures.luxuryretreats.com/104806/stcroix-villadesgreatchefs-1.jpg"},
+  {name: "Hakuna Matata", description: nil, address: nil, region: "Caribbean", city: "Catherineberg", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/st--john/catherineberg/hakuna-matata-104800", country: "St- John", photo_url: "https://pictures.luxuryretreats.com/104800/StJohn-HakunaMatata-00.jpg"},
+  {name: "Villa Adagio", description: nil, address: nil, region: "Caribbean", city: "Great Cruz Bay", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 557, source: "/destinations/caribbean/st--john/great-cruz-bay/villa-adagio-104834", country: "St- John", photo_url: "https://pictures.luxuryretreats.com/104834/stjohn-adagio-1.jpg"},
+  {name: "Solaris", description: nil, address: nil, region: "Caribbean", city: "Chocolate Hole", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 385, source: "/destinations/caribbean/st--john/chocolate-hole/solaris-104841", country: "St- John", photo_url: "https://pictures.luxuryretreats.com/104841/StJohn-Solaris-01.jpg"},
+  {name: "The Retreat", description: nil, address: nil, region: "Caribbean", city: "Haulover Bay", bedrooms: 2, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 424, source: "/destinations/caribbean/st--john/haulover-bay/the-retreat-105658", country: "St- John", photo_url: "https://pictures.luxuryretreats.com/105658/stjohn-theretreat--01.jpg"},
+  {name: "Kismet", description: nil, address: nil, region: "Caribbean", city: "Chocolate Hole", bedrooms: 5, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/st--john/chocolate-hole/kismet-106224", country: "St- John", photo_url: "https://pictures.luxuryretreats.com/106224/stjohn-kismet--01.jpg"},
+  {name: "Akasha - Cap Estate", description: nil, address: nil, region: "Caribbean", city: "Cap Estate", bedrooms: 4, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/st--lucia/cap-estate/akasha-cap-estate-111322", country: "St- Lucia", photo_url: "https://pictures.luxuryretreats.com/111322/stlucia-akashaestate-01.jpg"},
+  {name: "C'est La Vie", description: nil, address: nil, region: "Caribbean", city: "Gros Islet", bedrooms: 5, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 800, source: "/destinations/caribbean/st--lucia/gros-islet/cest-la-vie-111665", country: "St- Lucia", photo_url: "https://pictures.luxuryretreats.com/111665/stlucia-cestlavie-1.jpg"},
+  {name: "Villa Capri", description: nil, address: nil, region: "Caribbean", city: "Cap Estate", bedrooms: 9, bathrooms: 9, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 850, source: "/destinations/caribbean/st--lucia/cap-estate/villa-capri-106743", country: "St- Lucia", photo_url: "https://pictures.luxuryretreats.com/106743/stlucia-capri-1.jpg"},
+  {name: "Sur La Mer", description: nil, address: nil, region: "Caribbean", city: "Gros Islet", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 300, source: "/destinations/caribbean/st--lucia/gros-islet/sur-la-mer-107445", country: "St- Lucia", photo_url: "https://pictures.luxuryretreats.com/107445/stlucia-surlamer-1.jpg"},
+  {name: "Trouya", description: nil, address: nil, region: "Caribbean", city: "Bois D-Orange", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 370, source: "/destinations/caribbean/st--lucia/bois-d-orange/trouya-105269", country: "St- Lucia", photo_url: "https://pictures.luxuryretreats.com/105269/stlucia-trouya-01.jpg"},
+  {name: "Farniente", description: nil, address: nil, region: "Caribbean", city: "Cupecoy", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 642, source: "/destinations/caribbean/st--martin/cupecoy/farniente-110601", country: "St- Martin", photo_url: "https://pictures.luxuryretreats.com/110601/st-martin-farniente-01.jpg"},
+  {name: "Mumbai", description: nil, address: nil, region: "Caribbean", city: "Cupecoy", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 642, source: "/destinations/caribbean/st--martin/cupecoy/mumbai-110545", country: "St- Martin", photo_url: "https://pictures.luxuryretreats.com/110545/st-martin-mumbai-01.jpg"},
+  {name: "Carisa", description: nil, address: nil, region: "Caribbean", city: "Terres Basses - Baie Rouge", bedrooms: 2, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/st--martin/terres-basses---baie-rouge/carisa-105669", country: "St- Martin", photo_url: "https://pictures.luxuryretreats.com/105669/st-martin-carisa-01.jpg"},
+  {name: "La Vie en Bleu", description: nil, address: nil, region: "Caribbean", city: "Terres Basses - Baie Rouge", bedrooms: 2, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/st--martin/terres-basses---baie-rouge/la-vie-en-bleu-110625", country: "St- Martin", photo_url: "https://pictures.luxuryretreats.com/110625/st-martin-lavieenbleu-01.jpg"},
+  {name: "Beau Rivage", description: nil, address: nil, region: "Caribbean", city: "Terres Basses - Baie Rouge", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/st--martin/terres-basses---baie-rouge/beau-rivage-105461", country: "St- Martin", photo_url: "https://pictures.luxuryretreats.com/105461/st-barts-beau-rivage-01.jpg"},
+  {name: "Ventana", description: nil, address: nil, region: "Caribbean", city: "Flag Hill", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 800, source: "/destinations/caribbean/st--thomas/flag-hill/ventana-104782", country: "St- Thomas", photo_url: "https://pictures.luxuryretreats.com/104782/St.Thomas-Ventana-01.jpg"},
+  {name: "L'Esperance", description: nil, address: nil, region: "Caribbean", city: "Flag Hill", bedrooms: 5, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/st--thomas/flag-hill/lesperance-104790", country: "St- Thomas", photo_url: "https://pictures.luxuryretreats.com/104790/St.Thomas-LEsperance-01.jpg"},
+  {name: "Infinity", description: nil, address: nil, region: "Caribbean", city: "Skyline Drive", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 886, source: "/destinations/caribbean/st--thomas/skyline-drive/infinity-104795", country: "St- Thomas", photo_url: "https://pictures.luxuryretreats.com/104795/stthomas-infinity--01.jpg"},
+  {name: "Ritz-Carlton Club 2BR Residences", description: nil, address: nil, region: "Caribbean", city: "East End", bedrooms: 2, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 570, source: "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-2br-residences-106726", country: "St- Thomas", photo_url: "https://pictures.luxuryretreats.com/106726/stthomas-ritzcarltonclub2BReesidences-1.jpg"},
+  {name: "Ritz-Carlton Club 3BR", description: nil, address: nil, region: "Caribbean", city: "East End", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 700, source: "/destinations/caribbean/st--thomas/east-end/ritzcarlton-club-3br-106727", country: "St- Thomas", photo_url: "https://pictures.luxuryretreats.com/106727/stthomas-ritzcarltonclub3BR-1.jpg"},
+  {name: "Aja", description: nil, address: nil, region: "Caribbean", city: "Trunk Bay", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 985, source: "/destinations/caribbean/tortola/trunk-bay/aja-112048", country: "Tortola", photo_url: "https://pictures.luxuryretreats.com/112048/tortola-aja--01.jpg"},
+  {name: "Towanda", description: nil, address: nil, region: "Caribbean", city: "Belmont", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 335, source: "/destinations/caribbean/tortola/belmont/towanda-105745", country: "Tortola", photo_url: "https://pictures.luxuryretreats.com/105745/tortola-towanda-1.jpg"},
+  {name: "Tingalayo", description: nil, address: nil, region: "Caribbean", city: "Apple Bay", bedrooms: 6, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/tortola/apple-bay/tingalayo-112312", country: "Tortola", photo_url: "https://pictures.luxuryretreats.com/112312/tortola-tingalayo-1.jpg"},
+  {name: "Summer Heights", description: nil, address: nil, region: "Caribbean", city: "Havers Hill", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 500, source: "/destinations/caribbean/tortola/havers-hill/summer-heights-104818", country: "Tortola", photo_url: "https://pictures.luxuryretreats.com/104818/tortola-summerheights-01.jpg"},
+  {name: "Toa Toa House", description: nil, address: nil, region: "Caribbean", city: "Havers Hill", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 400, source: "/destinations/caribbean/tortola/havers-hill/toa-toa-house-104821", country: "Tortola", photo_url: "https://pictures.luxuryretreats.com/104821/Tortola-ToaToaHouse-1.jpg"},
+  {name: "Rafters", description: nil, address: nil, region: "Caribbean", city: "Leeward", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/caribbean/turks-and-caicos/leeward/rafters-112121", country: "Turks and Caicos", photo_url: "https://pictures.luxuryretreats.com/112121/turksandcaicorafters-1.jpg"},
+  {name: "Baraka Point Estate", description: nil, address: nil, region: "Caribbean", city: "Nail Bay", bedrooms: 5, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/virgin-gorda/nail-bay/baraka-point-estate-105500", country: "Virgin Gorda", photo_url: "https://pictures.luxuryretreats.com/105500/virgingorda-barakapoint--01.jpg"},
+  {name: "Aquamare Villa 2", description: nil, address: nil, region: "Caribbean", city: "Mahoe Bay", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-2-109598", country: "Virgin Gorda", photo_url: "https://pictures.luxuryretreats.com/109598/virgingorda-aquamarevilla-01.jpg"},
+  {name: "Aquamare Villa 3", description: nil, address: nil, region: "Caribbean", city: "Mahoe Bay", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-3-109600", country: "Virgin Gorda", photo_url: "https://pictures.luxuryretreats.com/109600/virgingorda-aquamarevilla-01.jpg"},
+  {name: "Aquamare Villa 1", description: nil, address: nil, region: "Caribbean", city: "Mahoe Bay", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/caribbean/virgin-gorda/mahoe-bay/aquamare-villa-1-109643", country: "Virgin Gorda", photo_url: "https://pictures.luxuryretreats.com/109643/virgingorda-aquamarevilla-01.jpg"},
+  {name: "Bayhouse", description: nil, address: nil, region: "Caribbean", city: "Crooks Bay", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 700, source: "/destinations/caribbean/virgin-gorda/crooks-bay/bayhouse-112245", country: "Virgin Gorda", photo_url: "https://pictures.luxuryretreats.com/112245/virgingorda-bayhouse-1.jpg"},
+  {name: "Casa Ramon", description: nil, address: nil, region: "Central America", city: "Dominical", bedrooms: 6, bathrooms: 11, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 396, source: "/destinations/central-america/costa-rica/dominical/casa-ramon-108800", country: "Costa Rica", photo_url: "https://pictures.luxuryretreats.com/108800/costarica-casaramon-1.jpg"},
+  {name: "Casa Paraiso", description: nil, address: nil, region: "Central America", city: "Manuel Antonio", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/central-america/costa-rica/manuel-antonio/casa-paraiso-111430", country: "Costa Rica", photo_url: "https://pictures.luxuryretreats.com/111430/costarica-casaparaiso-1.jpg"},
+  {name: "Villa Siete", description: nil, address: nil, region: "Central America", city: "Guanacaste", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 275, source: "/destinations/central-america/costa-rica/guanacaste/villa-siete-111463", country: "Costa Rica", photo_url: "https://pictures.luxuryretreats.com/111463/costarica-villasiete-1.jpg"},
+  {name: "Casa Del Mar", description: nil, address: nil, region: "Central America", city: "Playa Hermosa", bedrooms: 6, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/central-america/costa-rica/playa-hermosa/casa-del-mar-113561", country: "Costa Rica", photo_url: "https://pictures.luxuryretreats.com/113561/costarica-casadelmar-01.jpg"},
+  {name: "Diosa del Mar", description: nil, address: nil, region: "Central America", city: "Guanacaste", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 450, source: "/destinations/central-america/costa-rica/guanacaste/diosa-del-mar-110372", country: "Costa Rica", photo_url: "https://pictures.luxuryretreats.com/110372/costarica-diosadelmar--01.jpg"},
+  {name: "Seascape - Nautilus 1", description: nil, address: nil, region: "Central America", city: "Ambergris Caye", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 559, source: "/destinations/central-america/belize/ambergris-caye/seascape-nautilus-1-107639", country: "Belize", photo_url: "https://pictures.luxuryretreats.com/107639/belize-seascapenautilus1-01.jpg"},
+  {name: "Villa Solemar", description: nil, address: nil, region: "Central America", city: "Ambergris Caye", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 950, source: "/destinations/central-america/belize/ambergris-caye/villa-solemar-110085", country: "Belize", photo_url: "https://pictures.luxuryretreats.com/110085/belize-villasolemar-11.jpg"},
+  {name: "El Pescador Villas", description: nil, address: nil, region: "Central America", city: "Ambergris Caye", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 440, source: "/destinations/central-america/belize/ambergris-caye/el-pescador-villas-106120", country: "Belize", photo_url: "https://pictures.luxuryretreats.com/106120/belize-elpescador-1.jpg"},
+  {name: "Caribbean Soul Villa", description: nil, address: nil, region: "Central America", city: "Ambergris Caye", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 950, source: "/destinations/central-america/belize/ambergris-caye/caribbean-soul-villa-110083", country: "Belize", photo_url: "https://pictures.luxuryretreats.com/110083/belize-caribbeansoulvilla--01.jpg"},
+  {name: "Villa Marbella", description: nil, address: nil, region: "Central America", city: "Ambergris Caye", bedrooms: 2, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 800, source: "/destinations/central-america/belize/ambergris-caye/villa-marbella-110084", country: "Belize", photo_url: "https://pictures.luxuryretreats.com/110084/belize-villamarbella--01.jpg"},
+  {name: "Casa La Laguna", description: nil, address: nil, region: "North America", city: "Cabo San Lucas", bedrooms: 6, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/mexico/cabo-san-lucas/san-jose-del-cabo/casa-la-laguna-110021", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/110021/cabos-casalalaguna-01.jpg"},
+  {name: "Buena Vida", description: nil, address: nil, region: "North America", city: "Cabo San Lucas", bedrooms: 10, bathrooms: 10, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/mexico/cabo-san-lucas/pedregal/buena-vida-105673", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/105673/cabo-san-lucas-buenavida-01.jpg"},
+  {name: "Villa Luna Nueva", description: nil, address: nil, region: "North America", city: "Cabo San Lucas", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 600, source: "/destinations/mexico/cabo-san-lucas/pedregal/villa-luna-nueva-108789", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/108789/cabo-san-casa-villalunanueva-02.jpg"},
+  {name: "Villa Paraiso", description: nil, address: nil, region: "North America", city: "Cabo San Lucas", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/mexico/cabo-san-lucas/palmilla/villa-paraiso-107272", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/107272/cabo-san-lucas-villa-paraiso--01.jpg"},
+  {name: "Villa del Toro Rojo", description: nil, address: nil, region: "North America", city: "Cabo San Lucas", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 990, source: "/destinations/mexico/cabo-san-lucas/pedregal/villa-del-toro-rojo-108791", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/108791/cabosanlucas-villadeltororojo-1.jpg"},
+  {name: "Villa Suzannah", description: nil, address: nil, region: "North America", city: "Puerto Vallarta", bedrooms: 4, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 800, source: "/destinations/mexico/puerto-vallarta/mismaloya/villa-suzannah-108540", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/108540/puertovallarta-villasuzannah-1.jpg"},
+  {name: "Casa Caleta", description: nil, address: nil, region: "North America", city: "Puerto Vallarta", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/mexico/puerto-vallarta/conchas-chinas/casa-caleta-111912", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/111912/puertovallarta-casa-caleta-01.jpg"},
+  {name: "Villa Encanto", description: nil, address: nil, region: "North America", city: "Puerto Vallarta", bedrooms: 7, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 795, source: "/destinations/mexico/puerto-vallarta/bucerias/villa-encanto-107681", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/107681/puertovallarta-villaencanto-01.jpg"},
+  {name: "Casa Yvonneka", description: nil, address: nil, region: "North America", city: "Puerto Vallarta", bedrooms: 9, bathrooms: 10, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/mexico/puerto-vallarta/alta-vista/casa-yvonneka-108909", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/108909/puertovallarta-yvonneka-1.jpg"},
+  {name: "Villa Veranda", description: nil, address: nil, region: "North America", city: "Puerto Vallarta", bedrooms: 3, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 450, source: "/destinations/mexico/puerto-vallarta/conchas-chinas/villa-veranda-109158", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/109158/puertovallarta-villaveranda-01.jpg"},
+  {name: "Casa Kalika", description: nil, address: nil, region: "North America", city: "Punta Mita", bedrooms: 5, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/mexico/punta-mita/lagos-del-mar/casa-kalika-110426", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/110426/puntamita-casakalika-1.jpg"},
+  {name: "Villa Nilpi", description: nil, address: nil, region: "North America", city: "Punta Mita", bedrooms: 5, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/mexico/punta-mita/san-pancho/villa-nilpi-112043", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/112043/puertovallarta-villanilpi-1.jpg"},
+  {name: "Hacienda de Mita - Beachfront Garden Level", description: nil, address: nil, region: "North America", city: "Punta Mita", bedrooms: 3, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 900, source: "/destinations/mexico/punta-mita/hacienda-de-mita/hacienda-de-mita-beachfront-garden-level-108013", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/108013/puntamita-haciendademitabeachfrontgarden-1.jpg"},
+  {name: "Casa Majani", description: nil, address: nil, region: "North America", city: "Punta Mita", bedrooms: 6, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 5, source: "/destinations/mexico/punta-mita/la-punta-estates/casa-majani-112015", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/112015/puntamita-casamajani-1.jpg"},
+  {name: "Casa Tortugas", description: nil, address: nil, region: "North America", city: "Punta Mita", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/mexico/punta-mita/los-veneros/casa-tortugas-112016", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/112016/puntamita-casatortugas-1.jpg"},
+  {name: "Villa Paradise", description: nil, address: nil, region: "North America", city: "Riviera Maya", bedrooms: 5, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 765, source: "/destinations/mexico/riviera-maya/playa-paraiso/villa-paradise-107407", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/107407/01-riviera-maya-villaparadise-02.jpg"},
+  {name: "Casa Zama", description: nil, address: nil, region: "North America", city: "Riviera Maya", bedrooms: 3, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 550, source: "/destinations/mexico/riviera-maya/isla-mujeres/casa-zama-108656", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/108656/Mexico-Casa-Zama-10.jpg"},
+  {name: "Villa Carolina", description: nil, address: nil, region: "North America", city: "Riviera Maya", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 765, source: "/destinations/mexico/riviera-maya/playa-paraiso/villa-carolina-111365", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/111365/riviera-maya-villacarolina-01.jpg"},
+  {name: "Turtle Heart Villa", description: nil, address: nil, region: "North America", city: "Riviera Maya", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 603, source: "/destinations/mexico/riviera-maya/tulum/turtle-heart-villa-111813", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/111813/01-Riviera-Turtle-Heart-Villa-01.jpg"},
+  {name: "Kite House", description: nil, address: nil, region: "North America", city: "Riviera Maya", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/mexico/riviera-maya/playa-del-carmen/kite-house-112047", country: "Mexico", photo_url: "https://pictures.luxuryretreats.com/112047/01---riviera-maya-kite-house-01.jpg"},
+  {name: "Twin Palms Sinatra Estate", description: nil, address: nil, region: "North America", city: "California - Desert Cities", bedrooms: 4, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/united-states/california---desert-cities/palm-springs/twin-palms-sinatra-estate-107075", country: "United States", photo_url: "https://pictures.luxuryretreats.com/107075/california-twinpalmssintra-01.jpg"},
+  {name: "Glass & Steel House", description: nil, address: nil, region: "North America", city: "California - Desert Cities", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 675, source: "/destinations/united-states/california---desert-cities/palm-springs/glass-steel-house-109875", country: "United States", photo_url: "https://pictures.luxuryretreats.com/109875/california-glassandsteelhouse--01.jpg"},
+  {name: "Kir Royale", description: nil, address: nil, region: "North America", city: "California - Desert Cities", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 995, source: "/destinations/united-states/california---desert-cities/palm-springs/kir-royale-110230", country: "United States", photo_url: "https://pictures.luxuryretreats.com/110230/california-kirroyal--01.jpg"},
+  {name: "Hacienda Las Palmas", description: nil, address: nil, region: "North America", city: "California - Desert Cities", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/united-states/california---desert-cities/palm-springs/hacienda-las-palmas-110423", country: "United States", photo_url: "https://pictures.luxuryretreats.com/110423/Hacienda-Las-Palmas-35.jpg"},
+  {name: "Martini Rose", description: nil, address: nil, region: "North America", city: "California - Desert Cities", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 750, source: "/destinations/united-states/california---desert-cities/palm-springs/martini-rose-110592", country: "United States", photo_url: "https://pictures.luxuryretreats.com/110592/california-martinirose--01.jpg"},
+  {name: "Nineteen-Seventy", description: nil, address: nil, region: "North America", city: "California - Lake Tahoe", bedrooms: 9, bathrooms: 9, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/united-states/california---lake-tahoe/lake-tahoe/nineteenseventy-110415", country: "United States", photo_url: "https://pictures.luxuryretreats.com/110415/california-thenineteenseventy-1.jpg"},
+  {name: "Fantastic Lake-View Home", description: nil, address: nil, region: "North America", city: "California - Lake Tahoe", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/united-states/california---lake-tahoe/lake-tahoe/fantastic-lakeview-home-113537", country: "United States", photo_url: "https://pictures.luxuryretreats.com/113537/california-fantasticlakeviewhome-01.jpg"},
+  {name: "Arrabelle 655", description: nil, address: nil, region: "North America", city: "Colorado - Vail Valley", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/united-states/colorado---vail-valley/vail-village/arrabelle-655-112061", country: "United States", photo_url: "https://pictures.luxuryretreats.com/112061/colorado-arrabelle655-22.jpg"},
+  {name: "Bear Paw-A", description: nil, address: nil, region: "North America", city: "Colorado - Vail Valley", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 360, source: "/destinations/united-states/colorado---vail-valley/bachelor-gulch/bear-pawa-109397", country: "United States", photo_url: "https://pictures.luxuryretreats.com/109397/vali-bearpawA10-04.jpg"},
+  {name: "Firelight Lodge", description: nil, address: nil, region: "North America", city: "Colorado - Vail Valley", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 415, source: "/destinations/united-states/colorado---vail-valley/bachelor-gulch/firelight-lodge-112551", country: "United States", photo_url: "https://pictures.luxuryretreats.com/112551/vali-firelightlodge204-01a.jpg"},
+  {name: "Ritz Carlton Colorado Lodge", description: nil, address: nil, region: "North America", city: "Colorado - Vail Valley", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/united-states/colorado---vail-valley/bachelor-gulch/ritz-carlton-colorado-lodge-107056", country: "United States", photo_url: "https://pictures.luxuryretreats.com/107056/colorado-lodgebeavercreek-01.jpg"},
+  {name: "Ritz Carlton West Wing", description: nil, address: nil, region: "North America", city: "Colorado - Vail Valley", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/united-states/colorado---vail-valley/vail-village/ritz-carlton-west-wing-107063", country: "United States", photo_url: "https://pictures.luxuryretreats.com/107063/colorado-westwing-03.jpg"},
+  {name: "Casa La Coppola", description: nil, address: nil, region: "North America", city: "Florida - The Palm Beaches", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/united-states/florida---the-palm-beaches/hypoluxo-island/casa-la-coppola-111267", country: "United States", photo_url: "https://pictures.luxuryretreats.com/111267/florida-casacoppola-01.jpg"},
+  {name: "Requited Bliss", description: nil, address: nil, region: "North America", city: "Florida - The Palm Beaches", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 855, source: "/destinations/united-states/florida---the-palm-beaches/west-palm-beach/requited-bliss-110401", country: "United States", photo_url: "https://pictures.luxuryretreats.com/110401/florida-requitedbliss-1.jpg"},
+  {name: "Hale Malia Villa 5 at Samsara Estate", description: nil, address: nil, region: "Asia", city: "Phuket", bedrooms: 4, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/thailand/phuket/kamala/hale-malia-villa-5-at-samsara-estate-109113", country: "Thailand", photo_url: "https://pictures.luxuryretreats.com/109113/phuket-halemaliavilla5-1.jpg"},
+  {name: "Lomchoy Villa 1 at Samsara Estate", description: nil, address: nil, region: "Asia", city: "Phuket", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/thailand/phuket/kamala/lomchoy-villa-1-at-samsara-estate-109157", country: "Thailand", photo_url: "https://pictures.luxuryretreats.com/109157/phuket-lomchoyvillaone-01.jpg"},
+  {name: "Golden Palm Villa", description: nil, address: nil, region: "Asia", city: "Koh Samui", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 500, source: "/destinations/thailand/koh-samui/chaweng/golden-palm-villa-110255", country: "Thailand", photo_url: "https://pictures.luxuryretreats.com/110255/Goldpalm-Thailand-01.jpg"},
+  {name: "Celadon Villa", description: nil, address: nil, region: "Asia", city: "Koh Samui", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/thailand/koh-samui/maenam/celadon-villa-112833", country: "Thailand", photo_url: "https://pictures.luxuryretreats.com/112833/kohsamui-celadonvilla-01.jpg"},
+  {name: "Benyasiri Villa 15 at Samsara Estate", description: nil, address: nil, region: "Asia", city: "Phuket", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/thailand/phuket/kamala/benyasiri-villa-15-at-samsara-estate-110710", country: "Thailand", photo_url: "https://pictures.luxuryretreats.com/110710/phuket-benyasiri-1.jpg"},
+  {name: "Villa in Austria", description: nil, address: nil, region: "Europe", city: "Austrian Alps", bedrooms: 6, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 668, source: "/destinations/austria/austrian-alps/bad-kleinkirchheim/villa-in-austria-113315", country: "Austria", photo_url: "https://pictures.luxuryretreats.com/113315/austrianalps-villaaustria-01.jpg"},
+  {name: "Soline", description: nil, address: nil, region: "Europe", city: "Austrian Alps", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/austria/austrian-alps/st--anton/soline-112828", country: "Austria", photo_url: "https://pictures.luxuryretreats.com/112828/1.jpg"},
+  {name: "Alexandra", description: nil, address: nil, region: "Europe", city: "Austrian Alps", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 826, source: "/destinations/austria/austrian-alps/st--anton/alexandra-112830", country: "Austria", photo_url: "https://pictures.luxuryretreats.com/112830/1.jpg"},
+  {name: "Antoinette", description: nil, address: nil, region: "Europe", city: "Austrian Alps", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/austria/austrian-alps/st--anton/antoinette-112827", country: "Austria", photo_url: "https://pictures.luxuryretreats.com/112827/1.jpg"},
+  {name: "Maria Schnee", description: nil, address: nil, region: "Europe", city: "Austrian Alps", bedrooms: 7, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 4, source: "/destinations/austria/austrian-alps/st--anton/maria-schnee-112831", country: "Austria", photo_url: "https://pictures.luxuryretreats.com/112831/3.jpg"},
+  {name: "Villa Selena", description: nil, address: nil, region: "Europe", city: "Crete", bedrooms: 6, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 561, source: "/destinations/greece/crete/heraklion/villa-selena-108456", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/108456/crete-villaselena-01.jpg"},
+  {name: "Villa Joy", description: nil, address: nil, region: "Europe", city: "Crete", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 414, source: "/destinations/greece/crete/chania/villa-joy-108574", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/108574/crete-villajoy-1.jpg"},
+  {name: "Almyra", description: nil, address: nil, region: "Europe", city: "Crete", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 534, source: "/destinations/greece/crete/almirida/almyra-110566", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/110566/crete-almyra-01.jpg"},
+  {name: "Ammos", description: nil, address: nil, region: "Europe", city: "Crete", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 467, source: "/destinations/greece/crete/almirida/ammos-110567", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/110567/crete-ammos-01.jpg"},
+  {name: "Villa Filira", description: nil, address: nil, region: "Europe", city: "Crete", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 467, source: "/destinations/greece/crete/chania/villa-filira-112414", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/112414/crete-villafilira-1.jpg"},
+  {name: "Villa Hurmuses", description: nil, address: nil, region: "Europe", city: "Mykonos", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/greece/mykonos/megali-ammos/villa-hurmuses-107138", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/107138/greece-villahurmuses-02.jpg"},
+  {name: "Panormos Retreat", description: nil, address: nil, region: "Europe", city: "Mykonos", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 992, source: "/destinations/greece/mykonos/panormos/panormos-retreat-112362", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/112362/greece-panoramosretreat-1.jpg"},
+  {name: "Aeolos", description: nil, address: nil, region: "Europe", city: "Mykonos", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 897, source: "/destinations/greece/mykonos/houlakia/aeolos-106011", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/106011/Mykonos-Aeolos-00.jpg"},
+  {name: "Agrari Beach House", description: nil, address: nil, region: "Europe", city: "Mykonos", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 897, source: "/destinations/greece/mykonos/agrari/agrari-beach-house-106013", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/106013/Mykonos-AgrariBeach-00.jpg"},
+  {name: "Gracias a la Vida", description: nil, address: nil, region: "Europe", city: "Mykonos", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/greece/mykonos/costa-ilios/gracias-a-la-vida-106022", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/106022/Greece-Gracias-03.jpg"},
+  {name: "Villa Althea 2", description: nil, address: nil, region: "Europe", city: "Paros", bedrooms: 3, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 734, source: "/destinations/greece/paros/parikia/villa-althea-2-108244", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/108244/paros-villaalthea2-1.jpg"},
+  {name: "Villa Althea 5", description: nil, address: nil, region: "Europe", city: "Paros", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 534, source: "/destinations/greece/paros/parikia/villa-althea-5-106941", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/106941/greece-villaalthea5-1.jpg"},
+  {name: "Agia Thalassa", description: nil, address: nil, region: "Europe", city: "Paros", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 734, source: "/destinations/greece/paros/ambelas/agia-thalassa-111992", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/111992/paros-agiathalassa-1.jpg"},
+  {name: "Almyra", description: nil, address: nil, region: "Europe", city: "Paros", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 734, source: "/destinations/greece/paros/ambelas/almyra-112018", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/112018/greece-almyra-1.jpg"},
+  {name: "Zefyros", description: nil, address: nil, region: "Europe", city: "Paros", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 534, source: "/destinations/greece/paros/ambelas/zefyros-112088", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/112088/parot-zefyros-1.jpg"},
+  {name: "Blue Angel Villa", description: nil, address: nil, region: "Europe", city: "Santorini", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 454, source: "/destinations/greece/santorini/fira/blue-angel-villa-108395", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/108395/santorini-blueangel-1.jpg"},
+  {name: "Cavana", description: nil, address: nil, region: "Europe", city: "Santorini", bedrooms: 2, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 694, source: "/destinations/greece/santorini/pyrgos/cavana-112319", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/112319/santirini-cavana-1.jpg"},
+  {name: "Mansion Kyani", description: nil, address: nil, region: "Europe", city: "Santorini", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 490, source: "/destinations/greece/santorini/megalochori/mansion-kyani-107335", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/107335/greece-mansionkyanii-1.jpg"},
+  {name: "Villa Fabrica", description: nil, address: nil, region: "Europe", city: "Santorini", bedrooms: 8, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/greece/santorini/pyrgos/villa-fabrica-111372", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/111372/greece-villafabrica-1.jpg"},
+  {name: "Tramountana", description: nil, address: nil, region: "Europe", city: "Santorini", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 507, source: "/destinations/greece/santorini/vourvoulos/tramountana-111976", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/111976/santorini-tramountana-1.jpg"},
+  {name: "Purple", description: nil, address: nil, region: "Europe", city: "Zakynthos", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 467, source: "/destinations/greece/zakynthos/agios-nikolaos/purple-110030", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/110030/zakynthos-purple--01.jpg"},
+  {name: "Bozonos Luxury Villa", description: nil, address: nil, region: "Europe", city: "Zakynthos", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 521, source: "/destinations/greece/zakynthos/akrotiri/bozonos-luxury-villa-108334", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/108334/zakynthos-bozonos-luxury-villa-01.jpg"},
+  {name: "Crystal", description: nil, address: nil, region: "Europe", city: "Zakynthos", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 467, source: "/destinations/greece/zakynthos/agios-nikolaos/crystal-110029", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/110029/zakynthos-crystal--01.jpg"},
+  {name: "Palace", description: nil, address: nil, region: "Europe", city: "Zakynthos", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 868, source: "/destinations/greece/zakynthos/agios-nikolaos/palace-110027", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/110027/zakynthos-palace--01.jpg"},
+  {name: "Deep Blue", description: nil, address: nil, region: "Europe", city: "Zakynthos", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 868, source: "/destinations/greece/zakynthos/agios-nikolaos/deep-blue-110028", country: "Greece", photo_url: "https://pictures.luxuryretreats.com/110028/zakynthos-deepblue--01a.jpg"},
+  {name: "Fleurs de Provence", description: nil, address: nil, region: "Europe", city: "Provence", bedrooms: 10, bathrooms: 9, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/france/provence/alpilles/fleurs-de-provence-109825", country: "France", photo_url: "https://pictures.luxuryretreats.com/109825/provence-fleursdeprovence--01.jpg"},
+  {name: "Petit Hopital", description: nil, address: nil, region: "Europe", city: "Provence", bedrooms: 8, bathrooms: 9, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/france/provence/isle-sur-la-sorgue/petit-hopital-110409", country: "France", photo_url: "https://pictures.luxuryretreats.com/110409/france-petithopital-1.jpg"},
+  {name: "Le Chateau d'Avignon", description: nil, address: nil, region: "Europe", city: "Provence", bedrooms: 10, bathrooms: 10, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/france/provence/avignon/le-chateau-davignon-108206", country: "France", photo_url: "https://pictures.luxuryretreats.com/108206/provence-lechateaudavignon(P141)-2.jpg"},
+  {name: "Simiane", description: nil, address: nil, region: "Europe", city: "Provence", bedrooms: 10, bathrooms: 9, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/france/provence/luberon/simiane-109824", country: "France", photo_url: "https://pictures.luxuryretreats.com/109824/provence-simianeP933-1.jpg"},
+  {name: "Aubignan Bleu", description: nil, address: nil, region: "Europe", city: "Provence", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 992, source: "/destinations/france/provence/ventoux/aubignan-bleu-110286", country: "France", photo_url: "https://pictures.luxuryretreats.com/110286/france-aubignanbleu(P962)-1.jpg"},
+  {name: "Villa Costa Esmeralda", description: nil, address: nil, region: "Europe", city: "Corsica", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/france/corsica/bonifacio/villa-costa-esmeralda-112874", country: "France", photo_url: "https://pictures.luxuryretreats.com/112874/corsica-villacostaesmeralda-01.jpg"},
+  {name: "Villa Di Fiori", description: nil, address: nil, region: "Europe", city: "Corsica", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/france/corsica/porto-vecchio/villa-di-fiori-112875", country: "France", photo_url: "https://pictures.luxuryretreats.com/112875/corsica-villadifiori-01.jpg"},
+  {name: "Villa Pinarellu", description: nil, address: nil, region: "Europe", city: "Corsica", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 859, source: "/destinations/france/corsica/st-lucie-de-porto-vecchio/villa-pinarellu-112877", country: "France", photo_url: "https://pictures.luxuryretreats.com/112877/corsica-villapinarellu-01b.jpg"},
+  {name: "Villa Cala Longa", description: nil, address: nil, region: "Europe", city: "Corsica", bedrooms: 8, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/france/corsica/bonifacio/villa-cala-longa-112878", country: "France", photo_url: "https://pictures.luxuryretreats.com/112878/corsica-villacalalonga-01-WAO.jpg"},
+  {name: "Villa Florence", description: nil, address: nil, region: "Europe", city: "Corsica", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 639, source: "/destinations/france/corsica/bonifacio/villa-florence-112879", country: "France", photo_url: "https://pictures.luxuryretreats.com/112879/corsica-villaflorence-01.jpg"},
+  {name: "Villa Alesia", description: nil, address: nil, region: "Europe", city: "Paris", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/france/paris/14e-arrondissement/villa-alesia-113352", country: "France", photo_url: "https://pictures.luxuryretreats.com/113352/paris-villaalesia-01.jpg"},
+  {name: "Mr Le Prince", description: nil, address: nil, region: "Europe", city: "Paris", bedrooms: 1, bathrooms: 1, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 477, source: "/destinations/france/paris/6e-arrondissement/mr-le-prince-113562", country: "France", photo_url: "https://pictures.luxuryretreats.com/113562/paris-mrleprince-01.jpg"},
+  {name: "Le Panoramique", description: nil, address: nil, region: "Europe", city: "Paris", bedrooms: 4, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/france/paris/15e-arrondissement/le-panoramique-113564", country: "France", photo_url: "https://pictures.luxuryretreats.com/113564/paris-leopanoramique-01.jpg"},
+  {name: "Fantastic Triplex Rooftop", description: nil, address: nil, region: "Europe", city: "Paris", bedrooms: 3, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/france/paris/16e-arrondissement/fantastic-triplex-rooftop-114627", country: "France", photo_url: "https://pictures.luxuryretreats.com/114627/paris-fantastictriplexrooftop-17.jpg"},
+  {name: "Fabulous Champs Elysees", description: nil, address: nil, region: "Europe", city: "Paris", bedrooms: 4, bathrooms: 2, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/france/paris/champs-elysees/fabulous-champs-elysees-114628", country: "France", photo_url: "https://pictures.luxuryretreats.com/114628/paris-fabulouschampselysees-01.jpg"},
+  {name: "Chalet Cragganmore", description: nil, address: nil, region: "Europe", city: "French Alps", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/france/french-alps/chamonix/chalet-cragganmore-112713", country: "France", photo_url: "https://pictures.luxuryretreats.com/112713/frenchalpes-chaletcragganmore-01.jpg"},
+  {name: "Chalet Shangri-la", description: nil, address: nil, region: "Europe", city: "French Alps", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/france/french-alps/chamonix/chalet-shangrila-113703", country: "France", photo_url: "https://pictures.luxuryretreats.com/113703/frenchalps-chaletshangrila-01.jpg"},
+  {name: "Chalet Himalaya", description: nil, address: nil, region: "Europe", city: "French Alps", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/france/french-alps/val-d-isere/chalet-himalaya-113843", country: "France", photo_url: "https://pictures.luxuryretreats.com/113843/frenchalps-chalethimalaya-01.jpg"},
+  {name: "Chalet Toit du Monde", description: nil, address: nil, region: "Europe", city: "French Alps", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/france/french-alps/val-d-isere/chalet-toit-du-monde-113844", country: "France", photo_url: "https://pictures.luxuryretreats.com/113844/frenchalps-chalettoitdumonde-01.jpg"},
+  {name: "Domaine Toit du Monde", description: nil, address: nil, region: "Europe", city: "French Alps", bedrooms: 8, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 6, source: "/destinations/france/french-alps/val-d-isere/domaine-toit-du-monde-113845", country: "France", photo_url: "https://pictures.luxuryretreats.com/113845/frenchalps-domainetoitdumonde-01a.jpg"},
+  {name: "Villa Affresco", description: nil, address: nil, region: "Europe", city: "Amalfi Coast", bedrooms: 7, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/italy/amalfi-coast/positano/villa-affresco-111794", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/111794/amalficoast-villaaffresco-1.jpg"},
+  {name: "Villa Vicere", description: nil, address: nil, region: "Europe", city: "Amalfi Coast", bedrooms: 8, bathrooms: 8, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 4, source: "/destinations/italy/amalfi-coast/positano/villa-vicere-113439", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/113439/amalficoast-villavicere-01.jpg"},
+  {name: "Villa Simona", description: nil, address: nil, region: "Europe", city: "Amalfi Coast", bedrooms: 7, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 5, source: "/destinations/italy/amalfi-coast/amalfi/villa-simona-108939", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/108939/italy-villasimona-13a.jpg"},
+  {name: "Villa Il Gioiello", description: nil, address: nil, region: "Europe", city: "Amalfi Coast", bedrooms: 5, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/amalfi-coast/sorrento/villa-il-gioiello-110420", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/110420/Italy-Il-Gioeiello-42.jpg"},
+  {name: "Venere", description: nil, address: nil, region: "Europe", city: "Amalfi Coast", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/amalfi-coast/positano/venere-111191", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/111191/Italy-Venere-33.jpg"},
+  {name: "Villa Chicca", description: nil, address: nil, region: "Europe", city: "Lake Como", bedrooms: 4, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 954, source: "/destinations/italy/lake-como/lezzeno/villa-chicca-112170", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/112170/lombardy-villachicca-01.jpg"},
+  {name: "Villa Poletti", description: nil, address: nil, region: "Europe", city: "Lake Como", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/lake-como/bellagio/villa-poletti-112639", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/112639/villapolelakecomotti-01.jpg"},
+  {name: "Villa dei Sogni", description: nil, address: nil, region: "Europe", city: "Lake Como", bedrooms: 4, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/lake-como/bellagio/villa-dei-sogni-112171", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/112171/lombardy-villadeisogni-1.jpg"},
+  {name: "Villa Concetta", description: nil, address: nil, region: "Europe", city: "Lake Como", bedrooms: 5, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 3, source: "/destinations/italy/lake-como/argegno/villa-concetta-110358", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/110358/lakecomo-villaconcetta-00.jpg"},
+  {name: "Villa Bellavista", description: nil, address: nil, region: "Europe", city: "Lake Como", bedrooms: 3, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 935, source: "/destinations/italy/lake-como/civenna/villa-bellavista-112168", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/112168/lombardy-villabellavista-01.jpg"},
+  {name: "Luna", description: nil, address: nil, region: "Europe", city: "Sardinia", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/sardinia/olbia-area/luna-109843", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/109843/Sardinia-Luna-01.jpg"},
+  {name: "Alice", description: nil, address: nil, region: "Europe", city: "Sardinia", bedrooms: 4, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/sardinia/olbia-area/alice-111827", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/111827/italy-villaalice-1.jpg"},
+  {name: "Villa Ferraia", description: nil, address: nil, region: "Europe", city: "Tuscany", bedrooms: 14, bathrooms: 15, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 2, source: "/destinations/italy/tuscany/siena-area/villa-ferraia-109279", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/109279/tuscany-villaferraia--01.jpg"},
+  {name: "Le Pratola", description: nil, address: nil, region: "Europe", city: "Tuscany", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/tuscany/chianti-area/le-pratola-111730", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/111730/italy-pratola--01.jpg"},
+  {name: "Podere Cecilia", description: nil, address: nil, region: "Europe", city: "Tuscany", bedrooms: 7, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/tuscany/siena-area/podere-cecilia-111843", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/111843/italy-poderececilia--01.jpg"},
+  {name: "Capanna Cerreto", description: nil, address: nil, region: "Europe", city: "Tuscany", bedrooms: 6, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 600, source: "/destinations/italy/tuscany/chianti-area/capanna-cerreto-111941", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/111941/tuscany-capannadicerreto-01.jpg"},
+  {name: "Sole del Chianti", description: nil, address: nil, region: "Europe", city: "Tuscany", bedrooms: 11, bathrooms: 11, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/tuscany/chianti-area/sole-del-chianti-110371", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/110371/Tuscany-Sole-Del-Chianti-00.jpg"},
+  {name: "Villa Barbi", description: nil, address: nil, region: "Europe", city: "Umbria", bedrooms: 5, bathrooms: 7, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/umbria/orvieto-area/villa-barbi-109281", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/109281/italy-barbi-1.jpg"},
+  {name: "Podere Fonte Cristiano", description: nil, address: nil, region: "Europe", city: "Umbria", bedrooms: 7, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 1, source: "/destinations/italy/umbria/perugia-area/podere-fonte-cristiano-112132", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/112132/umbria-poderefontecristiano-01.jpg"},
+  {name: "Caminata", description: nil, address: nil, region: "Europe", city: "Umbria", bedrooms: 6, bathrooms: 6, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 534, source: "/destinations/italy/umbria/perugia-area/caminata-112287", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/112287/italy-caminata-2.jpg"},
+  {name: "Campo Rinaldo", description: nil, address: nil, region: "Europe", city: "Umbria", bedrooms: 3, bathrooms: 4, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 343, source: "/destinations/italy/umbria/todi-area/campo-rinaldo-108186", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/108186/italy-camporinaldo-01.jpg"},
+  {name: "Villa Allegra", description: nil, address: nil, region: "Europe", city: "Umbria", bedrooms: 4, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 515, source: "/destinations/italy/umbria/perugia-area/villa-allegra-110383", country: "Italy", photo_url: "https://pictures.luxuryretreats.com/110383/umbria-villaallegra-1a.jpg"},
+  {name: "Villa Wixy", description: nil, address: nil, region: "Africa", city: "Cape Town", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 715, source: "/destinations/south-africa/cape-town/clifton/villa-wixy-113602", country: "South Africa", photo_url: "https://pictures.luxuryretreats.com/113602/cape-town-villawixy-01.jpg"},
+  {name: "Villa St. James", description: nil, address: nil, region: "Africa", city: "Cape Town", bedrooms: 8, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 379, source: "/destinations/south-africa/cape-town/st--james/villa-st-james-107423", country: "South Africa", photo_url: "https://pictures.luxuryretreats.com/107423/southafrica-villastjames-1.jpg"},
+  {name: "Panacea", description: nil, address: nil, region: "Africa", city: "Cape Town", bedrooms: 5, bathrooms: 5, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 379, source: "/destinations/south-africa/cape-town/camps-bay/panacea-110362", country: "South Africa", photo_url: "https://pictures.luxuryretreats.com/110362/South-Africa-Panacea-(08.jpg"},
+  {name: "Tranquil Skies", description: nil, address: nil, region: "Africa", city: "Cape Town", bedrooms: 3, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 559, source: "/destinations/south-africa/cape-town/camps-bay/tranquil-skies-111426", country: "South Africa", photo_url: "https://pictures.luxuryretreats.com/111426/capetown-tranquilskies-01.jpg"},
+  {name: "Sasso House", description: nil, address: nil, region: "Africa", city: "Cape Town", bedrooms: 4, bathrooms: 3, square_feet: nil, available_date: nil, photo_file_name: nil, photo_content_type: nil, photo_file_size: nil, photo_updated_at: nil, price: 757, source: "/destinations/south-africa/cape-town/camps-bay/sasso-house-113120", country: "South Africa", photo_url: "https://pictures.luxuryretreats.com/113120/capetown-sassohouse-01.jpg"}
+])
+MansionAmenity.create!([
+  {name: "heating"},
+  {name: "air conditioning"},
+  {name: "washer"},
+  {name: "dryer"},
+  {name: "parking"},
+  {name: "wireless internet"},
+  {name: "cable tv"},
+  {name: "pets allowed"},
+  {name: "smoking allowed"},
+  {name: "wheelchair accessible"},
+  {name: "elevator"},
+  {name: "fireplace"},
+  {name: "doorman"},
+  {name: "pool"},
+  {name: "hot yub"},
+  {name: "gym"},
+  {name: "bbq grill"}
+])
+PersonalityTrait.create!([
+  {name: "advertising", category: "professions"},
+  {name: "accounting", category: "professions"},
+  {name: "airline", category: "professions"},
+  {name: "banking", category: "professions"},
+  {name: "education", category: "professions"},
+  {name: "energy", category: "professions"},
+  {name: "finance", category: "professions"},
+  {name: "fashion", category: "professions"},
+  {name: "health care", category: "professions"},
+  {name: "legal", category: "professions"},
+  {name: "motion picture video", category: "professions"},
+  {name: "music", category: "professions"},
+  {name: "publishing journalism", category: "professions"},
+  {name: "real estate", category: "professions"},
+  {name: "software", category: "professions"},
+  {name: "sports", category: "professions"},
+  {name: "other", category: "professions"},
+  {name: "none", category: "religions"},
+  {name: "catholic", category: "religions"},
+  {name: "christian", category: "religions"},
+  {name: "jewish", category: "religions"},
+  {name: "muslim", category: "religions"},
+  {name: "orthodox", category: "religions"},
+  {name: "buddhist", category: "religions"},
+  {name: "hindu", category: "religions"},
+  {name: "other", category: "religions"},
+  {name: "straight", category: "sexual orientations"},
+  {name: "gay", category: "sexual orientations"},
+  {name: "bisexual", category: "sexual orientations"},
+  {name: "other", category: "sexual orientations"},
+  {name: "single", category: "relationship status"},
+  {name: "married", category: "relationship status"},
+  {name: "in an open relationship", category: "relationship status"},
+  {name: "divorced", category: "relationship status"},
+  {name: "widowed", category: "relationship status"},
+  {name: "it's complicated", category: "relationship status"},
+  {name: "yes", category: "smoker?"},
+  {name: "no", category: "smoker?"},
+  {name: "socially", category: "smoker?"},
+  {name: "student", category: "random_traits"},
+  {name: "entrepreneur", category: "random_traits"},
+  {name: "vegetarian", category: "random_traits"},
+  {name: "total carnivore", category: "random_traits"},
+  {name: "early bird", category: "random_traits"},
+  {name: "night owl", category: "random_traits"},
+  {name: "dog lover", category: "random_traits"},
+  {name: "cat lover", category: "random_traits"},
+  {name: "democrat", category: "random_traits"},
+  {name: "republican", category: "random_traits"},
+  {name: "bookworm", category: "random_traits"},
+  {name: "social butterfly", category: "random_traits"},
+  {name: "rock", category: "music styles"},
+  {name: "electronic music", category: "music styles"},
+  {name: "dubstep", category: "music styles"},
+  {name: "rap hip hop", category: "music styles"},
+  {name: "latin", category: "music styles"},
+  {name: "jazz", category: "music styles"},
+  {name: "classical", category: "music styles"},
+  {name: "reggae", category: "music styles"},
+  {name: "techno", category: "music styles"},
+  {name: "country", category: "music styles"},
+  {name: "dance music", category: "music styles"},
+  {name: "indie", category: "music styles"}
+])
 
 
 
