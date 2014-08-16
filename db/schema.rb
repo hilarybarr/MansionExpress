@@ -14,6 +14,7 @@
 
 ActiveRecord::Schema.define(version: 20140816171610) do
 
+
   create_table "bookings", force: true do |t|
     t.integer  "user_id"
     t.integer  "mansion_id"
