@@ -37,7 +37,7 @@
 
   <div class="col-md-8">
     <% @mansions.each do |mansion| %>
-    <a href="mansions/<%=mansion.id%>"> <img class="mansionShow" src="<%= mansion.photo_url %>"/> </a>
+    <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" src="<%= mansion.photo_url %>"/> </a>
     <%=mansion.name %>
     <%=mansion.description%>
       

@@ -19,6 +19,8 @@ class MansionsController < ApplicationController
     #   marker.lat mansion.latitude
     #   marker.lng mansion.longitude
     # end
+    mansion = Mansion.find(params[:id])
+    @users = mansion.users
   end
 
   # GET /mansions/new
