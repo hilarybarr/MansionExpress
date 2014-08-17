@@ -16,11 +16,20 @@
 
 
 
-	<div id="price2">Total Group Price Per Night: <%= @mansion.price %>
-	</br>
+	<div id="price2">Total Price Per Night: <%=@mansion.price%>
+</div>
 
+<div id="pricings">
+	</br> Price Per Person Based on Occupancy:
+		<%x=1%>
+		<%until x > @mansion.bedrooms.to_i %>
+		<strong><%= x %> People:</strong> $<%= (@mansion.price.scan(/[.0-9]/).join().to_i)/(x) %>
+		<%x+=1%>
 
-	</div>
+		<%end%>
+	
+</br>
+</div> 
 
 
 
@@ -38,17 +47,17 @@
 <div id="right1">
 
 	<div id="pledgepoints">
-<%if @users %>
-<strong>Pledge Compatibility Points:</strong> <%=overall_pledge_compatibility_points(@users) %>
-  <strong> Pledge Compatibility Percentage:</strong> <%=overall_pledge_compatibility_percentage(@users) %>%
-<%end%>
-</div>
+	<%if @users %>
+	<strong>Pledge Compatibility Points:</strong> <%=overall_pledge_compatibility_points(@users) %>
+	  <strong> Pledge Compatibility Percentage:</strong> <%=overall_pledge_compatibility_percentage(@users) %>%
+	<%end%>
+	</div>
 
-<div id="userimgs">
-	<% @users.each do |user| %>
-	<%= link_to image_tag(user.photo.url(:join)), user %>
-<% end %>
-</div>
+	<div id="userimgs">
+		<% @users.each do |user| %>
+		<%= link_to image_tag(user.photo.url(:join)), user %>
+	<% end %>
+	</div>
  
 
 	
