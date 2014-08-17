@@ -69,25 +69,25 @@
 	"indie" ]
 
 @mansion_amenities = [ "heating",
-"air conditioning",
-"washer",
-"dryer",
-"parking",
-"wireless internet",
-"cable tv",
-"pets allowed",
-"smoking allowed",
-"wheelchair accessible",
-"elevator",
-"fireplace",
-"doorman",
-"pool",
-"hot yub",
-"gym",
-"bbq grill" ]
+	"air conditioning",
+	"washer",
+	"dryer",
+	"parking",
+	"wireless internet",
+	"cable tv",
+	"pets allowed",
+	"smoking allowed",
+	"wheelchair accessible",
+	"elevator",
+	"fireplace",
+	"doorman",
+	"pool",
+	"hot yub",
+	"gym",
+	"bbq grill" ]
 
 
-
+p total_personality_traits = @professions.count + @religions.count + @sexual_orientations.count + @relationship_status.count + @smoker.count + @random_traits.count + @music_styles.count
 
 
 

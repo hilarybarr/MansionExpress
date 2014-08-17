@@ -15,8 +15,9 @@ class MansionsController < ApplicationController
   # GET /mansions/1
   # GET /mansions/1.json
   def show
-    mansion = Mansion.find(params[:id])
-    @users = mansion.users
+    @mansion = Mansion.find(params[:id])
+    @users = @mansion.users
+    
     @hash = Gmaps4rails.build_markers(@mansion) do |mansion, marker|
       marker.lat mansion.latitude
       marker.lng mansion.longitude
@@ -97,3 +98,7 @@ class MansionsController < ApplicationController
       params.require(:mansion).permit(:name, :description, :address, :region, :city, :bedrooms, :bathrooms, :square_feet, :available_date, :photo, :price, :source)
     end
 end
+
+
+
+

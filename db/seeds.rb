@@ -236,7 +236,6 @@ end
   PersonalityTrait.create(name: trait, category: "random_traits")
 end
 
-
 @music_styles.each do |music_style| 
   PersonalityTrait.create(name: music_style, category: "music styles")
 end
@@ -247,4 +246,38 @@ end
 @mansion_amenities.each do |amenity| 
   MansionAmenity.create(name: amenity)
 end
+
+# ADDING PERSONALITY TRAIT TAGS TO DUMMY USERS RANDOMLY
+
+# CREATING DUMMY USERS
+
+dummy_users = []
+(0..20).each do |i|
+  dummy_users << User.create(email: "test#{i}@gmail.com", password: "test12345")
+end
+
+# ADDING TRAITS TO DUMMY USERS
+dummy_users.each do |user|
+  traits = []
+  20.times do 
+    traits << PersonalityTrait.all.sample
+  end
+  user.personality_traits = traits
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -15,6 +15,10 @@ class Mansion < ActiveRecord::Base
 	geocoded_by :address
 	after_validation :geocode
 
+	def users_count
+		self.users.count
+	end
+
 	def address
 	  [city, country].compact.join(', ')
 	end
