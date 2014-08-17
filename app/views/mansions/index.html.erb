@@ -72,7 +72,7 @@
 
   <div class="col-md-4">
     <div style='width: 800px;'>
-      <div id="map" style='width: 500px; height: 700px; '>
+      <div id="map" style='width: 550px; height: 700px; '>
         <script>
           handler = Gmaps.build('Google');
           handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -109,22 +109,22 @@
 
 
 
-
+ <p><%=@mansions.count%> rentals <p>
   <div id= "right">
-    <%= paginate @mansions,  :window => 2%>
+    
+    <%= paginate @mansions,  :window => 1%>
 
 
-   <p><%=@mansions.count%> rentals <p>
+  
 
     <% @mansions.each do |mansion| %> 
     <div id="mansion" class="col-md-offset-1 col-md-2 ">
 
-      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="200px" width="300px" src="<%= mansion.photo_url %>"/> </a>
+      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="250px" width="350px" src="<%= mansion.photo_url %>"/> </a>
     </br>
     <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
-    <%= mansion.price %></br>
-    <%=mansion.bedrooms%> bedrooms villa </br>
-     <%=mansion.city%>, <%=mansion.country%>
+    <span class="price"><%= mansion.price %></span></br>
+    <%=mansion.bedrooms%> bd in <%=mansion.city%>
 
      
     </div>

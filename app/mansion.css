@@ -57,11 +57,16 @@ require bootstrap
 
 img.mansionShow{
 	width: 20px;
+
+
 }
 
-.mansionPrice {
-	position: absolute;
+.price {
+	position: relative;
 	top: 200px;
+
+
 }
+
 
 
