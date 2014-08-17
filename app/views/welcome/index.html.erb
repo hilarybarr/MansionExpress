@@ -1,5 +1,14 @@
 <!DOCTYPE html>
   <head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+    $(function() {
+      $( ".datepicker" ).datepicker();
+    });
+    </script>
   </head>
 
   <body class=" p1 ">
@@ -36,12 +45,8 @@
         <form action="" id="search_form">
           <div class="location-wrapper"><input type="text" class="form-inline location input-large input-contrast" autocomplete="off" id="location" name="location" placeholder="where you wanna go?" />  <p id="enter_location_error_message" class="bad hide">
             Please set location
-          </p></div>
-          <input type="text" id="checkin" class="form-inline checkin search-option input-large input-contrast" name="checkin" placeholder="Check In" />
 
-
-          
-          <input type="text" id="checkout" class="form-inline checkout search-option input-large input-contrast" name="checkout" placeholder="Check Out" /><div class="select select-large">
+          </p></div><input type="text" id="checkin" class="form-inline checkin search-option input-large input-contrast datepicker" name="checkin" placeholder="Check In" /><input type="text" id="checkout" class="form-inline checkout search-option input-large input-contrast datepicker" name="checkout" placeholder="Check Out" /><div class="select select-large">
             <select id="guests" name="guests">
               <option value="1">1 Guest</option>
                 <option value="2">2 Guests</option>
@@ -60,8 +65,8 @@
                 <option value="15">15 Guests</option>
                 <option value="16">16+ Guests</option>
             </select>
-          </div><input type="hidden" name="source" value="bb"><button type="submit" class="search-button form-inline btn btn-primary btn-large" id="submit_location">
-            Search
+          </div><input type="hidden" name="source" value="bb"><button type="submit" class="search-button form-inline btn btn-primary btn-large" href="/mansions" id="submit_location"><a href="/mansions">Search</a>
+   
           </button>
         </form>
       </div>
