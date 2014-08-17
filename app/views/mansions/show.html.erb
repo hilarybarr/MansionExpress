@@ -19,6 +19,11 @@
 <% end %>
 </div>
 
+<%if @users %>
+Pledge Compatibility Points: <%=overall_pledge_compatibility_points(@users) %>
+Pledge Compatibility Percentage: <%#=overall_pledge_compatibility_percentage(@users) %>
+<%end%>
+
 <!-- <div class="mansionDescription center-block">	
  -->	<%#= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
 	<%#= image_tag(@mansion.photo_url), class: 'mansionShow' %>

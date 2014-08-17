@@ -2,26 +2,31 @@
 	<h2>Need to Add User Name</h2>
 <%= @user.email %></br>
 
-<%= image_tag @user.photo.url(:thumb) %>
+<div id="useravatar"><%= image_tag @user.photo.url(:thumb) %></div>
 
 </div>
 </br>
 
 <div id="aboutme">
 	<h3> About Me </h3>
+	<%if @user.personality_traits %>
 	<%@user.personality_traits.each do |trait| %>
-		<%= trait%>
+		<%=trait.category%>: <%= trait.name%></br>
 	<%end%>
-	Lorem ipsum dolor. Need to add personality_traits.
-
-
+	<%end%>
 </div>
+<!--Display Compatabilities-->
+<%if current_user && (@user != current_user) %>
+<p> You have <%=user_to_user_compatibility_points(current_user, @user)%> compatibility points. </p>
+<p>You are <%=user_to_user_compatibility_percentage(current_user, @user)%>% compatible.</p>
+
+<%end%>
 
 <% @mansions.each do |mansion| %>
 <div class="col-md-3" id="mansiondisplay">
 	<div class="jumbotron">
-		<img src="<%= mansion.photo_url %>" height="300px" width="100%"/></br>
-	<%=mansion.name%></br>
+	<a href="/mansion/#{mansion.id}">	<img src="<%= mansion.photo_url %>" height="300px" width="100%"/></a></br>
+	<a href="/mansion/#{mansion.id}"><%=mansion.name%></a></br>
 	<%=mansion.city%>, <%=mansion.country%>
 </div>
 </div>

@@ -12,6 +12,7 @@ module ApplicationHelper
 end
 
 
+
 	def user_to_user_compatibility_percentage(user1, user2)
 	points = 0
 	user1.personality_traits.each do |user1trait|
