@@ -10,8 +10,20 @@
 </head>
 <body>
 	<% if current_user %>
-		<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-		<%= link_to 'account settings', edit_user_registration_path %>
+	  <div id="header" class="navbar navbar-top"> <div class="page-container-full mansion-header clearfix">
+	   	 <a href="/" class="pull-left">MansionExpress</a>
+	     <ul class="nav pull-right help-menu " style="margin-left:0;">
+	      <li class="list-your-space ">
+	        <a id="list-your-space" class="btn btn-special" href="">List Your Space</a>
+	      </li>
+	    </ul>
+	    <ul class="nav pull-right logged-out">
+	      <li><%= link_to 'sign out', destroy_user_session_path, method: :delete %> </li>
+	       <li><%= link_to 'account settings', edit_user_registration_path %></li>
+	    </ul>
+	   </div>
+	 </div>
+
 	<% else %>
 
 	<div id="header" class="navbar navbar-top">
@@ -32,8 +44,8 @@
 
 	<% end %>
 
-	<%= flash.notice if flash.notice %>
-	<%= flash.alert if flash.alert %>
+	<%#= flash.notice if flash.notice %>
+	<%#= flash.alert if flash.alert %>
 	
 	<%= yield %>
 
