@@ -31,7 +31,7 @@
 
 
 
-<div id="topsection" >
+<div class="topsection" >
   <div class="row">
     <div class="offset-md-1 col-md-3">
          tip: the more people the cheaper the $
@@ -124,8 +124,8 @@
       <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="250px" width="350px" src="<%= mansion.photo_url %>"/> </a>
     </br>
     <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
-    <div id="price"><%= mansion.price %></div>
-    <%=mansion.bedrooms%> bd in <%=mansion.city%>
+    <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
+     <div id="price"><p><%= mansion.price %></p></div>
 
      
     </div>

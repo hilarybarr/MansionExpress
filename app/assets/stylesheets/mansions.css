@@ -5,7 +5,14 @@
 
 require bootstrap
 
+.ui-slider-range {
+	color: white;
+}
 
+.topsection {
+	background-color: black;
+	color: white;
+}
 
 .ui-slider-range {
 
@@ -31,17 +38,27 @@ require bootstrap
 
 }
 
+#map {
+	 z-index: 1;
+}
+
 #price {
 	position: relative;
-	bottom: 50px;
+	bottom: 80px;
 
+}
 
+#price p{
+	background-color: black;
+	color: white;
+	font-size: 20px;
 }
 
 
 #paginator {
 	position: relative;
-	left: 100px;
+	left: 150px;
+	background-color: white;
 }
 
 
