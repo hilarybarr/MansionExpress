@@ -94,18 +94,17 @@ require bootstrap
 
 #left1{
 	float:left;
-	width: 50%;
+	width: 48%;
 	text-align: center;
 	margin: 20px;
-	background-color: gray;
+	background-color: #B8C1D1;
 }
 
 #right1{
 	float:right;
 	width: 40%;
-	height: 500px;
 	margin: 20px;
-	background-color: gray;
+	background-color: #B8C1D1;
 
 }
 
@@ -125,6 +124,15 @@ require bootstrap
 	background-color: black;
 	color: white;
 	width: 400px;
+}
+
+#pricings{
+	position:relative;
+	bottom: 99px;
+	font-size: 13px;
+	background-color: black;
+	color: white;
+	width: 80%;
 }
 
 #description{
