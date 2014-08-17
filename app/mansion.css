@@ -7,10 +7,10 @@ require bootstrap
 
 
 
-.ui-slider {
-	
-    width: 5px;
-    padding-left: 5px; //add this
+.ui-slider-range {
+
+    width: 100px;
+ 
 
 }
 .applyButton {
@@ -22,18 +22,29 @@ require bootstrap
 	background-color: black;
 	display: inline-block;
 	float: left;
+	position: fixed;
 	width: 40%;
+
 }
 
 
 #right {
+	display: inline-block;
 	float: right;
-	 width: 60%;
+	width: 60%;
+}
+
+#right p{
+	padding-left: 50px;
 }
 
 #clear {
 	clear: both;
 	
+}
+
+#map {
+	padding: 10px;
 }
 
 .mansionShowMap {
@@ -48,5 +59,9 @@ img.mansionShow{
 	width: 20px;
 }
 
+.mansionPrice {
+	position: absolute;
+	top: 200px;
+}
 
 

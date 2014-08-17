@@ -39,10 +39,21 @@
 
 
     <div class="col-md-3">
-    </div>
+ 
+     <div class="dropdown">
+  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+    Dropdown <span class="caret"></span>
+  </a>
 
 
-    <div class="col-md-5">
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    ...
+  </ul>
+</div>
+</div>
+
+
+    <div class="col-md-4">
       Price Per Night
  
         <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
@@ -61,7 +72,7 @@
 
   <div class="col-md-4">
     <div style='width: 800px;'>
-      <div id="map" style='width: 600px; height: 400px;'>
+      <div id="map" style='width: 500px; height: 700px; '>
         <script>
           handler = Gmaps.build('Google');
           handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -100,18 +111,25 @@
 
 
   <div id= "right">
+    <%= paginate @mansions,  :window => 2%>
 
-    <% @mansions.each do |mansion| %>
-    <div id="mansion" class="col-md-3">
-      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" width="300px" src="<%= mansion.photo_url %>"/> </a>
+
+   <p><%=@mansions.count%> rentals <p>
+
+    <% @mansions.each do |mansion| %> 
+    <div id="mansion" class="col-md-offset-1 col-md-2 ">
+
+      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="200px" width="300px" src="<%= mansion.photo_url %>"/> </a>
     </br>
-    <strong><%=mansion.name %></strong></br>
-    <%=mansion.bedrooms%> bedrooms villa in <%=mansion.city%>, <%=mansion.country%>.
+    <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
+    <%= mansion.price %></br>
+    <%=mansion.bedrooms%> bedrooms villa </br>
+     <%=mansion.city%>, <%=mansion.country%>
 
-      <span class="mansionPrice"><%= mansion.price %></span>
+     
     </div>
     <% end %>
-  </div> 
+</div> 
 
 
   <div id="clear"></div>
