@@ -55,18 +55,16 @@ require bootstrap
 	top: 200px;
 }
 
-img.mansionShow{
-	width: 20px;
+.mansionShow{
 
 
 }
 
-.price {
+#price {
 	position: relative;
-	top: 200px;
+	top: 900px;
 
 
 }
-
 
 
