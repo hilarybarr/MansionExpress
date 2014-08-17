@@ -47878,3 +47878,4332 @@ Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 01:12:45 -
 Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 01:12:45 -0400
 
 DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:User> at /Users/hilarybarr/Desktop/mansion-express/app/models/user.rb:12)
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:User> at /Users/hilarybarr/Desktop/mansion-express/app/models/user.rb:12)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-17 11:48:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 977ms (Views: 953.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:54 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (14.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (77.9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+
+Started GET "/footer/background-262fb098625ce53df8c32efeaea46822.png" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+
+ActionController::RoutingError (No route matches [GET] "/footer/background-262fb098625ce53df8c32efeaea46822.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (37.0ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:48:55 -0400
+Processing by MansionsController#index as HTML
+DEPRECATION WARNING: String based terminators are deprecated, please use a lambda. (called from <class:Mansion> at /Users/hilarybarr/Desktop/mansion-express/app/models/mansion.rb:12)
+  [1m[35mMansion Load (22.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (151.6ms)
+Completed 200 OK in 381ms (Views: 179.7ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:56 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:48:56 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:49:55 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.1ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:49:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:49:55 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:51:08 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.0ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 71ms (Views: 68.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:51:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:51:08 -0400
+
+
+Started GET "/assets/fahia.png" for 127.0.0.1 at 2014-08-17 11:51:08 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:51:19 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.8ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  Rendered mansions/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 5ms
+
+SyntaxError (/Users/hilarybarr/Desktop/mansion-express/app/views/mansions/index.html.erb:126: syntax error, unexpected tIDENTIFIER, expecting ')'
+...=( image_tag "fahia.png" height="20px" width="20px" );@outpu...
+...                               ^
+/Users/hilarybarr/Desktop/mansion-express/app/views/mansions/index.html.erb:126: syntax error, unexpected tIDENTIFIER, expecting ')'
+..."fahia.png" height="20px" width="20px" );@output_buffer.safe...
+...                               ^):
+  app/views/mansions/index.html.erb:126: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/mansions/index.html.erb:126: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.6ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:51:39 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.9ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (wrong number of arguments (3 for 1..2)):
+    123:     </br>
+    124:     <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
+    125:     <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
+    126:     <%= image_tag "fahia.png", height="20px", width="20px" %>
+    127:      <div id="price"><p><%= mansion.price %></p></div>
+    128: 
+    129: 
+  app/views/mansions/index.html.erb:126:in `block in _app_views_mansions_index_html_erb___1206261798105522197_2168070820'
+  app/views/mansions/index.html.erb:119:in `_app_views_mansions_index_html_erb___1206261798105522197_2168070820'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.5ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:51:44 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.7ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  Rendered mansions/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 5ms
+
+SyntaxError (/Users/hilarybarr/Desktop/mansion-express/app/views/mansions/index.html.erb:126: syntax error, unexpected tIDENTIFIER, expecting ')'
+...=( image_tag "fahia.png" height="20px", width="20px" );@outp...
+...                               ^):
+  app/views/mansions/index.html.erb:126: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.8ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:52:14 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.2ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 1424ms (Views: 1420.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:52:16 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:52:16 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:52:16 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:52:16 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:52:27 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.7ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 1035ms (Views: 1032.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:52:28 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:52:28 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:52:28 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:52:28 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:53:20 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.9ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:53:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:53:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:53:20 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:53:20 -0400
+
+
+Started GET "/assets/fahia.png" for 127.0.0.1 at 2014-08-17 11:53:20 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:53:27 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.1ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:53:27 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:53:27 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:53:27 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:53:27 -0400
+
+
+Started GET "/assets/fahia.png" for 127.0.0.1 at 2014-08-17 11:53:27 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:53:42 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.2ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:53:42 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:53:42 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:53:42 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:53:42 -0400
+
+
+Started GET "/assets/fahia.png" for 127.0.0.1 at 2014-08-17 11:53:42 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:55:04 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 1059ms (Views: 1055.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:55:05 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:55:05 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:55:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:55:05 -0400
+
+
+Started GET "/assets/fahia.png" for 127.0.0.1 at 2014-08-17 11:55:05 -0400
+
+
+Started GET "/assets/fahia.png" for 127.0.0.1 at 2014-08-17 11:55:05 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (39.9ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+
+Started GET "/footer/background-262fb098625ce53df8c32efeaea46822.png" for 127.0.0.1 at 2014-08-17 11:59:41 -0400
+
+ActionController::RoutingError (No route matches [GET] "/footer/background-262fb098625ce53df8c32efeaea46822.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:59:43 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.2ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 11:59:43 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 11:59:43 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.7ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 11:59:58 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:00:12 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.0ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:12 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:12 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:12 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:00:13 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.8ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:01:59 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+
+Started GET "/images/.sample.jpg" for 127.0.0.1 at 2014-08-17 12:02:00 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/.sample.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (65.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (95.0ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:02:11 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (8.6ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `sample' for nil:NilClass):
+    125:     <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
+    126:     <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
+    127:      <div id="price"><p><%= mansion.price %></p></div>
+    128:      <div id="gravatar"><%= image_tag( "#{@person.sample}.jpg", size: "70x70")%>
+    129:       <%= image_tag( "2.jpg", size: "70x70")%></div>
+    130: 
+    131:      
+  app/views/mansions/index.html.erb:128:in `block in _app_views_mansions_index_html_erb___1206261798105522197_2156759060'
+  app/views/mansions/index.html.erb:120:in `_app_views_mansions_index_html_erb___1206261798105522197_2156759060'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.9ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 46ms (Views: 42.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/images/.jpg" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (46.7ms)
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:02:41 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.1ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 43ms (Views: 39.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:18 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/images/.jpg" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:03:19 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.7ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 47ms (Views: 44.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:03 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/images/" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (37.4ms)
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:05:04 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:05:18 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.1ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (63.2ms)
+Completed 500 Internal Server Error in 69ms
+
+ActionView::Template::Error (undefined local variable or method `img1' for #<#<Class:0x00000104b6dd70>:0x00000108d801b8>):
+    133:     <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
+    134:     <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
+    135:      <div id="price"><p><%= mansion.price %></p></div>
+    136:      <div id="gravatar"><%= image_tag( img1, size: "70x70")%>
+    137:       <%= image_tag( "2.jpg", size: "70x70")%></div>
+    138: 
+    139:      
+  app/views/mansions/index.html.erb:136:in `block in _app_views_mansions_index_html_erb___1206261798105522197_2221692520'
+  app/views/mansions/index.html.erb:128:in `_app_views_mansions_index_html_erb___1206261798105522197_2221692520'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.4ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.7ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/images/" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (39.6ms)
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:05:45 -0400
+
+
+Started GET "/images/" for 127.0.0.1 at 2014-08-17 12:05:46 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.9ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.8ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 32ms (Views: 29.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:06:37 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.7ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-17 12:07:09 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.2ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 33ms (Views: 29.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:19 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+
+Started GET "/images/0.jpg" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/0.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.8ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+
+Started GET "/images/0.jpg" for 127.0.0.1 at 2014-08-17 12:07:20 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/0.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (37.1ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:07:39 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.7ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (57.7ms)
+Completed 200 OK in 76ms (Views: 72.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/images/0.jpg" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/0.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (44.8ms)
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-17 12:07:40 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 74ms (Views: 71.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:57 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/images/0.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/0.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.5ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.6ms)
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:07:58 -0400
+
+
+Started GET "/mansions/141" for 127.0.0.1 at 2014-08-17 12:08:32 -0400
+Processing by MansionsController#show as HTML
+  Parameters: {"id"=>"141"}
+  [1m[36mMansion Load (0.3ms)[0m  [1mSELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1[0m  [["id", 141]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "mansions".* FROM "mansions"  WHERE "mansions"."id" = ? LIMIT 1  [["id", "141"]]
+  [1m[36mUser Load (17.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "bookings" ON "users"."id" = "bookings"."user_id" WHERE "bookings"."mansion_id" = ?[0m  [["mansion_id", 141]]
+  Rendered mansions/show.html.erb within layouts/application (50.2ms)
+Completed 200 OK in 167ms (Views: 49.6ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+
+Started GET "/images/0.jpg" for 127.0.0.1 at 2014-08-17 12:08:46 -0400
+
+ActionController::RoutingError (No route matches [GET] "/images/0.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (40.6ms)
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-17 12:08:47 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-17 12:08:47 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-17 12:08:47 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:08:47 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:08:47 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 30ms (Views: 26.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:06 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-17 12:09:07 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-08-17 12:09:21 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.1ms)
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:10:07 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 1102ms (Views: 1098.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:08 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (34.3ms)
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:10:09 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:10:19 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.9ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.5ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.7ms)
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:10:20 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:04 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/underscore-min.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.9ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-17 12:11:05 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:11:41 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.1ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:11:41 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:11:41 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:11:41 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:11:41 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:12:01 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 1017ms (Views: 1014.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:12:02 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:12:02 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:12:02 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:12:02 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:12:02 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:12:02 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:12:12 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.0ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 1009ms (Views: 1005.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:12:13 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:12:13 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:12:13 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:12:13 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:12:13 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:12:13 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:12:13 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:12:23 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.0ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 1015ms (Views: 1012.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:12:24 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:12:24 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:12:24 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:12:24 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:12:24 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:12:24 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:12:30 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 968ms (Views: 965.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:12:31 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:12:31 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:12:31 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:12:31 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:12:37 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.0ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 1034ms (Views: 1030.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:12:38 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:12:38 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:12:38 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:12:38 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:12:38 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:12:38 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:12:38 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:12:43 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (0.9ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 997ms (Views: 993.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:12:44 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:12:44 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:12:44 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:12:44 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:12:44 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:12:44 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:12:49 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 983ms (Views: 980.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:12:50 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:12:50 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:12:50 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:12:50 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:12:50 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:12:50 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:12:50 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:13:03 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 994ms (Views: 990.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:13:04 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:13:04 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:13:04 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:13:04 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:13:04 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:13:04 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:13:09 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.1ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 986ms (Views: 982.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:13:10 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:13:10 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:13:10 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:13:10 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:13:10 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:13:10 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:13:15 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.1ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 1005ms (Views: 1000.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:13:16 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:13:16 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:13:16 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:13:16 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:13:16 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:13:16 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:13:16 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:13:25 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.7ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 1022ms (Views: 980.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:13:27 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:13:27 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:13:27 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:13:27 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:13:27 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:13:27 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.1ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:13:41 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:14:36 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (0.8ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 1029ms (Views: 1025.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:14:37 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:14:37 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:14:37 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:14:37 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:14:37 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:14:37 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:14:37 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:14:44 -0400
+Processing by MansionsController#index as HTML
+  [1m[36mMansion Load (1.0ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 995ms (Views: 992.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:14:45 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:14:45 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:14:45 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:14:45 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:14:45 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:14:45 -0400
+
+
+Started GET "/mansions" for 127.0.0.1 at 2014-08-17 12:15:14 -0400
+Processing by MansionsController#index as HTML
+  [1m[35mMansion Load (1.2ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 31ms (Views: 26.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-17 12:15:14 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-17 12:15:14 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-17 12:15:14 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-17 12:15:14 -0400
+
+
+Started GET "/mansions?page=2" for 127.0.0.1 at 2014-08-17 12:15:31 -0400
+Processing by MansionsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mMansion Load (1.4ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 4[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 4) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-17 12:15:31 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-17 12:15:31 -0400
+
+
+Started GET "/mansions?page=3" for 127.0.0.1 at 2014-08-17 12:15:33 -0400
+Processing by MansionsController#index as HTML
+  Parameters: {"page"=>"3"}
+  [1m[35mMansion Load (1.6ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 8
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 8) subquery_for_count[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "mansions"
+  Rendered mansions/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 38ms (Views: 32.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-17 12:15:33 -0400
+
+
+Started GET "/mansions?page=4" for 127.0.0.1 at 2014-08-17 12:15:36 -0400
+Processing by MansionsController#index as HTML
+  Parameters: {"page"=>"4"}
+  [1m[36mMansion Load (1.8ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."name" ASC LIMIT 4 OFFSET 12[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "mansions"  LIMIT 4 OFFSET 12) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "mansions"[0m
+  Rendered mansions/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 79ms (Views: 75.0ms | ActiveRecord: 2.1ms)
