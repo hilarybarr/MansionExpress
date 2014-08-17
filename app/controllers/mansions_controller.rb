@@ -5,13 +5,22 @@ class MansionsController < ApplicationController
   # GET /mansions.json
   def index
     @mansions = Mansion.all
-  end
+    @hash = Gmaps4rails.build_markers(@mansions) do |mansion, marker|
+      marker.lat mansion.latitude
+      marker.lng mansion.longitude
+    end
+  end 
 
   # GET /mansions/1
   # GET /mansions/1.json
   def show
     @mansion = Mansion.find(params[:id])
     @users = @mansion.users
+    
+    @hash = Gmaps4rails.build_markers(@mansion) do |mansion, marker|
+      marker.lat mansion.latitude
+      marker.lng mansion.longitude
+    end    
   end
 
   # GET /mansions/new
