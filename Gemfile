@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'paperclip'
 gem 'bootstrap-sass'
 
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.0.2'
+
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 

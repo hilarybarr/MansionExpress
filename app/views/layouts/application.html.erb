@@ -21,8 +21,8 @@
 	      </li>
 	    </ul>
 	    <ul class="nav pull-right logged-out">
-	      <li id="login"><a data-login-modal href="/login" class="link-reset">Log In  </a></li>
-	      <li id="sign_up"><a data-signup-modal href="/signup" class="link-reset"> Sign Up</a></li>
+	      <li><%= link_to 'login', new_user_session_path %></li>
+	      <li><%= link_to 'sign up', new_user_registration_path, class: 'link-reset' %></li>
 	    </ul>
 	  </div>
 	</div>
