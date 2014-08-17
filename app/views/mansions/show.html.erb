@@ -1,7 +1,7 @@
 <div class="mansionDescription center-block">	
 	<%#= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
 	<%#= image_tag(@mansion.photo_url), class: 'mansionShow' %>
-<img class="mansionShow" src="<%= @mansion.photo_url %>"/>
+<img src="<%= @mansion.photo_url %>"/>
 
 
 <% @users.each do |user| %>
