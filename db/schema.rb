@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20140816171610) do
     t.integer  "bathrooms"
     t.integer  "square_feet"
     t.date     "available_date"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
