@@ -1,5 +1,7 @@
 <div id="usershowheader">
-	<h2>Need to Add User Name</h2>
+	<% if @user.name %>
+	<h2><%=@user.name%></h2>
+	<%end%>
 <%= @user.email %></br>
 
 <div id="useravatar"><%= image_tag @user.photo.url(:thumb) %></div>
@@ -25,8 +27,8 @@
 <% @mansions.each do |mansion| %>
 <div class="col-md-3" id="mansiondisplay">
 	<div class="jumbotron">
-	<a href="/mansion/#{mansion.id}">	<img src="<%= mansion.photo_url %>" height="300px" width="100%"/></a></br>
-	<a href="/mansion/#{mansion.id}"><%=mansion.name%></a></br>
+	<a href='/mansions/#{mansion.id}/'>	<img src="<%= mansion.photo_url %>" height="300px" width="100%"/></a></br>
+	<a href='/mansions/#{mansion.id}'><%=mansion.name%></a></br>
 	<%=mansion.city%>, <%=mansion.country%>
 </div>
 </div>

@@ -13,40 +13,55 @@
 	<% end %>
 <% end %>
 
+
+
+
+	<div id="price2">Total Group Price Per Night: <%= @mansion.price %>
+	</br>
+
+
+	</div>
+
+
+
+<div id="left1">
+	<p><strong><%= @mansion.name %></strong></br>
+	<%= @mansion.city %>, <%= @mansion.country %>, <%= @mansion.region %></br>
+	<%= @mansion.bedrooms %> bedrooms, <%= @mansion.bathrooms %> bathrooms
+</p></br>
+
+	<strong>Description: </strong><div id="description"><%= @mansion.description %></div></strong>
+</div>
+
+
+
+<div id="right1">
+
+	<div id="pledgepoints">
+<%if @users %>
+<strong>Pledge Compatibility Points:</strong> <%=overall_pledge_compatibility_points(@users) %>
+  <strong> Pledge Compatibility Percentage:</strong> <%=overall_pledge_compatibility_percentage(@users) %>%
+<%end%>
+</div>
+
 <div id="userimgs">
 	<% @users.each do |user| %>
 	<%= link_to image_tag(user.photo.url(:join)), user %>
 <% end %>
 </div>
+ 
 
-<%if @users %>
-Pledge Compatibility Points: <%=overall_pledge_compatibility_points(@users) %>
-Pledge Compatibility Percentage: <%#=overall_pledge_compatibility_percentage(@users) %>
-<%end%>
-
-<!-- <div class="mansionDescription center-block">	
- -->	<%#= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
-	<%#= image_tag(@mansion.photo_url), class: 'mansionShow' %>
-<div class="jumbotron">
 	
-	<h1><%= @mansion.name %></h1>
-	<h3>City: <%= @mansion.city %></h3>
-	<h1>Country: <%= @mansion.country %></h1>
-	<h1>Region: <%= @mansion.region %></h1>
-	<h1>Price: <%= @mansion.price %></h1>
-	<h1>Bedrooms: <%= @mansion.bedrooms %></h1>
-	<h1>Bathrooms: <%= @mansion.bathrooms %></h1>
+
 </div>
 
 
 
 
 
-	
+<div id="clear"></div>
 
-	<div class='mansionDescription'><strong>description: </strong><%= @mansion.description %></div>
-
-	<div id='mansionShowMapid' class="mansionShowMap">
+	<div id='mansionShowMapid' class="mansionShowMap"  style='width: 100%; height: 400px;'>
     <script>
       handler = Gmaps.build('Google');
       handler.buildMap({ provider: {}, internal: {id: 'mansionShowMapid'}}, function(){
