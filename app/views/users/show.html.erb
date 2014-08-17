@@ -1,3 +1,9 @@
 <%= @user.email %>
 
 <%= image_tag @user.photo.url(:thumb) %>
+
+<h2>Mansions</h2>
+
+<% @mansions.each do |mansion| %>
+	<img src="<%= mansion.photo_url %>"/>
+<% end %>
