@@ -39,11 +39,11 @@
 
   <div class="col-md-8">
     <% @mansions.each do |mansion| %>
-    <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" src="<%= mansion.photo_url %>"/> </a>
-    <%=mansion.name %>
-    <%=mansion.description%>
-      
-
-      <span class="mansionPrice"><%= mansion.price %></span>
+      <% if mansion.users.count < mansion.bedrooms %>
+        <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" src="<%= mansion.photo_url %>"/> </a>
+        <%=mansion.name %>
+        <%=mansion.description%>
+        <span class="mansionPrice"><%= mansion.price %></span>
+      <% end %>
     <% end %>
   </div> 
