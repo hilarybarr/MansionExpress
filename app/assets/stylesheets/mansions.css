@@ -25,6 +25,11 @@ require bootstrap
 	left: 700px;
  }
 
+ #tip {
+ 	position:relative;
+ 	left: 40px;
+ }
+
 .mansionShowMap {
 	width: 200px;
 	background-color: black;
@@ -44,7 +49,7 @@ require bootstrap
 
 #price {
 	position: relative;
-	bottom: 80px;
+	bottom: 130px;
 
 }
 
@@ -59,5 +64,16 @@ require bootstrap
 	position: relative;
 	left: 150px;
 	background-color: white;
+}
+
+#gravatar {
+	width: 350px;
+	height: 70px;
+}
+
+#gravatar img {
+	border-radius: 10px; 
+	position: relative;
+	bottom: 135px;      
 }
 
