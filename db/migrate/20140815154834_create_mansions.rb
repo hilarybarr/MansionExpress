@@ -10,6 +10,8 @@ class CreateMansions < ActiveRecord::Migration
       t.integer :bathrooms
       t.integer :square_feet
       t.date :available_date
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
