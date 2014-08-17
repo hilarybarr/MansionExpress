@@ -69,22 +69,22 @@
 	"indie" ]
 
 @mansion_amenities = [ "heating",
-"air conditioning",
-"washer",
-"dryer",
-"parking",
-"wireless internet",
-"cable tv",
-"pets allowed",
-"smoking allowed",
-"wheelchair accessible",
-"elevator",
-"fireplace",
-"doorman",
-"pool",
-"hot yub",
-"gym",
-"bbq grill" ]
+	"air conditioning",
+	"washer",
+	"dryer",
+	"parking",
+	"wireless internet",
+	"cable tv",
+	"pets allowed",
+	"smoking allowed",
+	"wheelchair accessible",
+	"elevator",
+	"fireplace",
+	"doorman",
+	"pool",
+	"hot yub",
+	"gym",
+	"bbq grill" ]
 
 
 
