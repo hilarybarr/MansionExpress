@@ -1,0 +1,52 @@
+// Place all the styles related to the Mansions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+require bootstrap
+
+
+
+.ui-slider {
+	
+    width: 5px;
+    padding-left: 5px; //add this
+
+}
+.applyButton {
+	position: relative;
+	left: 700px;
+ }
+
+#map {
+	background-color: black;
+	display: inline-block;
+	float: left;
+	width: 40%;
+}
+
+
+#right {
+	float: right;
+	 width: 60%;
+}
+
+#clear {
+	clear: both;
+	
+}
+
+.mansionShowMap {
+	width: 200px;
+	background-color: black;
+	height: 200px;
+	position: relative;
+	top: 200px;
+}
+
+img.mansionShow{
+	width: 20px;
+}
+
+
+
