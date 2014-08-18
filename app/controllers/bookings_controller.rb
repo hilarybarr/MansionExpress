@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
 	def create
-		skip_before_filter :verify_authenticity_token  
 
 		mansion = Mansion.find(params[:id])
 		user = User.create(params[:account])
