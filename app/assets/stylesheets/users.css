@@ -8,3 +8,7 @@
 #aboutme {
 	text-align: center;
 }
+
+#useravatar{
+	border-radius: 10px; 
+}
