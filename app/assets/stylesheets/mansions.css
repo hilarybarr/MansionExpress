@@ -13,13 +13,13 @@ require bootstrap
 #userimgs {
 	position: relative;
 	left: 20px;
-
 }
 
 #userimgs img{
 	width: 100px;
 	height: 100px;
 }
+
 .ui-slider-range {
 	color: white;
 }
@@ -32,9 +32,8 @@ require bootstrap
 .ui-slider-range {
 
     width: 100px;
- 
-
 }
+
 .applyButton {
 	position: relative;
 	left: 700px;
@@ -45,21 +44,9 @@ require bootstrap
  	left: 40px;
  }
 
-.mansionShowMap {
-	width: 200px;
-	background-color: black;
-	height: 200px;
-	position: relative;
-	top: 200px;
-}
-
 #mansiondisplay{
 	display: inline-block;
 	text-align: center;
-}
-
-#map {
-	 z-index: 1;
 }
 
 #price {
@@ -105,7 +92,6 @@ require bootstrap
 	width: 40%;
 	margin: 20px;
 	background-color: #B8C1D1;
-
 }
 
 #clear {
@@ -114,7 +100,6 @@ require bootstrap
 
 #pledgepoints {
 	text-align: center;
-	
 }
 
 #price2{
