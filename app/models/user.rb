@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
 
 	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>", :join => '50x50>' }
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
+	accepts_nested_attributes_for :personality_traits
 end

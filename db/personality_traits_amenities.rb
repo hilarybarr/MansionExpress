@@ -91,6 +91,12 @@ p total_personality_traits = @professions.count + @religions.count + @sexual_ori
 
 
 
+@mansions=Mansion.all
+5.times do
+	 @mansions.each do |mansion|
+	  mansion.amenities << @mansion_amenities.sample
+	 end
+end
 
 
 
