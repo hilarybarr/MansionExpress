@@ -1,13 +1,16 @@
 class BookingsController < ApplicationController
 	def create
 		mansion = Mansion.find(params[:id])
-		user = User.create(params[:info])
+		@user = User.create(params[:info])
+		sign_in @user
 		@traits = params[:trait]
 		@traits.each do |trait|
-			user.personality_traits << PersonalityTrait.find_by(name: trait)
+			if trait
+				@user.personality_traits << PersonalityTrait.find_by(name: trait)
+			end
 		end
-		Booking.create(user_id: user, mansion_id: mansion)
-		session[:user_id] = user.id
+		Booking.create(user_id: @user, mansion_id: mansion)
+		session[:user_id] = @user.id
 		redirect_to show_booking_path
 	end
 
