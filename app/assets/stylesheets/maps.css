@@ -1,0 +1,25 @@
+#mapindex {
+	z-index: 1;
+	width: 450px;
+	height: 900px;
+	position: fixed;
+	top: 30px;
+	display: fixed;
+}
+
+#mapshow {
+	z-index: 1;
+	width: 500px;
+	height: 900px;
+	position: fixed;
+	top: 60px;
+	display: fixed;
+}
+
+/*.mansionShowMap {
+	width: 200px;
+	background-color: black;
+	height: 200px;
+	position: relative;
+	top: 200px;
+}*/

@@ -17,6 +17,7 @@
 	<div id="price2">Total Price Per Night: <%= @mansion.price %>
 </div>
 
+<<<<<<< HEAD
 <!-- <div class="mansionDescription center-block">	
  -->	<%#= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
 	<%#= image_tag(@mansion.photo_url), class: 'mansionShow' %>
@@ -28,7 +29,10 @@
 	<h1>Price: <%= @mansion.price %></h1>
 	<h1>Bedrooms: <%= @mansion.bedrooms %></h1>
 	<h1>Bathrooms: <%= @mansion.bathrooms %></h1>
-</div>
+	
+	<div id="price2">Total Price Per Night: 
+		<%=@mansion.price%>
+	</div>
 
 <div id="pricings">
 	</br> Price Per Person Based on Occupancy:
@@ -55,27 +59,21 @@
 
 <div id="right1">
 	<h2 align="center"> MansionMates </h2>
-	<div id="pledgepoints">
-	<%if @users %>
-	<strong>Pledge Compatibility Points:</strong> <%=overall_pledge_compatibility_points(@users) %>
-	  <strong> Pledge Compatibility Percentage:</strong> <%=overall_pledge_compatibility_percentage(@users) %>%
-	<%end%>
-	</div>
+
 </br>
 	<div id="userimgs">
 		<% @users.each do |user| %>
 		<%= link_to image_tag(user.photo.url(:join)), user %>
 	<% end %>
 	</div>
- 
+
 </div>
 
 <div id="clear"></div>
-
-	<div id='mansionShowMapid' class="mansionShowMap"  style='width: 100%; height: 400px;'>
+	<div id='mansionshow'>
     <script>
       handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'mansionShowMapid'}}, function(){
+      handler.buildMap({ provider: {}, internal: {id: 'mansionshow'}}, function(){
         markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();

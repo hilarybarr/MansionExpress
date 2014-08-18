@@ -6,7 +6,7 @@
 	"energy",
 	"finance",
 	"fashion",
-	"health care",
+	"healthcare",
 	"legal",
 	"motion picture video",
 	"music",
@@ -18,7 +18,7 @@
 
 @religions = [ "none",
 	"catholic",
-	"christian",
+	"protestant",
 	"jewish",
 	"muslim",
 	"orthodox",
@@ -27,7 +27,7 @@
 	"other" ]
 
 @sexual_orientations = [ "straight",
-	"gay",
+	"homosexual",
 	"bisexual",
 	"other" ]
 
@@ -56,16 +56,15 @@
 	"social butterfly" ]
 
 @music_styles = [ "rock",
-	"electronic music",
-	"dubstep",
-	"rap hip hop",
+	"electronic",
+	"rap",
+	"hip hop",
 	"latin",
 	"jazz",
 	"classical",
 	"reggae",
-	"techno",
 	"country",
-	"dance music",
+	"pop",
 	"indie" ]
 
 @mansion_amenities = [ "heating",

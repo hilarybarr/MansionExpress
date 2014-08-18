@@ -75,16 +75,16 @@ class MansionsController < ApplicationController
 
   def book
     mansion = Mansion.find(params[:id])
-    current_user.mansions << mansion
-    current_user.save
-    redirect_to :back
+    # current_user.mansions << mansion
+    # current_user.save
+    # redirect_to :back
   end
 
   def leave
     mansion = Mansion.find(params[:id])
-    current_user.mansions.delete(mansion)
-    current_user.save
-    redirect_to :back
+    # current_user.mansions.delete(mansion)
+    # current_user.save
+    # redirect_to :back
   end
 
   private
