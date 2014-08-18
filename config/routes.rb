@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
  	get 'users/:id', to: 'users#show', as: 'user'
 
- 	post '/mansions/:id/bookings/show', to: 'bookings#create'
+ 	post '/mansions/:id/bookings/create', to: 'bookings#create'
 
  	get '/mansions/:id/bookings/show', to: 'bookings#show', as: 'show_booking'
 	

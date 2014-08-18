@@ -20,7 +20,7 @@ gem 'jquery-rails'
 
 gem 'seed_dump'
 
-gem 'turbolinks'
+
 gem 'jbuilder', '~> 2.0'
 
 gem 'paperclip'

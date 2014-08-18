@@ -1,8 +1,10 @@
-
 <h1>this is the mansion lair</h1>
 
-<%= @pledge.inspect %>
+<p>Your compatibility with this mansion is <%= user_to_pledge_compatibility_percentage(@user, @mates) %>%</p>
+
+<p>The mansions overall chemistry is <%= overall_pledge_compatibility_percentage(@mates) %>%</p>
 
 <%= @pledge.mansion_id %>
 
 <!-- <%#= user_to_pledge_compatibility_percentage(@user, @pledge) %> -->
+

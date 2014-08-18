@@ -29,7 +29,7 @@ end
 
 	def overall_pledge_compatibility_points(pledge)
 		total_points = 0
-		mansion_mates = pledge.users
+		mansion_mates = pledge#.users
 		mansion_mates.each_with_index do |mate, index|
 			index_of_next_mate = index + 1
 			next_mate_to_compare_with = mansion_mates[index_of_next_mate]
@@ -44,7 +44,7 @@ end
 
 	def overall_pledge_compatibility_percentage(pledge)
 		total_points = 0
-		mansion_mates = pledge.users
+		mansion_mates = pledge#.users
 		mansion_mates.each_with_index do |mate, index|
 			index_of_next_mate = index + 1
 			next_mate_to_compare_with = mansion_mates[index_of_next_mate]
@@ -61,7 +61,7 @@ end
 
 	def user_to_pledge_compatibility_points(user, pledge_excluding_user_that_is_comparing)
 		total_points = 0
-		mansion_mates = pledge_excluding_user_that_is_comparing.users
+		mansion_mates = pledge_excluding_user_that_is_comparing#.users
 		mansion_mates.each do |mate|
 			points = user_to_user_compatibility_points(user, mate)
 			total_points += points
@@ -71,7 +71,7 @@ end
 
 	def user_to_pledge_compatibility_percentage(user, pledge_excluding_user_that_is_comparing)
 		total_points = 0
-		mansion_mates = pledge_excluding_user_that_is_comparing.users
+		mansion_mates = pledge_excluding_user_that_is_comparing#.users
 		mansion_mates.each do |mate|
 			points = user_to_user_compatibility_points(user, mate)
 			total_points += points

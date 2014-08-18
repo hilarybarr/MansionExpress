@@ -38,14 +38,15 @@
 	"widowed",
 	"it's complicated" ]
 
-@smoker = [ "yes",
-	"no",
-	"socially" ]
+@gender = [ "male",
+	"female",
+	"transgender",
+	"other" ]
 
 @random_traits = [ "student",
 	"entrepreneur",
 	"vegetarian",
-	"total carnivore",
+	"smoker",
 	"early bird",
 	"night owl",
 	"dog lover",
@@ -84,10 +85,5 @@
 	"hot yub",
 	"gym",
 	"bbq grill" ]
-
-
-
-
-
 
 

@@ -5,7 +5,7 @@ class MansionsController < ApplicationController
   # GET /mansions.json
   def index
     #@mansions = Mansion.all
-    @mansions=Mansion.order(:name).page(params[:page]).per(4)
+    @mansions=Mansion.where(country: params[:country])
     @hash = Gmaps4rails.build_markers(@mansions) do |mansion, marker|
       marker.lat mansion.latitude
       marker.lng mansion.longitude
@@ -75,6 +75,16 @@ class MansionsController < ApplicationController
 
   def book
     mansion = Mansion.find(params[:id])
+    # DROPDOWNS
+    @professions = PersonalityTrait.where(category: "professions")
+    @religions = PersonalityTrait.where(category: "religions")
+    @sexual_orientations = PersonalityTrait.where(category: "sexual orientations")
+    @relationship_status = PersonalityTrait.where(category: "relationship status")
+    @genders = PersonalityTrait.where(category: "gender")
+
+    # CHECKBOXES
+    @random_traits = PersonalityTrait.where(category: "random traits")
+    @music_styles = PersonalityTrait.where(category: "music styles")
     # current_user.mansions << mansion
     # current_user.save
     # redirect_to :back
