@@ -1,0 +1,598 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 16:48:33 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2014-08-18 16:48:34 -0400
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 16:49:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2014-08-18 16:49:02 -0400
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.2ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 16:49:03 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2014-08-18 16:49:03 -0400
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 16:49:15 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2014-08-18 16:49:15 -0400
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (28.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 16:49:42 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1536ms (Views: 1535.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-datetimepicker.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/maps.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.0ms)
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:44 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:45 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:45 -0400
+
+
+Started GET "/footer/background-262fb098625ce53df8c32efeaea46822.png" for 127.0.0.1 at 2014-08-18 16:49:45 -0400
+
+ActionController::RoutingError (No route matches [GET] "/footer/background-262fb098625ce53df8c32efeaea46822.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/hilarybarr/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/hilarybarr/.rvm/gems/ruby-2.0.0-p481@global/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (40.3ms)
+
+
+Started GET "/mansions?country=Mexico&checkin=&checkout=&guests=1&source=bb" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+Processing by MansionsController#index as HTML
+  Parameters: {"country"=>"Mexico", "checkin"=>"", "checkout"=>"", "guests"=>"1", "source"=>"bb"}
+  [1m[35mMansion Load (0.8ms)[0m  SELECT "mansions".* FROM "mansions"  WHERE "mansions"."country" = 'Mexico'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "mansions"  WHERE "mansions"."country" = 'Mexico'[0m
+  Rendered mansions/index.html.erb within layouts/application (44.1ms)
+Completed 200 OK in 188ms (Views: 97.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/maps.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.css?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/23.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/12.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/20.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/22.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/17.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/16.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/15.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/13.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/18.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/21.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/19.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/12.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/20.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
