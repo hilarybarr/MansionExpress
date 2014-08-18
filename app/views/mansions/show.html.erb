@@ -15,7 +15,6 @@
 
 
 
-
 	<div id="price2">Total Price Per Night: <%=@mansion.price%>
 </div>
 
@@ -46,22 +45,13 @@
 
 <div id="right1">
 	<h2 align="center"> MansionMates </h2>
-	<div id="pledgepoints">
-	<%if @users %>
-	<strong>Pledge Compatibility Points:</strong> <%=overall_pledge_compatibility_points(@users) %>
-	  <strong> Pledge Compatibility Percentage:</strong> <%=overall_pledge_compatibility_percentage(@users) %>%
-	<%end%>
-	</div>
+
 </br>
 	<div id="userimgs">
 		<% @users.each do |user| %>
 		<%= link_to image_tag(user.photo.url(:join)), user %>
 	<% end %>
 	</div>
- 
-
-	
-
 </div>
 
 
@@ -69,7 +59,6 @@
 
 
 <div id="clear"></div>
-
 	<div id='mansionshow'>
     <script>
       handler = Gmaps.build('Google');
