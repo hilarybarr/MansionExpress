@@ -33,7 +33,7 @@ require bootstrap
 
 #toprow{
 	position: relative;
-	top: -5px;
+	top: -3px;
 }
 
 .ui-slider-range {
