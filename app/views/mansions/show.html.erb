@@ -4,16 +4,19 @@
 <img src="<%= @mansion.photo_url %>" height="402px" width="100%"/>
 
 	<% if current_user %>
-	<% unless current_user.mansions.include?(@mansion) %>
-		<% if @mansion.users.count < @mansion.bedrooms %>
-			<div id="joinbutton"><%= link_to 'Join', new_booking_path, class: 'btn-lg btn-success' %></div>
+		<% unless current_user.mansions.include?(@mansion) %>
+			<% if @mansion.users.count < @mansion.bedrooms %>
+				<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
+			<% end %>
+		<% else %>
+			<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger ' %></div>
 		<% end %>
-	<% else %>
-		<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger ' %></div>
-	<% end %>
-<% end %>
-
-
+<% else %>
+	<% if @mansion.users.count < @mansion.bedrooms %>
+				<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
+		<% end %>
+	
+	<%end%>
 
 	<div id="price2">Total Price Per Night: <%=@mansion.price%>
 </div>
