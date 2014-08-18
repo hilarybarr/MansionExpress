@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
 	def create
 		mansion = Mansion.find(params[:id])
 		@user = User.create(params[:info])
