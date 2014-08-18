@@ -26,7 +26,7 @@
 
 <!-- TOP -->
 <div class="topsection" >
-  <div class="row">
+  <div class="row" id="toprow">
     <div class="offset-md-1 col-md-3" id="tip">
          tip: the more people the cheaper the $
     </div>
@@ -53,6 +53,7 @@
   </div>
 </div>
 
+ <p id="countrycount"><%=@mansions.count%> rentals in <%=@mansions.first.country%> <p>
 
 <!-- MAP -->
   <div class="col-md-4">
@@ -70,16 +71,14 @@
 
 
 
-<!-- MANSION LISTINGS RIGHT SIDE -->
- <p><%=@mansions.count%> rentals <p>
-  <div id= "right">
-    
-  </br>
+
 
 <!--NEED TO DELETE THE FOLLOWING, IT"S JUST FOR STYLING DISPLAY -->
-    <% @mansions.each do |mansion| %> 
-    <div id="mansion" class="col-md-offset-1 col-md-2 ">
-      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="250px" width="350px" src="<%= mansion.photo_url %>"/> </a>
+     <div id="allmansions">
+      <% @mansions.each do |mansion| %> 
+   
+      <div id="mansion" class=" col-md-3 col-md-offset-1  ">
+      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="250px" width="350px"  src="<%= mansion.photo_url %>"/> </a>
     </br>
     <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
     <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
@@ -89,11 +88,12 @@
            <%= image_tag( "#{rand(1..23)}.jpg", size: "60x60")%>
         <% end%>
       </div>
+    </div>
 <!--Compatibility Points -->
      <!--  <if current_user && user != current_user %> 
         user_to_user_compatibility_points(user1, user2)
       <%#end%> -->
-    </div>
+  
     <% end %>
 </div> 
 
