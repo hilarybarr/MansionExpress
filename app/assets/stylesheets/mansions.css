@@ -27,8 +27,8 @@ require bootstrap
 .topsection {
 	position: relative;
 	top: -20px;
-	background-color: black;
-	color: white;
+	background-color: #f5f5f5;
+	color: black;
 }
 
 #toprow{

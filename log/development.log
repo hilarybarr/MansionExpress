@@ -596,3 +596,475 @@ Started GET "/assets/20.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
 
 
 Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-18 16:49:51 -0400
+  [1m[36mMansion Load (0.1ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1[0m
+  [1m[35mMansion Load (0.3ms)[0m  SELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1
+  [1m[36mMansion Load (0.2ms)[0m  [1mSELECT  "mansions".* FROM "mansions"   ORDER BY "mansions"."id" ASC LIMIT 1[0m
+
+
+Started GET "/mansions?country=Mexico&checkin=&checkout=&guests=1&source=bb" for 127.0.0.1 at 2014-08-18 17:38:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MansionsController#index as HTML
+  Parameters: {"country"=>"Mexico", "checkin"=>"", "checkout"=>"", "guests"=>"1", "source"=>"bb"}
+  [1m[35mMansion Load (0.5ms)[0m  SELECT "mansions".* FROM "mansions"  WHERE "mansions"."country" = 'Mexico'
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "mansions"  WHERE "mansions"."country" = 'Mexico'[0m
+  Rendered mansions/index.html.erb within layouts/application (36.7ms)
+Completed 200 OK in 1469ms (Views: 1406.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/maps.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/1.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/16.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/17.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/22.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/13.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/21.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/23.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/12.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/19.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/15.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/20.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/14.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/22.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/13.jpg" for 127.0.0.1 at 2014-08-18 17:38:17 -0400
+
+
+Started GET "/assets/21.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/assets/23.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/assets/19.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/assets/15.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/assets/12.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/assets/20.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/assets/14.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-18 17:38:18 -0400
+
+
+Started GET "/mansions?country=Mexico&checkin=&checkout=&guests=1&source=bb" for 127.0.0.1 at 2014-08-18 17:38:38 -0400
+Processing by MansionsController#index as HTML
+  Parameters: {"country"=>"Mexico", "checkin"=>"", "checkout"=>"", "guests"=>"1", "source"=>"bb"}
+  [1m[35mMansion Load (0.4ms)[0m  SELECT "mansions".* FROM "mansions"  WHERE "mansions"."country" = 'Mexico'
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "mansions"  WHERE "mansions"."country" = 'Mexico'[0m
+  Rendered mansions/index.html.erb within layouts/application (67.8ms)
+Completed 200 OK in 1110ms (Views: 1108.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bookings.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/mansions.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/maps.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/personality_traits.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/bootstrap-datetimepicker.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/moment.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/base.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/base/base.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/objects/base_builder.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/objects/builder.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/objects/handler.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/objects/null_clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/common.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/bound.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/circle.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/kml.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/map.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/marker.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/builders/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/bound.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/clusterer.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/circle.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/kml.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/map.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/marker.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polygon.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/objects/polyline.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google/primitives.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/gmaps/google.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/bookings.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/mansions.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/personality_traits.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/5.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/9.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/2.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/15.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/3.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/14.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/20.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/22.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/10.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/7.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/23.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/16.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/11.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/8.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/4.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/18.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/21.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/17.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/13.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/12.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
+
+
+Started GET "/assets/6.jpg" for 127.0.0.1 at 2014-08-18 17:38:39 -0400
