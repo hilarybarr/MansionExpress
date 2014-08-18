@@ -10,36 +10,16 @@
 			<% end %>
 		<% else %>
 			<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger ' %></div>
-    <% end %>
-<% end %>
-
-
-	<div id="price2">Total Price Per Night: <%= @mansion.price %>
+		<% end %>
 <% else %>
-
 	<% if @mansion.users.count < @mansion.bedrooms %>
 				<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
 		<% end %>
 	
 	<%end%>
 
-	<div id="price2">Total Price Per Night: <%=@mansion.price%> </div>
-
-<!-- <div class="mansionDescription center-block">	
- -->	<%#= image_tag(@mansion.photo.url(:medium), class: 'mansionShow') %>
-	<%#= image_tag(@mansion.photo_url), class: 'mansionShow' %>
-<div class="jumbotron">
-	<h1><%= @mansion.name %></h1>
-	<h3>City: <%= @mansion.city %></h3>
-	<h1>Country: <%= @mansion.country %></h1>
-	<h1>Region: <%= @mansion.region %></h1>
-	<h1>Price: <%= @mansion.price %></h1>
-	<h1>Bedrooms: <%= @mansion.bedrooms %></h1>
-	<h1>Bathrooms: <%= @mansion.bathrooms %></h1>
-
-	<div id="price2">Total Price Per Night: 
-		<%=@mansion.price%>
-	</div>
+	<div id="price2">Total Price Per Night: <%=@mansion.price%>
+</div>
 
 <div id="pricings">
 	</br> Price Per Person Based on Occupancy:
@@ -64,6 +44,8 @@
 	<strong>Description: </strong><div id="description"><%= @mansion.description %></div></strong>
 </div>
 
+
+
 <div id="right1">
 	<h2 align="center"> MansionMates </h2>
 
@@ -73,8 +55,11 @@
 		<%= link_to image_tag(user.photo.url(:join)), user %>
 	<% end %>
 	</div>
-
 </div>
+
+
+
+
 
 <div id="clear"></div>
 	<div id='mansionshow'>
