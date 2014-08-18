@@ -38,14 +38,15 @@
 	"widowed",
 	"it's complicated" ]
 
-@smoker = [ "yes",
-	"no",
-	"socially" ]
+@gender = [ "male",
+	"female",
+	"transgender",
+	"other" ]
 
 @random_traits = [ "student",
 	"entrepreneur",
 	"vegetarian",
-	"total carnivore",
+	"smoker",
 	"early bird",
 	"night owl",
 	"dog lover",
@@ -86,16 +87,9 @@
 	"bbq grill" ]
 
 
-p total_personality_traits = @professions.count + @religions.count + @sexual_orientations.count + @relationship_status.count + @smoker.count + @random_traits.count + @music_styles.count
 
 
 
-@mansions=Mansion.all
-5.times do
-	 @mansions.each do |mansion|
-	  mansion.amenities << @mansion_amenities.sample
-	 end
-end
 
 
 
