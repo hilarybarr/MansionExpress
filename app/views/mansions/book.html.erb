@@ -13,92 +13,53 @@
 	<h1>Fill this personality form so we can match you up with people like you. Remember you can also apply to multiple mansions at the same time.</h1></br>
 	<h2>Select from the following:</h2>
 
-	<form action="/mansions/<%=@mansion.id%>/bookings/show" method="post">
-		<select>
-			<option name="stuff[checkbox]" value="" disable selected>Profession</option>
-			<option name="stuff[checkbox]" value="advertising">Advertising</option>
-			<option name="stuff[checkbox]" value="accounting">Accounting</option>
-			<option name="stuff[checkbox]" value="airline">Airline</option>
-			<option name="stuff[checkbox]" value="banking">Banking</option>
-			<option name="stuff[checkbox]" value="education">Education</option>
-			<option name="stuff[checkbox]" value="energy">Energy</option>
-			<option name="stuff[checkbox]" value="finance">Finance</option>	
-			<option name="stuff[checkbox]" value="fashion">Fashion</option>
-			<option name="stuff[checkbox]" value="healthcare">Healthcare</option>
-			<option name="stuff[checkbox]" value="legal">Legal</option>
-			<option name="stuff[checkbox]" value="motion picture video">Motion Picture Video</option>
-			<option name="stuff[checkbox]" value="music">Music</option>
-			<option name="stuff[checkbox]" value="publishing journalism">Publishing Journalism</option>	
-			<option name="stuff[checkbox]" value="real estate">Real Estate</option>
-			<option name="stuff[checkbox]" value="software">Software</option>
-			<option name="stuff[checkbox]" value="sports">Sports</option>
-			<option name="stuff[checkbox]" value="other">Other</option>								
+	<form action="/mansions/<%=@mansion.id%>/bookings/create" method="post">
+		<select name="trait[]">
+			<option value="" disable selected>Profession</option>
+			<% @professions.each do |profession| %>
+				<option value="<%=profession.name%>"><%=profession.name%></option>
+			<% end %>	
 		</select>
 
-		<select>
-			<option name="stuff[checkbox]" value="" disable selected>Religion</option>
-			<option name="stuff[checkbox]" value="none">None</option>
-			<option name="stuff[checkbox]" value="catholic">Catholic</option>
-			<option name="stuff[checkbox]" value="protestant">Protestant</option>
-			<option name="stuff[checkbox]" value="jewish">Jewish</option>
-			<option name="stuff[checkbox]" value="muslim">Muslim</option>
-			<option name="stuff[checkbox]" value="orthodox">Orthodox</option>
-			<option name="stuff[checkbox]" value="buddhist">Buddhist</option>	
-			<option name="stuff[checkbox]" value="hindu">Hindu</option>
-			<option name="stuff[checkbox]" value="other">Other</option>							
+		<select name="trait[]">
+			<option value="" disable selected>Religion</option>
+			<% @religions.each do |religion| %>
+				<option value="<%=religion.name%>"><%=religion.name%></option>
+			<% end %>	
+						
 		</select>
 
-		<select>
-			<option name="stuff[checkbox]" value="" disable selected>Sexual Orientation</option>
-			<option name="stuff[checkbox]" value="straight">Straight</option>
-			<option name="stuff[checkbox]" value="homosexual">Homosexual</option>
-			<option name="stuff[checkbox]" value="bisexual">Bisexual</option>
-			<option name="stuff[checkbox]" value="other">Other</option>					
+		<select name="trait[]">
+			<option value="" disable selected>Sexual Orientation</option>
+			<% @sexual_orientations.each do |sexual_orientation| %>
+				<option value="<%=sexual_orientation.name%>"><%=sexual_orientation.name%></option>
+			<% end %>				
 		</select>
 
-		<select>
-			<option name="stuff[checkbox]" value="" disable selected>Relationship Status</option>
-			<option name="stuff[checkbox]" value="single">Single</option>
-			<option name="stuff[checkbox]" value="married">Married</option>
-			<option name="stuff[checkbox]" value="in an open relationship">In an open relationship</option>
-			<option name="stuff[checkbox]" value="divorced">Divorced</option>				
-			<option name="stuff[checkbox]" value="widowed">Widowed</option>	
-			<option name="stuff[checkbox]" value="it's complicated">It's complicated</option>								
+		<select name="trait[]">
+			<option value="" disable selected>Relationship Status</option>
+			<% @relationship_status.each do |relationship_status| %>
+				<option value="<%=relationship_status.name%>"><%=relationship_status.name%></option>
+			<% end %>	
 		</select>	
 
-		<select>
-			<option name="stuff[checkbox]" value="" disable selected>Smoker?</option>
-			<option name="stuff[checkbox]" value="yes">Yes</option>
-			<option name="stuff[checkbox]" value="no">No</option>
-			<option name="stuff[checkbox]" value="socially">Socially</option>							
-		</select>		
+		<select name="trait[]">
+			<option value="" disable selected>Gender</option>
+			<% @genders.each do |gender| %>
+				<option value="<%=gender.name%>"><%=gender.name%></option>
+			<% end %>	
+		</select>	
 
 <h2>Select all that apply to you:</h2>
-		<input type="checkbox" name="stuff[random_traits]" value="student">student<br>
-		<input type="checkbox" name="stuff[random_traits]" value="entrepreneur">entrepreneur<br>	
-		<input type="checkbox" name="stuff[random_traits]" value="vegetarian">vegetarian<br>
-		<input type="checkbox" name="stuff[random_traits]" value="total carnivore">total carnivore<br>
-		<input type="checkbox" name="stuff[random_traits]" value="early bird">early bird<br>
-		<input type="checkbox" name="stuff[random_traits]" value="night owl">night owl<br>
-		<input type="checkbox" name="stuff[random_traits]" value="dog lover">dog lover<br>
-		<input type="checkbox" name="stuff[random_traits]" value="cat lover">cat lover<br>
-		<input type="checkbox" name="stuff[random_traits]" value="democrat">democrat<br>
-		<input type="checkbox" name="stuff[random_traits]" value="republican">republican<br>
-		<input type="checkbox" name="stuff[random_traits]" value="bookworm">bookworm<br>
-		<input type="checkbox" name="stuff[random_traits]" value="social butterfly">social butterfly<br>		
+
+	<% @random_traits.each do |r_trait| %>
+		<input type="checkbox" name="trait[]" value="<%=r_trait.name%>"><%=r_trait.name%><br>
+	<% end %>
 
 <h2>Music Styles:</h2>
-		<input type="checkbox" name="stuff[music_styles]" value="rock">rock<br>
-		<input type="checkbox" name="stuff[music_styles]" value="electronic">electronic<br>	
-		<input type="checkbox" name="stuff[music_styles]" value="rap">rap<br>
-		<input type="checkbox" name="stuff[music_styles]" value="hip hop">hip hop<br>
-		<input type="checkbox" name="stuff[music_styles]" value="latin">latin<br>
-		<input type="checkbox" name="stuff[music_styles]" value="jazz">jazz<br>
-		<input type="checkbox" name="stuff[music_styles]" value="classical">classical<br>
-		<input type="checkbox" name="stuff[music_styles]" value="reggae">reggae<br>
-		<input type="checkbox" name="stuff[music_styles]" value="country">country<br>
-		<input type="checkbox" name="stuff[music_styles]" value="pop">pop<br>	
-		<input type="checkbox" name="stuff[music_styles]" value="indie">indie<br>
+	<% @music_styles.each do |style| %>
+		<input type="checkbox" name="trait[]" value="<%=style.name%>"><%=style.name%><br>
+	<% end %>
 	
 	<div>
 		<h2>Create an Account</h2>
@@ -110,7 +71,7 @@
 
 	<div>
 		<h2>Invite friends to join you in this mansion</h2>
-			<input name="invite[email]" type="text" placeholder="His/Her Email"><br>	
+			<input name="email" type="text" placeholder="His/Her Email"><br>	
 			<!-- ADD AJAX REQUEST HERE THAT APPENDS MORE FRIENDS' EMAIL FIELDS -->
 	</div>	
 

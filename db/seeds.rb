@@ -228,12 +228,16 @@ end
   PersonalityTrait.create(name: status, category: "relationship status")
 end
 
-@smoker.each do |option| 
-  PersonalityTrait.create(name: option, category: "smoker?")
+# @smoker.each do |option| 
+#   PersonalityTrait.create(name: option, category: "smoker?")
+# end
+
+@gender.each do |gender| 
+  PersonalityTrait.create(name: gender, category: "gender")
 end
 
 @random_traits.each do |trait|
-  PersonalityTrait.create(name: trait, category: "random_traits")
+  PersonalityTrait.create(name: trait, category: "random traits")
 end
 
 @music_styles.each do |music_style| 
