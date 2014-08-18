@@ -10,30 +10,42 @@
 </head>
 <body>
 	<% if current_user %>
-		<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-		<%= link_to 'account settings', edit_user_registration_path %>
-	<% else %>
-
-	<div id="header" class="navbar navbar-top">
-	  <div class="page-container-full mansion-header clearfix">
-	    <a href="http://www.mansionexpress.com" class="pull-left">MansionExpress</a>
+	  <div id="header" class="navbar navbar-top"> <div class="page-container-full mansion-header clearfix">
+			<%= link_to 'MansionExpress', root_path %>
 	    <ul class="nav pull-right help-menu " style="margin-left:0;">
 	      <li class="list-your-space ">
 	        <a id="list-your-space" class="btn btn-special" href="">List Your Space</a>
 	      </li>
 	    </ul>
 	    <ul class="nav pull-right logged-out">
-	      <li><%= link_to 'login', new_user_session_path %></li>
-	      <li><%= link_to 'sign up', new_user_registration_path, class: 'link-reset' %></li>
+	       <li><%= link_to 'your mansions', user_path(current_user) %> </li>
+	       <li><%= link_to 'account settings', edit_user_registration_path %></li>
+	       <li><%= link_to 'sign out', destroy_user_session_path, method: :delete %> </li>
+	    </ul>
+	   </div>
+	 </div>
+
+	<% else %>
+
+	<div id="header" class="navbar navbar-top">
+	  <div class="page-container-full mansion-header clearfix">
+			<%= link_to 'MansionExpress', root_path %>
+	    <ul class="nav pull-right help-menu " style="margin-left:0;">
+	      <li class="list-your-space ">
+	        <a id="list-your-space" class="btn btn-special" href="">List Your Space</a>
+	      </li>
+	    </ul>
+	    <ul class="nav pull-right logged-out">
+	      <li><%= link_to 'Log In', new_user_session_path %></li>
+	      <li><%= link_to 'Sign Up', new_user_registration_path, class: 'link-reset' %></li>
 	    </ul>
 	  </div>
 	</div>
 
-
 	<% end %>
 
-	<%= flash.notice if flash.notice %>
-	<%= flash.alert if flash.alert %>
+	<%#= flash.notice if flash.notice %>
+	<%#= flash.alert if flash.alert %>
 	
 	<%= yield %>
 

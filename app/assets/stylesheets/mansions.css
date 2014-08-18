@@ -5,6 +5,22 @@
 
 require bootstrap
 
+#joinbutton {
+	position:relative;
+	bottom: 100px;
+	left: 200px;
+}
+
+#userimgs {
+	position: relative;
+	left: 200px;
+	bottom: 100px;
+}
+
+#userimgs img{
+	width: 100px;
+	height: 100px;
+}
 .ui-slider-range {
 	color: white;
 }
@@ -38,9 +54,9 @@ require bootstrap
 	top: 200px;
 }
 
-.mansionShow{
-
-
+#mansiondisplay{
+	display: inline-block;
+	text-align: center;
 }
 
 #map {

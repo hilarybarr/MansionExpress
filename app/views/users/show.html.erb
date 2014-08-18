@@ -1,9 +1,28 @@
-<%= @user.email %>
+<div id="usershowheader">
+	<h2>Need to Add User Name</h2>
+<%= @user.email %></br>
 
 <%= image_tag @user.photo.url(:thumb) %>
 
-<h2>Mansions</h2>
+</div>
+</br>
+
+<div id="aboutme">
+	<h3> About Me </h3>
+	<%@user.personality_traits.each do |trait| %>
+		<%= trait%>
+	<%end%>
+	Lorem ipsum dolor. Need to add personality_traits.
+
+
+</div>
 
 <% @mansions.each do |mansion| %>
-	<img src="<%= mansion.photo_url %>"/>
+<div class="col-md-3" id="mansiondisplay">
+	<div class="jumbotron">
+		<img src="<%= mansion.photo_url %>" height="300px" width="100%"/></br>
+	<%=mansion.name%></br>
+	<%=mansion.city%>, <%=mansion.country%>
+</div>
+</div>
 <% end %>
