@@ -172,3 +172,22 @@ a .btn-lg  {
 	width: 280px;
 	height: 300px;
 }
+
+
+
+
+/* MANSION LOUNGE */
+.panel {
+  width:35em;
+  margin: auto;
+}
+
+.panel-default{
+  
+    opacity: 0.8;
+}
+
+.btn {
+  opacity: 1;
+}
+
