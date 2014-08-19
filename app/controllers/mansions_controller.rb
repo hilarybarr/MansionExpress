@@ -5,7 +5,13 @@ class MansionsController < ApplicationController
   # GET /mansions.json
   def index
     #@mansions = Mansion.all
-    @mansions=Mansion.where(country: params[:country])
+    location=params[:location]
+    if Mansion.all.pluck("country").include?(location)
+      country=params[:location]
+      @mansions=Mansion.where(country: params[:location])
+    elsif Mansion.all.pluck("city").include?(location)
+      @mansions=Mansion.where(city: params[:location])
+    end
     @hash = Gmaps4rails.build_markers(@mansions) do |mansion, marker|
       marker.lat mansion.latitude
       marker.lng mansion.longitude

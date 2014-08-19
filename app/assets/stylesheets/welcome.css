@@ -34,13 +34,16 @@ background-size: cover;*/
 
    /*Footer     */
 
-  h1#tagline {
+ h1#tagline {
   	color: black;
   	background-color: white;
   
   	  z-index: 1;
   }
 
+body {
+	background-color: #DDDDDD;
+}
 .footer-icon-container{display:block;height:36px;width:36px;border-width:1px;border-style:solid;border-radius:50%;text-align:center}
 
 .footer-icon{position:relative}
