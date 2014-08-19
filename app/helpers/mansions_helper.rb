@@ -9,31 +9,14 @@ module MansionsHelper
 	end
 
 	def prices_per_occupants(mansion)
-	  #  x=1
-		 # until x > mansion.bedrooms.to_i 
-		 # 	price=(mansion.price.scan(/[.0-9]/).join().to_i)/(x)
-		 #   print "#{x} People: #{price}" 
-		 #   x+=1
-		 #  end
-
-		 price(mansion)/occupants()
+		 pricing_options=""
+		  x=1
+		 until x > mansion.bedrooms.to_i 
+		  	price=(mansion.price.scan(/[.0-9]/).join().to_i)/(x)
+		    pricing_options << "  #{x} People: $#{price}.   " 
+		    x+=1
+		   end
+		  return pricing_options
 		end
-
-
-	def occupants(mansion)
-		mansion.bedrooms.count
-	end
-
-
-	def price(mansion)
-		mansion.price.scan(/[.0-9]/).join().to_i
-	end
-
-
-		# bedrooms=mansion.bedrooms.to_i
-		# price= mansion.price.scan(/[.0-9]/).join().to_i)
-
-
-
 
 end
