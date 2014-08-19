@@ -10,7 +10,7 @@ require bootstrap
 	border: 20px solid black;
 }
 
-#mansion_show_img h1{
+#mansion_show_img h1, h3{
 	text-align:center;
 }
 
@@ -21,25 +21,44 @@ require bootstrap
 }
 
 #mansion_show_container {
+	position: relative;
+	bottom: 100px;
 	background-color: #DDDDDD;
 	z-index: 2;
 }
 
 #joinbutton {
 	position:relative;
-	bottom: 100px;
+	top: 20px;
+	left: 250px;
 }
 
 #userimgs {
 	position: relative;
-	left: 20px;
+	left: 325px;
+	top: -125px;
+	display: block;
+	margin-left: auto;
+  margin-right: auto;
+
+}
+#user_image{
+	float: left;
 }
 
 #userimgs img{
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
+	margin: 5px;
+
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
 }
 
+.clear {
+	clear: both;
+}
 .ui-slider-range {
 	color: white;
 }
@@ -106,58 +125,50 @@ require bootstrap
 	bottom: 135px;      
 }
 
-#left1{
-	float:left;
-	width: 48%;
+#mansions_container{
+	background-color: #e8dcdc ;
+}
+#mansion_description{
+
 	text-align: center;
 	margin: 20px;
 	background-color: white;
 	border: 2px solid black;
-	height: 300px;
+
+	width: 70%;
+	height: 330px;
+	display: block;
+	 margin-left: auto;
+   margin-right: auto;
 }
 
-#right1{
-	float:right;
-	width: 40%;
-	margin: 20px;
-	background-color: white;
-	border: 2px solid black;
-	height: 300px;
-}
-
-#clear {
-	clear: both;
-}
-
-#pledgepoints {
-	text-align: center;
-}
-
-#price2{
-	position:relative;
-	bottom: 99px;
-	text-align: center;
-	font-size: 25px;
-	background-color: white;
-	color: black;
-	/*width: 400px;*/
-}
-
-#pricings{
-	position:relative;
-	height: 60px;
-	bottom: 99px;
-	text-align: center;
-	font-size: 13px;
-	background-color: white;
-	color: black;
-
-}
 
 #description{
 	text-align: center;
 	padding: 20px;
 }
+
+#price2{
+	/*position:relative;
+	bottom: 99px;*/
+	text-align: center;
+	font-size: 25px;
+	/*background-color: white;*/
+	color: black;
+	/*width: 400px;*/
+}
+
+#pricings{
+	/*position:relative;
+	height: 60px;
+	bottom: 99px;*/
+	text-align: center;
+	font-size: 13px;
+/*	background-color: white;*/
+	color: black;
+
+}
+
 
 #countrycount {
 	text-align: right;

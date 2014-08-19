@@ -3,46 +3,67 @@
 
 <div id="mansion_show_img">
 	<h1><strong><%= @mansion.name %></strong></h1>
+	<h3><%= @mansion.city %>, <%= @mansion.country %>, <%= @mansion.region %></br></h3>
 	<img src="<%= @mansion.photo_url %>" height="500px" width="760px" align="center"/>
 </div>
+	<div id="userimgs">
+		
+		<% @users.each do |user| %>
+			<div id="user_image">
+				<%= link_to image_tag(user.photo.url(:join)), user %>
+			</div>
+			<% end %>
+	</div>
 
-<div id="mansion_show_container">
-<!--Show Leave button if user in mansion, else show Join button if room availble-->
+	<div class="clear"></div>
+
 	<% if current_user && in_mansion?(current_user, @mansion) %>
 		<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger ' %></div>
 	 <%elsif room_available?(@mansion)%>
 	  	<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
 	 <%end%>
-<!--Pricings -->
-	<div id="price2">
-		Total Price Per Night: <%=@mansion.price%>
-	</div>
 
-	<div id="pricings">
-		</br> Price Per Person Based on Occupancy:
-		<%= prices_per_occupants(@mansion)%>
-	</div> 
+
+<!--Show Leave button if user in mansion, else show Join button if room availble-->
+
+<!--Pricings -->
+	
 <!--Mansion Information -->
-	<div id="left1">
-		<p><%= @mansion.city %>, <%= @mansion.country %>, <%= @mansion.region %></br>
-			 <%= @mansion.bedrooms %> bedrooms, <%= @mansion.bathrooms %> bathrooms</br>
-		</p>
+
+<div id="mansions_container">
+ <div id="mansion_description">
+
 		<strong>Description: </strong>
-			<div id="description">
+
+
+		<div class="row">
+			<div class="col-offset-1 col-md-2">
+				 <%= @mansion.bedrooms %> bedrooms, <%= @mansion.bathrooms %> bathrooms</br>
+			</div>
+
+			<div class="col-md-6">
 				<%= @mansion.description %>
 			</div>
-	</div>
-<!--MansionMates Information-->
-	<div id="right1">
-		<h2 align="center"> MansionMates </h2></br>
-		<div id="userimgs">
-			<% @users.each do |user| %>
-				<%= link_to image_tag(user.photo.url(:join)), user %>
-			<% end %>
-		</div>
-	</div>
 
-	<div id="clear"></div>
+			<div class="col-md-2 col-offset-1">
+				<div id="price2">
+					Total Price Per Night: <%=@mansion.price%>
+				</div>
+
+		  	<div id="pricings">
+				 </br> Price Per Person Based on Occupancy:
+				 <%= prices_per_occupants(@mansion)%>
+			 </div> 
+		</div>
+
+
+	</div>
+</div>
+	
+
+<!--MansionMates Information-->
+
+
 </div>
 <!--HERE HERE HERE Maps NOT WORKING -->
 <div class='mansionShowMap'>
