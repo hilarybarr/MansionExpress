@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 
-gem 'sqlite3'
+
 
 gem 'devise'
 
@@ -34,6 +34,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 gem 'unicorn'
+
+group :development do
+	gem 'sqlite3'
+end
 
 group :development, :test do
 	gem 'rspec-rails', '~> 2.14.0'
