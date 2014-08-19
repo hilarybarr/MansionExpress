@@ -3,15 +3,24 @@ class MansionsController < ApplicationController
 
   # GET /mansions
   # GET /mansions.json
+
   def index
     #@mansions = Mansion.all
     location=params[:location]
-    if Mansion.all.pluck("country").include?(location)
-      country=params[:location]
-      @mansions=Mansion.where(country: params[:location])
-    elsif Mansion.all.pluck("city").include?(location)
-      @mansions=Mansion.where(city: params[:location])
-    end
+    if Mansion.all.pluck("country").include?(location.titleize)
+      @location=params[:location]
+      @mansions=Mansion.where(country: @location)
+    elsif Mansion.all.pluck("city").include?(location.titleize)
+      @location=params[:location]
+      @mansions=Mansion.where(city: @location)
+    elsif Mansion.all.pluck("region").include?(location.titleize)
+      @location=params[:location]
+      @mansions=Mansion.where(region: @location)
+    else
+      flash[:no_location]="That location does not have mansions yet. Try again."
+      redirect_to root_path
+     end
+
     @hash = Gmaps4rails.build_markers(@mansions) do |mansion, marker|
       marker.lat mansion.latitude
       marker.lng mansion.longitude
