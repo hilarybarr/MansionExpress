@@ -5,6 +5,26 @@
 
 require bootstrap
 
+
+#mansion_show_img{
+	border: 20px solid black;
+}
+
+#mansion_show_img h1{
+	text-align:center;
+}
+
+#mansion_show_img img{
+   display: block;
+	 margin-left: auto;
+   margin-right: auto;
+}
+
+#mansion_show_container {
+	background-color: #DDDDDD;
+	z-index: 2;
+}
+
 #joinbutton {
 	position:relative;
 	bottom: 100px;
@@ -63,7 +83,7 @@ require bootstrap
 }
 
 #price p{
-	background-color: black;
+	background-color: #B8C1D1;
 	color: white;
 	font-size: 20px;
 }
@@ -91,14 +111,18 @@ require bootstrap
 	width: 48%;
 	text-align: center;
 	margin: 20px;
-	background-color: #B8C1D1;
+	background-color: white;
+	border: 2px solid black;
+	height: 300px;
 }
 
 #right1{
 	float:right;
 	width: 40%;
 	margin: 20px;
-	background-color: #B8C1D1;
+	background-color: white;
+	border: 2px solid black;
+	height: 300px;
 }
 
 #clear {
@@ -111,20 +135,23 @@ require bootstrap
 
 #price2{
 	position:relative;
-	bottom: 100px;
+	bottom: 99px;
+	text-align: center;
 	font-size: 25px;
-	background-color: black;
-	color: white;
-	width: 400px;
+	background-color: white;
+	color: black;
+	/*width: 400px;*/
 }
 
 #pricings{
 	position:relative;
+	height: 60px;
 	bottom: 99px;
+	text-align: center;
 	font-size: 13px;
-	background-color: black;
-	color: white;
-	width: 80%;
+	background-color: white;
+	color: black;
+
 }
 
 #description{

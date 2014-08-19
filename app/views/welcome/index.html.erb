@@ -1,146 +1,23 @@
 <!DOCTYPE html>
   <head>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script> 
     <script>
-    $(function() {
-      $( ".datepicker" ).datepicker();
-    });
-    </script>
+      $(function() {
+        $( ".datepicker" ).datepicker();
+      });
+    </script> 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
   </head>
 
-  <body class=" p1 ">
-   
-<!--Navbar-->
+  <body class="p1">
+    <%= render :partial => "background" %>
 
-  
+    <%= render :partial => "jumbotron" %>
 
+    <%= render :partial => "footer" %>
 
-<!--Background -->
-
-<div id="bg" class="shift-with-hiw" style="display:block;"
-     data-native-currency="USD">
-  <ul class="list-unstyled" id="slideshow">
-    <li class="active">
-      <img alt="background" src="http://www.extravaganzi.com/wp-content/uploads/2012/12/Paradise-Valley-Mansion-6.jpg" width="100%" />
-    </li>
-     
-  </ul>
-   
-</div>
-
-<!--Jumbotron Area -->
-<div class="search-area text-center">
-  <div class="page-container page-container-responsive row-full-height">
-    <div class="intro-area row row-table row-full-height">
-      <div class="col-12 col-middle">
-        <h1 id='tagline' class='uppercase text-jumbo text-contrast row-space-1'>Experience a Mansion With People Like You</h1>
-        <a href="index.html" class="btn btn-contrast btn-large how-it-works">How It Works</a>
-      </div>
-    </div>
-    <div class="bottom-search-area">
-      <div class="col-12">
-        <form action="/mansions" method="get" id="search_form">
-          <div class="location-wrapper"><input type="text" class="form-inline location input-large input-contrast" autocomplete="off" id="location" name="country" placeholder="where you wanna go?" />  <p id="enter_location_error_message" class="bad hide">
-            Please set location
-
-          </p></div><input type="text" id="checkin" class="form-inline checkin search-option input-large input-contrast datepicker" name="checkin" placeholder="Check In" /><input type="text" id="checkout" class="form-inline checkout search-option input-large input-contrast datepicker" name="checkout" placeholder="Check Out" /><div class="select select-large">
-            <select id="guests" name="guests">
-              <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5 Guests</option>
-                <option value="6">6 Guests</option>
-                <option value="7">7 Guests</option>
-                <option value="8">8 Guests</option>
-                <option value="9">9 Guests</option>
-                <option value="10">10 Guests</option>
-                <option value="11">11 Guests</option>
-                <option value="12">12 Guests</option>
-                <option value="13">13 Guests</option>
-                <option value="14">14 Guests</option>
-                <option value="15">15 Guests</option>
-                <option value="16">16+ Guests</option>
-            </select>
-          </div><input type="hidden" name="source" value="bb"><button type="submit" class="search-button form-inline btn btn-primary btn-large"  id="submit_location"> Search 
-   
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--Footer -->
-  <div id="footer" class="container-brand-dark footer-surround footer-container">
-        <div class="footer-content-container container page-container page-container-responsive">
-  <div class="row row-condensed">
-    <div class="span3 col-3">
-      <div class="row row-condensed">
-        <div class="span9 col-9">
-          <div class="language-curr-picker clearfix">
-            <div class="language-picker"></div>
-              <div class="currency-picker"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="span3 col-3 ">
-      <h5>MansionExpress</h5>
-      <ul class="unstyled list-layout">
-        <li><a href="" class="link-contrast">About</a></li>
-        <li><a href="" class="link-contrast">Press</a></li>
-        <li><a href="" class="link-contrast">Blog</a></li>
-        <li><a href="" class="link-contrast">Help</a></li>
-        <li><a href="" class="link-contrast">Policies</a></li>
-        <li><a href="" class="link-contrast">Terms &amp; Privacy</a></li>
-      </ul>
-    </div>
-
-    <div class="span3 col-3 ">
-      <h5>Discover</h5>
-      <ul class="unstyled list-layout">
-        <li><a href="" class="link-contrast">Invite Friends</a></li>
-        <li><a href="" class="link-contrast">MansionExpress Picks</a></li>
-      </ul>
-    </div>
-
-    <div class="span3 col-3 ">
-      <h5>Hosting</h5>
-      <ul class="unstyled list-layout">
-        <li><a href="" class="link-contrast">Why Host</a></li>
-        <li><a href="" class="link-contrast">Responsible Hosting</a></li>
-        <li><a href="" class="link-contrast">Stories</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <hr class="footer-divider row-space-top-8 row-space-4 ">
-
-
-<!--Social Media Tags -->
-  <div class="social-media text-center">
-    <h5 class="row-space-4 ">Join Us On</h5>
-    <ul class="unstyled list-layout list-inline">
-        <li>
-          <a href="" class="link-contrast footer-icon-container" target="_blank">
-            <i class='icon footer-icon icon-facebook'></i></a></li>
-        <li>
-          <a href="" class="link-contrast footer-icon-container" target="_blank">
-            <i class='icon footer-icon icon-google-plus'></i></a></li>
-        <li>
-          <a href="" class="link-contrast footer-icon-container" target="_blank">
-            <i class='icon footer-icon icon-twitter'></i></a></li>
-     
-    </ul>
-    <div id="copyright" class="row-space-top-2 text-muted">
-      &copy; MansionExpress
-    </div>
-  </div>
-</div>
+    <%= render :partial => "social_media_tags" %>
   </body>
 </html>

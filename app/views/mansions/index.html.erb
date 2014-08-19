@@ -5,97 +5,14 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
   <script>
-  $(function() {
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 0,
-      max: 15000,
-      values: [ 0, 15000 ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-  });
   </script>
 </head>
 
+<%= render :partial => "mansion_index_top" %>
 
+<%= render :partial => "mansion_index_map" %>
 
-
-<!-- TOP -->
-<div class="topsection" >
-  <div class="row" id="toprow">
-    <div class="offset-md-1 col-md-3" id="tip">
-         tip: the more people the cheaper the $
-    </div>
-
-    <div class="col-md-2">
-      <div class="dropdown">
-        <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-          Bedrooms <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="1">
-          1
-        </ul>
-         <ul class="dropdown-menu" role="menu" aria-labelledby="2">
-          2
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      Price Per Night
-        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-      <div id="slider-range"></div>
-    </div>
-  </div>
-</div>
-
- <p id="countrycount"><%=@mansions.count%> rentals in <%=@mansions.first.country%> <p>
-
-<!-- MAP -->
-  <div class="col-md-4">
-    <div id="mapindex">
-      <script>
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {}, internal: {id: 'mapindex'}}, function(){
-          markers = handler.addMarkers(<%=raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-        });
-      </script>        
-    </div>
-  </div>
-
-
-
-
-
-<!--NEED TO DELETE THE FOLLOWING, IT"S JUST FOR STYLING DISPLAY -->
-     <div id="allmansions">
-      <% @mansions.each do |mansion| %> 
-   
-      <div id="mansion" class=" col-md-3 col-md-offset-1  ">
-      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="250px" width="350px"  src="<%= mansion.photo_url %>"/> </a>
-    </br>
-    <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
-    <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
-      <div id="price"><p><%= mansion.price %></p></div>
-      <div id="gravatar">
-        <% (rand(1..5)).times do %>
-           <%= image_tag( "#{rand(1..23)}.jpg", size: "60x60")%>
-        <% end%>
-      </div>
-    </div>
-<!--Compatibility Points -->
-     <!--  <if current_user && user != current_user %> 
-        user_to_user_compatibility_points(user1, user2)
-      <%#end%> -->
-  
-    <% end %>
-</div> 
+<%= render :partial => "mansion_index_style_display" %>
 
 
 <div id="clear"></div>
