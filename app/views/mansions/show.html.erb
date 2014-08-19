@@ -5,7 +5,7 @@
 
 
 <div id="mansion_show_container">
-	<!--Show Leave button if user in mansion, else show Join button if room availble-->
+<!--Show Leave button if user in mansion, else show Join button if room availble-->
 		<% if current_user && in_mansion?(current_user, @mansion) %>
 			<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger ' %></div>
 	  <%elsif room_available?(@mansion)%>
@@ -15,28 +15,26 @@
 
 
 	
-
-	<div id="price2">Total Price Per Night: <%=@mansion.price%>
-</div>
+<!--Pricings -->
+<div id="price2">Total Price Per Night: <%=@mansion.price%></div>
 
 <div id="pricings">
 	</br> Price Per Person Based on Occupancy:
-		<%# prices_per_occupants(@mansion) do |occupant_count, price| %>
-			<!--<strong><%#= occupant_count %> People:</strong> $<%#= price %>-->
-		<%# %>
+		<%= prices_per_occupants(@mansion) %>
+		
 
-		<%x=1%>
-		<%until x > @mansion.bedrooms.to_i %>
-		<strong><%= x %> People:</strong> $<%= (@mansion.price.scan(/[.0-9]/).join().to_i)/(x) %>
-		<%x+=1%>
+		</br> Price Per Person Based on Occupancy:
+		<%#= prices_per_occupants(@mansion) do |occupant_count, price|%>
+		 <%#= occupant_count %> <%#= price %>
+		<%#end %>
 
-		<%end%>
+	
 	
 </br>
 </div> 
 
 
-
+<!--Mansion Information -->
 <div id="left1">
 	<h2><strong><%= @mansion.name %></strong></h2>
 	<p><%= @mansion.city %>, <%= @mansion.country %>, <%= @mansion.region %></br>
@@ -47,23 +45,20 @@
 </div>
 
 
-
+<!--MansionMates Information-->
 <div id="right1">
-	<h2 align="center"> MansionMates </h2>
-
-</br>
+	<h2 align="center"> MansionMates </h2></br>
 	<div id="userimgs">
 		<% @users.each do |user| %>
-		<%= link_to image_tag(user.photo.url(:join)), user %>
-	<% end %>
+			<%= link_to image_tag(user.photo.url(:join)), user %>
+		<% end %>
 	</div>
 </div>
-
-
-
-
 </div>
 <div id="clear"></div>
+
+
+<!--Maps -->
 	<div id='mansionshow'>
     <script>
       var handler = Gmaps.build('Google');
