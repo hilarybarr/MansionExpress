@@ -5,6 +5,10 @@
 
 require bootstrap
 
+#mansion_show_container {
+	background-color: red;
+}
+
 #joinbutton {
 	position:relative;
 	bottom: 100px;

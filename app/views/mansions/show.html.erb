@@ -3,26 +3,18 @@
 
 <img src="<%= @mansion.photo_url %>" height="402px" width="100%"/>
 
-	<% if current_user %>
 
-		<%# if in_mansion? current_user, @mansion %>
-		<% unless current_user.mansions.include?(@mansion) %>
-			<% if @mansion.users.count < @mansion.bedrooms %>
-				<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
-			<% end %>
-		<% else %>
+<div id="mansion_show_container">
+	<!--Show Leave button if user in mansion, else show Join button if room availble-->
+		<% if current_user && in_mansion?(current_user, @mansion) %>
 			<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger ' %></div>
-		<% end %>
+	  <%elsif room_available?(@mansion)%>
+	  	<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
+	  <%end%>
 
-	<% else %>
 
-		<%# if room_available? @mansion %>
-		<%# if @mansion.room_availble? %>
-		<% if @mansion.users.count < @mansion.bedrooms %>
-				<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
-		<% end %>
 
-	<%end%>
+	
 
 	<div id="price2">Total Price Per Night: <%=@mansion.price%>
 </div>
@@ -30,7 +22,7 @@
 <div id="pricings">
 	</br> Price Per Person Based on Occupancy:
 		<%# prices_per_occupants(@mansion) do |occupant_count, price| %>
-			<strong><%= occupant_count %> People:</strong> $<%= price %>
+			<!--<strong><%#= occupant_count %> People:</strong> $<%#= price %>-->
 		<%# %>
 
 		<%x=1%>
@@ -70,7 +62,7 @@
 
 
 
-
+</div>
 <div id="clear"></div>
 	<div id='mansionshow'>
     <script>
@@ -83,3 +75,5 @@
     </script> 		
 	</div>
 </div>
+
+
