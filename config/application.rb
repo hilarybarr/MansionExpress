@@ -15,6 +15,7 @@ Bundler.require(*Rails.groups)
 
 module MansionExpress
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join('lib')
 
     config.action_controller.permit_all_parameters = true
     # Settings in config/environments/* take precedence over those specified here.
