@@ -47,19 +47,15 @@
 		<div class="row">
 			<div class="col-md-3" id="size">
 				<h3> Size </h3>
-				<%= link_to image_tag("bedrooms.png", :class=>"smallimage") %>
-				 <br><br><br> <%= @mansion.bedrooms %> bedrooms</br> <%= @mansion.bathrooms %> bathrooms</br>
+				 <br><strong><%= @mansion.bedrooms %> bedrooms</strong></br><strong> <%= @mansion.bathrooms %> bathrooms</strong></br>
 			</div>
 
 			<div class="col-md-6" id="desc">
 				<h3> Description </h3> <%= @mansion.description %>
 			</div>
 			
-
 				<div class="col-md-3" id="pricings">
 					<h3> Price </h3>
-					<%= link_to image_tag("dollar.jpeg", :class=>"smallimage") %></br>
-
 		  		<strong>Total Price Per Night:</strong> <%=@mansion.price%>
 				 </br> <strong> Per Person: </strong><div id="pricings2"><%= prices_per_occupants(@mansion)%></div>
 			 </div> 
