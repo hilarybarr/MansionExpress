@@ -1,0 +1,12 @@
+<div class="col-md-4">
+  <div id="mapindex">
+    <script>
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'mapindex'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    </script>        
+  </div>
+</div>
