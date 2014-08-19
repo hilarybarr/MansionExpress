@@ -4,24 +4,23 @@
 <div id="mansion_show_img">
 	<h1><strong><%= @mansion.name %></strong></h1>
 	<h3><%= @mansion.city %>, <%= @mansion.country %>, <%= @mansion.region %></br></h3>
-	<img src="<%= @mansion.photo_url %>" height="500px" width="760px" align="center"/>
-</div>
-	<div id="userimgs">
-		
-		<% @users.each do |user| %>
-			<div id="user_image">
-				<%= link_to image_tag(user.photo.url(:join)), user %>
-			</div>
-			<% end %>
-	</div>
 
-	<div class="clear"></div>
-
-	<% if current_user && in_mansion?(current_user, @mansion) %>
-		<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger ' %></div>
+	 	<% if current_user && in_mansion?(current_user, @mansion) %>
+	 <div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger'   %></div>
 	 <%elsif room_available?(@mansion)%>
-	  	<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div>
+	  	<div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div> 
 	 <%end%>
+
+	<img src="<%= @mansion.photo_url %>"  />
+</div>
+
+
+
+
+
+<!-- 	<div class="clear"></div> -->
+
+
 
 
 <!--Show Leave button if user in mansion, else show Join button if room availble-->
@@ -31,30 +30,42 @@
 <!--Mansion Information -->
 
 <div id="mansions_container">
+
+ 	<div id="userimgs">
+
+		
+		<% @users.each do |user| %>
+				<%= link_to image_tag(user.photo.url(:join)), user %>
+		<% end %>
+	</div>
+	
  <div id="mansion_description">
 
-		<strong>Description: </strong>
+ 	<div class="row">
+				<div id="pricings">
+					<h3> Price </h3></br>
+					<%= link_to image_tag("dollar.jpeg", :class=>"smallimage") %></br>
 
+		  	
+		  		<strong>Total Price Per Night:</strong> <%=@mansion.price%>
+				 </br> <strong> Per Person: </strong><%= prices_per_occupants(@mansion)%>
+			 </div> 
+		</div>
 
+</br>
 		<div class="row">
 			<div class="col-offset-1 col-md-2">
-				 <%= @mansion.bedrooms %> bedrooms, <%= @mansion.bathrooms %> bathrooms</br>
+				<h3> Size </h3>
+				<%= link_to image_tag("bedrooms.png", :class=>"smallimage") %>
+				 <br><br><br> <%= @mansion.bedrooms %> bedrooms</br> <%= @mansion.bathrooms %> bathrooms</br>
 			</div>
 
 			<div class="col-md-6">
-				<%= @mansion.description %>
+				<h3> Description </h3> <%= @mansion.description %>
 			</div>
-
-			<div class="col-md-2 col-offset-1">
-				<div id="price2">
-					Total Price Per Night: <%=@mansion.price%>
-				</div>
-
-		  	<div id="pricings">
-				 </br> Price Per Person Based on Occupancy:
-				 <%= prices_per_occupants(@mansion)%>
-			 </div> 
 		</div>
+			
+
 
 
 	</div>
