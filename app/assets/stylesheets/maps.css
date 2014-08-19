@@ -17,10 +17,10 @@
 	/*display: fixed;*/
 }
 
-/*.mansionShowMap {
-	width: 200px;
+.mansionShowMap {
+	width: 100%;
 	background-color: black;
-	height: 200px;
+	height: 300px;
 	position: relative;
-	top: 200px;
-}*/
+	top: 18px;
+}
