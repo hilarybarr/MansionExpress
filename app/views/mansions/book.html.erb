@@ -14,39 +14,18 @@
 	<h2>Select from the following:</h2>
 
 	<form action="/mansions/<%=@mansion.id%>/bookings/create" method="post">
-		<select name="trait[]">
-			<option value="" disable selected>Profession</option>
-			<% @professions.each do |profession| %>
-				<option value="<%=profession.name%>"><%=profession.name%></option>
-			<% end %>	
-		</select>
-
-		<select name="trait[]">
-			<option value="" disable selected>Religion</option>
-			<% @religions.each do |religion| %>
-				<option value="<%=religion.name%>"><%=religion.name%></option>
-			<% end %>	
-						
-		</select>
-
-		<select name="trait[]">
-			<option value="" disable selected>Sexual Orientation</option>
-			<% @sexual_orientations.each do |sexual_orientation| %>
-				<option value="<%=sexual_orientation.name%>"><%=sexual_orientation.name%></option>
-			<% end %>				
-		</select>
-
-		<select name="trait[]">
-			<option value="" disable selected>Relationship Status</option>
-			<% @relationship_status.each do |relationship_status| %>
-				<option value="<%=relationship_status.name%>"><%=relationship_status.name%></option>
-			<% end %>	
-		</select>	
 
 		<select name="trait[]">
 			<option value="" disable selected>Gender</option>
 			<% @genders.each do |gender| %>
 				<option value="<%=gender.name%>"><%=gender.name%></option>
+			<% end %>	
+		</select>	
+
+		<select name="trait[]">
+			<option value="" disable selected>Relationship Status</option>
+			<% @relationship_status.each do |relationship_status| %>
+				<option value="<%=relationship_status.name%>"><%=relationship_status.name%></option>
 			<% end %>	
 		</select>	
 
@@ -56,10 +35,20 @@
 		<input type="checkbox" name="trait[]" value="<%=r_trait.name%>"><%=r_trait.name%><br>
 	<% end %>
 
-<h2>Music Styles:</h2>
-	<% @music_styles.each do |style| %>
-		<input type="checkbox" name="trait[]" value="<%=style.name%>"><%=style.name%><br>
-	<% end %>
+<h2>Tell us a bit about yourself:</h2>
+<br>
+
+<h4>Short bio:</h4>
+	<textarea rows="4" placeholder="ex. my name is John, I'm from the UK and I work in design..."></textarea>
+	<br>
+
+<h4>Your hobbies:</h4>
+	<textarea rows="4" placeholder="ex. I like surfing and making short films..."></textarea>
+	<br>
+
+<h4>A quirk about yourself:</h4>
+	<textarea rows="4" placeholder="ex. I am afraid of flying in red airplanes..."></textarea>
+	<br>
 	
 	<div>
 		<h2>Create an Account</h2>
