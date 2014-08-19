@@ -1,0 +1,22 @@
+<!--NEED TO DELETE THE FOLLOWING, IT"S JUST FOR STYLING DISPLAY -->
+<div id="allmansions">
+  <% @mansions.each do |mansion| %> 
+    <div id="mansion" class="col-md-3 col-md-offset-1">   
+      <a href="/mansions/<%=mansion.id%>"> <img class="mansionShow" height="250px" width="350px" src="<%= mansion.photo_url %>"/></a></br>
+      <a href="/mansions/<%=mansion.id%>"> <%=mansion.name %></a></br>
+      <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
+      <div id="price"><p><%= mansion.price %></p></div>
+      <div id="gravatar">
+        <% (rand(1..5)).times do %>
+           <%= image_tag( "#{rand(1..23)}.jpg", size: "60x60")%>
+        <% end %>
+      </div>  
+    </div>
+  <% end %>
+</div> 
+
+<!--Compatibility Points -->
+  <!--   <if current_user && user != current_user %> 
+      user_to_user_compatibility_points(user1, user2)
+    <%#end %> -->
+
