@@ -5,6 +5,7 @@
 
 require bootstrap
 
+/* The following is primarily on the mansion show page */
 
 #mansion_show_img{
 	text-align: center;
@@ -20,11 +21,10 @@ require bootstrap
    display: block;
 	 margin-left: auto;
    margin-right: auto;
-   width: 60%;
-   height: 20%;
+   width: 700px;
+   height: 500px;
    border: 5px solid black;
 }
-
 
 #joinbutton {
 	text-align: center;
@@ -33,72 +33,80 @@ require bootstrap
 	margin-right: auto;
 	margin-bottom:20px;
 	margin-top: 20px;
-/*	position: relative;
-	bottom: -50px;
-	right: 90px;
-	height: 300px;
-	width: 500px;*/
-
 }
 
 a .btn-lg  {
 	height: 500px;
 
 }
+
 #userimgs {
 	position: relative;
-	top: -118px;
+	top: -125px;
 	display: inline-block;
-  margin-left: 21%;
+  margin-left: 26%;
 }
 
 
 #userimgs img{
-
-	/*text-align:center;*/
 	width: 120px;
 	height: 120px;
-	/*display: block;*/
-/*	margin-left: auto;
-  margin-right: auto;*/
-/*  display:inline-block;*/
-/*	width: 100px;
-	height: 100px;*/
-	/*margin: 5px; */
-
-
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
 }
 
-
-
-
 #mansions_container {
 	position: relative;
 	top: 0px;
 	background-color: #DDDDDD;
-
-
-
 }
-
-
-
-
-#ourbutton{
-	height: 500%;
-}
-
 
 .clear {
 	clear: both;
 }
-.ui-slider-range {
-	color: white;
+
+#mansiondisplay{
+	display: inline-block;
+	text-align: center;
+
 }
 
+#mansion_description{
+	text-align: center;
+	background-color: white;
+	border: 2px solid black;
+	width: 75%;
+	height: 75%;
+	display: block;
+	margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+}
+
+#description{
+	text-align: center;
+	padding: 20px;
+}
+
+
+#pricings{
+	height: 100%;
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 14px;
+	color: black;
+}
+
+.smallimage{
+	height: 50px;
+	width: 50px;
+}
+
+
+/* The following is primarily on the mansion index */
 .topsection {
 	position: relative;
 	top: -20px;
@@ -111,10 +119,6 @@ a .btn-lg  {
 	top: -3px;
 }
 
-.ui-slider-range {
-
-    width: 100px;
-}
 
 .applyButton {
 	position: relative;
@@ -125,12 +129,6 @@ a .btn-lg  {
  	position:relative;
  	left: 40px;
  }
-
-#mansiondisplay{
-	display: inline-block;
-	text-align: center;
-
-}
 
 #price {
 	position: relative;
@@ -144,12 +142,6 @@ a .btn-lg  {
 }
 
 
-#paginator {
-	position: relative;
-	left: 150px;
-	background-color: white;
-}
-
 #gravatar {
 	width: 350px;
 	height: 70px;
@@ -160,58 +152,6 @@ a .btn-lg  {
 	position: relative;
 	bottom: 135px;      
 }
-
-
-#mansion_description{
- 
-	text-align: center;
-	background-color: white;
-	border: 2px solid black;
-	width: 70%;
-	height: 60%;
-	display: block;
-	margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
-}
-
-
-#description{
-	text-align: center;
-	padding: 20px;
-}
-
-#price2{
-	/*position:relative;
-	bottom: 99px;*/
-
-	font-size: 25px;
-	/*background-color: white;*/
-	color: black;
-	/*width: 400px;*/
-}
-
-#pricings{
-	/*position:relative;
-	height: 60px;
-	bottom: 99px;*/
-	text-align: center;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 14px;
-	width: 30%;
-	
-/*	background-color: white;*/
-	color: black;
-
-}
-
-.smallimage{
-	height: 50px;
-	width: 50px;
-}
-
 
 #countrycount {
 	text-align: right;
