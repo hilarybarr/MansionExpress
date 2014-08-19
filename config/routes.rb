@@ -14,6 +14,8 @@ Rails.application.routes.draw do
  	post '/mansions/:id/bookings/create', to: 'bookings#create'
 
  	get '/mansions/:id/bookings/show', to: 'bookings#show', as: 'show_booking'
+
+ 	get '/mansions/:id/lounge', to: 'mansions#lounge'
 	
 	root 'welcome#index'	
 end
