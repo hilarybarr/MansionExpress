@@ -1,0 +1,29 @@
+<div id="mansions_container">
+ 	<div id="userimgs">
+		<% @users.each do |user| %>
+				<%= link_to image_tag(user.photo.url(:join)), user %>
+		<% end %>
+	</div>
+
+
+<!--MansionMates Information-->
+ 	<div id="mansion_description">
+		</br>
+		<div class="row">
+			<div class="col-md-3" id="size">
+				<h3> Size </h3>
+				 <br><strong><%= @mansion.bedrooms %> bedrooms</strong></br><strong> <%= @mansion.bathrooms %> bathrooms</strong></br>
+			</div>
+
+			<div class="col-md-6" id="desc">
+				<h3> Description </h3> <%= @mansion.description %>
+			</div>
+			
+			<div class="col-md-3" id="pricings">
+				<h3> Price </h3>
+	  		<strong>Total Price Per Night:</strong> <%=@mansion.price%>
+			 </br> <strong> Per Person: </strong><div id="pricings2"><%= prices_per_occupants(@mansion)%></div>
+		 	</div> 
+		</div>
+	</div>
+</div>
