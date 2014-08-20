@@ -7,8 +7,8 @@
       <%=mansion.bedrooms%> bd in <%=mansion.city%></br>
       <div id="price"><p><%= mansion.price %></p></div>
       <div id="gravatar">
-        <% (rand(1..5)).times do %>
-           <%= image_tag( "#{rand(1..23)}.jpg", size: "60x60")%>
+        <% mansion.users.each do |user|%>
+           <%= image_tag( "#{user.photo.url}", size: "60x60")%>
         <% end %>
       </div>  
     </div>
