@@ -108,7 +108,3 @@ class MansionsController < ApplicationController
       params.require(:mansion).permit(:name, :description, :address, :region, :city, :bedrooms, :bathrooms, :square_feet, :available_date, :photo, :price, :source)
     end
 end
-
-
-
-
