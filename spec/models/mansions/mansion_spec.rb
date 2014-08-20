@@ -4,6 +4,8 @@ describe Mansion do
 	before(:each) do
 		@mansion = Mansion.new
 	end
+  
+  it { should have_many(:users).through(:bookings) }
 
 	it 'has a price' do
 		@mansion.price = '20'
@@ -39,4 +41,16 @@ describe Mansion do
     @mansion.square_feet = 500
 		expect(@mansion.square_feet).to_not be_nil
 	end
+
+  it 'has latitude' do
+    @mansion.latitude = 20.2
+    expect(@mansion.latitude).to eq 20.2
+  end
+
+  it 'has longitude' do
+    @mansion.longitude = 20.2
+    expect(@mansion.longitude).to eq 20.2
+  end
+
+
 end
