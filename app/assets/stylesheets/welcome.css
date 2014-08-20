@@ -10,6 +10,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  */
 
 a:link, a:visited, a:active, a:hover{
+	color: black;
+}
+
+li a:link, a:visited, a:active, a:hover{
 	color: white;
 }
 
@@ -20,6 +24,7 @@ a:link, a:visited, a:active, a:hover{
  body {
 /*	background-color: #ffbf00;*/
 }
+
 
 video#bgvid {
 position: fixed; right: 0; bottom: 0;
@@ -73,8 +78,11 @@ background-size: cover;*/
 	width: 100%;
 }
 
-
-
+#centered_links{
+	margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
 
 .footer-icon-container{display:block;height:36px;width:36px;border-width:1px;border-style:solid;border-radius:50%;text-align:center}
 
