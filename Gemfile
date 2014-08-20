@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'paperclip'
 gem 'bootstrap-sass'
+gem 'acts_as_commentable_with_threading'
+
 
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.2'

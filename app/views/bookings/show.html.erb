@@ -1,6 +1,16 @@
-<h1>this is the mansion lounge</h1>
+<div class="container">
+	<h1>This is the Mansion Lounge</h1>
 
-<p>Your compatibility with this mansion is <%= user_to_pledge_compatibility_percentage(@user, @mates) %>%</p>
+	<p>Your compatibility with this mansion is <%= user_to_pledge_compatibility_percentage(@user, @mates) %>%</p>
 
-<p>The mansions overall chemistry is <%= overall_pledge_compatibility_percentage(@mates) %>%</p>
+	<p>The mansions overall chemistry is <%= overall_pledge_compatibility_percentage(@mates) %>%</p>
 
+
+	<div class="panel panel-default">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Mansion Lounge</div>
+	  <div class="panel-body">
+	    <p>Welcome to the Mansion Lounge</p>
+	  </div>
+	</div>
+</div>
