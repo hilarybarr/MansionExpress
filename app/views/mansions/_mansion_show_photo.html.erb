@@ -1,0 +1,11 @@
+<div id="mansion_show_img">
+	<h1><strong><%= @mansion.name %></strong></h1>
+	<h3><%= @mansion.city %>, <%= @mansion.country %>, <%= @mansion.region %></br></h3>
+
+	<% if current_user && in_mansion?(current_user, @mansion) %>
+	 	<div id="joinbutton"><%= link_to 'Leave', destroy_booking_path, class: 'btn-lg btn-danger'   %></div>
+	<%elsif room_available?(@mansion)%>
+	  <div id="joinbutton"><%= link_to 'Apply', new_booking_path, class: 'btn-lg btn-success' %></div> 
+	<%end%>
+	<img src="<%= @mansion.photo_url %>"  />
+</div>

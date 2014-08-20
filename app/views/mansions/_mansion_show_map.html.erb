@@ -1,12 +1,10 @@
-<div class="col-md-4">
-  <div id="mapindex">
-    <script>
+<div id='mapshow'>
+   <script>
       var handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {minZoom: 5, maxZoom: 18}, internal: {id: 'mapindex'}}, function(){
+      handler.buildMap({ provider: {minZoom: 5,	 maxZoom: 14}, internal: {id: 'mapshow'}}, function(){
         markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
       });
-    </script>        
-  </div>
+   </script> 		
 </div>
