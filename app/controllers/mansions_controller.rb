@@ -8,13 +8,13 @@ class MansionsController < ApplicationController
     #@mansions = Mansion.all
     location=params[:location]
     if Mansion.all.pluck("country").include?(location.titleize)
-      @location=params[:location]
+      @location=params[:location].titleize
       @mansions=Mansion.where(country: @location)
     elsif Mansion.all.pluck("city").include?(location.titleize)
-      @location=params[:location]
+      @location=params[:location].titleize
       @mansions=Mansion.where(city: @location)
     elsif Mansion.all.pluck("region").include?(location.titleize)
-      @location=params[:location]
+      @location=params[:location].titleize
       @mansions=Mansion.where(region: @location)
     else
       flash[:no_location]="That location does not have mansions yet. Try again."
