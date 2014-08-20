@@ -52,6 +52,7 @@ class MansionsController < ApplicationController
   # POST /mansions.json
   def create
     @mansion = Mansion.new(mansion_params)
+    @lounge = Lounge.create(mansion_id: @mansion.id)
 
     respond_to do |format|
       if @mansion.save

@@ -3,6 +3,12 @@ class Mansion < ActiveRecord::Base
 	has_many :amenities, through: :mansion_amenities
 	has_many :pledges
 	has_many :guests, through: :pledges, source: :user
+<<<<<<< HEAD
+=======
+	belongs_to :mansion_review
+	has_one :lounge
+
+>>>>>>> bb83104434a353a3fd4be5e6ce40d718b840b897
 	has_many :bookings
 	has_many :users, through: :bookings
 	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }

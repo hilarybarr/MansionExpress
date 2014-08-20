@@ -7,12 +7,15 @@ class BookingsController < ApplicationController
 		Booking.where(user_id: @user.id, mansion_id: mansion.id).first_or_create
 		session[:user_id] = @user.id
 		@traits = params[:trait]
-		@traits.each do |trait|
-			if trait.name
+		if @traits[0] == "" || @traits[1] == "" 
+			redirect_to(:back)
+			flash[:notice] = "You have to select stuff from the dropdowns"
+		else
+			@traits.each do |trait|
 				@user.personality_traits << PersonalityTrait.find_by(name: trait)
 			end
-		end
 		redirect_to show_booking_path
+		end
 	end
 
 
@@ -25,6 +28,5 @@ class BookingsController < ApplicationController
 			@mates << mate unless mate == @user
 		end
 	end
-
 end
 

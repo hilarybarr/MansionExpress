@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <div class="container">
 	<h1>This is the Mansion Lounge</h1>
 
@@ -5,18 +7,24 @@
 
 	<p>The mansions overall chemistry is <%= overall_pledge_compatibility_percentage(@mates) %>%</p>
 
-<<<<<<< HEAD
-<%= @pledge.mansion_id %>
-
-<!-- <%#= user_to_pledge_compatibility_percentage(@user, @pledge) %> -->
-
-=======
 
 	<div class="panel panel-default">
 	  <!-- Default panel contents -->
 	  <div class="panel-heading">Mansion Lounge</div>
 	  <div class="panel-body">
+
 	    <p>Welcome to the Mansion Lounge</p>
+
+	    <div class="panel-body">
+	    	<%= form_for [@lounge.comments, @comment] do |f| %>
+					<div class="field">
+					  <%= f.label :body %><br>
+					  <%= f.text_field :body %>
+
+					  <%= f.submit %>
+					</div>
+	    	<% end %>
+	    </div>
 	  </div>
 	</div>
 </div>
