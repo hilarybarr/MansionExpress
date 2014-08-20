@@ -1,83 +1,77 @@
 <div class="container">
 
 	<% @mansion = Mansion.find(params[:id]) %>
-
 	<div>
 	</br></br></br></br></br></br></br></br>
+
   <div id="gravatar">
     <% (rand(1..5)).times do %>
        <%= image_tag( "#{rand(1..23)}.jpg", size: "60x60")%>
    	<% end%>
   </div>
 
-	<h1>Fill this personality form so we can match you up with people like you. Remember you can also apply to multiple mansions at the same time.</h1></br>
-	<h2>Select from the following:</h2>
+	<h2>Please fill in this personality form so we can match you up with similar people.</h2></br>
 
-	<form action="/mansions/<%=@mansion.id%>/bookings/create" method="post">
-		<select name="trait[]">
-			<option value="" disable selected>Profession</option>
-			<% @professions.each do |profession| %>
-				<option value="<%=profession.name%>"><%=profession.name%></option>
-			<% end %>	
-		</select>
+	<div class="panel panel-default">
+		<h4 class="panel-heading">Please select from the following:</h4>
+		
+		<form action="/mansions/<%=@mansion.id%>/bookings/create" method="post">
+			<select name="trait[]" class="panel-body">
+				<option value="" disable selected>Gender</option>
+				<% @genders.each do |gender| %>
+					<option value="<%=gender.name%>"><%=gender.name%></option>
+				<% end %>	
+			</select>	
 
-		<select name="trait[]">
-			<option value="" disable selected>Religion</option>
-			<% @religions.each do |religion| %>
-				<option value="<%=religion.name%>"><%=religion.name%></option>
-			<% end %>	
-						
-		</select>
+			<select name="trait[]" class="panel-body">
+				<option value="" disable selected>Relationship Status</option>
+				<% @relationship_status.each do |relationship_status| %>
+					<option value="<%=relationship_status.name%>"><%=relationship_status.name%></option>
+				<% end %>	
+			</select>	
 
-		<select name="trait[]">
-			<option value="" disable selected>Sexual Orientation</option>
-			<% @sexual_orientations.each do |sexual_orientation| %>
-				<option value="<%=sexual_orientation.name%>"><%=sexual_orientation.name%></option>
-			<% end %>				
-		</select>
+			</br></br></br>
 
-		<select name="trait[]">
-			<option value="" disable selected>Relationship Status</option>
-			<% @relationship_status.each do |relationship_status| %>
-				<option value="<%=relationship_status.name%>"><%=relationship_status.name%></option>
-			<% end %>	
-		</select>	
+			<h4 class="panel-body">Please select all that apply to you:</h4>
+			<% @random_traits.each do |r_trait| %>
+				<input type="checkbox" name="trait[]" value="<%=r_trait.name%>"><%=r_trait.name%><br>
+			<% end %>
 
-		<select name="trait[]">
-			<option value="" disable selected>Gender</option>
-			<% @genders.each do |gender| %>
-				<option value="<%=gender.name%>"><%=gender.name%></option>
-			<% end %>	
-		</select>	
+			</br></br></br>
 
-<h2>Select all that apply to you:</h2>
+			<h4 class="panel-body">Tell us a bit about yourself:</h4><br>
+				<h5 class="panel-heading">Short bio:</h5>
+					<textarea rows="4" placeholder="ex. my name is John, I'm from the UK and I work in design..." class="panel-body"></textarea>
+					<br>
 
-	<% @random_traits.each do |r_trait| %>
-		<input type="checkbox" name="trait[]" value="<%=r_trait.name%>"><%=r_trait.name%><br>
-	<% end %>
+				<h5 class="panel-heading">Your hobbies:</h5>
+					<textarea rows="4" placeholder="ex. I like surfing and making short films..." class="panel-body"></textarea>
+					<br>
 
-<h2>Music Styles:</h2>
-	<% @music_styles.each do |style| %>
-		<input type="checkbox" name="trait[]" value="<%=style.name%>"><%=style.name%><br>
-	<% end %>
-	
-	<div>
-		<h2>Create an Account</h2>
-			<input name="info[name]" type="text" placeholder="Name"><br>
-			<input name="info[email]" type="text" placeholder="Email"><br>		
-			<input name="info[password]" type="text" placeholder="Password"><br>				
-			<input name="info[password_confirmation]" type="text" placeholder="Password Confirmation"><br>			
+				<h5 class="panel-heading">A quirk about yourself:</h5>
+					<textarea rows="4" placeholder="ex. I am afraid of flying in red airplanes..." class="panel-body"></textarea>
+					<br>
+		<div>
+
+			</br></br></br>
+
+			<h2 class="panel-heading">Create an Account</h2>
+				<input name="info[name]" type="text" placeholder="Name" class="panel-body"><br>
+				<input name="info[email]" type="text" placeholder="Email" class="panel-body"><br>		
+				<input name="info[password]" type="text" placeholder="Password" class="panel-body"><br>				
+				<input name="info[password_confirmation]" type="text" placeholder="Password Confirmation" class="panel-body"><br>			
+		</div>
+
+		<div>
+			<h2>Invite friends to join you in this mansion</h2>
+				<input name="email" type="text" placeholder="His/Her Email"><br>	
+				<!-- ADD AJAX REQUEST HERE THAT APPENDS MORE FRIENDS' EMAIL FIELDS -->
+		</div>	
+
+			<input type="checkbox" name="terms" value="yes">I agree to the terms and conditions
+			<input type="submit" value="Submit!">
+		</form>
 	</div>
 
-	<div>
-		<h2>Invite friends to join you in this mansion</h2>
-			<input name="email" type="text" placeholder="His/Her Email"><br>	
-			<!-- ADD AJAX REQUEST HERE THAT APPENDS MORE FRIENDS' EMAIL FIELDS -->
-	</div>	
-
-		<input type="checkbox" name="terms" value="yes">I agree to the terms and conditions
-		<input type="submit" value="Submit!">
-	</form>
-</div>
-
+	</div>
 </div>

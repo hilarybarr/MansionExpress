@@ -43,23 +43,23 @@
 	"transgender",
 	"other" ]
 
-@random_traits = [ "student",
-	"entrepreneur",
+@random_traits = [ #"student",
+	#"entrepreneur",
 	"vegetarian",
 	"smoker",
 	"early bird",
 	"night owl",
-	"dog lover",
-	"cat lover",
-	"democrat",
-	"republican",
-	"bookworm",
-	"social butterfly" ]
+	"outdoors person",
+	"indoors person"
+	#"democrat",
+	#"republican",
+	#"bookworm",
+	#"social butterfly" 
+	]
 
 @music_styles = [ "rock",
 	"electronic",
-	"rap",
-	"hip hop",
+	"rap hip hop",
 	"latin",
 	"jazz",
 	"classical",
