@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :comments
-
   resources :personality_traits
   
+
   devise_for :users
   resources :pledges
+
+
+  resources :comments
   resources :mansions do
-  	resource :lounges, only: [:show] 
+  	resource :lounges, only: [:show]
   end
 
  	get 'mansions/:id/book', to: 'mansions#book', as: 'new_booking'
