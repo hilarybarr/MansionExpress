@@ -4,6 +4,7 @@ class Mansion < ActiveRecord::Base
 	has_many :pledges
 	has_many :guests, through: :pledges, source: :user
 	belongs_to :mansion_review
+	has_one :lounge
 
 	has_many :bookings
 	has_many :users, through: :bookings

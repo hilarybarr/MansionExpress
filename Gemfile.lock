@@ -27,8 +27,14 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_commentable_with_threading (1.2.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      awesome_nested_set (>= 2.0)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    awesome_nested_set (3.0.0)
+      activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
@@ -195,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable_with_threading
   bootstrap-sass
   bootstrap3-datetimepicker-rails (~> 3.0.2)
   capybara (~> 2.1.0)
