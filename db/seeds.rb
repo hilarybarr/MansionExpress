@@ -1,33 +1,44 @@
 
+# # # @mansions=Mansion.all
+# # # @mansions.each do |mansion|
+# # #   mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
+# # # end
+@mansions=Mansion.all
+@mansions.each do |mansion|
+  Lounge.create(mansion_id: mansion.id)
+end
+
+# @mansions=Mansion.all
+# @mansions.each do |mansion|
+#   mansion.update_attributes(:lounge_id => 1)
+# end
+
+
+
+
 # @mansions=Mansion.all
 # @mansions.each do |mansion|
 #   mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
 # end
 
 
-@mansions=Mansion.all
-@mansions.each do |mansion|
-  mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
-end
 
 
+# # # STILL NEED TO MOVE IMAGES TO AMAZON WEBSERVICES AND REMOVE FROM PUBLIC/MANSION_IMAGES
 
+# # # We included gem 'seed_dump'.
+# # # After you finish running rake db:seed, run rake db:seed:dump. 
+# # # Copy what is now in rake db:seed into a new file (i.e. seedbackup.rb).
+# # # In terminal run git checkout db/seeds.rb (or whatever name of file is in git status) assuming your 
+# # #last git commit was up to date.
+# # # This will keep your seeding file as is but you will have a copy of what you retrieved in seedbackup.rb
 
-# # STILL NEED TO MOVE IMAGES TO AMAZON WEBSERVICES AND REMOVE FROM PUBLIC/MANSION_IMAGES
-
-# #We included gem 'seed_dump'.
-# # After you finish running rake db:seed, run rake db:seed:dump. 
-# # Copy what is now in rake db:seed into a new file (i.e. seedbackup.rb).
-# # In terminal run git checkout db/seeds.rb (or whatever name of file is in git status) assuming your 
-# #last git commit was up to date.
-# # This will keep your seeding file as is but you will have a copy of what you retrieved in seedbackup.rb
-
-# # To add every image locally: 
-# #Inside public/mansion_images
-# # rails c
-# #irb(main):004:0> Mansion.all.pluck("photo_url").each do |url| 
-# #irb(main):005:1* `wget #{url}`
-# #end
+# # # To add every image locally: 
+# # #Inside public/mansion_images
+# # # rails c
+# # #irb(main):004:0> Mansion.all.pluck("photo_url").each do |url| 
+# # #irb(main):005:1* `wget #{url}`
+# # #end
 
 
 #   require 'nokogiri'
@@ -66,7 +77,7 @@ end
 #           photo_url: photo_url,
 #           bedrooms: bedrooms.to_i,
 #           bathrooms: bathrooms.to_i,
-#           source: source
+#           source: source,
 #           )
 #       end
 #       end
