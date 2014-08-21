@@ -1,27 +1,4 @@
 
-# # # @mansions=Mansion.all
-# # # @mansions.each do |mansion|
-# # #   mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
-# # # end
-@mansions=Mansion.all
-@mansions.each do |mansion|
-  Lounge.create(mansion_id: mansion.id)
-end
-
-# @mansions=Mansion.all
-# @mansions.each do |mansion|
-#   mansion.update_attributes(:lounge_id => 1)
-# end
-
-
-
-
-# @mansions=Mansion.all
-# @mansions.each do |mansion|
-#   mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
-# end
-
-
 
 
 # # # STILL NEED TO MOVE IMAGES TO AMAZON WEBSERVICES AND REMOVE FROM PUBLIC/MANSION_IMAGES
@@ -461,3 +438,22 @@ end
 # 200.times do
 #   christian.mansions << Mansion.find(mansions.shift)
 # end
+
+
+
+
+# @mansions=Mansion.all
+# @mansions.each do |mansion|
+#   Lounge.create(mansion_id: mansion.id)
+# end
+
+
+
+
+
+# @mansions=Mansion.all
+# @mansions.each do |mansion|
+#   mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
+# end
+
+
