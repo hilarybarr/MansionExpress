@@ -1,6 +1,5 @@
 class MansionsController < ApplicationController
   before_action :set_mansion, only: [:show, :edit, :update, :destroy]
-
   # GET /mansions
   # GET /mansions.json
 
@@ -58,6 +57,8 @@ class MansionsController < ApplicationController
 
     respond_to do |format|
       if @mansion.save
+        @lounge = Lounge.create(mansion_id: @mansion.id)
+
         format.html { redirect_to @mansion, notice: 'Mansion was successfully created.' }
         format.json { render :show, status: :created, location: @mansion }
       else
@@ -117,8 +118,6 @@ class MansionsController < ApplicationController
     def mansion_params
       params.require(:mansion).permit(:name, :description, :address, :region, :city, :bedrooms, :bathrooms, :square_feet, :available_date, :photo, :price, :source)
     end
+
+    
 end
-
-
-
-

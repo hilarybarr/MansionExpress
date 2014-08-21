@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe PersonalityTrait do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a name' do
+    @personality_trait = PersonalityTrait.create(
+      name: 'quiet',
+      category: 'about'
+    )
+    expect(@personality_trait.name).to eq 'quiet'
+  end
+
+  
 end
