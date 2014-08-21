@@ -275,48 +275,48 @@ end
 software=PersonalityTrait.create(name: "Super Software Engineer", category: "professions")
 
 
-farheen=User.create(name: "Farheen Malik", email:"farheen@malik.com", password: "igeekallweek")
-farheen.personality_traits << software
-farheen.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
-10.times do
-  farheen.mansions << Mansion.find(rand(1..205))
-end
+# farheen=User.create(name: "Farheen Malik", email:"farheen@malik.com", password: "igeekallweek")
+# farheen.personality_traits << software
+# farheen.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
+# 10.times do
+#   farheen.mansions << Mansion.find(rand(1..205))
+# end
 
 
-hilary=User.create(name: "Hilary Barr", email:"hbarr@gmail.com", password: "igeekallweek")
-hilary.personality_traits << software
-hilary.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
-10.times do
-  hilary.mansions << Mansion.find(rand(1..205))
-end
+# hilary=User.create(name: "Hilary Barr", email:"hbarr@gmail.com", password: "igeekallweek")
+# hilary.personality_traits << software
+# hilary.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
+# 10.times do
+#   hilary.mansions << Mansion.find(rand(1..205))
+# end
 
-cassie=User.create(name: "Cassie Moy", email:"cassie@moy.com", password: "igeekallweek")
-cassie.personality_traits << software
-cassie.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
-10.times do
-  cassie.mansions << Mansion.find(rand(1..205))
-end
+# cassie=User.create(name: "Cassie Moy", email:"cassie@moy.com", password: "igeekallweek")
+# cassie.personality_traits << software
+# cassie.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
+# 10.times do
+#   cassie.mansions << Mansion.find(rand(1..205))
+# end
 
-molly=User.create(name: "Molly Huerster", email:"molly@huerster.com", password: "igeekallweek")
-molly.personality_traits << software
-molly.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
-10.times do
-  molly.mansions << Mansion.find(rand(1..205))
-end
+# molly=User.create(name: "Molly Huerster", email:"molly@huerster.com", password: "igeekallweek")
+# molly.personality_traits << software
+# molly.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
+# 10.times do
+#   molly.mansions << Mansion.find(rand(1..205))
+# end
 
-anthony=User.create(name: "Anthony Edwards", email:"anthony@edwards.com", password: "igeekallweek")
-anthony.personality_traits << software
-anthony.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
-10.times do
-  anthony.mansions << Mansion.find(rand(1..205))
-end
+# anthony=User.create(name: "Anthony Edwards", email:"anthony@edwards.com", password: "igeekallweek")
+# anthony.personality_traits << software
+# anthony.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
+# 10.times do
+#   anthony.mansions << Mansion.find(rand(1..205))
+# end
 
-justin=User.create(name: "Justin Lee", email:"justin@lee.com", password: "igeekallweek")
-justin.personality_traits << software
-justin.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
-10.times do
-  justin.mansions << Mansion.find(rand(1..205))
-end
+# justin=User.create(name: "Justin Lee", email:"justin@lee.com", password: "igeekallweek")
+# justin.personality_traits << software
+# justin.personality_traits << PersonalityTrait.where(name:"in an open relationship").first
+# 10.times do
+#   justin.mansions << Mansion.find(rand(1..205))
+# end
 
 dylan=User.create(name: "Dylan Krause", email:"dylan@krause.com", password: "igeekallweek")
 dylan.personality_traits << software
