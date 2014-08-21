@@ -22,7 +22,13 @@
 			<div class="col-md-3" id="pricings">
 				<h3> Price </h3>
 	  		<strong>Total Price Per Night:</strong> <%=@mansion.price%>
-			 </br> <strong> Per Person: </strong><div id="pricings2"><%= prices_per_occupants(@mansion)%></div>
+			 </br> <strong> Per Person: </strong><div id="pricings2">
+			 <%prices_per_occupants(@mansion).each do |line|%>
+			 	<%=line%><br>
+			 	<%end%>
+
+
+			</div>
 		 	</div> 
 		</div>
 	</div>
