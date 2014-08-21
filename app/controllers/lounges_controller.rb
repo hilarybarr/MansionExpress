@@ -13,7 +13,6 @@ class LoungesController < ApplicationController
     @mansion = Mansion.find(params[:id])
     @user = User.find(current_user.id)  
     @users = Booking.find_by(mansion_id: params[:id]).mansion.users
-    @comment = Comment.new
     @lounge = Lounge.find(params[:id])
     # we remove the user from the users pledge so that when we compare for percentage the same user isnt comparing to himself, the variable mates exclude the user that is comparing
     @mates = [] 
