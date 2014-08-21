@@ -24,7 +24,7 @@
 
 <%end%>
 
-<% @mansions.each do |mansion| %>
+<% current_users.mansions.each do |mansion| %>
 <div class="col-md-3" id="mansiondisplay">
 	<div class="jumbotron">
 	<a href="/mansions/<%=mansion.id %>/">	<img src="<%= mansion.photo_url %>" height="300px" width="100%"/></a></br>
