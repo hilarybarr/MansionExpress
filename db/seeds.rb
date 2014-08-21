@@ -281,7 +281,7 @@
 # end
 
 
-# software=PersonalityTrait.create(name: "Super Software Engineer", category: "professions")
+software=PersonalityTrait.create(name: "Super Software Engineer", category: "professions")
 
 
 farheen=User.create(name: "Farheen Malik", email:"farheen@malik.com", password: "igeekallweek")
