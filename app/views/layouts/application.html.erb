@@ -19,7 +19,7 @@
 			<%= link_to 'MansionExpress', root_path %>
 	    <ul class="nav pull-right help-menu " style="margin-left:0;">
 	      <li class="list-your-space ">
-	        <a id="list-your-space" class="btn btn-special" href="">List Your Space</a>
+	        <button type="button" class="btn btn-default btn-sm"><a id="list-your-space" class="btn btn-special" href="">List Your Space</a></button>
 	      </li>
 	    </ul>
 	    <ul class="nav pull-right logged-out">
@@ -34,15 +34,13 @@
 
 	<div id="header" class="navbar navbar-top">
 	  <div class="page-container-full mansion-header clearfix">
-			<%= link_to 'MansionExpress', root_path %>
-	    <ul class="nav pull-right help-menu " style="margin-left:0;">
-	      <li class="list-your-space ">
-	        <a id="list-your-space" class="btn btn-special" href="">List Your Space</a>
-	      </li>
-	    </ul>
+			<button type="button" class="btn btn-default btn-sm"><%= link_to 'MansionExpress', root_path %></button>
+	  
 	    <ul class="nav pull-right logged-out">
-	      <li><%= link_to 'Log In', new_user_session_path %></li>
-	      <li><%= link_to 'Sign Up', new_user_registration_path, class: 'link-reset' %></li>
+	      <li><button type="button" class="btn-my btn btn-default btn-lg"><%= link_to 'Log In', new_user_session_path %></button></li>
+	      <li><button type="button" class="btn-my btn btn-default btn-lg"><%= link_to 'Sign Up', new_user_registration_path, class: 'link-reset' %></button></li>
+	     <li><button type="button" class="btn-my btn btn-default btn-lg"><%= link_to 'List Your Mansion', root_path, class: 'link-reset' %></button></li>
+	      </li>
 	    </ul>
 	  </div>
 	</div>
