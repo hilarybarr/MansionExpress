@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :personality_traits
   
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
   resources :pledges
 
   resources :mansions do
