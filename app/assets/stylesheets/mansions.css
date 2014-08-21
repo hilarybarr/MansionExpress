@@ -13,6 +13,8 @@ require bootstrap
 
 }
 
+
+
 #mansion_show_img h1, h3{
 	text-align:center;
 }
@@ -21,7 +23,7 @@ require bootstrap
    display: block;
 	 margin-left: auto;
    margin-right: auto;
-   width: 300px;
+   width: 700px;
    height: 500px;
    border: 5px solid black;
 }
