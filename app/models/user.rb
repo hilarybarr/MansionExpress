@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
 
 	accepts_nested_attributes_for :personality_traits
 
+  acts_as_commontator
+  
  end

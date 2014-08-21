@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :personality_traits
   
-
   devise_for :users
   resources :pledges
 
@@ -17,10 +16,10 @@ Rails.application.routes.draw do
  	post '/mansions/:id/bookings/create', to: 'bookings#create'
 
  	get '/mansions/:id/bookings/show', to: 'bookings#show', as: 'show_booking'
-
- 	# get '/mansions/:id/lounge', to: 'mansions#lounge'
 	
 	root 'welcome#index'	
+
+  mount Commontator::Engine => '/commontator'  
 
 	get '/mansions/:id/lounge/:id', to: 'lounges#show'
 end

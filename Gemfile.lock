@@ -58,6 +58,9 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     columnize (0.8.9)
+    commontator (4.7.2)
+      jquery-rails
+      rails (>= 3.1)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
     debugger (1.6.8)
@@ -233,6 +236,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 3.0.2)
   capybara (~> 2.1.0)
   coffee-rails (~> 4.0.0)
+  commontator (~> 4.7.2)
   database_cleaner (~> 1.0.1)
   devise
   factory_girl_rails (~> 4.2.1)
