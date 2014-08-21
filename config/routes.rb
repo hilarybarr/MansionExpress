@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :personality_traits
   
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
   resources :pledges
 
   resources :mansions do
@@ -21,5 +22,5 @@ Rails.application.routes.draw do
 
   mount Commontator::Engine => '/commontator'  
 
-	get '/mansions/:id/lounge/:id', to: 'lounges#show'
+	get '/mansions/:id/lounge/:id', to: 'lounges#show', as: 'mansion_lounge'
 end
