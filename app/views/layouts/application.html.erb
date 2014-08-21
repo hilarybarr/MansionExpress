@@ -34,11 +34,12 @@
 
 	<div id="header" class="navbar navbar-top">
 	  <div class="page-container-full mansion-header clearfix">
-			<button type="button" class="btn btn-default btn-sm"><%= link_to 'MansionExpress', root_path %></button>
+			<%= link_to 'MansionExpress', root_path %>
 	  
 	    <ul class="nav pull-right logged-out">
-	      <li><button type="button" class="btn-my btn btn-default btn-lg"><%= link_to 'Log In', new_user_session_path %></button></li>
-	      <li><button type="button" class="btn-my btn btn-default btn-lg"><%= link_to 'Sign Up', new_user_registration_path, class: 'link-reset' %></button></li>
+	      <li><%= link_to 'Log In', new_user_session_path %>
+	      </li>
+	      <li><%= link_to 'Sign Up', new_user_registration_path, class: 'link-reset' %></li>
 	     <li><button type="button" class="btn-my btn btn-default btn-lg"><%= link_to 'List Your Mansion', root_path, class: 'link-reset' %></button></li>
 	      </li>
 	    </ul>
@@ -47,8 +48,8 @@
 
 	<% end %>
 
-	<%= flash.notice if flash.notice %>
-	<%= flash.alert if flash.alert %>
+	<%#= flash.notice if flash.notice %>
+	<%#= flash.alert if flash.alert %>
 	
 	<%= yield %>
 

@@ -20,10 +20,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem 'seed_dump'
-gem 'pry'
-gem 'pry-remote'
-gem 'pry-stack_explorer'
-gem 'pry-debugger'
 
 gem 'jbuilder', '~> 2.0'
 

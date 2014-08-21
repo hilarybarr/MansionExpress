@@ -1,20 +1,29 @@
 class BookingsController < ApplicationController
 
 	def create
-		@user = User.create(params[:info])
-		sign_in @user
-		mansion = Mansion.find(params[:id])
-		Booking.where(user_id: @user.id, mansion_id: mansion.id).first_or_create
-		session[:user_id] = @user.id
-		@traits = params[:trait]
-		if @traits[0] == "" || @traits[1] == "" 
-			redirect_to(:back)
-			flash[:notice] = "You have to select stuff from the dropdowns"
+		if current_user
+			Booking.where(user_id: @user.id, mansion_id: mansion.id).first_or_create
 		else
-			@traits.each do |trait|
-				@user.personality_traits << PersonalityTrait.find_by(name: trait)
+			@user = User.create(params[:info])
+			session[:user_id] = @user.id
+			sign_in @user
+			mansion = Mansion.find(params[:id])
+			Booking.where(user_id: @user.id, mansion_id: mansion.id).first_or_create
+			@fluff = params[:fluff]
+			@user.short_bio = @fluff[0]
+			@user.hobbies = @fluff[1]
+			@user.quirk = @fluff[2]
+			@user.save			
+			@traits = params[:trait]
+			if @traits[0] == "" || @traits[1] == "" 
+				redirect_to(:back)
+				flash[:notice] = "You have to select stuff from the dropdowns"
+			else
+				@traits.each do |trait|
+					@user.personality_traits << PersonalityTrait.find_by(name: trait)
+				end
+			redirect_to mansion_lounge_path
 			end
-		redirect_to show_booking_path
 		end
 	end
 
