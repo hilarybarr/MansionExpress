@@ -1,24 +1,26 @@
 <div id="usershowheader">
+	<% if current_user.name %>
+	<h2><%=current_user.name%></h2>
+	<%end%>
+<%= current_user.email %></br>
 
-<%= @user.email %></br>
-
-<div id="useravatar"><%= image_tag @user.photo.url(:thumb) %></div>
+<div id="useravatar"><%= image_tag current_user.photo.url(:thumb) %></div>
 
 </div>
 </br>
 
 <div id="aboutme">
 	<h3> About Me </h3>
-	<%if @user.personality_traits %>
-	<%@user.personality_traits.each do |trait| %>
+	<%if current_user.personality_traits %>
+	<%current_user.personality_traits.each do |trait| %>
 		<%=trait.category%>: <%= trait.name%></br>
 	<%end%>
 	<%end%>
 </div>
 <!--Display Compatabilities-->
-<%if current_user && (@user != current_user) %>
-<p> You have <%=user_to_user_compatibility_points(current_user, @user)%> compatibility points. </p>
-<p>You are <%=user_to_user_compatibility_percentage(current_user, @user)%>% compatible.</p>
+<%if current_user && (current_user != current_user) %>
+<p> You have <%=user_to_user_compatibility_points(current_user, current_user)%> compatibility points. </p>
+<p>You are <%=user_to_user_compatibility_percentage(current_user, current_user)%>% compatible.</p>
 
 <%end%>
 
