@@ -11,7 +11,7 @@ class LoungesController < ApplicationController
   # GET /lounges/1.json
   def show
     @mansion = Mansion.find(params[:id])
-    @user = User.find(current_user.id)  
+    @user = (current_user.id) if current_user 
     @users = Booking.find_by(mansion_id: params[:id]).mansion.users
     @lounge = Lounge.find(params[:id])
     @commontable = Lounge.find(params[:id])

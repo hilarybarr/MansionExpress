@@ -29,7 +29,7 @@ gem 'commontator', '~> 4.7.2'
 
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.2'
-
+gem 'aws-sdk'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
