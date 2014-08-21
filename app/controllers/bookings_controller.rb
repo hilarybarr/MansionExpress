@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
 				@traits.each do |trait|
 					@user.personality_traits << PersonalityTrait.find_by(name: trait)
 				end
-			redirect_to show_booking_path
+			redirect_to mansion_lounge_path
 			end
 		end
 	end

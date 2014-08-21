@@ -22,5 +22,5 @@ Rails.application.routes.draw do
 
   mount Commontator::Engine => '/commontator'  
 
-	get '/mansions/:id/lounge/:id', to: 'lounges#show'
+	get '/mansions/:id/lounge/:id', to: 'lounges#show', as: 'mansion_lounge'
 end

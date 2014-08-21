@@ -94,7 +94,7 @@ class MansionsController < ApplicationController
 
   def book
     if current_user
-      redirect_to show_booking_path
+      redirect_to mansion_lounge_path
     else
       mansion = Mansion.find(params[:id])
       # DROPDOWNS
