@@ -1,8 +1,4 @@
 module MansionsHelper
-
-	def js_alert
-	 render :js => "alert('This Therapist is assigned to a visit')"
-  end
   
 	def in_mansion? (user, mansion)
 		user.mansions.include?(mansion)
@@ -13,14 +9,14 @@ module MansionsHelper
 	end
 
 	def prices_per_occupants(mansion)
-		 pricing_options=""
+		 pricing_options=[]
 		  x=1
 		 until x > mansion.bedrooms.to_i 
 		  	price=(mansion.price.scan(/[.0-9]/).join().to_i)/(x)
 		  	if x==1
-					pricing_options << "  #{x} Person: $#{price}.   " 
+					pricing_options << "#{x} Person: $#{price}." 
 				else
-					pricing_options << "  #{x} People: $#{price}.   " 
+					pricing_options << "#{x} People: $#{price}." 
 				end
 		    x+=1
 		   end

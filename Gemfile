@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 
-gem 'sqlite3'
+
 
 gem 'devise'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'font-awesome-sass'
 
 gem 'nokogiri', '~> 1.6.3.1'
 
@@ -19,14 +20,16 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem 'seed_dump'
-
+gem 'pry'
+gem 'pry-remote'
+gem 'pry-stack_explorer'
+gem 'pry-debugger'
 
 gem 'jbuilder', '~> 2.0'
 
 gem 'paperclip'
 gem 'bootstrap-sass'
-gem 'acts_as_commentable_with_threading'
-
+gem 'commontator', '~> 4.7.2'
 
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.2'
@@ -37,9 +40,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'unicorn'
 
+group :development do
+	gem 'sqlite3'
+end
+
 group :development, :test do
 	gem 'rspec-rails', '~> 2.14.0'
 	gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'shoulda-matchers'
+end
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
 end
 
 group :test do

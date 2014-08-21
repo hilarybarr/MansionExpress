@@ -1,6 +1,5 @@
 class MansionsController < ApplicationController
   before_action :set_mansion, only: [:show, :edit, :update, :destroy]
-
   # GET /mansions
   # GET /mansions.json
 
@@ -16,6 +15,9 @@ class MansionsController < ApplicationController
     elsif Mansion.all.pluck("region").include?(location.titleize)
       @location=params[:location].titleize
       @mansions=Mansion.where(region: @location)
+    elsif params[:location]==""
+      @location="the universe"
+      @mansions=Mansion.all
     else
       flash[:no_location]="That location does not have mansions yet. Try again."
       redirect_to root_path
@@ -52,10 +54,11 @@ class MansionsController < ApplicationController
   # POST /mansions.json
   def create
     @mansion = Mansion.new(mansion_params)
-    @lounge = Lounge.create(mansion_id: @mansion.id)
 
     respond_to do |format|
       if @mansion.save
+        @lounge = Lounge.create(mansion_id: @mansion.id)
+
         format.html { redirect_to @mansion, notice: 'Mansion was successfully created.' }
         format.json { render :show, status: :created, location: @mansion }
       else
@@ -115,8 +118,6 @@ class MansionsController < ApplicationController
     def mansion_params
       params.require(:mansion).permit(:name, :description, :address, :region, :city, :bedrooms, :bathrooms, :square_feet, :available_date, :photo, :price, :source)
     end
+
+    
 end
-
-
-
-
