@@ -1,7 +1,5 @@
 <div id="usershowheader">
-	<% if @user.name %>
-	<h2><%=@user.name%></h2>
-	<%end%>
+
 <%= @user.email %></br>
 
 <div id="useravatar"><%= image_tag @user.photo.url(:thumb) %></div>
