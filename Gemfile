@@ -8,6 +8,7 @@ gem 'devise'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'font-awesome-sass'
 
 gem 'nokogiri', '~> 1.6.3.1'
 
