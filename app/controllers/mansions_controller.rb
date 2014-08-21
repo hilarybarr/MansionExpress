@@ -93,12 +93,16 @@ class MansionsController < ApplicationController
   end
 
   def book
-    mansion = Mansion.find(params[:id])
-    # DROPDOWNS
-    @genders = PersonalityTrait.where(category: "gender")
-    @relationship_status = PersonalityTrait.where(category: "relationship status")
-    # CHECKBOXES
-    @random_traits = PersonalityTrait.where(category: "random traits")
+    if current_user
+      redirect_to mansion_lounge_path
+    else
+      mansion = Mansion.find(params[:id])
+      # DROPDOWNS
+      @genders = PersonalityTrait.where(category: "gender")
+      @relationship_status = PersonalityTrait.where(category: "relationship status")
+      # CHECKBOXES
+      @random_traits = PersonalityTrait.where(category: "random traits")
+    end
   end
 
   def leave
