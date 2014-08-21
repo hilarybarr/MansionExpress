@@ -1,8 +1,8 @@
 
-# @mansions=Mansion.all
-# @mansions.each do |mansion|
-#   mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
-# end
+# # @mansions=Mansion.all
+# # @mansions.each do |mansion|
+# #   mansion.update_attributes(:photo_url => "https://s3.amazonaws.com/Mansions/#{mansion.id}.jpg")
+# # end
 
 
 @mansions=Mansion.all

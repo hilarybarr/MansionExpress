@@ -9,13 +9,17 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  
  */
 
-a:link, a:visited, a:active, a:hover{
+ /*a:link, a:visited, a:active, a:hover*/
+
+.nav > li > a {
 	color: black;
 }
 
-li a:link, a:visited, a:active, a:hover{
+/*#frontlink a:link, a:visited, a:active, a:hover{
 	color: white;
 }
+*/
+
 
 #list-your-space{
 	background-color: white;
