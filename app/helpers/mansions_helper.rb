@@ -1,8 +1,4 @@
 module MansionsHelper
-
-	def js_alert
-	 render :js => "alert('This Therapist is assigned to a visit')"
-  end
   
 	def in_mansion? (user, mansion)
 		user.mansions.include?(mansion)

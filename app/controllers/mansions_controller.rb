@@ -16,6 +16,9 @@ class MansionsController < ApplicationController
     elsif Mansion.all.pluck("region").include?(location.titleize)
       @location=params[:location].titleize
       @mansions=Mansion.where(region: @location)
+    elsif params[:location]==""
+      @location=the universe
+      @mansions=Mansion.all
     else
       flash[:no_location]="That location does not have mansions yet. Try again."
       redirect_to root_path
