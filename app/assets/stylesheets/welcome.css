@@ -103,7 +103,14 @@ video#bgvid {
 
 
 
-
+#teamwrap {
+	
+	width: 300px;
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
  
 
 .teamphoto{
