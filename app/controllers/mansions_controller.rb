@@ -93,10 +93,12 @@ class MansionsController < ApplicationController
   end
 
   def book
+    mansion = Mansion.find(params[:id])
     if current_user
+      Booking.find_by(mansion_id: mansion.id)
+      mansion.users << User.find(current_user.id)
       redirect_to mansion_lounge_path
     else
-      mansion = Mansion.find(params[:id])
       # DROPDOWNS
       @genders = PersonalityTrait.where(category: "gender")
       @relationship_status = PersonalityTrait.where(category: "relationship status")
