@@ -87,8 +87,8 @@ a .btn-lg  {
 	margin-left: auto;
   margin-right: auto;
   font-size: 13px;
-  position: relative;
-	bottom: 65px;
+ /* position: relative;
+	bottom: 65px;*/
 }
 
 #description{
