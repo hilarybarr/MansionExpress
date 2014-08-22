@@ -2,13 +2,9 @@
 
 	<% @mansion = Mansion.find(params[:id]) %>
 	<div>
-	</br></br></br></br></br></br></br></br>
+	
 
-  <div id="gravatar">
-    <% (rand(1..5)).times do %>
-       <%= image_tag( "#{rand(1..23)}.jpg", size: "60x60")%>
-   	<% end%>
-  </div>
+
 
 	<h2>Please fill in this personality form so we can match you up with similar people.</h2></br>
 
