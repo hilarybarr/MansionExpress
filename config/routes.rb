@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 	
 	root 'welcome#index'	
 
+  get 'howitworks', to: 'welcome#show'
+
+  get 'listmansion', to: 'welcome#new'
+
   mount Commontator::Engine => '/commontator'  
 
 	get '/mansions/:id/lounge/:id', to: 'lounges#show', as: 'mansion_lounge'
